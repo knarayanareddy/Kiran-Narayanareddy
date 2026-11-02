@@ -54,6 +54,25 @@ class KiranNarayanareddy:
 > working slice — each repo's README states exactly what is real, what is mocked, and what
 > is not implemented yet. That honesty is the point of the whole portfolio.
 
+<!-- POSITIONING:START -->
+<div align="center">
+
+### I build autonomous systems that can prove their work
+
+<sub>Agent harnesses with hard boundaries · research pipelines where every number traces to a recorded computation · compliance gates that block instead of warn</sub>
+
+</div>
+
+| | If you'd hire me to… | …this is the evidence |
+|:--:|----------------------|-----------------------|
+| 🛰️ | **Make an LLM pipeline reliable enough to trust** | A nine-stage research pipeline where a stage cannot advance without an evidence hash, and a refund agent whose hard rules live *outside* the model so a persuasive customer can't talk it out of policy. |
+| 🛡️ | **Turn a regulation into something a build can actually fail** | EU AI Act, GPSR and DSA expressed as executable gates — `exhibit`, `redflag-eu-compliance`, `listguard`, `clausewindow` — so the artefact is a verdict, not a PDF nobody reads. |
+| 🦾 | **Put an agent next to hardware without it hurting anyone** | Safety envelopes, verification ledgers and domain-scoped operators (`reflex-physical-ai`, `so101-domain-operator`, `jointcheck`) where an unsafe action is refused before it is attempted. |
+| 🧪 | **Set up an agent that produces research I can defend** | A manuscript pipeline with a hash-chained evidence registry and a CFD stage that refuses to submit on a labelled synthetic benchmark. |
+| 🌍 | **Make 50,000 repos, 12,000 tools or 38 site builds legible** | Self-hosted, $0-hosting sharded indexes with sub-5 ms search and a 60 FPS 3D explorer — the scout family below. |
+
+<!-- POSITIONING:END -->
+
 ---
 
 <!-- AUTO COUNTERS -->
@@ -195,6 +214,65 @@ class KiranNarayanareddy:
 
 ---
 
+## Case Studies
+
+<div align="center">
+
+<sub>Three builds, and what each one actually produced.</sub>
+
+</div>
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 🚀 Aeroscribe
+**A manuscript, produced by a pipeline that can't be talked into a claim**
+
+Nine gated stages run literature archaeology → hypothesis → CFD → writing. Each stage writes to an append-only, hash-chained evidence registry, and the writing stage is checked against it — so a sentence with no recorded computation behind it is a blocked build, not a footnote.
+
+The CFD stage calls SU2 with a grid-convergence check. **Without a real SU2 binary it runs a labelled synthetic benchmark and refuses to release the manuscript.** That refusal is the feature: the pipeline produced a submission-ready manuscript for the cases it could verify, and would rather block than guess.
+
+`nine stages` · `hash-chained evidence` · `SU2 + grid convergence` · `offline verifier`
+
+[**live app**](https://knarayanareddy.github.io/Aeroscribe/) · [**source**](https://github.com/knarayanareddy/Aeroscribe)
+
+</td>
+<td width="33%" valign="top">
+
+### 🛡️ SAAF Circuit Breaker
+**A refunds agent that talks itself out of policy — and the breaker that catches it**
+
+Built at Agents Gone Rogue (SAAF × Just Eat Takeaway × TAG, Amsterdam). The agent is scored on CSAT, writes itself lessons, and rewrites its own instructions every four tickets — so by ticket 36 the genesis policy is no longer in the prompt at all. Priya asks for €21.35 against a €20 cap with no photo and a 1-star threat.
+
+The breaker is four stages — forge, rehearse, sentinel, verify — running against a **real support workflow: a 36-ticket rehearsal over 16 personas, then the live Sentinel calling the real TypeSafe Jev API.** Hard rules live outside the model, so a Jev `ALLOW` still can't override the refund guard. Drift ≥ 0.50 or one weakened hard rule restores the last healthy checkpoint, prompt and memory, and quarantines the rewrite.
+
+**With the watchdog off the agent leaks money. With it on, it pays €0.00 against policy.** The workpaper is then re-verified offline with zero model calls: alter a verdict without rehashing and verification fails.
+
+`36-ticket rehearsal` · `live Jev API` · `rollback` · `offline hash verify`
+
+[**source**](https://github.com/knarayanareddy/SAAF-circuit-breaker)
+
+</td>
+<td width="33%" valign="top">
+
+### 🏆 Bunqsy
+**Placed at bunq Hackathon 7.0** — an always-on financial guardian
+
+BUNQSY doesn't wait for a prompt. A 30-second heartbeat syncs every account, computes a 0–100 health score from balance, velocity, goals and upcoming obligations, and puts seven concurrent risk sub-agents to a vote. Cross the threshold and it **acts**: voice narration, plan-gated card freezes, drafts cancelled — every action routed through PLAN → CONFIRM → EXECUTE.
+
+At night, Dream Mode analyses patterns in an isolated worker and returns a DNA card plus three suggestions. Built on the real bunq REST API with RSA-2048 request signing.
+
+`7-agent oracle` · `PLAN→CONFIRM→EXECUTE` · `Dream Mode` · `ElevenLabs voice`
+
+[**live demo**](https://knarayanareddy.github.io/Bunqsy/) · [**source**](https://github.com/knarayanareddy/Bunqsy)
+
+</td>
+</tr>
+</table>
+
+---
+
 ## What I'm Building
 
 <div align="center">
@@ -234,6 +312,61 @@ class KiranNarayanareddy:
 ---
 
 ## Collections & Explorers
+
+<div align="center">
+
+### The scout family — four indexes, one idea
+
+<sub>Take something too large to browse, shard it until it fits in a static file, and give it an interface you can actually think in.</sub>
+
+</div>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+[![toolscour](assets/shots/toolscour.png)](https://knarayanareddy.github.io/toolscour/)
+
+**🛰️ [toolscour](https://knarayanareddy.github.io/toolscour/)** — 12,771 AI tools, models, runtimes and skill packs across 10 domain sectors, sharded into a < 1.8 MB gzip tier-1 index with **sub-5 ms tokenized search**. The 3D knowledge galaxy is a hand-rolled 60 FPS canvas projection — no Three.js — and the stack architect scores a proposed pipeline for hardware, primitive and licence compatibility.
+
+`JavaScript` · `sharded index` · `60 FPS canvas` · `$0 hosting`
+
+</td>
+<td width="50%" valign="top">
+
+[![gitscour](assets/shots/gitscour.png)](https://knarayanareddy.github.io/gitscour/)
+
+**🔭 [gitscour](https://knarayanareddy.github.io/gitscour/)** — 50,000+ repositories above 500 stars, classified on four orthogonal axes and queried in-browser through a **WebAssembly SQL console**. Read-only is enforced by validating every `;`-separated statement, because a prefix-only check once let `SELECT 1; DROP TABLE repos` through. Search medians are **gate-asserted in CI** — the build fails above 50 ms.
+
+`Python` · `WASM SQL` · `CI-asserted latency` · `weekly refresh PR`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+[![AI-Arsenal](assets/shots/AI-Arsenal.png)](https://knarayanareddy.github.io/AI-Arsenal/)
+
+**🧰 [AI-Arsenal](https://knarayanareddy.github.io/AI-Arsenal/)** — a 1,598-file encyclopedia where **every entry is Markdown with schema-validated YAML frontmatter**, so the same repo is a browsable knowledge base for a human and a queryable data API for an agent. Structure first, UI later.
+
+`JavaScript` · `schema-validated` · `1,598 entries` · `agent-consumable`
+
+</td>
+<td width="50%" valign="top">
+
+[![WebsitedesignandPrompts](assets/shots/WebsitedesignandPrompts.png)](https://knarayanareddy.github.io/WebsitedesignandPrompts/)
+
+**🎨 [WebsitedesignandPrompts](https://knarayanareddy.github.io/WebsitedesignandPrompts/)** — the paywalled web, rebuilt in public: **38 live templates**, each shipped with the full prompt that builds it, a build log and an adaptation guide. Cinematic scroll stories, 3D WebGL camera flights, glassmorphic product pages — engineering as reproducible craft rather than inspiration screenshots.
+
+`HTML` · `38 templates` · `prompt + build log` · `own domain`
+
+</td>
+</tr>
+</table>
+
+<sub>Captured from the live sites by <a href=".github/workflows/screenshots.yml">screenshots.yml</a> — the same pipeline that builds the wall above, so these can't go stale.</sub>
+
+<br/>
 
 <div align="center">
 
