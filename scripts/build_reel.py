@@ -200,6 +200,12 @@ def make_posters() -> dict:
             continue
         # mid-reel, not frame zero: frame zero is a page that has not started
         # moving yet, and the cover of a demo should look like something happening
+        chrome = os.path.join(work_dir(repo), "chrome.png")
+        if not os.path.exists(chrome):
+            # A normal run deletes its scratch directory when it finishes, so the
+            # separate --posters step has to be able to draw the chrome itself.
+            chrome_png(chrome, info["url"], repo, info.get("recorded", ""))
+
         source = os.path.join(FRAMES, repo, frames[len(frames) // 3])
         cover = os.path.join(OUT, f"{repo}-cover.png")
         img = Image.open(source).convert("RGB")
@@ -212,7 +218,7 @@ def make_posters() -> dict:
             img = img.resize((WIDTH, HEIGHT), Image.LANCZOS)
         canvas = Image.new("RGB", (WIDTH, HEIGHT + BAR), "#0d1117")
         canvas.paste(img, (0, BAR))
-        chrome = Image.open(os.path.join(work_dir(repo), "chrome.png")).convert("RGBA")
+        chrome = Image.open(chrome).convert("RGBA")
         canvas.paste(chrome, (0, 0), chrome)
         canvas = canvas.convert("P", palette=Image.ADAPTIVE, colors=160)
         canvas.save(cover, optimize=True)
