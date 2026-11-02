@@ -58,6 +58,15 @@ jobs:
           # page's step summary survives where the log blob may not be reachable.
           python3 scripts/build_reel.py $([ "$FORCE" = "true" ] && echo --force) 2>&1 | tee /tmp/reel.log
 
+      - name: Keep the recording log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel-log
+          path: /tmp/reel.log
+          if-no-files-found: ignore
+          retention-days: 3
+
       - name: Publish the failure, if any
         if: failure()
         run: |
