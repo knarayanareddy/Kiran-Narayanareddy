@@ -97,9 +97,9 @@ class KiranNarayanareddy:
 <div align="center">
 
 <!-- COUNTERS:START -->
-**33 live GitHub Pages sites** · **35 live deployments** · **123 original repositories** · **112 stars** · **5 forks** · **1 follower**
+**34 live GitHub Pages sites** · **36 live deployments** · **124 original repositories** · **112 stars** · **5 forks** · **1 follower**
 
-<sub>**TypeScript** 43 · **Python** 30 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
+<sub>**TypeScript** 43 · **Python** 31 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
 <!-- COUNTERS:END -->
 
 </div>
@@ -118,6 +118,7 @@ class KiranNarayanareddy:
 <!-- LIVE_SITES:START -->
 | | Live site | Stack | Stars | What it does |
 |:--:|-----------|-------|:-----:|--------------|
+| 🌐 | [**sallie-returns-ai-agent**](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · [source](https://github.com/knarayanareddy/sallie-returns-ai-agent) | `Python` | — | Omnichannel shoe-retail returns pipeline: a 6-node deterministic state machine with 48h stock holds, defect assessment and human supervisor triage |
 | 🌐 | [**Aeroscribe**](https://knarayanareddy.github.io/Aeroscribe/) · [source](https://github.com/knarayanareddy/Aeroscribe) | `TypeScript` | ★ 1 | Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation |
 | 🌐 | [**toolscour**](https://knarayanareddy.github.io/toolscour/) · [source](https://github.com/knarayanareddy/toolscour) | `JavaScript` | ★ 1 | 3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs |
 | 🌐 | [**AI-Arsenal**](https://knarayanareddy.github.io/AI-Arsenal/) · [source](https://github.com/knarayanareddy/AI-Arsenal) | `JavaScript` | ★ 1 | Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents |
@@ -221,13 +222,13 @@ class KiranNarayanareddy:
 
 <!-- SHIPPED:START -->
 - 🚀 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
-- 🛰️ **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-01
-- 🧠 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-01
-- 🧪 **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-01
-- 🔭 **[`3dexperimentation`](https://github.com/knarayanareddy/3dexperimentation)** — [live](https://knarayanareddy.github.io/3dexperimentation/) · pushed 2026-10-29
-- ⚙️ **[`Aerorepos`](https://github.com/knarayanareddy/Aerorepos)** — [live](https://knarayanareddy.github.io/Aerorepos/) · pushed 2026-10-29
-- 🛡️ **[`gridqueue-grid-connection`](https://github.com/knarayanareddy/gridqueue-grid-connection)** — [live](https://knarayanareddy.github.io/gridqueue-grid-connection/) · pushed 2026-10-29
-- 🎛️ **[`twitch-codex`](https://github.com/knarayanareddy/twitch-codex)** — [live](https://knarayanareddy.github.io/twitch-codex/) · pushed 2026-10-29
+- 🛰️ **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02
+- 🧠 **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-01
+- 🧪 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-01
+- 🔭 **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-01
+- ⚙️ **[`3dexperimentation`](https://github.com/knarayanareddy/3dexperimentation)** — [live](https://knarayanareddy.github.io/3dexperimentation/) · pushed 2026-10-29
+- 🛡️ **[`Aerorepos`](https://github.com/knarayanareddy/Aerorepos)** — [live](https://knarayanareddy.github.io/Aerorepos/) · pushed 2026-10-29
+- 🎛️ **[`gridqueue-grid-connection`](https://github.com/knarayanareddy/gridqueue-grid-connection)** — [live](https://knarayanareddy.github.io/gridqueue-grid-connection/) · pushed 2026-10-29
 <!-- SHIPPED:END -->
 
 ---

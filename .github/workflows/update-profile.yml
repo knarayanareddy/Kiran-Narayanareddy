@@ -1,9 +1,19 @@
 name: Update profile
 
+# A new repository changes the README, and waiting up to 24 hours to notice is
+# not good enough. GitHub fires no workflow event when you create a repository in
+# a *different* repo, and the public event feed does not reliably carry repo
+# creations either, so the every-3-hours run compares the account's public repo
+# count with the count saved at the last refresh: equal means stop in seconds,
+# different means rebuild everything.
 on:
   schedule:
-    # Every day at 04:17 UTC — off the hour to stay clear of GitHub's cron rush.
+    # Everyday full refresh at 04:17 UTC — off the hour to stay clear of the
+    # cron rush.
     - cron: "17 4 * * *"
+    # Cheap check every three hours: if the public repo count moved, rebuild
+    # now instead of waiting for 04:17 tomorrow.
+    - cron: "23 */3 * * *"
   workflow_dispatch:
   push:
     branches: [main]
@@ -26,7 +36,67 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    outputs:
+      yes: ${{ steps.changed.outputs.yes }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # The old design could not react to a new repository at all: GitHub fires no
+      # event when you create a repo *elsewhere*, and the user event feed turned
+      # out not to carry repo creations (checked: 300 events back to June, no
+      # CreateEvent for a just-created repo). So compare the one number the API
+      # does report reliably - the public repo count - with the count recorded at
+      # the last real refresh. Mismatch, or a scheduled / manual full run, means
+      # rebuild. Otherwise stop in seconds.
+      - name: Did the repository list change?
+        id: changed
+        env:
+          PROFILE_USER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # github.event.schedule is the cron line that fired; the only way to
+          # tell the daily full refresh from the 3-hourly probe.
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request
+          out = os.environ["GITHUB_OUTPUT"]
+          def decide(yes, why):
+              print(why)
+              with open(out, "a", encoding="utf-8") as handle:
+                  handle.write(f"yes={'true' if yes else 'false'}\n")
+          # The 04:17 run is the guaranteed daily refresh; dispatch is explicit.
+          # Only the every-3-hours polling run is allowed to skip.
+          schedule = os.environ.get("SCHEDULE", "")
+          if os.environ.get("GITHUB_EVENT_NAME") != "schedule" or schedule.startswith("17 4 "):
+              decide(True, "full run: daily schedule or manual dispatch")
+              sys.exit(0)
+          user = os.environ["PROFILE_USER"]
+          def get(url, token=None):
+              headers = {"User-Agent": f"{user}-profile-readme-builder", "Accept": "application/vnd.github+json"}
+              if token:
+                  headers["Authorization"] = f"Bearer {token}"
+              with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as handle:
+                  return json.load(handle)
+          try:
+              live = get(f"https://api.github.com/users/{user}", os.environ.get("GITHUB_TOKEN"))["public_repos"]
+              known = json.load(open("data/sites.json", encoding="utf-8")).get("public_repos")
+          except Exception as exc:                                  # noqa: BLE001
+              # Never skip on a hiccup: a rebuild is cheap, being stale is not.
+              decide(True, f"could not compare repo counts ({exc}); rebuilding anyway")
+              sys.exit(0)
+          if known is None:
+              decide(True, "data/sites.json predates the repo-count baseline; rebuilding once to record it")
+          elif live != known:
+              decide(True, f"public repo count changed: {known} -> {live}")
+          else:
+              decide(False, f"still {live} public repos; the daily run will refresh the cards")
+          PY
+
   refresh:
+    needs: gate
+    if: needs.gate.outputs.yes == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
