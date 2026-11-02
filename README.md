@@ -21,9 +21,7 @@
 
 <br/>
 
-<!-- SNAKE: promoted to the top; it is the one artefact that shows the work happening -->
-<details>
-<summary><b>🐍 Contribution snake</b></summary>
+<!-- SNAKE: always visible; no collapsible wrapper, the whole point is that it plays without a click -->
 <div align="center">
 
 <picture>
@@ -32,8 +30,11 @@
   <img alt="Contribution snake" src="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake-dark.svg" />
 </picture>
 
+**[▶ Play it yourself](https://kiranreddy.nl/snake)** — steer with arrows or WASD, pick a theme, or hand it to the
+autopilot that plans with BFS and refuses moves that would box it in. Same commit calendar, five themes,
+no build step.
+
 </div>
-</details>
 
 ---
 
@@ -432,7 +433,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
   <img src="./assets/dashboard-dark.svg" alt="Contribution dashboard: hourly and weekday rhythm, yearly totals, streaks and language mix" width="100%" />
 </picture>
 
-<sub>One self-rendered card, no third-party widgets. Built by <a href="scripts/build_dashboard.py">build_dashboard.py</a> from the GitHub contributions API, so the numbers are exact.</sub>
+<sub>One self-rendered card, no third-party widgets, drawn by <a href="scripts/build_dashboard.py">build_dashboard.py</a> from the GitHub contributions API — so the numbers are exact. <b>This is an image:</b> GitHub serves README images through its Camo proxy as <code>&lt;img&gt;</code>, which delivers no pointer events, so nothing inside it can react. The hoverable version is <a href="https://kiranreddy.nl/dashboards">here</a>.</sub>
 
 </div>
 
@@ -448,7 +449,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
   <img alt="Isometric terrain of a year of contributions, one block per day" src="./assets/terrain-dark.svg" width="100%" />
 </picture>
 
-<sub>371 blocks, one per day, height = that day's output. Hover any column on a real page to lift it and read the exact date and count — <a href="https://kiranreddy.nl">kiranreddy.nl</a>, or a local preview. Inside GitHub's image proxy the pointer never arrives, so there it is a picture of a terrain rather than a terrain. Drawn by <a href="scripts/build_3d_terrain.py">build_3d_terrain.py</a> from the same calendar the dashboard uses.</sub>
+<sub>371 blocks, one per day, height = that day's output. Drawn by <a href="scripts/build_3d_terrain.py">build_3d_terrain.py</a> from the same calendar the dashboard uses. <b>This is an image too</b>, for the same reason — Camo serves it as <code>&lt;img&gt;</code>. Hover any block to lift it and read its exact date in the <a href="https://kiranreddy.nl/dashboards">interactive version</a>.</sub>
 
 </div>
 

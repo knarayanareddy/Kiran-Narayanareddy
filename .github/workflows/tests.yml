@@ -1,0 +1,25 @@
+# The interactive pages have real logic in them (BFS pathfinding, flood-fill
+# safety, wrap-around collision, the isometric projection). This runs it headless
+# on every push, so "it works" is a check result rather than a claim.
+name: Test the interactive pages
+
+on:
+  push:
+    branches: [main, "arena/**"]
+    paths:
+      - "web/**"
+      - "tests/**"
+      - ".github/workflows/tests.yml"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Simulation and projection tests
+        run: node --test tests/core.test.mjs

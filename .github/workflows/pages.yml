@@ -1,0 +1,68 @@
+# Publishes web/ (the interactive snake + dashboards) to GitHub Pages.
+#
+# Needs Pages switched on once for this repo: Settings -> Pages -> Source:
+# "GitHub Actions". The API refuses to create the site with the built-in token
+# ("Resource not accessible by integration"), so this workflow deploys when it
+# can and quietly skips when Pages is not enabled yet, rather than failing red.
+name: Publish interactive pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - "data/stats.json"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Is Pages enabled for this repository?
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if gh api "repos/${GITHUB_REPOSITORY}/pages" >/dev/null 2>&1; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Pages is not enabled. Settings -> Pages -> Source: GitHub Actions, then re-run."
+          fi
+
+      - name: Assemble the site
+        if: steps.check.outputs.enabled == 'true'
+        run: |
+          mkdir -p _site
+          cp -r web/* _site/
+          mkdir -p _site/data
+          cp data/stats.json _site/data/stats.json
+          # web/index.html and web/snake.html reference ../data/…, so also serve
+          # them at the root paths those links expect
+          mkdir -p _site/dashboards _site/snake
+          cp web/index.html _site/dashboards/index.html
+          cp web/snake.html _site/snake/index.html
+          cp web/core.js _site/core.js
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+        if: steps.check.outputs.enabled == 'true'
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.check.outputs.enabled == 'true'
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        if: steps.check.outputs.enabled == 'true'
+        id: deployment
