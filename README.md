@@ -97,9 +97,9 @@ class KiranNarayanareddy:
 <div align="center">
 
 <!-- COUNTERS:START -->
-**35 live GitHub Pages sites** · **37 live deployments** · **124 original repositories** · **112 stars** · **5 forks** · **1 follower**
+**35 live GitHub Pages sites** · **37 live deployments** · **125 original repositories** · **112 stars** · **5 forks** · **1 follower**
 
-<sub>**TypeScript** 44 · **Python** 31 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
+<sub>**TypeScript** 45 · **Python** 31 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
 <!-- COUNTERS:END -->
 
 </div>
@@ -292,10 +292,10 @@ class KiranNarayanareddy:
 </div>
 
 <!-- SHIPPED:START -->
-- 🚀 **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-02
-- 🛰️ **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-02
-- 🧠 **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-02
-- 🧪 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
+- 🚀 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
+- 🛰️ **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-02
+- 🧠 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-02
+- 🧪 **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-02
 - 🔭 **[`myjevuses`](https://github.com/knarayanareddy/myjevuses)** — [live](https://knarayanareddy.github.io/myjevuses/) · pushed 2026-11-02
 - ⚙️ **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02
 - 🛡️ **[`3dexperimentation`](https://github.com/knarayanareddy/3dexperimentation)** — [live](https://knarayanareddy.github.io/3dexperimentation/) · pushed 2026-10-29
