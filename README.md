@@ -30,7 +30,7 @@
   <img alt="Contribution snake" src="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake-dark.svg" />
 </picture>
 
-**[▶ Play it yourself](https://kiranreddy.nl/snake)** — steer with arrows or WASD, pick a theme, or hand it to the
+**[▶ Play it yourself](https://knarayanareddy.github.io/knarayanareddy/snake.html)** — steer with arrows or WASD, pick a theme, or hand it to the
 autopilot that plans with BFS and refuses moves that would box it in. Same commit calendar, five themes,
 no build step.
 
@@ -495,6 +495,10 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
 
 ---
 
+<!-- INTERACTIVE:START -->
+<a href="https://knarayanareddy.github.io/knarayanareddy/"><b>▶ Signal dashboard + contribution terrain</b></a> — hover a bar, lift a block, switch theme  ·  <a href="https://knarayanareddy.github.io/knarayanareddy/snake.html">play the contribution snake</a>  ·  <a href="https://knarayanareddy.github.io/knarayanareddy/reel.html">browse the 20 recorded demos</a>
+<!-- INTERACTIVE:END -->
+
 ## Signal Dashboard
 
 <div align="center">
@@ -505,7 +509,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
   <img src="./assets/dashboard-dark.svg" alt="Contribution dashboard: hourly and weekday rhythm, yearly totals, streaks and language mix" width="100%" />
 </picture>
 
-<sub>One self-rendered card, no third-party widgets, drawn by <a href="scripts/build_dashboard.py">build_dashboard.py</a> from the GitHub contributions API — so the numbers are exact. <b>This is an image:</b> GitHub serves README images through its Camo proxy as <code>&lt;img&gt;</code>, which delivers no pointer events, so nothing inside it can react. The hoverable version is <a href="https://kiranreddy.nl/dashboards">here</a>.</sub>
+<sub>One self-rendered card, no third-party widgets, drawn by <a href="scripts/build_dashboard.py">build_dashboard.py</a> from the GitHub contributions API — so the numbers are exact. <b>This is an image:</b> GitHub serves README images through its Camo proxy as <code>&lt;img&gt;</code>, which delivers no pointer events, so nothing inside it can react. The hoverable version is <a href="https://knarayanareddy.github.io/knarayanareddy/">here</a>.</sub>
 
 </div>
 
@@ -521,7 +525,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
   <img alt="Isometric terrain of a year of contributions, one block per day" src="./assets/terrain-dark.svg" width="100%" />
 </picture>
 
-<sub>371 blocks, one per day, height = that day's output. Drawn by <a href="scripts/build_3d_terrain.py">build_3d_terrain.py</a> from the same calendar the dashboard uses. <b>This is an image too</b>, for the same reason — Camo serves it as <code>&lt;img&gt;</code>. Hover any block to lift it and read its exact date in the <a href="https://kiranreddy.nl/dashboards">interactive version</a>.</sub>
+<sub>371 blocks, one per day, height = that day's output. Drawn by <a href="scripts/build_3d_terrain.py">build_3d_terrain.py</a> from the same calendar the dashboard uses. <b>This is an image too</b>, for the same reason — Camo serves it as <code>&lt;img&gt;</code>. Hover any block to lift it and read its exact date in the <a href="https://knarayanareddy.github.io/knarayanareddy/">interactive version</a>.</sub>
 
 </div>
 

@@ -95,6 +95,16 @@ INLINE_REELS = ["sallie-returns-ai-agent", "toolscour"]
 # go somewhere that can: this page, which plays the recording in place.
 REEL_PLAYER = "https://knarayanareddy.github.io/knarayanareddy/reel.html"
 
+# The interactive pages, published by .github/workflows/pages.yml. They were
+# previously unreachable from the README: the captions under the dashboard and
+# the terrain pointed at kiranreddy.nl/dashboards instead, so the hoverable
+# versions existed without being linked from the profile they belong to.
+SITE = "https://knarayanareddy.github.io/knarayanareddy"
+LIVE_LINKS = {
+    "dashboard": f"{SITE}/",
+    "snake": f"{SITE}/snake.html",
+}
+
 # Featured live sites get a hand-written card row in the README, in this order.
 FEATURED = [
     "sallie-returns-ai-agent",
@@ -313,6 +323,24 @@ def render_shipped(data: dict) -> str:
     return "\n".join(lines)
 
 
+def render_interactive(data: dict) -> str:
+    """Links to the pages where the two cards actually react.
+
+    The dashboard and the terrain on this README are SVG, and an SVG in an <img>
+    is a picture: GitHub never delivers a pointer event into it. The pages below
+    draw the same JSON on a canvas, so hovering works. Generating the links means
+    they cannot drift to a host that does not serve them.
+    """
+    count = data.get("reel_count", 0)
+    reels = f"browse the {count} recorded demos" if count else "browse the recorded demos"
+    return (
+        f'<a href="{LIVE_LINKS["dashboard"]}"><b>▶ Signal dashboard + contribution terrain</b></a>'
+        f" — hover a bar, lift a block, switch theme  ·  "
+        f'<a href="{LIVE_LINKS["snake"]}">play the contribution snake</a>  ·  '
+        f'<a href="{REEL_PLAYER}">{reels}</a>'
+    )
+
+
 def render_counters(data: dict) -> str:
     """One block, one set of numbers.
 
@@ -464,6 +492,16 @@ def main() -> int:
     readme = replace_block(readme, "SITE_CATALOGUE", render_catalogue(data))
     readme = replace_block(readme, "SHIPPED", render_shipped(data))
     readme = replace_block(readme, "REELS", render_reels(data))
+    # The count comes from the manifest, which owns it, rather than from a number
+    # copied into sites.json: a copy would go stale the moment a reel is added.
+    try:
+        with open(REELS, encoding="utf-8") as handle:
+            reel_count = len(json.load(handle))
+    except (OSError, ValueError):
+        reel_count = 0
+    readme = replace_block(
+        readme, "INTERACTIVE", render_interactive({**data, "reel_count": reel_count})
+    )
     # Only move the stamp when something else actually changed. A timestamp that
     # ticks while the numbers do not makes the page look refreshed when it is
     # merely rebuilt; the footer says "daily" explicitly instead.
