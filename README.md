@@ -315,9 +315,9 @@ class KiranNarayanareddy:
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/knarayanareddy/Kiran-Narayanareddy/output/snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/knarayanareddy/Kiran-Narayanareddy/output/snake.svg" />
-  <img alt="Contribution snake" src="https://raw.githubusercontent.com/knarayanareddy/Kiran-Narayanareddy/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake.svg" />
+  <img alt="Contribution snake" src="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake-dark.svg" />
 </picture>
 
 </div>
@@ -351,4 +351,4 @@ class KiranNarayanareddy:
 
 </div>
 
-<!-- Last updated: 2026-11-02 08:35 UTC -->
+<!-- Last updated: 2026-11-02 08:38 UTC -->
