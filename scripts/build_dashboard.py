@@ -29,6 +29,8 @@ import urllib.error
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
 
+from tokens import THEMES as TOKENS  # shared design system
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATS = os.path.join(ROOT, "data", "stats.json")
 SITES = os.path.join(ROOT, "data", "sites.json")
@@ -42,20 +44,7 @@ TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
 HOUR_SAMPLE_REPOS = 14
 HOUR_SAMPLE_DAYS = 120
 
-THEMES = {
-    "dark": {
-        "bg": "#0d1117", "panel": "#161b22", "grid": "#30363d",
-        "text": "#e6edf3", "muted": "#8b949e",
-        "accent": "#58a6ff", "accent2": "#a371f7", "accent3": "#3fb950",
-        "warn": "#f0883e",
-    },
-    "light": {
-        "bg": "#ffffff", "panel": "#f6f8fa", "grid": "#d0d7de",
-        "text": "#0d1117", "muted": "#57606a",
-        "accent": "#0969da", "accent2": "#8250df", "accent3": "#1a7f37",
-        "warn": "#bc4c00",
-    },
-}
+THEMES = TOKENS  # from scripts/tokens.py — one palette for every card
 
 
 # --------------------------------------------------------------------------- #
@@ -466,7 +455,8 @@ def render(stats: dict, theme_name: str) -> str:
 
     svg = TEMPLATE
     for key, value in theme.items():
-        svg = svg.replace(f"__{key.upper()}__", value)
+        if isinstance(value, str):
+            svg = svg.replace(f"__{key.upper()}__", value)
     replacements = {
         "__ARIA__": aria,
         "__WINDOW__": str(stats["window_days"]),

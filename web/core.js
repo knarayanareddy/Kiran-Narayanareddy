@@ -8,36 +8,57 @@
 
 export const THEMES = {
   cyberpunk: {
-    name: "Cyberpunk",
+    name: "Cyberpunk", mode: "dark",
     bg: "#07070f", grid: "#12122a", text: "#e8e8ff", muted: "#8b8bb0",
     snake: "#00ff66", snakeDark: "#00331a", head: "#eaffef",
     food: ["#ff007f", "#00f2fe"], accent: "#00f2fe", glow: "#ff007f",
   },
   matrix: {
-    name: "Matrix",
+    name: "Matrix", mode: "dark",
     bg: "#050a05", grid: "#0d1f0d", text: "#d4ffd4", muted: "#63a363",
     snake: "#39d353", snakeDark: "#0b2a12", head: "#f0fff0",
     food: ["#7ee787", "#26a641"], accent: "#39d353", glow: "#26a641",
   },
   amber: {
-    name: "Amber terminal",
+    name: "Amber terminal", mode: "dark",
     bg: "#0d0904", grid: "#241705", text: "#ffe9c7", muted: "#a8814a",
     snake: "#ffb000", snakeDark: "#3a2600", head: "#fff5e0",
     food: ["#fcee0a", "#ff7b00"], accent: "#ffb000", glow: "#ff7b00",
   },
   cyan: {
-    name: "Neon cyan",
+    name: "Neon cyan", mode: "dark",
     bg: "#04090f", grid: "#0c1f2e", text: "#dff5ff", muted: "#5a8ba3",
     snake: "#00f2fe", snakeDark: "#002b33", head: "#effeff",
     food: ["#4facfe", "#a371f7"], accent: "#00f2fe", glow: "#4facfe",
   },
+  // "light" is a mode swatch, not a bespoke palette: it takes the shared light
+  // tokens directly, so the game matches the cards it sits next to.
   light: {
-    name: "Light",
-    bg: "#ffffff", grid: "#e6ebf1", text: "#0d1117", muted: "#57606a",
+    name: "Light", mode: "light",
+    bg: "#ffffff", grid: "#d0d7de", text: "#0d1117", muted: "#57606a",
     snake: "#1a7f37", snakeDark: "#d7f0dd", head: "#0b3d1c",
     food: ["#0969da", "#8250df"], accent: "#0969da", glow: "#8250df",
   },
 };
+
+/**
+ * Re-anchor the game themes on the shared palette. `mode` picks which half of
+ * data/tokens.json supplies the surface/border/body colours, so switching the
+ * profile's palette moves the game too instead of leaving it behind.
+ */
+export function applyTokens(tokens) {
+  if (!tokens || !tokens.palette) return THEMES;
+  for (const theme of Object.values(THEMES)) {
+    const p = tokens.palette[theme.mode];
+    if (!p) continue;
+    theme.bg = p.canvas;
+    theme.grid = p.border;
+    theme.text = p.text;
+    theme.muted = p.muted;
+  }
+  return THEMES;
+}
+
 
 /* ------------------------------------------------------------------ grid --- */
 

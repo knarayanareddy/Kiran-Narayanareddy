@@ -58,7 +58,7 @@
 
   <!-- card: full bleed, so no page-coloured slivers at the corners -->
   <rect x="0" y="0" width="900" height="300" fill="#ffffff"/>
-  <rect x="0.5" y="0.5" width="899" height="299" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="0.5" y="0.5" width="899" height="299" fill="none" stroke="#d0d7de" stroke-width="1"/>
 
   <!-- aurora -->
   <g class="anim">
@@ -71,13 +71,13 @@
   <g class="anim" opacity="0.55">
     <line x1="0" y1="237" x2="900" y2="237" stroke="#0969da" stroke-width="1" opacity="0.35"/>
     <g class="gridpan">
-    <line x1="-40" y1="238" x2="940" y2="238" stroke="#e2e8f0" stroke-width="1" opacity="0.22"/>
-    <line x1="-40" y1="248" x2="940" y2="248" stroke="#e2e8f0" stroke-width="1" opacity="0.33"/>
-    <line x1="-40" y1="258" x2="940" y2="258" stroke="#e2e8f0" stroke-width="1" opacity="0.44"/>
-    <line x1="-40" y1="268" x2="940" y2="268" stroke="#e2e8f0" stroke-width="1" opacity="0.55"/>
-    <line x1="-40" y1="278" x2="940" y2="278" stroke="#e2e8f0" stroke-width="1" opacity="0.66"/>
-    <line x1="-40" y1="288" x2="940" y2="288" stroke="#e2e8f0" stroke-width="1" opacity="0.77"/>
-    <line x1="-40" y1="298" x2="940" y2="298" stroke="#e2e8f0" stroke-width="1" opacity="0.88"/>
+    <line x1="-40" y1="238" x2="940" y2="238" stroke="#d0d7de" stroke-width="1" opacity="0.22"/>
+    <line x1="-40" y1="248" x2="940" y2="248" stroke="#d0d7de" stroke-width="1" opacity="0.33"/>
+    <line x1="-40" y1="258" x2="940" y2="258" stroke="#d0d7de" stroke-width="1" opacity="0.44"/>
+    <line x1="-40" y1="268" x2="940" y2="268" stroke="#d0d7de" stroke-width="1" opacity="0.55"/>
+    <line x1="-40" y1="278" x2="940" y2="278" stroke="#d0d7de" stroke-width="1" opacity="0.66"/>
+    <line x1="-40" y1="288" x2="940" y2="288" stroke="#d0d7de" stroke-width="1" opacity="0.77"/>
+    <line x1="-40" y1="298" x2="940" y2="298" stroke="#d0d7de" stroke-width="1" opacity="0.88"/>
     <line x1="-40" y1="238" x2="-118" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
     <line x1="0" y1="238" x2="-72" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
     <line x1="40" y1="238" x2="-26" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
@@ -149,42 +149,42 @@
 
   <!-- stat chips -->
   <g class="bar" style="animation-delay:0.90s">
-    <rect x="48" y="176" width="96" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="48" y="176" width="96" height="46" rx="9" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
     <text class="mono" x="60" y="197" font-size="16" font-weight="700" fill="#0969da">35</text>
     <text class="mono" x="60" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">deployments</text>
   </g>
   <g class="bar" style="animation-delay:1.04s">
-    <rect x="154" y="176" width="58" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="154" y="176" width="58" height="46" rx="9" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
     <text class="mono" x="166" y="197" font-size="16" font-weight="700" fill="#0969da">33</text>
     <text class="mono" x="166" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">pages</text>
   </g>
   <g class="bar" style="animation-delay:1.18s">
-    <rect x="222" y="176" width="58" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="222" y="176" width="58" height="46" rx="9" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
     <text class="mono" x="234" y="197" font-size="16" font-weight="700" fill="#0969da">123</text>
     <text class="mono" x="234" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">repos</text>
   </g>
   <g class="bar" style="animation-delay:1.32s">
-    <rect x="290" y="176" width="58" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="290" y="176" width="58" height="46" rx="9" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
     <text class="mono" x="302" y="197" font-size="16" font-weight="700" fill="#0969da">112</text>
     <text class="mono" x="302" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">stars</text>
   </g>
   <g class="bar" style="animation-delay:1.46s">
-    <rect x="358" y="176" width="58" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="358" y="176" width="58" height="46" rx="9" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
     <text class="mono" x="370" y="197" font-size="16" font-weight="700" fill="#0969da">5</text>
     <text class="mono" x="370" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">forks</text>
   </g>
   <g class="bar" style="animation-delay:1.60s">
-    <rect x="426" y="176" width="84" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <rect x="426" y="176" width="84" height="46" rx="9" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1"/>
     <text class="mono" x="438" y="197" font-size="16" font-weight="700" fill="#0969da">1</text>
     <text class="mono" x="438" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">followers</text>
   </g>
 
   <!-- the harness glyph: rings, orbiting nodes, signal pulses -->
   <g transform="translate(748,152)" class="anim">
-    <circle r="112" fill="none" stroke="#e2e8f0" stroke-width="1" opacity="0.5"/>
+    <circle r="112" fill="none" stroke="#d0d7de" stroke-width="1" opacity="0.5"/>
     <g>
       <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite"/>
-      <circle r="96" fill="none" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="2 10" opacity="0.9"/>
+      <circle r="96" fill="none" stroke="#d0d7de" stroke-width="1" stroke-dasharray="2 10" opacity="0.9"/>
     </g>
     <!-- two counter-rotating gradient arcs, drawn as circles with a dash offset -->
     <g>

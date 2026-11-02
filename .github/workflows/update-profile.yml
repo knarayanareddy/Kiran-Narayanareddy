@@ -15,6 +15,7 @@ on:
       - "scripts/build_tiles.py"
       - "scripts/build_3d_terrain.py"
       - "scripts/capture_age.py"
+      - "scripts/tokens.py"
       - "README.md"
 
 permissions:
@@ -56,6 +57,9 @@ jobs:
       # Rerun even when nothing else moved: refresh-ctimes.yml pings this on a
       # timer so the LIVE animation can fade once a capture is old, without a
       # second scheduled job here.
+      - name: Emit the design tokens the web pages read
+        run: python3 scripts/tokens.py --emit
+
       - name: Record how old each capture is
         run: python3 scripts/capture_age.py
 

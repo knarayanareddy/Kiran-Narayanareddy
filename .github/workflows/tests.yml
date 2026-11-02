@@ -8,6 +8,8 @@ on:
     branches: [main, "arena/**"]
     paths:
       - "web/**"
+      - "scripts/tokens.py"
+      - "data/tokens.json"
       - "tests/**"
       - ".github/workflows/tests.yml"
   pull_request:
@@ -22,4 +24,6 @@ jobs:
         with:
           node-version: "22"
       - name: Simulation and projection tests
-        run: node --test tests/core.test.mjs
+        run: |
+          python3 scripts/tokens.py --emit
+          node --test tests/core.test.mjs tests/tokens.test.mjs

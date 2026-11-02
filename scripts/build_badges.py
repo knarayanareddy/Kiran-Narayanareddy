@@ -25,20 +25,13 @@ import json
 import os
 import sys
 
+from tokens import BRANDS, THEMES as TOKENS  # shared design system
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "sites.json")
 OUT_DIR = os.path.join(ROOT, "assets")
 
-THEMES = {
-    "dark": {
-        "bg": "#0d1117", "chip": "#1a1b27", "text": "#e6edf3", "muted": "#8b949e",
-        "edge": "#30363d", "accent": "#58a6ff",
-    },
-    "light": {
-        "bg": "#ffffff", "chip": "#eef1f4", "text": "#0d1117", "muted": "#57606a",
-        "edge": "#d0d7de", "accent": "#0969da",
-    },
-}
+THEMES = TOKENS  # from scripts/tokens.py — one palette for every card
 
 # --------------------------------------------------------------------------- #
 # content

@@ -28,6 +28,8 @@ import os
 import sys
 from datetime import date, datetime, timedelta
 
+from tokens import THEMES as TOKENS  # shared design system
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATS = os.path.join(ROOT, "data", "stats.json")
 OUT_DIR = os.path.join(ROOT, "assets")
@@ -44,22 +46,7 @@ HEIGHT_UNIT = 3.1      # px of block height per contribution
 MAX_STACK = 34.0       # px cap, so one huge day cannot swamp the grid
 SKEW_Y = 0.5           # top-face parallelogram depth
 
-THEMES = {
-    "dark": {
-        "bg": "#0d1117", "panel": "#161b22", "grid": "#30363d",
-        "text": "#e6edf3", "muted": "#8b949e",
-        "levels": ["#1d2634", "#0e4429", "#006d32", "#26a641", "#39d353"],
-        "floor": "#1d2634",
-        "accent": "#58a6ff",
-    },
-    "light": {
-        "bg": "#ffffff", "panel": "#f6f8fa", "grid": "#d0d7de",
-        "text": "#1f2328", "muted": "#57606a",
-        "levels": ["#eaeef2", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-        "floor": "#eaeef2",
-        "accent": "#0969da",
-    },
-}
+THEMES = TOKENS  # from scripts/tokens.py — one palette for every card
 
 
 def level(count: int, peak: int) -> int:

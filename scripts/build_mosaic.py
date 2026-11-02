@@ -30,6 +30,8 @@ import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
+from tokens import THEMES as TOKENS  # shared design system
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITES = os.path.join(ROOT, "data", "sites.json")
 SHOTS = os.path.join(ROOT, "assets", "shots")
@@ -44,12 +46,9 @@ PAD = 14
 GAP = 14
 CAPTION = 26          # strip under each tile for the repo name
 
-THEMES = {
-    "dark": {"bg": "#0d1117", "tile": "#161b22", "grid": "#30363d",
-             "text": "#e6edf3", "muted": "#8b949e", "accent": "#58a6ff"},
-    "light": {"bg": "#ffffff", "tile": "#f6f8fa", "grid": "#d0d7de",
-              "text": "#0d1117", "muted": "#57606a", "accent": "#0969da"},
-}
+# One palette for every card, from scripts/tokens.py. "tile" is a role alias
+# for the raised surface, mapped there.
+THEMES = {mode: dict(theme, tile=theme["surface"]) for mode, theme in TOKENS.items()}
 
 
 def fetch_sites_live() -> list[dict] | None:
