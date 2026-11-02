@@ -52,7 +52,22 @@ jobs:
       - name: Record and encode
         env:
           FORCE: ${{ inputs.force }}
-        run: python3 scripts/build_reel.py $([ "$FORCE" = "true" ] && echo --force)
+        run: |
+          set -o pipefail
+          # Tee the log so a failure can be published to the summary. The run
+          # page's step summary survives where the log blob may not be reachable.
+          python3 scripts/build_reel.py $([ "$FORCE" = "true" ] && echo --force) 2>&1 | tee /tmp/reel.log
+
+      - name: Publish the failure, if any
+        if: failure()
+        run: |
+          {
+            echo "### Reel recording failed"
+            echo ""
+            echo '```'
+            tail -40 /tmp/reel.log 2>/dev/null || echo "no log captured"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Report sizes against the Camo limit
         run: |
