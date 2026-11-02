@@ -1,29 +1,182 @@
 {
   "3dexperimentation": {
-    "cover_bytes": 52174,
-    "frames": 24,
-    "gif_bytes": 2326266,
+    "cover_bytes": 62240,
+    "frames": 34,
+    "gif_bytes": 2337158,
     "label": "canvas film studio",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/3dexperimentation/"
   },
-  "sallie-returns-ai-agent": {
-    "cover_bytes": 58638,
+  "AI-Arsenal": {
+    "cover_bytes": 63915,
+    "frames": 24,
+    "gif_bytes": 1664739,
+    "label": "schema-first encyclopedia",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/AI-Arsenal/"
+  },
+  "AI-Daily": {
+    "cover_bytes": 34482,
+    "frames": 24,
+    "gif_bytes": 1145954,
+    "label": "daily AI briefing",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/AI-Daily/"
+  },
+  "Aeroscribe": {
+    "cover_bytes": 93862,
+    "frames": 24,
+    "gif_bytes": 3585495,
+    "label": "manuscript pipeline",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/Aeroscribe/"
+  },
+  "Bunqsy": {
+    "cover_bytes": 137832,
     "frames": 34,
-    "gif_bytes": 1333757,
+    "gif_bytes": 160126,
+    "label": "7-agent financial guardian",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/Bunqsy/"
+  },
+  "Magpie": {
+    "cover_bytes": 96375,
+    "frames": 24,
+    "gif_bytes": 2768848,
+    "label": "autonomous classifieds scout",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/Magpie/"
+  },
+  "Nimbus": {
+    "cover_bytes": 59672,
+    "frames": 24,
+    "gif_bytes": 2460354,
+    "label": "parametric climate cover",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/Nimbus/"
+  },
+  "WebsitedesignandPrompts": {
+    "cover_bytes": 119758,
+    "frames": 24,
+    "gif_bytes": 3137259,
+    "label": "landing-page templates",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/WebsitedesignandPrompts/"
+  },
+  "curiolab": {
+    "cover_bytes": 60257,
+    "frames": 24,
+    "gif_bytes": 1797359,
+    "label": "family science episodes",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/curiolab/"
+  },
+  "dreamswarm": {
+    "cover_bytes": 50615,
+    "frames": 24,
+    "gif_bytes": 2224117,
+    "label": "multi-agent orchestrator",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/dreamswarm/"
+  },
+  "gitscour": {
+    "cover_bytes": 76380,
+    "frames": 24,
+    "gif_bytes": 2736669,
+    "label": "50,000+ repo knowledge base",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/gitscour/"
+  },
+  "gridqueue-grid-connection": {
+    "cover_bytes": 26658,
+    "frames": 34,
+    "gif_bytes": 1221699,
+    "label": "grid interconnection navigator",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/gridqueue-grid-connection/"
+  },
+  "harvestgrid": {
+    "cover_bytes": 47252,
+    "frames": 24,
+    "gif_bytes": 1346166,
+    "label": "harvest forecasting + gleaning",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/harvestgrid/"
+  },
+  "jointcheck-solder-inspection": {
+    "cover_bytes": 39750,
+    "frames": 24,
+    "gif_bytes": 1258137,
+    "label": "solder-joint inspection",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/jointcheck-solder-inspection/"
+  },
+  "proofpress-evidence-portal": {
+    "cover_bytes": 134040,
+    "frames": 34,
+    "gif_bytes": 4295586,
+    "label": "Three.js evidence journey",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/proofpress-evidence-portal/"
+  },
+  "redflag-eu-compliance": {
+    "cover_bytes": 116694,
+    "frames": 24,
+    "gif_bytes": 3337492,
+    "label": "EU product-safety gate",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/redflag-eu-compliance/"
+  },
+  "roomsmith": {
+    "cover_bytes": 65015,
+    "frames": 34,
+    "gif_bytes": 2597522,
+    "label": "escape-room engine",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/roomsmith/"
+  },
+  "sallie-returns-ai-agent": {
+    "cover_bytes": 58605,
+    "frames": 34,
+    "gif_bytes": 1333749,
     "label": "returns pipeline",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/sallie-returns-ai-agent/"
   },
   "toolscour": {
-    "cover_bytes": 66500,
+    "cover_bytes": 63636,
     "frames": 24,
     "gif_bytes": 2135302,
     "label": "3D knowledge galaxy",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/toolscour/"
+  },
+  "twitch-codex": {
+    "cover_bytes": 91955,
+    "frames": 24,
+    "gif_bytes": 2426904,
+    "label": "live-audience builds",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/twitch-codex/"
   }
 }
