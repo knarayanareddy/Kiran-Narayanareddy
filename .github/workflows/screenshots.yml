@@ -14,7 +14,9 @@ on:
         type: boolean
         default: false
   push:
-    branches: [main]
+    # main for production; arena/** so a sandbox without browser downloads can
+    # still request real captures by pushing a commit to its own branch.
+    branches: [main, "arena/**"]
     paths:
       - "scripts/build_mosaic.py"
       - "data/sites.json"
