@@ -58,6 +58,23 @@ jobs:
           # page's step summary survives where the log blob may not be reachable.
           python3 scripts/build_reel.py $([ "$FORCE" = "true" ] && echo --force) 2>&1 | tee /tmp/reel.log
 
+      # On failure, write the log into the repo and push it. This is not just for
+      # the sandbox: a recording that fails at 04:35 with nobody watching should
+      # leave a readable trace, and the artifact/log blob is easy to miss.
+      # The push does not re-trigger this workflow, because the path filter above
+      # does not match assets/reels/*.log.
+      - name: Pin the log to the branch on failure
+        if: failure()
+        run: |
+          mkdir -p assets/reels
+          tail -60 /tmp/reel.log > assets/reels/last-error.log 2>/dev/null || echo "no log" > assets/reels/last-error.log
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/reels/last-error.log
+          git commit -m "🚨 Log the failed reel recording [skip ci]" || exit 0
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          git push origin "HEAD:${GITHUB_REF_NAME}" || true
+
       - name: Keep the recording log
         if: always()
         uses: actions/upload-artifact@v4
