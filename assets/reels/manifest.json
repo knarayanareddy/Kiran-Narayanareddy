@@ -27,7 +27,7 @@
     "url": "https://knarayanareddy.github.io/AI-Daily/"
   },
   "Aeroscribe": {
-    "cover_bytes": 93862,
+    "cover_bytes": 35248,
     "frames": 24,
     "gif_bytes": 3585495,
     "label": "manuscript pipeline",
@@ -153,7 +153,7 @@
     "url": "https://knarayanareddy.github.io/roomsmith/"
   },
   "sallie-returns-ai-agent": {
-    "cover_bytes": 58605,
+    "cover_bytes": 23960,
     "frames": 34,
     "gif_bytes": 1333749,
     "label": "returns pipeline",
@@ -162,7 +162,7 @@
     "url": "https://knarayanareddy.github.io/sallie-returns-ai-agent/"
   },
   "toolscour": {
-    "cover_bytes": 63636,
+    "cover_bytes": 26774,
     "frames": 24,
     "gif_bytes": 2135302,
     "label": "3D knowledge galaxy",

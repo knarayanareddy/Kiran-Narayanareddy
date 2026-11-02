@@ -220,7 +220,10 @@ def make_posters() -> dict:
         canvas.paste(img, (0, BAR))
         chrome = Image.open(chrome).convert("RGBA")
         canvas.paste(chrome, (0, 0), chrome)
-        canvas = canvas.convert("P", palette=Image.ADAPTIVE, colors=160)
+        # A cover is a still, shown at ~400px wide in the README. Full 900px and
+        # 160 colours is roughly three times the bytes for pixels nobody sees.
+        canvas = canvas.resize((WIDTH // 2, (HEIGHT + BAR) // 2), Image.LANCZOS)
+        canvas = canvas.convert("P", palette=Image.ADAPTIVE, colors=96)
         canvas.save(cover, optimize=True)
         info["cover_bytes"] = os.path.getsize(cover)
         covers[repo] = cover
