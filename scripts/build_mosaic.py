@@ -125,6 +125,39 @@ def load_sites() -> list[dict]:
     return sites
 
 
+# A capture only counts if the site actually served something. GitHub's own 404
+# page for an unconfigured Pages site must not end up on the wall as if it were
+# a working deployment.
+DEAD_MARKERS = (
+    "There isn't a GitHub Pages site here",
+    "Site not found",
+    "404 Not Found",
+)
+
+
+def classify(response_status: int, title: str, body: str) -> str:
+    if response_status >= 400:
+        return f"http_{response_status}"
+    lowered = f"{title}\n{body[:4000]}"
+    for marker in DEAD_MARKERS:
+        if marker.lower() in lowered.lower():
+            return "page_not_found"
+    if len(body.strip()) < 30:
+        return "blank"
+    return "ok"
+
+
+def shot_status(repo: str) -> str:
+    path = os.path.join(SHOTS, f"{repo}.json")
+    if not os.path.exists(path):
+        return "ok"
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return json.load(handle).get("status", "ok")
+    except json.JSONDecodeError:
+        return "ok"
+
+
 def needs_capture(site: dict) -> bool:
     path = os.path.join(SHOTS, f"{site['repo']}.png")
     if not os.path.exists(path):
@@ -137,6 +170,8 @@ def needs_capture(site: dict) -> bool:
             meta = json.load(handle)
     except json.JSONDecodeError:
         return True
+    if meta.get("status", "ok") != "ok":
+        return True   # retry dead sites: they may come back
     return meta.get("pushed") != site.get("pushed")
 
 
@@ -157,14 +192,23 @@ def capture(sites: list[dict], force: bool, workers: int = 4) -> None:
             with sync_playwright() as play:
                 browser = play.chromium.launch(args=["--no-sandbox", "--disable-dev-shm-usage"])
                 page = browser.new_page(viewport=VIEWPORT, device_scale_factor=1)
-                page.goto(site["url"], wait_until="networkidle", timeout=45_000)
+                response = None
+                try:
+                    response = page.goto(site["url"], wait_until="networkidle", timeout=45_000)
+                except Exception:  # noqa: BLE001 - networkidle can time out on chatty pages
+                    response = page.goto(site["url"], wait_until="domcontentloaded", timeout=30_000)
                 # let entrance animations settle, then freeze them for a clean still
                 page.add_style_tag(content="*,*::before,*::after{animation-play-state:paused!important}")
                 page.wait_for_timeout(600)
+                try:
+                    body = page.inner_text("body", timeout=5_000)
+                except Exception:  # noqa: BLE001
+                    body = ""
+                status = classify(response.status if response else 0, page.title(), body)
                 page.screenshot(path=png, type="png")
                 browser.close()
             meta_path = os.path.join(SHOTS, f"{name}.json")
-            meta = {"url": site["url"], "pushed": site.get("pushed"),
+            meta = {"url": site["url"], "pushed": site.get("pushed"), "status": status,
                     "captured": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}
             previous = None
             if os.path.exists(meta_path):
@@ -177,9 +221,9 @@ def capture(sites: list[dict], force: bool, workers: int = 4) -> None:
                 with open(meta_path, "w", encoding="utf-8") as handle:
                     json.dump(meta, handle, indent=1, sort_keys=True)
                     handle.write("\n")
-            return name, "ok"
+            return name, status
         except Exception as exc:  # noqa: BLE001 - a dead site must not kill the run
-            return name, f"fail: {type(exc).__name__}"
+            return name, f"unreachable: {type(exc).__name__}"
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
         for name, status in pool.map(shoot, todo):
@@ -211,7 +255,7 @@ def compose(sites: list[dict]) -> None:
     available = []
     for site in sites:
         path = os.path.join(SHOTS, f"{site['repo']}.png")
-        if os.path.exists(path):
+        if os.path.exists(path) and shot_status(site["repo"]) == "ok":
             available.append((site, path))
 
     if not available:
@@ -272,7 +316,9 @@ def compose_page(selected: list[dict], suffix: str) -> None:
 
 def index_svg(sites: list[dict]) -> None:
     """A clickable version of the same wall: each tile links to its live site."""
-    with_shots = [s for s in sites if os.path.exists(os.path.join(SHOTS, f"{s['repo']}.png"))]
+    with_shots = [s for s in sites
+                  if os.path.exists(os.path.join(SHOTS, f"{s['repo']}.png"))
+                  and shot_status(s["repo"]) == "ok"]
     per_page = COLS * ROWS * 2  # the SVG index is denser than the PNG wall
     tiles = with_shots[:per_page]
     rows = (len(tiles) + COLS - 1) // COLS
@@ -315,10 +361,12 @@ def write_manifest(sites: list[dict]) -> None:
     rows = []
     for site in sites:
         png = os.path.join(SHOTS, f"{site['repo']}.png")
+        state = shot_status(site["repo"])
         rows.append({
             "repo": site["repo"],
             "url": site["url"],
-            "ok": os.path.exists(png),
+            "status": state,
+            "ok": os.path.exists(png) and state == "ok",
             "bytes": os.path.getsize(png) if os.path.exists(png) else 0,
             "pushed": site.get("pushed"),
         })
@@ -327,6 +375,7 @@ def write_manifest(sites: list[dict]) -> None:
         "total": len(rows),
         "captured": ok,
         "missing": [r["repo"] for r in rows if not r["ok"]],
+        "unavailable": {r["repo"]: r["status"] for r in rows if not r["ok"]},
         "sites": rows,
     }
     path = os.path.join(ROOT, "data", "shots-manifest.json")

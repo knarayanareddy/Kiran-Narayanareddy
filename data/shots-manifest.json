@@ -2,10 +2,12 @@
   "total": 35,
   "captured": 35,
   "missing": [],
+  "unavailable": {},
   "sites": [
     {
       "repo": "F1Elastichopsworkshack",
       "url": "https://f1hackdemo.kiranreddy.nl/",
+      "status": "ok",
       "ok": true,
       "bytes": 248541,
       "pushed": "2026-10-20"
@@ -13,6 +15,7 @@
     {
       "repo": "vouwfiets",
       "url": "https://vouwfiets.vercel.app/",
+      "status": "ok",
       "ok": true,
       "bytes": 928941,
       "pushed": "2026-10-07"
@@ -20,6 +23,7 @@
     {
       "repo": "Aeroscribe",
       "url": "https://knarayanareddy.github.io/Aeroscribe/",
+      "status": "ok",
       "ok": true,
       "bytes": 1165183,
       "pushed": "2026-11-01"
@@ -27,6 +31,7 @@
     {
       "repo": "toolscour",
       "url": "https://knarayanareddy.github.io/toolscour/",
+      "status": "ok",
       "ok": true,
       "bytes": 124885,
       "pushed": "2026-11-01"
@@ -34,6 +39,7 @@
     {
       "repo": "AI-Daily",
       "url": "https://knarayanareddy.github.io/AI-Daily/",
+      "status": "ok",
       "ok": true,
       "bytes": 71751,
       "pushed": "2026-11-01"
@@ -41,6 +47,7 @@
     {
       "repo": "AI-Arsenal",
       "url": "https://knarayanareddy.github.io/AI-Arsenal/",
+      "status": "ok",
       "ok": true,
       "bytes": 166998,
       "pushed": "2026-11-01"
@@ -48,6 +55,7 @@
     {
       "repo": "3dexperimentation",
       "url": "https://knarayanareddy.github.io/3dexperimentation/",
+      "status": "ok",
       "ok": true,
       "bytes": 241041,
       "pushed": "2026-10-29"
@@ -55,6 +63,7 @@
     {
       "repo": "Aerorepos",
       "url": "https://knarayanareddy.github.io/Aerorepos/",
+      "status": "ok",
       "ok": true,
       "bytes": 106036,
       "pushed": "2026-10-29"
@@ -62,6 +71,7 @@
     {
       "repo": "gridqueue-grid-connection",
       "url": "https://knarayanareddy.github.io/gridqueue-grid-connection/",
+      "status": "ok",
       "ok": true,
       "bytes": 82328,
       "pushed": "2026-10-29"
@@ -69,6 +79,7 @@
     {
       "repo": "twitch-codex",
       "url": "https://knarayanareddy.github.io/twitch-codex/",
+      "status": "ok",
       "ok": true,
       "bytes": 283962,
       "pushed": "2026-10-29"
@@ -76,6 +87,7 @@
     {
       "repo": "redflag-eu-compliance",
       "url": "https://knarayanareddy.github.io/redflag-eu-compliance/",
+      "status": "ok",
       "ok": true,
       "bytes": 374267,
       "pushed": "2026-10-29"
@@ -83,6 +95,7 @@
     {
       "repo": "jointcheck-solder-inspection",
       "url": "https://knarayanareddy.github.io/jointcheck-solder-inspection/",
+      "status": "ok",
       "ok": true,
       "bytes": 91330,
       "pushed": "2026-10-29"
@@ -90,6 +103,7 @@
     {
       "repo": "reflex-physical-ai",
       "url": "https://knarayanareddy.github.io/reflex-physical-ai/",
+      "status": "ok",
       "ok": true,
       "bytes": 200066,
       "pushed": "2026-10-29"
@@ -97,6 +111,7 @@
     {
       "repo": "curiolab",
       "url": "https://knarayanareddy.github.io/curiolab/",
+      "status": "ok",
       "ok": true,
       "bytes": 132731,
       "pushed": "2026-10-24"
@@ -104,6 +119,7 @@
     {
       "repo": "nexttime",
       "url": "https://knarayanareddy.github.io/nexttime/",
+      "status": "ok",
       "ok": true,
       "bytes": 180251,
       "pushed": "2026-10-24"
@@ -111,6 +127,7 @@
     {
       "repo": "roomsmith",
       "url": "https://knarayanareddy.github.io/roomsmith/",
+      "status": "ok",
       "ok": true,
       "bytes": 232003,
       "pushed": "2026-10-24"
@@ -118,6 +135,7 @@
     {
       "repo": "accesshold",
       "url": "https://knarayanareddy.github.io/accesshold/",
+      "status": "ok",
       "ok": true,
       "bytes": 138480,
       "pushed": "2026-10-24"
@@ -125,6 +143,7 @@
     {
       "repo": "harvestgrid",
       "url": "https://knarayanareddy.github.io/harvestgrid/",
+      "status": "ok",
       "ok": true,
       "bytes": 129868,
       "pushed": "2026-10-24"
@@ -132,6 +151,7 @@
     {
       "repo": "Agentcrash",
       "url": "https://knarayanareddy.github.io/Agentcrash/",
+      "status": "ok",
       "ok": true,
       "bytes": 141976,
       "pushed": "2026-10-20"
@@ -139,6 +159,7 @@
     {
       "repo": "WebsitedesignandPrompts",
       "url": "https://knarayanareddy.github.io/WebsitedesignandPrompts/",
+      "status": "ok",
       "ok": true,
       "bytes": 211317,
       "pushed": "2026-10-14"
@@ -146,6 +167,7 @@
     {
       "repo": "Nimbus",
       "url": "https://knarayanareddy.github.io/Nimbus/",
+      "status": "ok",
       "ok": true,
       "bytes": 372163,
       "pushed": "2026-10-12"
@@ -153,6 +175,7 @@
     {
       "repo": "SAAF-circuit-breaker",
       "url": "https://knarayanareddy.github.io/SAAF-circuit-breaker/",
+      "status": "ok",
       "ok": true,
       "bytes": 4714,
       "pushed": "2026-10-06"
@@ -160,6 +183,7 @@
     {
       "repo": "so101-domain-operator",
       "url": "https://knarayanareddy.github.io/so101-domain-operator/",
+      "status": "ok",
       "ok": true,
       "bytes": 182915,
       "pushed": "2026-10-04"
@@ -167,6 +191,7 @@
     {
       "repo": "Handy",
       "url": "https://knarayanareddy.github.io/Handy/",
+      "status": "ok",
       "ok": true,
       "bytes": 28208,
       "pushed": "2026-10-03"
@@ -174,6 +199,7 @@
     {
       "repo": "Bunqsy",
       "url": "https://knarayanareddy.github.io/Bunqsy/",
+      "status": "ok",
       "ok": true,
       "bytes": 571902,
       "pushed": "2026-10-02"
@@ -181,6 +207,7 @@
     {
       "repo": "gitscour",
       "url": "https://knarayanareddy.github.io/gitscour/",
+      "status": "ok",
       "ok": true,
       "bytes": 169141,
       "pushed": "2026-10-02"
@@ -188,6 +215,7 @@
     {
       "repo": "Courserefresh",
       "url": "https://knarayanareddy.github.io/Courserefresh/",
+      "status": "ok",
       "ok": true,
       "bytes": 108093,
       "pushed": "2026-10-02"
@@ -195,6 +223,7 @@
     {
       "repo": "LEGACYVAULTV1.0",
       "url": "https://knarayanareddy.github.io/LEGACYVAULTV1.0/",
+      "status": "ok",
       "ok": true,
       "bytes": 280809,
       "pushed": "2026-10-01"
@@ -202,6 +231,7 @@
     {
       "repo": "Autoorg",
       "url": "https://knarayanareddy.github.io/Autoorg/",
+      "status": "ok",
       "ok": true,
       "bytes": 166455,
       "pushed": "2026-10-01"
@@ -209,6 +239,7 @@
     {
       "repo": "idea-dump",
       "url": "https://knarayanareddy.github.io/idea-dump/",
+      "status": "ok",
       "ok": true,
       "bytes": 103291,
       "pushed": "2026-09-29"
@@ -216,6 +247,7 @@
     {
       "repo": "Magpie",
       "url": "https://knarayanareddy.github.io/Magpie/",
+      "status": "ok",
       "ok": true,
       "bytes": 343574,
       "pushed": "2026-09-26"
@@ -223,6 +255,7 @@
     {
       "repo": "ghosthandshake",
       "url": "https://knarayanareddy.github.io/ghosthandshake/",
+      "status": "ok",
       "ok": true,
       "bytes": 22735,
       "pushed": "2026-08-31"
@@ -230,6 +263,7 @@
     {
       "repo": "keepsake",
       "url": "https://knarayanareddy.github.io/keepsake/",
+      "status": "ok",
       "ok": true,
       "bytes": 55611,
       "pushed": "2026-08-29"
@@ -237,6 +271,7 @@
     {
       "repo": "proofpress-evidence-portal",
       "url": "https://knarayanareddy.github.io/proofpress-evidence-portal/",
+      "status": "ok",
       "ok": true,
       "bytes": 710178,
       "pushed": "2026-08-19"
@@ -244,6 +279,7 @@
     {
       "repo": "dreamswarm",
       "url": "https://knarayanareddy.github.io/dreamswarm/",
+      "status": "ok",
       "ok": true,
       "bytes": 333866,
       "pushed": "2026-04-15"
