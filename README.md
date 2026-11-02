@@ -5,7 +5,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg" />
-  <img src="./assets/hero-dark.svg" alt="Kiran Narayanareddy — autonomous agents, aerospace research and compliance-as-code" width="100%" />
+  <img src="./assets/hero-dark.svg" alt="Kiran Narayana Reddy — autonomous agents, aerospace research and compliance-as-code" width="100%" />
 </picture>
 
 <br/>
@@ -21,14 +21,31 @@
 
 <br/>
 
+<!-- SNAKE: promoted to the top; it is the one artefact that shows the work happening -->
+<details>
+<summary><b>🐍 Contribution snake</b></summary>
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake.svg" />
+  <img alt="Contribution snake" src="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake-dark.svg" />
+</picture>
+
+</div>
+</details>
+
+---
+
 <!-- ABOUT ME -->
 ## About Me
 
 ```python
 class KiranNarayanareddy:
     def __init__(self):
-        self.location = "Amsterdam, Netherlands"
+        self.location = "Delft, Netherlands"
         self.role = "Builder of autonomous, auditable agent systems"
+        self.site = "https://kiranreddy.nl"
         self.focus = [
             "Agent harnesses with hard safety boundaries",
             "Aerospace & physical-AI research pipelines",
@@ -79,7 +96,7 @@ class KiranNarayanareddy:
 <div align="center">
 
 <!-- COUNTERS:START -->
-**33 live GitHub Pages sites** · **35 live deployments** · **123 original repositories** · **112 stars earned**
+**33 live GitHub Pages sites** · **35 live deployments** · **123 original repositories** · **112 stars** · **5 forks** · **1 follower**
 
 <sub>**TypeScript** 43 · **Python** 30 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
 <!-- COUNTERS:END -->
@@ -419,33 +436,21 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
 
 </div>
 
-<details>
-<summary><b>🐍 Contribution snake</b></summary>
+
+
+### 🏔️ A year of contributions, as terrain
+
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake.svg" />
-  <img alt="Contribution snake" src="https://raw.githubusercontent.com/knarayanareddy/knarayanareddy/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/terrain-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/terrain-light.svg" />
+  <img alt="Isometric terrain of a year of contributions, one block per day" src="./assets/terrain-dark.svg" width="100%" />
 </picture>
 
-</div>
-</details>
-
-<details>
-<summary><b>🏔️ 3D contribution terrain</b></summary>
-<div align="center">
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./profile-3d-contrib/profile-night-view.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-season-animate.svg" />
-  <img alt="3D isometric contribution graph" src="./profile-3d-contrib/profile-night-view.svg" width="100%" />
-</picture>
-
-<sub>Isometric render of the last year of commits by <a href=".github/workflows/3d-contrib.yml">3d-contrib.yml</a>.</sub>
+<sub>371 blocks, one per day, height = that day's output. Hover any column on a real page to lift it and read the exact date and count — <a href="https://kiranreddy.nl">kiranreddy.nl</a>, or a local preview. Inside GitHub's image proxy the pointer never arrives, so there it is a picture of a terrain rather than a terrain. Drawn by <a href="scripts/build_3d_terrain.py">build_3d_terrain.py</a> from the same calendar the dashboard uses.</sub>
 
 </div>
-</details>
 
 ---
 
@@ -455,13 +460,13 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/footer-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/footer-light.svg" />
-  <img src="./assets/footer-dark.svg" alt="Kiran Narayanareddy — Amsterdam" width="100%" />
+  <img src="./assets/footer-dark.svg" alt="Kiran Narayana Reddy — Delft" width="100%" />
 </picture>
 
-**Amsterdam, Netherlands** · Autonomous agents · Aerospace & physical AI · Compliance-as-code
+**[kiranreddy.nl](https://kiranreddy.nl)** · Delft, Netherlands · Autonomous agents · Aerospace & physical AI · Compliance-as-code
 
 <sub>Live sites and counters are refreshed by <a href=".github/workflows/update-profile.yml">GitHub Actions</a> — see <a href="scripts/build_profile.py">scripts/build_profile.py</a></sub>
 
 </div>
 
-<!-- Last updated: 2026-11-02 08:58 UTC -->
+<!-- Last updated: 2026-11-02 10:13 UTC -->

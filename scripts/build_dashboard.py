@@ -130,6 +130,7 @@ def collect() -> dict:
         for day in week["contributionDays"]
     ]
     days.sort()
+    calendar = [{"date": iso, "count": count} for iso, count in days]
 
     weekday = [0] * 7
     for iso, count in days:
@@ -213,6 +214,9 @@ def collect() -> dict:
         "hours": hours,
         "hour_sample": {"commits": sampled, "days": HOUR_SAMPLE_DAYS, "repos": len(repos)},
         "weeks": weeks,
+        # Every day of the window, so a downstream artefact (the interactive
+        # terrain) can be rebuilt from data instead of an opaque image.
+        "calendar": calendar,
         "languages": languages,
     }
 
@@ -249,16 +253,23 @@ def bars_hours(hours: list[int], theme: dict) -> str:
     parts = []
     base_y = 196
     max_h = 86
+    total = sum(hours) or 1
     for index, value in enumerate(hours):
+        hour = index
         height = max(2.5, (value / peak) * max_h)
         x = 44 + index * 15.4
         highlighted = index == peak_hour
         fill = theme["accent"] if highlighted else theme["accent2"]
         opacity = 0.95 if highlighted else 0.42 + 0.4 * (value / peak)
         parts.append(
-            f'    <rect class="bar" style="animation-delay:{index * 0.028:.2f}s" '
+            f'    <g class="hcol">'
+            f'<rect class="bar" style="animation-delay:{index * 0.028:.2f}s" '
             f'x="{x:.1f}" y="{base_y - height:.1f}" width="9.4" height="{height:.1f}" '
             f'rx="2" fill="{fill}" opacity="{opacity:.2f}"/>'
+            f'<title>{hour:02d}:00 — {value} commits ({value * 100 // total}%)</title>'
+            f'<rect class="hit" x="{x - 3:.1f}" y="{base_y - max_h - 6}" width="15.4" height="{max_h + 24}" '
+            f'fill="transparent" tabindex="0" role="img" aria-label="{hour:02d}:00, {value} commits"/>'
+            f'</g>'
         )
     labels = []
     for hour in (0, 6, 12, 18):
@@ -285,10 +296,16 @@ def bars_weekday(weekday: list[int], theme: dict) -> str:
     for index, value in enumerate(weekday):
         height = max(2.5, (value / peak) * 28)
         x = 44 + index * 52
+        day_name = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"][index]
         parts.append(
-            f'    <rect class="bar" style="animation-delay:{0.5 + index * 0.05:.2f}s" '
+            f'    <g class="hcol">'
+            f'<rect class="bar" style="animation-delay:{0.5 + index * 0.05:.2f}s" '
             f'x="{x}" y="{base_y - height:.1f}" width="34" height="{height:.1f}" rx="2" '
             f'fill="{theme["accent3"]}" opacity="{0.35 + 0.55 * (value / peak):.2f}"/>'
+            f'<title>{day_name} — {value} contributions</title>'
+            f'<rect class="hit" x="{x - 9}" y="{base_y - 40}" width="52" height="62" '
+            f'fill="transparent" tabindex="0" role="img" aria-label="{day_name}, {value} contributions"/>'
+            f'</g>'
         )
         parts.append(
             f'    <text class="mono" x="{x + 17}" y="{base_y + 15}" font-size="9.5" '
@@ -338,9 +355,10 @@ def languages_bar(stats: dict, theme: dict) -> str:
         width = max(6, share * width_total)
         color = palette[index % len(palette)]
         parts.append(
-            f'    <rect class="bar" style="animation-delay:{1.1 + index * 0.06:.2f}s" '
+            f'    <g class="hcol"><rect class="bar" style="animation-delay:{1.1 + index * 0.06:.2f}s" '
             f'x="{x:.1f}" y="356" width="{width - 3:.1f}" height="9" rx="3" fill="{color}" '
             f'opacity="{0.9 - index * 0.09:.2f}"/>'
+            f'<title>{name} — {count} repos ({share * 100:.0f}%)</title></g>'
         )
         legend.append(
             f'<tspan fill="{color}">■</tspan> {name} {share * 100:.0f}%'
@@ -375,9 +393,15 @@ TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" v
       @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
       @keyframes draw { from { stroke-dashoffset: 4000; } to { stroke-dashoffset: 0; } }
       .static { display: none; }
+      .hcol { transform-box: fill-box; transform-origin: center bottom; transition: transform .18s cubic-bezier(.22,1,.36,1); }
+      .hcol:hover, .hcol:focus-within { transform: scaleY(1.06) translateY(-2px); }
+      .hit { cursor: pointer; outline: none; }
+      .hit:focus { stroke: __ACCENT__; stroke-width: 1.5; rx: 3; }
       @media (prefers-reduced-motion: reduce) {
         .bar, .fade, .draw { animation: none; }
         .draw { stroke-dashoffset: 0; }
+        .hcol { transition: none; }
+        .hcol:hover, .hcol:focus-within { transform: none; }
       }
     </style>
   </defs>

@@ -1,3 +1,9 @@
+# Draws the interactive contribution terrain.
+#
+# This used to call yoshi389111/github-profile-3d-contrib, which produces a pretty
+# static render with no dates in it. The terrain is now ours: one block per day,
+# every block carrying its date and count, drawn from the same calendar the
+# signal dashboard uses. Same data, one fewer third-party action.
 name: 3D contribution terrain
 
 on:
@@ -7,6 +13,7 @@ on:
   push:
     branches: [main]
     paths:
+      - "scripts/build_3d_terrain.py"
       - ".github/workflows/3d-contrib.yml"
 
 permissions:
@@ -22,20 +29,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate isometric contribution images
-        uses: yoshi389111/github-profile-3d-contrib@latest
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Draw the terrain from the contribution calendar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
+        run: |
+          python3 scripts/build_dashboard.py        # refreshes data/stats.json
+          python3 scripts/build_3d_terrain.py --offline
 
-      - name: Commit if anything changed
+      - name: Commit if the terrain changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if [ -z "$(git status --porcelain profile-3d-contrib)" ]; then
-            echo "3D contribution images already current."
+          if git diff --quiet -- assets/terrain-*.svg data/stats.json; then
+            echo "Terrain already current."
             exit 0
           fi
-          git add profile-3d-contrib
-          git commit -m "🏔️ Refresh 3D contribution terrain [skip ci]"
+          git add assets/terrain-*.svg data/stats.json
+          git commit -m "🏔️ Redraw the contribution terrain [skip ci]"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
           git push
