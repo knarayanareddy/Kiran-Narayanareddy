@@ -118,3 +118,54 @@ test("the reel workflow records on a real browser and asserts ffmpeg", () => {
   assert.doesNotMatch(code, /ffmpeg -version\s*\|\s*head/, "a pipe masks a missing ffmpeg");
   assert.match(workflow, /scripts\/build_reel\.py/);
 });
+
+test("the grid never loads every GIF eagerly", () => {
+  // GitHub ships no loading="lazy" on README images (checked in the served
+  // HTML), so any <img> the reader scrolls past has already cost its bytes.
+  // The grid must therefore point at covers, with the GIF behind <details>.
+  const section = readme.slice(
+    readme.indexOf("<!-- REELS:START -->"),
+    readme.indexOf("<!-- REELS:END -->"),
+  );
+  if (!section.includes("assets/reels/")) return;
+
+  const eagerGifs = [...section.matchAll(/<img[^>]*src="\.\/assets\/reels\/([^"]+\.gif)"/g)];
+  assert.ok(eagerGifs.length <= 2, `${eagerGifs.length} GIFs load eagerly; keep it to the two newest`);
+
+  // Everything else is a cover, and every cover exists.
+  for (const [, src] of section.matchAll(/src="\.\/(assets\/reels\/[^"]+-cover\.png)"/g)) {
+    assert.ok(existsSync(`${root}${src}`), `README references missing ${src}`);
+  }
+  // A GIF offered for playback must sit inside a details block, not inline.
+  for (const [match] of section.matchAll(/<details>[\s\S]*?<\/details>/g)) {
+    assert.ok(match.includes("<summary>"), "a details block needs a summary to click");
+  }
+});
+
+test("every recorded reel gets a cover for the grid", () => {
+  const manifestPath = `${root}assets/reels/manifest.json`;
+  if (!existsSync(manifestPath)) return;
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+  for (const repo of Object.keys(manifest)) {
+    assert.ok(
+      existsSync(`${root}assets/reels/${repo}-cover.png`),
+      `${repo} has a reel but no cover, so the grid would have a hole`,
+    );
+  }
+});
+
+test("the reel list is an edit, not everything that happens to be deployed", () => {
+  const list = script.slice(script.indexOf("REELS = ["), script.indexOf("]", script.indexOf("REELS = [")));
+  const repos = [...list.matchAll(/\("([^"]+)",/g)].map((m) => m[1]);
+  assert.ok(repos.length >= 8, "the section should showcase more than a handful");
+  assert.ok(repos.length <= 25, "past ~25 the page weight stops being defensible");
+  for (const repo of repos) {
+    const site = JSON.parse(readFileSync(`${root}data/sites.json`, "utf8")).sites.find((s) => s.repo === repo);
+    assert.ok(site, `${repo} is listed but not deployed, so there is nothing to record`);
+  }
+  // Each entry names its gesture, because a scroll-only capture of a dashboard
+  // produces a near-still and that is not a demo.
+  for (const [, gesture] of list.matchAll(/, "([a-z]+)"\),/g)) {
+    assert.ok(["scroll", "pointer", "mixed"].includes(gesture), `unknown gesture ${gesture}`);
+  }
+});

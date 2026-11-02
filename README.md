@@ -132,13 +132,27 @@ class KiranNarayanareddy:
 ### 🎬 Three of them, actually moving
 
 <!-- REELS:START -->
-<a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><img src="./assets/reels/sallie-returns-ai-agent.gif" alt="Recording of sallie-returns-ai-agent — returns pipeline, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><b>sallie-returns-ai-agent</b></a> — returns pipeline · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
+<a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><img src="./assets/reels/sallie-returns-ai-agent.gif" alt="Recording of sallie-returns-ai-agent — returns pipeline, recorded 2026-11-02" width="100%" /></a><sub><a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><b>sallie-returns-ai-agent</b></a> — returns pipeline · recorded 2026-11-02</sub>
 
-<a href="https://knarayanareddy.github.io/toolscour/"><img src="./assets/reels/toolscour.gif" alt="Recording of toolscour — 3D knowledge galaxy, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/toolscour/"><b>toolscour</b></a> — 3D knowledge galaxy · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
+<a href="https://knarayanareddy.github.io/toolscour/"><img src="./assets/reels/toolscour.gif" alt="Recording of toolscour — 3D knowledge galaxy, recorded 2026-11-02" width="100%" /></a><sub><a href="https://knarayanareddy.github.io/toolscour/"><b>toolscour</b></a> — 3D knowledge galaxy · recorded 2026-11-02</sub>
 
-<a href="https://knarayanareddy.github.io/3dexperimentation/"><img src="./assets/reels/3dexperimentation.gif" alt="Recording of 3dexperimentation — canvas film studio, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/3dexperimentation/"><b>3dexperimentation</b></a> — canvas film studio · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
+<details open><summary><b>1 more, click any to play</b> <sub>(the still is the cover; the GIF loads when you open it)</sub></summary>
+<table>
+<tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/3dexperimentation/"><img src="./assets/reels/3dexperimentation-cover.png" width="100%" alt="3dexperimentation — canvas film studio, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/3dexperimentation/"><b>3dexperimentation</b></a><br/>
+<sub>canvas film studio<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/3dexperimentation/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
 
-_These are recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a README, so a few seconds of the real page is the closest an honest profile can get. Each one is captioned with the date it was taken — click through for the live site._
+<img src="./assets/reels/3dexperimentation.gif" width="100%" alt="Recording of 3dexperimentation playing" />
+
+</details>
+</td></tr>
+</table>
+</details>
+
+<sub>Recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a README and runs no JavaScript, so nothing here can be started by a click in the traditional sense — each row's recording is fetched only when you expand it, which keeps this section at ~36 kB instead of the ~6 MB the reels would cost if all 3 loaded eagerly. Every one is captioned with its date; click through for the live site.</sub>
 <!-- REELS:END -->
 
 ### 📸 Every deployment, as it actually looks
