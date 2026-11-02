@@ -1,8 +1,14 @@
 {
   "total": 35,
-  "captured": 35,
-  "missing": [],
-  "unavailable": {},
+  "captured": 33,
+  "missing": [
+    "SAAF-circuit-breaker",
+    "Handy"
+  ],
+  "unavailable": {
+    "SAAF-circuit-breaker": "blank",
+    "Handy": "http_404"
+  },
   "sites": [
     {
       "repo": "F1Elastichopsworkshack",
@@ -25,7 +31,7 @@
       "url": "https://knarayanareddy.github.io/Aeroscribe/",
       "status": "ok",
       "ok": true,
-      "bytes": 1165183,
+      "bytes": 1164419,
       "pushed": "2026-11-01"
     },
     {
@@ -33,7 +39,7 @@
       "url": "https://knarayanareddy.github.io/toolscour/",
       "status": "ok",
       "ok": true,
-      "bytes": 124885,
+      "bytes": 124156,
       "pushed": "2026-11-01"
     },
     {
@@ -49,7 +55,7 @@
       "url": "https://knarayanareddy.github.io/AI-Arsenal/",
       "status": "ok",
       "ok": true,
-      "bytes": 166998,
+      "bytes": 166927,
       "pushed": "2026-11-01"
     },
     {
@@ -81,7 +87,7 @@
       "url": "https://knarayanareddy.github.io/twitch-codex/",
       "status": "ok",
       "ok": true,
-      "bytes": 283962,
+      "bytes": 284034,
       "pushed": "2026-10-29"
     },
     {
@@ -161,7 +167,7 @@
       "url": "https://knarayanareddy.github.io/WebsitedesignandPrompts/",
       "status": "ok",
       "ok": true,
-      "bytes": 211317,
+      "bytes": 211955,
       "pushed": "2026-10-14"
     },
     {
@@ -169,14 +175,14 @@
       "url": "https://knarayanareddy.github.io/Nimbus/",
       "status": "ok",
       "ok": true,
-      "bytes": 372163,
+      "bytes": 372223,
       "pushed": "2026-10-12"
     },
     {
       "repo": "SAAF-circuit-breaker",
       "url": "https://knarayanareddy.github.io/SAAF-circuit-breaker/",
-      "status": "ok",
-      "ok": true,
+      "status": "blank",
+      "ok": false,
       "bytes": 4714,
       "pushed": "2026-10-06"
     },
@@ -191,8 +197,8 @@
     {
       "repo": "Handy",
       "url": "https://knarayanareddy.github.io/Handy/",
-      "status": "ok",
-      "ok": true,
+      "status": "http_404",
+      "ok": false,
       "bytes": 28208,
       "pushed": "2026-10-03"
     },
@@ -225,7 +231,7 @@
       "url": "https://knarayanareddy.github.io/LEGACYVAULTV1.0/",
       "status": "ok",
       "ok": true,
-      "bytes": 280809,
+      "bytes": 280314,
       "pushed": "2026-10-01"
     },
     {
@@ -233,7 +239,7 @@
       "url": "https://knarayanareddy.github.io/Autoorg/",
       "status": "ok",
       "ok": true,
-      "bytes": 166455,
+      "bytes": 171197,
       "pushed": "2026-10-01"
     },
     {
@@ -241,7 +247,7 @@
       "url": "https://knarayanareddy.github.io/idea-dump/",
       "status": "ok",
       "ok": true,
-      "bytes": 103291,
+      "bytes": 103204,
       "pushed": "2026-09-29"
     },
     {
@@ -249,7 +255,7 @@
       "url": "https://knarayanareddy.github.io/Magpie/",
       "status": "ok",
       "ok": true,
-      "bytes": 343574,
+      "bytes": 343646,
       "pushed": "2026-09-26"
     },
     {
@@ -265,7 +271,7 @@
       "url": "https://knarayanareddy.github.io/keepsake/",
       "status": "ok",
       "ok": true,
-      "bytes": 55611,
+      "bytes": 55625,
       "pushed": "2026-08-29"
     },
     {
@@ -273,7 +279,7 @@
       "url": "https://knarayanareddy.github.io/proofpress-evidence-portal/",
       "status": "ok",
       "ok": true,
-      "bytes": 710178,
+      "bytes": 719122,
       "pushed": "2026-08-19"
     },
     {
@@ -281,7 +287,7 @@
       "url": "https://knarayanareddy.github.io/dreamswarm/",
       "status": "ok",
       "ok": true,
-      "bytes": 333866,
+      "bytes": 333858,
       "pushed": "2026-04-15"
     }
   ]
