@@ -12,6 +12,7 @@ on:
       - "scripts/build_hero.py"
       - "scripts/build_dashboard.py"
       - "scripts/build_badges.py"
+      - "scripts/build_tiles.py"
       - "README.md"
 
 permissions:
@@ -49,6 +50,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/build_dashboard.py
+
+      # Rerun even when nothing else moved: refresh-ctimes.yml pings this on a
+      # timer so the LIVE animation can fade once a capture is old, without a
+      # second scheduled job here.
+      - name: Redraw the live-window tiles
+        run: |
+          python3 -m pip install --quiet pillow
+          python3 scripts/build_tiles.py
 
       - name: Commit if anything changed
         run: |
