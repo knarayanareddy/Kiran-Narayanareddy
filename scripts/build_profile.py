@@ -328,13 +328,21 @@ REELS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def render_reels(data: dict) -> str:
-    """The demo reels, generated from what actually exists on disk.
+    """The demo reels: a few full-size, the rest as a click-to-play grid.
 
-    A reel is only listed when its GIF is really there, so a failed recording
-    leaves the section shorter instead of leaving a broken image in the README.
-    Each one says "recorded <date>" because it is a recording: GitHub will not
-    embed a live page here, and pretending otherwise would be the one thing this
-    profile has never done.
+    Two hard constraints shaped this, and both were checked rather than assumed:
+
+      1. GitHub strips JS, so a GIF *cannot* be started by a click in a README.
+         The only real "click to play" primitive is <details>, which does not
+         fetch its contents until it is opened. That is why the grid shows a
+         still cover and the GIF lives behind the project's arrow.
+      2. GitHub emits no loading="lazy" on README images (verified in the served
+         HTML), so every <img> in the rendered page downloads immediately. A
+         grid of twenty GIFs would be ~40 MB before anyone clicked anything; a
+         grid of twenty covers is ~1.5 MB.
+
+    The section is honest about both: the covers say "click to play" because that
+    is what happens, and nothing claims to be a live feed.
     """
     try:
         with open(REELS, encoding="utf-8") as handle:
@@ -342,32 +350,72 @@ def render_reels(data: dict) -> str:
     except (OSError, ValueError):
         return "_No reels recorded yet — the next run of `reels.yml` fills this in._"
 
-    rows = []
+    reel_dir = os.path.dirname(REELS)
+    entries = []
     for site in data["sites"]:
         info = manifest.get(site["repo"])
         if not info:
             continue
-        gif = os.path.join(os.path.dirname(REELS), f"{site['repo']}.gif")
-        if not os.path.exists(gif):
-            continue
-        rows.append(
-            f'<a href="{site["url"]}"><img src="./assets/reels/{site["repo"]}.gif" '
-            f'alt="Recording of {site["repo"]} — {info["label"]}, recorded {info["recorded"]}" width="100%" /></a>'
-            f'<br/><sub><a href="{site["url"]}"><b>{site["repo"]}</b></a> — {info["label"]} · '
-            f'recorded {info["recorded"]} · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>'
-        )
+        gif = os.path.join(reel_dir, f"{site['repo']}.gif")
+        cover = os.path.join(reel_dir, f"{site['repo']}-cover.png")
+        if not os.path.exists(gif) or not os.path.exists(cover):
+            continue                      # never list a reel that is not on disk
+        entries.append((site, info))
 
-    if not rows:
+    if not entries:
         return "_No reels recorded yet — the next run of `reels.yml` fills this in._"
 
-    # One full-width row per reel: these are detailed dashboards and canvases, and
-    # at half width the text inside them stops being readable.
-    return (
-        "".join(row + "\n\n" for row in rows)
-        + "_These are recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a "
-        "README, so a few seconds of the real page is the closest an honest profile can get. "
-        "Each one is captioned with the date it was taken — click through for the live site._"
+    latest = [e for e in entries if e[1].get("recorded")]
+    latest.sort(key=lambda e: e[1]["recorded"], reverse=True)
+    # The two newest play inline: a page that opens with nothing moving would be
+    # a strange thing to ship after building all of this.
+    hero = entries[:2]
+    hero_repos = {site["repo"] for site, _ in hero}
+    rest = [e for e in entries if e[0]["repo"] not in hero_repos]
+
+    parts = []
+    for site, info in hero:
+        parts.append(
+            f'<a href="{site["url"]}"><img src="./assets/reels/{site["repo"]}.gif" '
+            f'alt="Recording of {site["repo"]} — {info["label"]}, recorded {info["recorded"]}" '
+            f'width="100%" /></a>'
+            f'<sub><a href="{site["url"]}"><b>{site["repo"]}</b></a> — {info["label"]} · '
+            f'recorded {info["recorded"]}</sub>'
+        )
+
+    if rest:
+        rows = []
+        for site, info in rest:
+            rows.append(
+                f'<tr><td width="46%" valign="middle">\n'
+                f'<a href="{site["url"]}"><img src="./assets/reels/{site["repo"]}-cover.png" '
+                f'width="100%" alt="{site["repo"]} — {info["label"]}, recorded {info["recorded"]}" /></a>\n'
+                f'</td><td valign="middle">\n'
+                f'<a href="{site["url"]}"><b>{site["repo"]}</b></a><br/>\n'
+                f'<sub>{info["label"]}<br/>recorded {info["recorded"]} · '
+                f'<a href="{site["url"]}">open live site ↗</a></sub>\n'
+                f'<details><summary>▶ click to play</summary><br/>\n\n'
+                f'<img src="./assets/reels/{site["repo"]}.gif" width="100%" '
+                f'alt="Recording of {site["repo"]} playing" />\n\n</details>\n'
+                f'</td></tr>'
+            )
+        parts.append(
+            f'<details open><summary><b>{len(rest)} more, click any to play</b> '
+            f'<sub>(the still is the cover; the GIF loads when you open it)</sub></summary>\n'
+            f'<table>\n{"".join(rows)}\n</table>\n</details>'
+        )
+
+    total_mb = sum(i["gif_bytes"] for _, i in entries) / 1e6
+    covers_kb = sum(i.get("cover_bytes", 0) for _, i in rest) / 1e3
+    parts.append(
+        f"<sub>Recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a "
+        f"README and runs no JavaScript, so nothing here can be started by a click in the "
+        f"traditional sense — each row's recording is fetched only when you expand it, which "
+        f"keeps this section at ~{covers_kb:.0f} kB instead of the ~{total_mb:.0f} MB the "
+        f"reels would cost if all {len(entries)} loaded eagerly. Every one is captioned with "
+        f"its date; click through for the live site.</sub>"
     )
+    return "\n\n".join(parts)
 
 
 VOLATILE = re.compile(r"<!-- Last updated: .*?-->")

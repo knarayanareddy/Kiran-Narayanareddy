@@ -58,6 +58,7 @@ jobs:
       - name: Record and encode
         env:
           FORCE: ${{ inputs.force }}
+          REEL_WORKERS: "4"
         run: |
           set -o pipefail
           # Tee the log so a failure can be published to the summary. The run
@@ -80,6 +81,12 @@ jobs:
           git commit -m "🚨 Log the failed reel recording [skip ci]" || exit 0
           git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
           git push origin "HEAD:${GITHUB_REF_NAME}" || true
+
+      # Covers are made from frames already on disk, so this step needs Pillow
+      # but never a browser: a re-record on a runner without Chromium still
+      # leaves the grid looking right.
+      - name: Rebuild the grid covers
+        run: python3 scripts/build_reel.py --posters
 
       - name: Keep the recording log
         if: always()

@@ -51,13 +51,34 @@ OUT = os.path.join(ROOT, "assets", "reels")
 FRAMES = os.path.join(OUT, "frames")
 MANIFEST = os.path.join(OUT, "manifest.json")
 
-# The reels that earn their bandwidth. A GIF costs ~30x the bytes of a still, so
-# this list is short on purpose: the newest build and the two projects that are
-# actually interactive. Everything else keeps its still capture in the mosaic.
+# Every project that gets a reel. A GIF costs ~30x the bytes of a still, so this
+# is a deliberate edit, not "all 37": the ones with something to show. Each entry
+# is (repo, one-line label, the gesture that best suits the page).
+#
+#   scroll  - a landing page or document: scrolling reveals it
+#   pointer - an app or dashboard: hover states and pointer-reactive canvases
+#   mixed   - a bit of both
 REELS = [
-    ("sallie-returns-ai-agent", "returns pipeline"),
-    ("toolscour", "3D knowledge galaxy"),
-    ("3dexperimentation", "canvas film studio"),
+    ("sallie-returns-ai-agent", "returns pipeline", "pointer"),
+    ("toolscour", "3D knowledge galaxy", "mixed"),
+    ("3dexperimentation", "canvas film studio", "pointer"),
+    ("AI-Arsenal", "schema-first encyclopedia", "scroll"),
+    ("gitscour", "50,000+ repo knowledge base", "scroll"),
+    ("Aeroscribe", "manuscript pipeline", "scroll"),
+    ("WebsitedesignandPrompts", "landing-page templates", "scroll"),
+    ("Bunqsy", "7-agent financial guardian", "pointer"),
+    ("AI-Daily", "daily AI briefing", "scroll"),
+    ("curiolab", "family science episodes", "mixed"),
+    ("roomsmith", "escape-room engine", "pointer"),
+    ("dreamswarm", "multi-agent orchestrator", "mixed"),
+    ("gridqueue-grid-connection", "grid interconnection navigator", "pointer"),
+    ("twitch-codex", "live-audience builds", "mixed"),
+    ("proofpress-evidence-portal", "Three.js evidence journey", "mixed"),
+    ("jointcheck-solder-inspection", "solder-joint inspection", "mixed"),
+    ("redflag-eu-compliance", "EU product-safety gate", "scroll"),
+    ("harvestgrid", "harvest forecasting + gleaning", "mixed"),
+    ("Magpie", "autonomous classifieds scout", "scroll"),
+    ("Nimbus", "parametric climate cover", "mixed"),
 ]
 
 # GitHub serves README images through Camo, which refuses anything over ~5 MB.
@@ -74,7 +95,6 @@ STEP_MS = 110
 THEMES = TOKENS
 
 WORK = os.path.join(OUT, "_work")
-SCALED = os.path.join(WORK, "scaled")
 
 
 def esc(text: str) -> str:
@@ -150,6 +170,71 @@ def chrome_png(path: str, url: str, repo: str, recorded: str) -> None:
     image.save(path)
 
 
+def make_posters() -> dict:
+    """A still cover per reel, for the grid on the README.
+
+    The grid shows a cover per project; the GIF is only fetched when someone opens
+    that project. That is not decoration: GitHub emits no loading="lazy" on README
+    images (checked in the served HTML), so twenty eager GIFs would be ~40 MB
+    downloaded before anyone clicked anything. Twenty covers are ~1.5 MB.
+
+    The cover is the reel's first frame plus the same chrome, so the grid and the
+    playing reel look like the same thing.
+    """
+    from PIL import Image
+
+    covers = {}
+    manifest = {}
+    if os.path.exists(MANIFEST):
+        try:
+            with open(MANIFEST, encoding="utf-8") as handle:
+                manifest = json.load(handle)
+        except ValueError:
+            manifest = {}
+
+    for repo, info in manifest.items():
+        frames = sorted(
+            n for n in os.listdir(os.path.join(FRAMES, repo)) if n.endswith(".png")
+        ) if os.path.isdir(os.path.join(FRAMES, repo)) else []
+        if not frames:
+            continue
+        # mid-reel, not frame zero: frame zero is a page that has not started
+        # moving yet, and the cover of a demo should look like something happening
+        chrome = os.path.join(work_dir(repo), "chrome.png")
+        if not os.path.exists(chrome):
+            # A normal run deletes its scratch directory when it finishes, so the
+            # separate --posters step has to be able to draw the chrome itself.
+            chrome_png(chrome, info["url"], repo, info.get("recorded", ""))
+
+        source = os.path.join(FRAMES, repo, frames[len(frames) // 3])
+        cover = os.path.join(OUT, f"{repo}-cover.png")
+        img = Image.open(source).convert("RGB")
+        if img.size == (WIDTH, HEIGHT + BAR):
+            # Already composed (a frame recovered from a finished reel). Take the
+            # page area only, so the chrome is not pasted on twice.
+            img = img.crop((0, BAR, WIDTH, BAR + HEIGHT))
+        else:
+            img = img.crop((0, 0, VIEWPORT["width"], int(VIEWPORT["width"] * HEIGHT / WIDTH)))
+            img = img.resize((WIDTH, HEIGHT), Image.LANCZOS)
+        canvas = Image.new("RGB", (WIDTH, HEIGHT + BAR), "#0d1117")
+        canvas.paste(img, (0, BAR))
+        chrome = Image.open(chrome).convert("RGBA")
+        canvas.paste(chrome, (0, 0), chrome)
+        # A cover is a still, shown at ~400px wide in the README. Full 900px and
+        # 160 colours is roughly three times the bytes for pixels nobody sees.
+        canvas = canvas.resize((WIDTH // 2, (HEIGHT + BAR) // 2), Image.LANCZOS)
+        canvas = canvas.convert("P", palette=Image.ADAPTIVE, colors=96)
+        canvas.save(cover, optimize=True)
+        info["cover_bytes"] = os.path.getsize(cover)
+        covers[repo] = cover
+        print(f"{repo:30} cover {info['cover_bytes'] / 1e3:6.0f} kB")
+
+    with open(MANIFEST, "w", encoding="utf-8") as handle:
+        json.dump(manifest, handle, indent=2, sort_keys=True)
+        handle.write("\n")
+    return covers
+
+
 def ffmpeg() -> str | None:
     """ffmpeg from PATH, or from the pip wheel that ships a static build.
 
@@ -167,7 +252,7 @@ def ffmpeg() -> str | None:
         return None
 
 
-def record(repo: str, url: str, force: bool) -> dict:
+def record(repo: str, url: str, force: bool, gesture: str = "mixed") -> dict:
     """Drive a real browser over the real URL and screenshot as it moves."""
     from playwright.sync_api import sync_playwright  # imported lazily
 
@@ -206,7 +291,7 @@ def record(repo: str, url: str, force: bool) -> dict:
         # the pointer across them instead: hover states fire, and the
         # pointer-reactive canvases actually react. Still a recording of the
         # real page, just a gesture that suits the page.
-        if travel < 200:
+        if gesture == "pointer" or (gesture == "mixed" and travel < 200):
             page.evaluate("window.scrollTo({top:0, behavior:'instant'})")
             cols, rows = 5, 2
             for r in range(rows):
@@ -231,13 +316,26 @@ def record(repo: str, url: str, force: bool) -> dict:
     return {"frames": index, "recorded": datetime.now(timezone.utc).strftime("%Y-%m-%d")}
 
 
+def work_dir(repo: str) -> str:
+    """Per-reel scratch space.
+
+    Shared scratch broke as soon as reels were recorded in parallel: two workers
+    wrote s000.png into the same directory and the encoder stitched a flipbook
+    of two different sites. Each repo gets its own.
+    """
+    path = os.path.join(WORK, repo)
+    os.makedirs(path, exist_ok=True)
+    return path
+
+
 def scale_frames(repo: str) -> int:
     """Crop the 1280x720 viewport to the reel aspect and downscale once."""
     exe = ffmpeg()
     if not exe:
         raise RuntimeError("no ffmpeg on PATH and no imageio-ffmpeg installed")
-    shutil.rmtree(SCALED, ignore_errors=True)
-    os.makedirs(SCALED, exist_ok=True)
+    scaled = os.path.join(work_dir(repo), "scaled")
+    shutil.rmtree(scaled, ignore_errors=True)
+    os.makedirs(scaled, exist_ok=True)
     crop_h = int(VIEWPORT["width"] * HEIGHT / WIDTH)      # exactly the viewport
     subprocess.run(
         [exe, "-y", "-loglevel", "error", "-framerate", str(FPS),
@@ -247,10 +345,10 @@ def scale_frames(repo: str) -> int:
          # chrome overlay from being clipped at the bottom.
          "-vf", f"crop={VIEWPORT['width']}:{crop_h}:0:0,scale={WIDTH}:{HEIGHT}:flags=lanczos,"
                 f"pad={WIDTH}:{HEIGHT + BAR}:0:{BAR}:color=0x0d1117",
-         os.path.join(SCALED, "s%03d.png")],
+         os.path.join(scaled, "s%03d.png")],
         check=True,
     )
-    return len([n for n in os.listdir(SCALED) if n.endswith(".png")])
+    return len([n for n in os.listdir(scaled) if n.endswith(".png")])
 
 
 def compose_gif(repo: str, url: str, recorded: str) -> tuple[str, int]:
@@ -259,18 +357,17 @@ def compose_gif(repo: str, url: str, recorded: str) -> tuple[str, int]:
     if not exe:
         raise SystemExit("no ffmpeg available: install it, or pip install imageio-ffmpeg")
 
-    os.makedirs(WORK, exist_ok=True)
-    overlay = os.path.join(WORK, "chrome.png")
+    overlay = os.path.join(work_dir(repo), "chrome.png")
     chrome_png(overlay, url, repo, recorded)
 
     gif = os.path.join(OUT, f"{repo}.gif")
     width = WIDTH
     colors = 160
     for attempt in range(4):
-        palette = os.path.join(WORK, "palette.png")
+        palette = os.path.join(work_dir(repo), "palette.png")
         subprocess.run(
             [exe, "-y", "-loglevel", "error", "-framerate", str(FPS),
-             "-i", os.path.join(SCALED, "s%03d.png"),
+             "-i", os.path.join(work_dir(repo), "scaled", "s%03d.png"),
              "-i", overlay,
              "-filter_complex",
              f"[0:v]scale={width}:-1:flags=lanczos,fps={FPS}[base];"
@@ -298,10 +395,19 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("repos", nargs="*", help="only these repos")
     parser.add_argument("--force", action="store_true")
+    parser.add_argument("--posters", action="store_true",
+                        help="only rebuild the grid covers from frames already on disk")
     args = parser.parse_args()
 
     os.makedirs(OUT, exist_ok=True)
     os.makedirs(FRAMES, exist_ok=True)
+
+    if args.posters:
+        # Separate CI step, run with Pillow but without a browser: it only needs
+        # the frames the recording step already left behind.
+        make_posters()
+        shutil.rmtree(WORK, ignore_errors=True)
+        return 0
 
     try:
         with open(SITES, encoding="utf-8") as handle:
@@ -318,9 +424,9 @@ def main() -> int:
         except ValueError:
             manifest = {}
 
-    wanted = [(n, lbl) for n, lbl in REELS if not args.repos or n in args.repos]
+    wanted = [r for r in REELS if not args.repos or r[0] in args.repos]
     failures = 0
-    for repo, label in wanted:
+    for repo, label, gesture in wanted:
         site = by_name.get(repo)
         if not site:
             print(f"{repo}: not in data/sites.json (nothing deployed?)", file=sys.stderr)
@@ -331,7 +437,7 @@ def main() -> int:
         cached = os.path.isdir(folder) and any(n.endswith(".png") for n in os.listdir(folder))
         try:
             if args.force or not cached:
-                info = record(repo, site["url"], args.force)
+                info = record(repo, site["url"], args.force, gesture)
             else:
                 info = {
                     "frames": len([n for n in os.listdir(folder) if n.endswith(".png")]),
@@ -342,6 +448,13 @@ def main() -> int:
             if not kept:
                 raise RuntimeError("no frames to encode")
             gif, size = compose_gif(repo, site["url"], info["recorded"])
+            # A cover is made here too when a browser is available; the CI step
+            # also re-runs this from frames alone, which is what covers a
+            # re-record on a runner without Pillow.
+            try:
+                make_posters()
+            except Exception:                     # noqa: BLE001
+                pass
         except Exception as exc:                  # noqa: BLE001
             print(f"{repo}: could not build a reel ({type(exc).__name__}: {exc})", file=sys.stderr)
             failures += 1

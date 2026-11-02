@@ -132,13 +132,197 @@ class KiranNarayanareddy:
 ### 🎬 Three of them, actually moving
 
 <!-- REELS:START -->
-<a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><img src="./assets/reels/sallie-returns-ai-agent.gif" alt="Recording of sallie-returns-ai-agent — returns pipeline, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><b>sallie-returns-ai-agent</b></a> — returns pipeline · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
+<a href="https://knarayanareddy.github.io/Aeroscribe/"><img src="./assets/reels/Aeroscribe.gif" alt="Recording of Aeroscribe — manuscript pipeline, recorded 2026-11-02" width="100%" /></a><sub><a href="https://knarayanareddy.github.io/Aeroscribe/"><b>Aeroscribe</b></a> — manuscript pipeline · recorded 2026-11-02</sub>
 
-<a href="https://knarayanareddy.github.io/toolscour/"><img src="./assets/reels/toolscour.gif" alt="Recording of toolscour — 3D knowledge galaxy, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/toolscour/"><b>toolscour</b></a> — 3D knowledge galaxy · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
+<a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><img src="./assets/reels/sallie-returns-ai-agent.gif" alt="Recording of sallie-returns-ai-agent — returns pipeline, recorded 2026-11-02" width="100%" /></a><sub><a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><b>sallie-returns-ai-agent</b></a> — returns pipeline · recorded 2026-11-02</sub>
 
-<a href="https://knarayanareddy.github.io/3dexperimentation/"><img src="./assets/reels/3dexperimentation.gif" alt="Recording of 3dexperimentation — canvas film studio, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/3dexperimentation/"><b>3dexperimentation</b></a> — canvas film studio · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
+<details open><summary><b>18 more, click any to play</b> <sub>(the still is the cover; the GIF loads when you open it)</sub></summary>
+<table>
+<tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/toolscour/"><img src="./assets/reels/toolscour-cover.png" width="100%" alt="toolscour — 3D knowledge galaxy, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/toolscour/"><b>toolscour</b></a><br/>
+<sub>3D knowledge galaxy<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/toolscour/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
 
-_These are recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a README, so a few seconds of the real page is the closest an honest profile can get. Each one is captioned with the date it was taken — click through for the live site._
+<img src="./assets/reels/toolscour.gif" width="100%" alt="Recording of toolscour playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/AI-Daily/"><img src="./assets/reels/AI-Daily-cover.png" width="100%" alt="AI-Daily — daily AI briefing, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/AI-Daily/"><b>AI-Daily</b></a><br/>
+<sub>daily AI briefing<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/AI-Daily/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/AI-Daily.gif" width="100%" alt="Recording of AI-Daily playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/AI-Arsenal/"><img src="./assets/reels/AI-Arsenal-cover.png" width="100%" alt="AI-Arsenal — schema-first encyclopedia, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/AI-Arsenal/"><b>AI-Arsenal</b></a><br/>
+<sub>schema-first encyclopedia<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/AI-Arsenal/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/AI-Arsenal.gif" width="100%" alt="Recording of AI-Arsenal playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/3dexperimentation/"><img src="./assets/reels/3dexperimentation-cover.png" width="100%" alt="3dexperimentation — canvas film studio, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/3dexperimentation/"><b>3dexperimentation</b></a><br/>
+<sub>canvas film studio<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/3dexperimentation/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/3dexperimentation.gif" width="100%" alt="Recording of 3dexperimentation playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/gridqueue-grid-connection/"><img src="./assets/reels/gridqueue-grid-connection-cover.png" width="100%" alt="gridqueue-grid-connection — grid interconnection navigator, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/gridqueue-grid-connection/"><b>gridqueue-grid-connection</b></a><br/>
+<sub>grid interconnection navigator<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/gridqueue-grid-connection/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/gridqueue-grid-connection.gif" width="100%" alt="Recording of gridqueue-grid-connection playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/twitch-codex/"><img src="./assets/reels/twitch-codex-cover.png" width="100%" alt="twitch-codex — live-audience builds, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/twitch-codex/"><b>twitch-codex</b></a><br/>
+<sub>live-audience builds<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/twitch-codex/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/twitch-codex.gif" width="100%" alt="Recording of twitch-codex playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/redflag-eu-compliance/"><img src="./assets/reels/redflag-eu-compliance-cover.png" width="100%" alt="redflag-eu-compliance — EU product-safety gate, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/redflag-eu-compliance/"><b>redflag-eu-compliance</b></a><br/>
+<sub>EU product-safety gate<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/redflag-eu-compliance/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/redflag-eu-compliance.gif" width="100%" alt="Recording of redflag-eu-compliance playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/jointcheck-solder-inspection/"><img src="./assets/reels/jointcheck-solder-inspection-cover.png" width="100%" alt="jointcheck-solder-inspection — solder-joint inspection, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/jointcheck-solder-inspection/"><b>jointcheck-solder-inspection</b></a><br/>
+<sub>solder-joint inspection<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/jointcheck-solder-inspection/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/jointcheck-solder-inspection.gif" width="100%" alt="Recording of jointcheck-solder-inspection playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/curiolab/"><img src="./assets/reels/curiolab-cover.png" width="100%" alt="curiolab — family science episodes, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/curiolab/"><b>curiolab</b></a><br/>
+<sub>family science episodes<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/curiolab/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/curiolab.gif" width="100%" alt="Recording of curiolab playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/roomsmith/"><img src="./assets/reels/roomsmith-cover.png" width="100%" alt="roomsmith — escape-room engine, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/roomsmith/"><b>roomsmith</b></a><br/>
+<sub>escape-room engine<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/roomsmith/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/roomsmith.gif" width="100%" alt="Recording of roomsmith playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/harvestgrid/"><img src="./assets/reels/harvestgrid-cover.png" width="100%" alt="harvestgrid — harvest forecasting + gleaning, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/harvestgrid/"><b>harvestgrid</b></a><br/>
+<sub>harvest forecasting + gleaning<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/harvestgrid/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/harvestgrid.gif" width="100%" alt="Recording of harvestgrid playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/WebsitedesignandPrompts/"><img src="./assets/reels/WebsitedesignandPrompts-cover.png" width="100%" alt="WebsitedesignandPrompts — landing-page templates, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/WebsitedesignandPrompts/"><b>WebsitedesignandPrompts</b></a><br/>
+<sub>landing-page templates<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/WebsitedesignandPrompts/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/WebsitedesignandPrompts.gif" width="100%" alt="Recording of WebsitedesignandPrompts playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/Nimbus/"><img src="./assets/reels/Nimbus-cover.png" width="100%" alt="Nimbus — parametric climate cover, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/Nimbus/"><b>Nimbus</b></a><br/>
+<sub>parametric climate cover<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/Nimbus/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/Nimbus.gif" width="100%" alt="Recording of Nimbus playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/Bunqsy/"><img src="./assets/reels/Bunqsy-cover.png" width="100%" alt="Bunqsy — 7-agent financial guardian, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/Bunqsy/"><b>Bunqsy</b></a><br/>
+<sub>7-agent financial guardian<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/Bunqsy/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/Bunqsy.gif" width="100%" alt="Recording of Bunqsy playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/gitscour/"><img src="./assets/reels/gitscour-cover.png" width="100%" alt="gitscour — 50,000+ repo knowledge base, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/gitscour/"><b>gitscour</b></a><br/>
+<sub>50,000+ repo knowledge base<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/gitscour/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/gitscour.gif" width="100%" alt="Recording of gitscour playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/Magpie/"><img src="./assets/reels/Magpie-cover.png" width="100%" alt="Magpie — autonomous classifieds scout, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/Magpie/"><b>Magpie</b></a><br/>
+<sub>autonomous classifieds scout<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/Magpie/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/Magpie.gif" width="100%" alt="Recording of Magpie playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/proofpress-evidence-portal/"><img src="./assets/reels/proofpress-evidence-portal-cover.png" width="100%" alt="proofpress-evidence-portal — Three.js evidence journey, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/proofpress-evidence-portal/"><b>proofpress-evidence-portal</b></a><br/>
+<sub>Three.js evidence journey<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/proofpress-evidence-portal/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/proofpress-evidence-portal.gif" width="100%" alt="Recording of proofpress-evidence-portal playing" />
+
+</details>
+</td></tr><tr><td width="46%" valign="middle">
+<a href="https://knarayanareddy.github.io/dreamswarm/"><img src="./assets/reels/dreamswarm-cover.png" width="100%" alt="dreamswarm — multi-agent orchestrator, recorded 2026-11-02" /></a>
+</td><td valign="middle">
+<a href="https://knarayanareddy.github.io/dreamswarm/"><b>dreamswarm</b></a><br/>
+<sub>multi-agent orchestrator<br/>recorded 2026-11-02 · <a href="https://knarayanareddy.github.io/dreamswarm/">open live site ↗</a></sub>
+<details><summary>▶ click to play</summary><br/>
+
+<img src="./assets/reels/dreamswarm.gif" width="100%" alt="Recording of dreamswarm playing" />
+
+</details>
+</td></tr>
+</table>
+</details>
+
+<sub>Recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a README and runs no JavaScript, so nothing here can be started by a click in the traditional sense — each row's recording is fetched only when you expand it, which keeps this section at ~438 kB instead of the ~44 MB the reels would cost if all 20 loaded eagerly. Every one is captioned with its date; click through for the live site.</sub>
 <!-- REELS:END -->
 
 ### 📸 Every deployment, as it actually looks
