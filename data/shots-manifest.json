@@ -1,52 +1,20 @@
 {
   "total": 35,
-  "captured": 4,
-  "missing": [
-    "F1Elastichopsworkshack",
-    "vouwfiets",
-    "3dexperimentation",
-    "Aerorepos",
-    "gridqueue-grid-connection",
-    "twitch-codex",
-    "redflag-eu-compliance",
-    "jointcheck-solder-inspection",
-    "reflex-physical-ai",
-    "curiolab",
-    "nexttime",
-    "roomsmith",
-    "accesshold",
-    "harvestgrid",
-    "Agentcrash",
-    "WebsitedesignandPrompts",
-    "Nimbus",
-    "SAAF-circuit-breaker",
-    "so101-domain-operator",
-    "Handy",
-    "Bunqsy",
-    "gitscour",
-    "Courserefresh",
-    "LEGACYVAULTV1.0",
-    "Autoorg",
-    "idea-dump",
-    "Magpie",
-    "ghosthandshake",
-    "keepsake",
-    "proofpress-evidence-portal",
-    "dreamswarm"
-  ],
+  "captured": 35,
+  "missing": [],
   "sites": [
     {
       "repo": "F1Elastichopsworkshack",
       "url": "https://f1hackdemo.kiranreddy.nl/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 248541,
       "pushed": "2026-10-20"
     },
     {
       "repo": "vouwfiets",
       "url": "https://vouwfiets.vercel.app/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 928941,
       "pushed": "2026-10-07"
     },
     {
@@ -80,204 +48,204 @@
     {
       "repo": "3dexperimentation",
       "url": "https://knarayanareddy.github.io/3dexperimentation/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 241041,
       "pushed": "2026-10-29"
     },
     {
       "repo": "Aerorepos",
       "url": "https://knarayanareddy.github.io/Aerorepos/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 106036,
       "pushed": "2026-10-29"
     },
     {
       "repo": "gridqueue-grid-connection",
       "url": "https://knarayanareddy.github.io/gridqueue-grid-connection/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 82328,
       "pushed": "2026-10-29"
     },
     {
       "repo": "twitch-codex",
       "url": "https://knarayanareddy.github.io/twitch-codex/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 284091,
       "pushed": "2026-10-29"
     },
     {
       "repo": "redflag-eu-compliance",
       "url": "https://knarayanareddy.github.io/redflag-eu-compliance/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 374267,
       "pushed": "2026-10-29"
     },
     {
       "repo": "jointcheck-solder-inspection",
       "url": "https://knarayanareddy.github.io/jointcheck-solder-inspection/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 91330,
       "pushed": "2026-10-29"
     },
     {
       "repo": "reflex-physical-ai",
       "url": "https://knarayanareddy.github.io/reflex-physical-ai/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 200066,
       "pushed": "2026-10-29"
     },
     {
       "repo": "curiolab",
       "url": "https://knarayanareddy.github.io/curiolab/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 132731,
       "pushed": "2026-10-24"
     },
     {
       "repo": "nexttime",
       "url": "https://knarayanareddy.github.io/nexttime/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 180251,
       "pushed": "2026-10-24"
     },
     {
       "repo": "roomsmith",
       "url": "https://knarayanareddy.github.io/roomsmith/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 232003,
       "pushed": "2026-10-24"
     },
     {
       "repo": "accesshold",
       "url": "https://knarayanareddy.github.io/accesshold/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 138480,
       "pushed": "2026-10-24"
     },
     {
       "repo": "harvestgrid",
       "url": "https://knarayanareddy.github.io/harvestgrid/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 129868,
       "pushed": "2026-10-24"
     },
     {
       "repo": "Agentcrash",
       "url": "https://knarayanareddy.github.io/Agentcrash/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 141976,
       "pushed": "2026-10-20"
     },
     {
       "repo": "WebsitedesignandPrompts",
       "url": "https://knarayanareddy.github.io/WebsitedesignandPrompts/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 212045,
       "pushed": "2026-10-14"
     },
     {
       "repo": "Nimbus",
       "url": "https://knarayanareddy.github.io/Nimbus/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 372163,
       "pushed": "2026-10-12"
     },
     {
       "repo": "SAAF-circuit-breaker",
       "url": "https://knarayanareddy.github.io/SAAF-circuit-breaker/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 4714,
       "pushed": "2026-10-06"
     },
     {
       "repo": "so101-domain-operator",
       "url": "https://knarayanareddy.github.io/so101-domain-operator/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 182915,
       "pushed": "2026-10-04"
     },
     {
       "repo": "Handy",
       "url": "https://knarayanareddy.github.io/Handy/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 28208,
       "pushed": "2026-10-03"
     },
     {
       "repo": "Bunqsy",
       "url": "https://knarayanareddy.github.io/Bunqsy/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 571902,
       "pushed": "2026-10-02"
     },
     {
       "repo": "gitscour",
       "url": "https://knarayanareddy.github.io/gitscour/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 169141,
       "pushed": "2026-10-02"
     },
     {
       "repo": "Courserefresh",
       "url": "https://knarayanareddy.github.io/Courserefresh/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 108093,
       "pushed": "2026-10-02"
     },
     {
       "repo": "LEGACYVAULTV1.0",
       "url": "https://knarayanareddy.github.io/LEGACYVAULTV1.0/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 285902,
       "pushed": "2026-10-01"
     },
     {
       "repo": "Autoorg",
       "url": "https://knarayanareddy.github.io/Autoorg/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 175232,
       "pushed": "2026-10-01"
     },
     {
       "repo": "idea-dump",
       "url": "https://knarayanareddy.github.io/idea-dump/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 103210,
       "pushed": "2026-09-29"
     },
     {
       "repo": "Magpie",
       "url": "https://knarayanareddy.github.io/Magpie/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 343553,
       "pushed": "2026-09-26"
     },
     {
       "repo": "ghosthandshake",
       "url": "https://knarayanareddy.github.io/ghosthandshake/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 22700,
       "pushed": "2026-08-31"
     },
     {
       "repo": "keepsake",
       "url": "https://knarayanareddy.github.io/keepsake/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 55611,
       "pushed": "2026-08-29"
     },
     {
       "repo": "proofpress-evidence-portal",
       "url": "https://knarayanareddy.github.io/proofpress-evidence-portal/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 684057,
       "pushed": "2026-08-19"
     },
     {
       "repo": "dreamswarm",
       "url": "https://knarayanareddy.github.io/dreamswarm/",
-      "ok": false,
-      "bytes": 0,
+      "ok": true,
+      "bytes": 333864,
       "pushed": "2026-04-15"
     }
   ]
