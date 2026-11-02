@@ -2,3 +2,7 @@ __pycache__/
 *.py[cod]
 .venv/
 .DS_Store
+
+# Reel frames are an intermediate: only the composed GIFs are worth a commit.
+assets/reels/frames/
+assets/reels/_work/

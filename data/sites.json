@@ -5,12 +5,12 @@
   "repos": 124,
   "stars": 112,
   "forks": 5,
-  "site_count": 36,
-  "pages_count": 34,
+  "site_count": 37,
+  "pages_count": 35,
   "languages": [
     [
       "TypeScript",
-      43
+      44
     ],
     [
       "Python",
@@ -33,15 +33,20 @@
       2
     ],
     [
-      "Shell",
-      1
-    ],
-    [
       "Kotlin",
       1
     ]
   ],
   "sites": [
+    {
+      "repo": "myjevuses",
+      "url": "https://knarayanareddy.github.io/myjevuses/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-02",
+      "blurb": ""
+    },
     {
       "repo": "Aeroscribe",
       "url": "https://knarayanareddy.github.io/Aeroscribe/",
