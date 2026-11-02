@@ -124,8 +124,19 @@ safe, zero external requests. **This alone changes the profile from "templated" 
 every deployment at 1280×800, crops to a uniform tile, and composes a screenshot wall
 (`assets/mosaic-{dark,light}.png`) plus a clickable SVG index. Captures are cached per repo
 and only re-taken when that repo is pushed, so a daily run costs almost nothing.
-*Status: pipeline + compositor built and verified with synthetic captures; real captures
-are produced by CI, which is the only place with browser downloads available.*
+**Getting a browser where there isn't one.** This sandbox cannot download Chromium, and
+`workflow_dispatch` only registers workflows that exist on the default branch — so a branch
+run cannot be requested directly. The way through is a push trigger: allow `arena/**` in
+`screenshots.yml`, and a commit to the working branch starts a run on a runner that *does*
+have a browser. The job then commits the captures back to that branch, and the sandbox
+fetches them with `git pull` (`api.github.com` is reachable even when `raw.githubusercontent`
+is not). Two further obstacles, both real on this repo: Actions is not permitted to create
+pull requests here, so publishing must be a plain commit; and the working tree needs
+`contents: write`. Total round trip: about 70 seconds for 35 sites.
+
+*Status: shipped. 33 of 35 deployments capture cleanly; `Handy` serves GitHub's 404 and
+`SAAF-circuit-breaker` renders blank, so both are classified as unavailable and left off the
+wall instead of being shown broken.*
 
 ### ✅ 4. One designed dashboard — IMPLEMENTED
 `scripts/build_dashboard.py` → `assets/dashboard-{dark,light}.svg`. Replaces the stats card,

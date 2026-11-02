@@ -110,7 +110,7 @@ class KiranNarayanareddy:
 </picture>
 
 <details>
-<summary><b>📸 More of the wall (pages 2–3, the rest of the 35 deployments)</b></summary>
+<summary><b>📸 More of the wall (pages 2–3 — all 33 reachable deployments)</b></summary>
 <br/>
 
 <picture>
@@ -127,7 +127,7 @@ class KiranNarayanareddy:
 
 </details>
 
-<sub>Real captures, one per deployment, taken headlessly by <a href=".github/workflows/screenshots.yml">screenshots.yml</a> and recaptured only when a site changes. Coverage is in <a href="./data/shots-manifest.json">data/shots-manifest.json</a>. <a href="./assets/mosaic-dark.svg">Clickable index</a>.</sub>
+<sub>Real captures taken headlessly by <a href=".github/workflows/screenshots.yml">screenshots.yml</a>, recaptured only when a site changes. Unreachable deployments are detected and left off the wall rather than shown broken — coverage is in <a href="./data/shots-manifest.json">data/shots-manifest.json</a>. <a href="./assets/mosaic-dark.svg">Clickable index</a>.</sub>
 
 <br/>
 
