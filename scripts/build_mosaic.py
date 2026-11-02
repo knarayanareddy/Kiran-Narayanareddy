@@ -23,8 +23,11 @@ from __future__ import annotations
 
 import argparse
 import json
+from datetime import datetime, timezone
 import os
 import sys
+import urllib.error
+import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +35,7 @@ SITES = os.path.join(ROOT, "data", "sites.json")
 SHOTS = os.path.join(ROOT, "assets", "shots")
 OUT_DIR = os.path.join(ROOT, "assets")
 
+USER = os.environ.get("PROFILE_USER", "knarayanareddy")
 VIEWPORT = {"width": 1280, "height": 800}
 TILE = 360            # display width of one tile in the mosaic
 COLS = 4
@@ -48,10 +52,73 @@ THEMES = {
 }
 
 
+def fetch_sites_live() -> list[dict] | None:
+    """Ask the Pages API directly so we never capture from a stale snapshot.
+
+    The daily refresh normally updates data/sites.json, but a capture run that
+    races it (or runs on a branch) should still see sites deployed today.
+    """
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if not token or os.environ.get("MOSAIC_OFFLINE"):
+        return None
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "mosaic-builder",
+        "Authorization": f"Bearer {token}",
+    }
+
+    def get(path: str):
+        request = urllib.request.Request(f"https://api.github.com{path}", headers=headers)
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return json.loads(response.read().decode())
+        except urllib.error.HTTPError:
+            return None
+
+    repos = []
+    for page in (1, 2):
+        batch = get(f"/users/{USER}/repos?per_page=100&page={page}&sort=pushed&type=owner")
+        if not batch:
+            break
+        repos.extend(batch)
+
+    sites = []
+    for repo in repos:
+        if repo.get("fork") or repo["name"] in EXCLUDE:
+            continue
+        home = (repo.get("homepage") or "").strip()
+        info = get(f"/repos/{USER}/{repo['name']}/pages")
+        on_pages = isinstance(info, dict) and bool(info.get("html_url"))
+        url = None
+        external = False
+        if home and "github.io" not in home:
+            if on_pages or repo.get("has_pages"):
+                url, external = home, True
+        elif on_pages:
+            url = info["html_url"]
+        elif home:
+            url = home
+        if not url:
+            continue
+        sites.append({
+            "repo": repo["name"],
+            "url": url.rstrip("/") + "/",
+            "lang": repo.get("language") or "",
+            "stars": repo.get("stargazers_count", 0),
+            "pushed": (repo.get("pushed_at") or "")[:10],
+            "pages": not external,
+        })
+    return sites or None
+
+
 def load_sites() -> list[dict]:
-    with open(SITES, encoding="utf-8") as handle:
-        data = json.load(handle)
-    sites = data.get("sites", [])
+    live = fetch_sites_live()
+    if live:
+        print(f"using {len(live)} live sites from the GitHub API", file=sys.stderr)
+        sites = live
+    else:
+        with open(SITES, encoding="utf-8") as handle:
+            sites = json.load(handle).get("sites", [])
     # Pages first, then most recently pushed: the top of the wall should be the
     # things that are actually alive.
     sites.sort(key=lambda s: (not s.get("pages", False), s.get("pushed", "")), reverse=True)
@@ -96,9 +163,20 @@ def capture(sites: list[dict], force: bool, workers: int = 4) -> None:
                 page.wait_for_timeout(600)
                 page.screenshot(path=png, type="png")
                 browser.close()
-            with open(os.path.join(SHOTS, f"{name}.json"), "w", encoding="utf-8") as handle:
-                json.dump({"url": site["url"], "pushed": site.get("pushed"),
-                           "captured": site.get("captured_at")}, handle)
+            meta_path = os.path.join(SHOTS, f"{name}.json")
+            meta = {"url": site["url"], "pushed": site.get("pushed"),
+                    "captured": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}
+            previous = None
+            if os.path.exists(meta_path):
+                try:
+                    with open(meta_path, encoding="utf-8") as handle:
+                        previous = json.load(handle)
+                except json.JSONDecodeError:
+                    previous = None
+            if previous != meta:
+                with open(meta_path, "w", encoding="utf-8") as handle:
+                    json.dump(meta, handle, indent=1, sort_keys=True)
+                    handle.write("\n")
             return name, "ok"
         except Exception as exc:  # noqa: BLE001 - a dead site must not kill the run
             return name, f"fail: {type(exc).__name__}"
@@ -218,6 +296,36 @@ def index_svg(sites: list[dict]) -> None:
         print(f"wrote {os.path.relpath(path, ROOT)}", file=sys.stderr)
 
 
+EXCLUDE = {"sylva", "onegov2-spatial-assistant"}
+
+
+def write_manifest(sites: list[dict]) -> None:
+    """Record which sites we have, which we missed, and why."""
+    rows = []
+    for site in sites:
+        png = os.path.join(SHOTS, f"{site['repo']}.png")
+        rows.append({
+            "repo": site["repo"],
+            "url": site["url"],
+            "ok": os.path.exists(png),
+            "bytes": os.path.getsize(png) if os.path.exists(png) else 0,
+            "pushed": site.get("pushed"),
+        })
+    ok = sum(1 for r in rows if r["ok"])
+    payload = {
+        "total": len(rows),
+        "captured": ok,
+        "missing": [r["repo"] for r in rows if not r["ok"]],
+        "sites": rows,
+    }
+    path = os.path.join(ROOT, "data", "shots-manifest.json")
+    with open(path, "w", encoding="utf-8") as handle:
+        json.dump(payload, handle, indent=2)
+        handle.write("\n")
+    print(f"manifest: {ok}/{len(rows)} captured"
+          f"{', missing ' + ', '.join(payload['missing']) if payload['missing'] else ''}", file=sys.stderr)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--force", action="store_true", help="recapture every site")
@@ -237,6 +345,7 @@ def main() -> int:
 
     compose(sites)
     index_svg(sites)
+    write_manifest(sites)
     return 0
 
 
