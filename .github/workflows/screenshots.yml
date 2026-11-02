@@ -1,3 +1,5 @@
+# Captures every live deployment into assets/shots and composes the wall.
+# Cached per repo (assets/shots/<repo>.json), so re-runs are cheap.
 name: Screenshot the live sites
 
 on:
