@@ -13,6 +13,8 @@ on:
       - "tests/reels.test.mjs"
       - "data/tokens.json"
       - "tests/**"
+      - "README.md"
+      - ".github/workflows/pages.yml"
       - ".github/workflows/tests.yml"
   pull_request:
   workflow_dispatch:
@@ -25,7 +27,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Simulation and projection tests
-        run: |
-          python3 scripts/tokens.py --emit
-          node --test tests/core.test.mjs tests/tokens.test.mjs tests/reels.test.mjs
+      # run.sh is the list of test files: it emits the tokens, then runs every
+      # suite. Enumerating the files here too meant a new suite could sit in the
+      # repo forever without ever running in CI.
+      - name: Simulation, projection and link tests
+        run: sh tests/run.sh

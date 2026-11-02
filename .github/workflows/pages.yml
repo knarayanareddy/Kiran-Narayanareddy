@@ -12,6 +12,7 @@ on:
     paths:
       - "web/**"
       - "data/stats.json"
+      - "data/tokens.json"
       - "assets/reels/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
@@ -43,25 +44,33 @@ jobs:
             echo "::notice::Pages is not enabled. Settings -> Pages -> Source: GitHub Actions, then re-run."
           fi
 
+      # The pages fetch "../data/<file>.json" so that the same file works both
+      # from here and over file://, which means _site/data/ has to exist at the
+      # site root. Publishing only stats.json was a silent bug: index.html also
+      # asks for tokens.json, and when it 404s the page quietly draws from a
+      # hardcoded palette that drifts from scripts/tokens.py. Publish the whole
+      # directory and the drift cannot happen.
       - name: Assemble the site
         if: steps.check.outputs.enabled == 'true'
         run: |
+          set -eu
           mkdir -p _site
+          # web/ is exactly what gets published: flat copies plus the directory
+          # copies below were the same bytes in two places, and a stale copy is
+          # invisible until someone loads the wrong URL.
           cp -r web/* _site/
           mkdir -p _site/data
-          cp data/stats.json _site/data/stats.json
-          # web/index.html and web/snake.html reference ../data/…, so also serve
-          # them at the root paths those links expect
-          mkdir -p _site/dashboards _site/snake
-          cp web/index.html _site/dashboards/index.html
-          cp web/snake.html _site/snake/index.html
-          cp web/core.js _site/core.js
+          cp data/*.json _site/data/
           # The reel player streams recordings from this same origin, so they are
           # published next to it: no Camo, no 5 MB ceiling, no proxy.
           mkdir -p _site/reels
           cp assets/reels/manifest.json _site/reels/manifest.json
           cp assets/reels/*.gif assets/reels/*-cover.png _site/reels/
-          echo "published $(ls _site/reels | wc -l) reel assets"
+          echo "published: $(ls _site/reels | wc -l) reel assets, $(ls _site/data | wc -l) data files"
+          # Fail loudly rather than shipping a page whose styles silently fall back.
+          for f in _site/data/stats.json _site/data/tokens.json _site/index.html _site/snake.html _site/reel.html; do
+            test -f "$f" || { echo "::error::missing $f in the published site"; exit 1; }
+          done
 
       - uses: actions/configure-pages@v5
         if: steps.check.outputs.enabled == 'true'
