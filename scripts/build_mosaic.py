@@ -39,7 +39,7 @@ USER = os.environ.get("PROFILE_USER", "knarayanareddy")
 VIEWPORT = {"width": 1280, "height": 800}
 TILE = 360            # display width of one tile in the mosaic
 COLS = 4
-ROWS = 4
+ROWS = 4              # per page: 16 tiles
 PAD = 14
 GAP = 14
 CAPTION = 26          # strip under each tile for the repo name
@@ -214,9 +214,19 @@ def compose(sites: list[dict]) -> None:
         if os.path.exists(path):
             available.append((site, path))
 
-    selected = available[: COLS * ROWS]
-    if not selected:
+    if not available:
         raise SystemExit("no screenshots available; run without --cached first")
+
+    per_page = COLS * ROWS
+    pages = [available[i: i + per_page] for i in range(0, len(available), per_page)]
+    for index, page in enumerate(pages, start=1):
+        suffix = "" if index == 1 else f"-{index}"
+        compose_page(page, suffix)
+    print(f"composed {len(pages)} page(s) covering {len(available)} sites", file=sys.stderr)
+
+
+def compose_page(selected: list[dict], suffix: str) -> None:
+    from PIL import Image, ImageDraw
 
     rows = (len(selected) + COLS - 1) // COLS
     width = PAD * 2 + COLS * TILE + (COLS - 1) * GAP
@@ -254,7 +264,7 @@ def compose(sites: list[dict]) -> None:
             if not site.get("pages", False):
                 draw.text((x + TILE - 18, y + tile_h + 6), "↗", fill=theme["accent"], font=caption_font)
 
-        out = os.path.join(OUT_DIR, f"mosaic-{theme_name}.png")
+        out = os.path.join(OUT_DIR, f"mosaic-{theme_name}{suffix}.png")
         canvas.save(out, optimize=True)
         print(f"wrote {os.path.relpath(out, ROOT)} "
               f"({os.path.getsize(out):,} bytes, {len(selected)} tiles)", file=sys.stderr)
@@ -263,7 +273,8 @@ def compose(sites: list[dict]) -> None:
 def index_svg(sites: list[dict]) -> None:
     """A clickable version of the same wall: each tile links to its live site."""
     with_shots = [s for s in sites if os.path.exists(os.path.join(SHOTS, f"{s['repo']}.png"))]
-    tiles = with_shots[: COLS * ROWS]
+    per_page = COLS * ROWS * 2  # the SVG index is denser than the PNG wall
+    tiles = with_shots[:per_page]
     rows = (len(tiles) + COLS - 1) // COLS
     tile_w, tile_h = 210, 118
     width = PAD * 2 + COLS * tile_w + (COLS - 1) * GAP

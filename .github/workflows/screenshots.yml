@@ -78,4 +78,6 @@ jobs:
             exit 0
           fi
           git commit -m "📸 Real screenshots of every live site [skip ci]"
+          # the profile job may have pushed meanwhile; rebase before pushing
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
           git push origin "HEAD:${GITHUB_REF_NAME}"

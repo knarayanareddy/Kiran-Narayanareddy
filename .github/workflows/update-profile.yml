@@ -53,4 +53,6 @@ jobs:
           fi
           git add README.md data/sites.json assets/
           git commit -m "🤖 Refresh live sites and stats [skip ci]"
+          # the screenshot job may have pushed meanwhile; rebase before pushing
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
           git push

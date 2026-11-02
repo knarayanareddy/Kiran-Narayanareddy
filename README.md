@@ -109,7 +109,25 @@ class KiranNarayanareddy:
   <img src="./assets/mosaic-dark.png" alt="Screenshot wall of live deployments" width="100%" />
 </picture>
 
-<sub>Captured headlessly by <a href=".github/workflows/screenshots.yml">screenshots.yml</a>, one tile per repo, recaptured only when a site changes. <a href="./assets/mosaic-dark.svg">Clickable version</a>.</sub>
+<details>
+<summary><b>📸 More of the wall (pages 2–3, the rest of the 35 deployments)</b></summary>
+<br/>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/mosaic-dark-2.png" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/mosaic-light-2.png" />
+  <img src="./assets/mosaic-dark-2.png" alt="Screenshot wall, page two" width="100%" />
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/mosaic-dark-3.png" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/mosaic-light-3.png" />
+  <img src="./assets/mosaic-dark-3.png" alt="Screenshot wall, page three" width="100%" />
+</picture>
+
+</details>
+
+<sub>Real captures, one per deployment, taken headlessly by <a href=".github/workflows/screenshots.yml">screenshots.yml</a> and recaptured only when a site changes. Coverage is in <a href="./data/shots-manifest.json">data/shots-manifest.json</a>. <a href="./assets/mosaic-dark.svg">Clickable index</a>.</sub>
 
 <br/>
 
