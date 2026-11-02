@@ -1,87 +1,64 @@
 # Keeps the "live window" tiles honest.
 #
-# The tiles animate, but the picture inside them is a capture — and a capture
-# that is three weeks old should not keep pulsing like a running site. This
-# workflow does not recapture anything: it asks how old the newest capture is,
-# writes that age into assets/tiles/state.json, and pokes update-profile.yml so
-# the tiles are redrawn. Past 21 days the LIVE pill stops blinking and the URL
-# bar says "captured", which is the truth.
+# Capture age is now recorded inside the nightly profile job (capture_age.py),
+# which already commits assets/ — so this workflow no longer needs to write
+# anything, and no longer tries to dispatch another workflow. That dispatch was
+# broken: GITHUB_TOKEN cannot create workflow_dispatch events (403 "Resource not
+# accessible by integration"), so it silently did nothing after doing its work.
 #
-# Recapturing stays the job of screenshots.yml (daily), so the two never fight
-# over the same files.
-name: Refresh capture age
+# What is left is the integrity check that actually matters: a capture that has
+# gone stale must not keep pulsing LIVE. If one has, this fails the run so it
+# shows up instead of quietly rotting on the profile.
+name: Check capture freshness
 
 on:
   schedule:
-    - cron: "40 3 * * *"   # runs before the 04:17 profile refresh
+    - cron: "40 3 * * *"   # just before the 04:17 profile refresh
   workflow_dispatch:
 
 permissions:
-  contents: write
-  actions: write
+  contents: read
 
 jobs:
-  age:
+  freshness:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Measure the age of every capture
+      - name: Every tile claiming LIVE must have a recent capture
         run: |
           python3 - <<'PY'
-          import json, os
+          import json, os, sys
           from datetime import datetime, timezone
 
-          SHOTS = "assets/shots"
-          state = {"checked": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "sites": {}}
-          for name in sorted(os.listdir(SHOTS)):
-              if not name.endswith(".json"):
-                  continue
-              repo = name[:-5]
-              try:
-                  with open(os.path.join(SHOTS, name), encoding="utf-8") as handle:
-                      meta = json.load(handle)
-              except (ValueError, OSError):
-                  continue
-              stamp = meta.get("captured") or meta.get("captured_at") or meta.get("fetched")
-              png = os.path.join(SHOTS, repo + ".png")
-              if not stamp or not os.path.exists(png):
-                  continue
-              try:
-                  when = datetime.fromisoformat(stamp.replace("Z", "+00:00"))
-              except ValueError:
-                  continue
-              age = (datetime.now(timezone.utc) - when).days
-              state["sites"][repo] = {"captured": stamp, "age_days": age, "confirmed_live": age <= 21}
+          state_path = "assets/tiles/state.json"
+          if not os.path.exists(state_path):
+              print("no state.json yet; nothing to check")
+              sys.exit(0)
 
-          os.makedirs("assets/tiles", exist_ok=True)
-          with open("assets/tiles/state.json", "w", encoding="utf-8") as handle:
-              json.dump(state, handle, indent=2, sort_keys=True)
-              handle.write("\n")
-          fresh = sum(1 for v in state["sites"].values() if v["confirmed_live"])
-          print(f"{fresh}/{len(state['sites'])} captures confirmed live (<= 21 days)")
+          with open(state_path, encoding="utf-8") as handle:
+              state = json.load(handle)
+
+          checked = state.get("checked", "unknown")
+          sites = state.get("sites", {})
+          stale = sorted(repo for repo, info in sites.items() if not info.get("confirmed_live"))
+          fresh = len(sites) - len(stale)
+
+          print(f"### Capture freshness\n")
+          print(f"- checked: `{checked}`")
+          print(f"- confirmed live: **{fresh}/{len(sites)}**")
+          if stale:
+              print(f"- stale (pill downgraded to 'captured'): {', '.join(stale)}")
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+              summary.write(f"Capture freshness: {fresh}/{len(sites)} live")
+              if stale:
+                  summary.write(f" · stale: {', '.join(stale)}")
+              summary.write("\n")
+
+          # Staleness is not a failure on its own: the tile already tells the
+          # truth. It is a failure when the pipeline stopped refreshing at all,
+          # which is what all-stale means.
+          if sites and not fresh:
+              print("::error::every capture is stale - the screenshot pipeline has stopped")
+              sys.exit(1)
           PY
-
-      - name: Commit the age record
-        id: commit
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- assets/tiles/state.json; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "Capture ages unchanged."
-            exit 0
-          fi
-          git add assets/tiles/state.json
-          git commit -m "🕒 Record capture age for the live windows [skip ci]"
-          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
-          git push
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-
-      # The tiles embed the age, and build_tiles.py only commits through the
-      # profile workflow, so trigger it rather than duplicating the commit logic.
-      - name: Ask the profile workflow to redraw the tiles
-        if: steps.commit.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run update-profile.yml --repo "${GITHUB_REPOSITORY}"

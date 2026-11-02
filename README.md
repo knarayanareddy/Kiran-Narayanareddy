@@ -466,7 +466,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
 
 **[kiranreddy.nl](https://kiranreddy.nl)** · Delft, Netherlands · Autonomous agents · Aerospace & physical AI · Compliance-as-code
 
-<sub>Live sites and counters are refreshed by <a href=".github/workflows/update-profile.yml">GitHub Actions</a> — see <a href="scripts/build_profile.py">scripts/build_profile.py</a></sub>
+<sub>Live sites, counters and cards refresh themselves daily at 04:17 UTC via <a href=".github/workflows/update-profile.yml">GitHub Actions</a> — see <a href="scripts/build_profile.py">scripts/build_profile.py</a></sub>
 
 </div>
 
