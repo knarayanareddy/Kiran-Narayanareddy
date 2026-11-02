@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-02T11:11:31Z",
+  "checked": "2026-11-02T12:00:22Z",
   "fresh_days": 21,
   "sites": {
     "3dexperimentation": {
@@ -54,7 +54,7 @@
     },
     "Handy": {
       "age_days": 0,
-      "captured": "2026-11-02T11:08:25Z",
+      "captured": "2026-11-02T11:48:10Z",
       "confirmed_live": true
     },
     "LEGACYVAULTV1.0": {
@@ -74,7 +74,7 @@
     },
     "SAAF-circuit-breaker": {
       "age_days": 0,
-      "captured": "2026-11-02T11:08:25Z",
+      "captured": "2026-11-02T11:48:10Z",
       "confirmed_live": true
     },
     "WebsitedesignandPrompts": {
@@ -155,6 +155,11 @@
     "roomsmith": {
       "age_days": 0,
       "captured": "2026-11-02T08:21:23Z",
+      "confirmed_live": true
+    },
+    "sallie-returns-ai-agent": {
+      "age_days": 0,
+      "captured": "2026-11-02T11:48:10Z",
       "confirmed_live": true
     },
     "so101-domain-operator": {
