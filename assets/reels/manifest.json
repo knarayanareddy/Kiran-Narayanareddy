@@ -1,24 +1,24 @@
 {
   "3dexperimentation": {
-    "cover_bytes": 62240,
+    "cover_bytes": 23339,
     "frames": 34,
-    "gif_bytes": 2337158,
+    "gif_bytes": 2337257,
     "label": "canvas film studio",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/3dexperimentation/"
   },
   "AI-Arsenal": {
-    "cover_bytes": 63915,
+    "cover_bytes": 23721,
     "frames": 24,
-    "gif_bytes": 1664739,
+    "gif_bytes": 1667233,
     "label": "schema-first encyclopedia",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/AI-Arsenal/"
   },
   "AI-Daily": {
-    "cover_bytes": 34482,
+    "cover_bytes": 14020,
     "frames": 24,
     "gif_bytes": 1145954,
     "label": "daily AI briefing",
@@ -27,16 +27,16 @@
     "url": "https://knarayanareddy.github.io/AI-Daily/"
   },
   "Aeroscribe": {
-    "cover_bytes": 35248,
+    "cover_bytes": 30102,
     "frames": 24,
-    "gif_bytes": 3585495,
+    "gif_bytes": 3579856,
     "label": "manuscript pipeline",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/Aeroscribe/"
   },
   "Bunqsy": {
-    "cover_bytes": 137832,
+    "cover_bytes": 37263,
     "frames": 34,
     "gif_bytes": 160126,
     "label": "7-agent financial guardian",
@@ -45,34 +45,34 @@
     "url": "https://knarayanareddy.github.io/Bunqsy/"
   },
   "Magpie": {
-    "cover_bytes": 96375,
+    "cover_bytes": 28725,
     "frames": 24,
-    "gif_bytes": 2768848,
+    "gif_bytes": 2768481,
     "label": "autonomous classifieds scout",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/Magpie/"
   },
   "Nimbus": {
-    "cover_bytes": 59672,
+    "cover_bytes": 18281,
     "frames": 24,
-    "gif_bytes": 2460354,
+    "gif_bytes": 2472001,
     "label": "parametric climate cover",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/Nimbus/"
   },
   "WebsitedesignandPrompts": {
-    "cover_bytes": 119758,
+    "cover_bytes": 37122,
     "frames": 24,
-    "gif_bytes": 3137259,
+    "gif_bytes": 3153203,
     "label": "landing-page templates",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/WebsitedesignandPrompts/"
   },
   "curiolab": {
-    "cover_bytes": 60257,
+    "cover_bytes": 23312,
     "frames": 24,
     "gif_bytes": 1797359,
     "label": "family science episodes",
@@ -81,16 +81,16 @@
     "url": "https://knarayanareddy.github.io/curiolab/"
   },
   "dreamswarm": {
-    "cover_bytes": 50615,
+    "cover_bytes": 17901,
     "frames": 24,
-    "gif_bytes": 2224117,
+    "gif_bytes": 2229531,
     "label": "multi-agent orchestrator",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/dreamswarm/"
   },
   "gitscour": {
-    "cover_bytes": 76380,
+    "cover_bytes": 27325,
     "frames": 24,
     "gif_bytes": 2736669,
     "label": "50,000+ repo knowledge base",
@@ -99,7 +99,7 @@
     "url": "https://knarayanareddy.github.io/gitscour/"
   },
   "gridqueue-grid-connection": {
-    "cover_bytes": 26658,
+    "cover_bytes": 11183,
     "frames": 34,
     "gif_bytes": 1221699,
     "label": "grid interconnection navigator",
@@ -108,7 +108,7 @@
     "url": "https://knarayanareddy.github.io/gridqueue-grid-connection/"
   },
   "harvestgrid": {
-    "cover_bytes": 47252,
+    "cover_bytes": 17997,
     "frames": 24,
     "gif_bytes": 1346166,
     "label": "harvest forecasting + gleaning",
@@ -117,7 +117,7 @@
     "url": "https://knarayanareddy.github.io/harvestgrid/"
   },
   "jointcheck-solder-inspection": {
-    "cover_bytes": 39750,
+    "cover_bytes": 15802,
     "frames": 24,
     "gif_bytes": 1258137,
     "label": "solder-joint inspection",
@@ -126,16 +126,16 @@
     "url": "https://knarayanareddy.github.io/jointcheck-solder-inspection/"
   },
   "proofpress-evidence-portal": {
-    "cover_bytes": 134040,
+    "cover_bytes": 35256,
     "frames": 34,
-    "gif_bytes": 4295586,
+    "gif_bytes": 4227004,
     "label": "Three.js evidence journey",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/proofpress-evidence-portal/"
   },
   "redflag-eu-compliance": {
-    "cover_bytes": 116694,
+    "cover_bytes": 32296,
     "frames": 24,
     "gif_bytes": 3337492,
     "label": "EU product-safety gate",
@@ -144,7 +144,7 @@
     "url": "https://knarayanareddy.github.io/redflag-eu-compliance/"
   },
   "roomsmith": {
-    "cover_bytes": 65015,
+    "cover_bytes": 24172,
     "frames": 34,
     "gif_bytes": 2597522,
     "label": "escape-room engine",
@@ -153,7 +153,7 @@
     "url": "https://knarayanareddy.github.io/roomsmith/"
   },
   "sallie-returns-ai-agent": {
-    "cover_bytes": 23960,
+    "cover_bytes": 21138,
     "frames": 34,
     "gif_bytes": 1333749,
     "label": "returns pipeline",
@@ -162,7 +162,7 @@
     "url": "https://knarayanareddy.github.io/sallie-returns-ai-agent/"
   },
   "toolscour": {
-    "cover_bytes": 26774,
+    "cover_bytes": 23634,
     "frames": 24,
     "gif_bytes": 2135302,
     "label": "3D knowledge galaxy",
@@ -171,9 +171,9 @@
     "url": "https://knarayanareddy.github.io/toolscour/"
   },
   "twitch-codex": {
-    "cover_bytes": 91955,
+    "cover_bytes": 26467,
     "frames": 24,
-    "gif_bytes": 2426904,
+    "gif_bytes": 2426199,
     "label": "live-audience builds",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
