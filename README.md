@@ -10,22 +10,12 @@
 
 <br/>
 
-<!-- SOCIAL BADGES -->
-<a href="https://github.com/knarayanareddy?tab=followers">
-  <img src="https://img.shields.io/github/followers/knarayanareddy?label=Followers&style=for-the-badge&logo=github&logoColor=white&labelColor=1a1b27&color=58a6ff" alt="followers" />
-</a>
-<img src="https://img.shields.io/github/stars/knarayanareddy?label=Total%20Stars&style=for-the-badge&logo=github&logoColor=white&labelColor=1a1b27&color=58a6ff" alt="stars" />
-
-<br/><br/>
-
-<a href="https://github.com/knarayanareddy?tab=repositories"><img src="https://img.shields.io/badge/Repositories-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
-<a href="https://github.com/knarayanareddy?tab=repositories&q=&type=source"><img src="https://img.shields.io/badge/Live%20Sites-GitHub%20Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" /></a>
-<a href="https://www.linkedin.com/in/knarayanareddy/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-<a href="https://github.com/knarayanareddy.atom"><img src="https://img.shields.io/badge/Follow%20Activity-RSS-FFA500?style=for-the-badge&logo=rss&logoColor=white" /></a>
-
-<!-- Add your own links here when you want them public, e.g.
-<a href="mailto:you@example.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
--->
+<!-- SOCIAL BADGES: self-hosted, drawn by scripts/build_badges.py -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/badges-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/badges-light.svg" />
+  <img src="./assets/badges-dark.svg" alt="Followers, stars, repositories, live sites, LinkedIn" />
+</picture>
 
 </div>
 
@@ -89,16 +79,16 @@ class KiranNarayanareddy:
 </div>
 
 <!-- LIVE_SITES:START -->
-| | Live site | Stack | What it does |
-|:--:|-----------|-------|--------------|
-| 🌐 | [**Aeroscribe**](https://knarayanareddy.github.io/Aeroscribe/) · [source](https://github.com/knarayanareddy/Aeroscribe) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/Aeroscribe?style=flat-square&labelColor=1a1b27&color=58a6ff) | Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation |
-| 🌐 | [**toolscour**](https://knarayanareddy.github.io/toolscour/) · [source](https://github.com/knarayanareddy/toolscour) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/toolscour?style=flat-square&labelColor=1a1b27&color=58a6ff) | 3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs |
-| 🌐 | [**AI-Arsenal**](https://knarayanareddy.github.io/AI-Arsenal/) · [source](https://github.com/knarayanareddy/AI-Arsenal) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/AI-Arsenal?style=flat-square&labelColor=1a1b27&color=58a6ff) | Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents |
-| 🌐 | [**AI-Daily**](https://knarayanareddy.github.io/AI-Daily/) · [source](https://github.com/knarayanareddy/AI-Daily) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/AI-Daily?style=flat-square&labelColor=1a1b27&color=58a6ff) | A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model |
-| 🌐 | [**gitscour**](https://knarayanareddy.github.io/gitscour/) · [source](https://github.com/knarayanareddy/gitscour) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/gitscour?style=flat-square&labelColor=1a1b27&color=58a6ff) | Queryable knowledge base of 50,000+ high-star GitHub repositories, sharded and served free from Pages |
-| 🌐 | [**Aerorepos**](https://knarayanareddy.github.io/Aerorepos/) · [source](https://github.com/knarayanareddy/Aerorepos) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/Aerorepos?style=flat-square&labelColor=1a1b27&color=58a6ff) | Curated directory of open-source aerospace engineering projects — aero, propulsion, structures, GNC, space |
-| 🌐 | [**WebsitedesignandPrompts**](https://knarayanareddy.github.io/WebsitedesignandPrompts/) · [source](https://github.com/knarayanareddy/WebsitedesignandPrompts) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/WebsitedesignandPrompts?style=flat-square&labelColor=1a1b27&color=58a6ff) | Democratising the paywalled web: reusable landing-page templates with the full build prompts |
-| 🌐 | [**Bunqsy**](https://knarayanareddy.github.io/Bunqsy/) · [source](https://github.com/knarayanareddy/Bunqsy) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/Bunqsy?style=flat-square&labelColor=1a1b27&color=58a6ff) | Always-on financial guardian: 7-agent risk oracle, proactive interventions, nightly Dream Mode |
+| | Live site | Stack | Stars | What it does |
+|:--:|-----------|-------|:-----:|--------------|
+| 🌐 | [**Aeroscribe**](https://knarayanareddy.github.io/Aeroscribe/) · [source](https://github.com/knarayanareddy/Aeroscribe) | `TypeScript` | ★ 1 | Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation |
+| 🌐 | [**toolscour**](https://knarayanareddy.github.io/toolscour/) · [source](https://github.com/knarayanareddy/toolscour) | `JavaScript` | ★ 1 | 3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs |
+| 🌐 | [**AI-Arsenal**](https://knarayanareddy.github.io/AI-Arsenal/) · [source](https://github.com/knarayanareddy/AI-Arsenal) | `JavaScript` | ★ 1 | Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents |
+| 🌐 | [**AI-Daily**](https://knarayanareddy.github.io/AI-Daily/) · [source](https://github.com/knarayanareddy/AI-Daily) | `JavaScript` | ★ 1 | A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model |
+| 🌐 | [**gitscour**](https://knarayanareddy.github.io/gitscour/) · [source](https://github.com/knarayanareddy/gitscour) | `Python` | ★ 1 | Queryable knowledge base of 50,000+ high-star GitHub repositories, sharded and served free from Pages |
+| 🌐 | [**Aerorepos**](https://knarayanareddy.github.io/Aerorepos/) · [source](https://github.com/knarayanareddy/Aerorepos) | `Python` | ★ 1 | Curated directory of open-source aerospace engineering projects — aero, propulsion, structures, GNC, space |
+| 🌐 | [**WebsitedesignandPrompts**](https://knarayanareddy.github.io/WebsitedesignandPrompts/) · [source](https://github.com/knarayanareddy/WebsitedesignandPrompts) | `HTML` | ★ 4 | Democratising the paywalled web: reusable landing-page templates with the full build prompts |
+| 🌐 | [**Bunqsy**](https://knarayanareddy.github.io/Bunqsy/) · [source](https://github.com/knarayanareddy/Bunqsy) | `TypeScript` | ★ 2 | Always-on financial guardian: 7-agent risk oracle, proactive interventions, nightly Dream Mode |
 <!-- LIVE_SITES:END -->
 
 ### 📸 Every deployment, as it actually looks
@@ -142,39 +132,39 @@ class KiranNarayanareddy:
 
 | Live site | Stack |
 |-----------|-------|
-| [**3dexperimentation**](https://knarayanareddy.github.io/3dexperimentation/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**gridqueue-grid-connection**](https://knarayanareddy.github.io/gridqueue-grid-connection/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
-| [**twitch-codex**](https://knarayanareddy.github.io/twitch-codex/) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) |
-| [**redflag-eu-compliance**](https://knarayanareddy.github.io/redflag-eu-compliance/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
-| [**jointcheck-solder-inspection**](https://knarayanareddy.github.io/jointcheck-solder-inspection/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
-| [**reflex-physical-ai**](https://knarayanareddy.github.io/reflex-physical-ai/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
-| [**curiolab**](https://knarayanareddy.github.io/curiolab/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**nexttime**](https://knarayanareddy.github.io/nexttime/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
-| [**roomsmith**](https://knarayanareddy.github.io/roomsmith/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**accesshold**](https://knarayanareddy.github.io/accesshold/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**harvestgrid**](https://knarayanareddy.github.io/harvestgrid/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
-| [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**Nimbus**](https://knarayanareddy.github.io/Nimbus/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**SAAF-circuit-breaker**](https://knarayanareddy.github.io/SAAF-circuit-breaker/) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) |
+| [**3dexperimentation**](https://knarayanareddy.github.io/3dexperimentation/) | `TypeScript` |
+| [**gridqueue-grid-connection**](https://knarayanareddy.github.io/gridqueue-grid-connection/) | `Python` |
+| [**twitch-codex**](https://knarayanareddy.github.io/twitch-codex/) | `JavaScript` |
+| [**redflag-eu-compliance**](https://knarayanareddy.github.io/redflag-eu-compliance/) | `Python` |
+| [**jointcheck-solder-inspection**](https://knarayanareddy.github.io/jointcheck-solder-inspection/) | `Python` |
+| [**reflex-physical-ai**](https://knarayanareddy.github.io/reflex-physical-ai/) | `Python` |
+| [**curiolab**](https://knarayanareddy.github.io/curiolab/) | `TypeScript` |
+| [**nexttime**](https://knarayanareddy.github.io/nexttime/) | `Python` |
+| [**roomsmith**](https://knarayanareddy.github.io/roomsmith/) | `TypeScript` |
+| [**accesshold**](https://knarayanareddy.github.io/accesshold/) | `TypeScript` |
+| [**harvestgrid**](https://knarayanareddy.github.io/harvestgrid/) | `Python` |
+| [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) | `TypeScript` |
+| [**Nimbus**](https://knarayanareddy.github.io/Nimbus/) | `TypeScript` |
+| [**SAAF-circuit-breaker**](https://knarayanareddy.github.io/SAAF-circuit-breaker/) | `HTML` |
 
 </td>
 <td width="50%" valign="top">
 
 | Live site | Stack |
 |-----------|-------|
-| [**so101-domain-operator**](https://knarayanareddy.github.io/so101-domain-operator/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**Handy**](https://knarayanareddy.github.io/Handy/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**Courserefresh**](https://knarayanareddy.github.io/Courserefresh/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**LEGACYVAULTV1.0**](https://knarayanareddy.github.io/LEGACYVAULTV1.0/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
-| [**idea-dump**](https://knarayanareddy.github.io/idea-dump/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
-| [**Magpie**](https://knarayanareddy.github.io/Magpie/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
-| [**ghosthandshake**](https://knarayanareddy.github.io/ghosthandshake/) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) |
-| [**keepsake**](https://knarayanareddy.github.io/keepsake/) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) |
-| [**proofpress-evidence-portal**](https://knarayanareddy.github.io/proofpress-evidence-portal/) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) |
-| [**dreamswarm**](https://knarayanareddy.github.io/dreamswarm/) | ![Rust](https://img.shields.io/badge/Rust-000000?style=flat-square&labelColor=1a1b27) |
-| [**F1Elastichopsworkshack**](https://f1hackdemo.kiranreddy.nl/) ↗ | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) |
-| [**vouwfiets**](https://vouwfiets.vercel.app/) ↗ | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) |
+| [**so101-domain-operator**](https://knarayanareddy.github.io/so101-domain-operator/) | `TypeScript` |
+| [**Handy**](https://knarayanareddy.github.io/Handy/) | `TypeScript` |
+| [**Courserefresh**](https://knarayanareddy.github.io/Courserefresh/) | `TypeScript` |
+| [**LEGACYVAULTV1.0**](https://knarayanareddy.github.io/LEGACYVAULTV1.0/) | `TypeScript` |
+| [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | `TypeScript` |
+| [**idea-dump**](https://knarayanareddy.github.io/idea-dump/) | `Python` |
+| [**Magpie**](https://knarayanareddy.github.io/Magpie/) | `Python` |
+| [**ghosthandshake**](https://knarayanareddy.github.io/ghosthandshake/) | `HTML` |
+| [**keepsake**](https://knarayanareddy.github.io/keepsake/) | `HTML` |
+| [**proofpress-evidence-portal**](https://knarayanareddy.github.io/proofpress-evidence-portal/) | `HTML` |
+| [**dreamswarm**](https://knarayanareddy.github.io/dreamswarm/) | `Rust` |
+| [**F1Elastichopsworkshack**](https://f1hackdemo.kiranreddy.nl/) ↗ | `JavaScript` |
+| [**vouwfiets**](https://vouwfiets.vercel.app/) ↗ | `JavaScript` |
 
 </td>
 </tr>
@@ -193,7 +183,7 @@ class KiranNarayanareddy:
 </div>
 
 <!-- SHIPPED:START -->
-- 🚀 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-01
+- 🚀 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
 - 🛰️ **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-01
 - 🧠 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-01
 - 🧪 **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-01
@@ -264,33 +254,15 @@ class KiranNarayanareddy:
 
 <div align="center">
 
-### Languages
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
+<!-- TECH_STRIP:START -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/badges-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/badges-light.svg" />
+  <img src="./assets/badges-dark.svg" alt="Technology stack" width="100%" />
+</picture>
+<!-- TECH_STRIP:END -->
 
-### AI & Agents
-![Anthropic Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
-![OpenAI](https://img.shields.io/badge/Codex%20%2F%20OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
-![MCP](https://img.shields.io/badge/MCP%20Servers-000000?style=for-the-badge&logo=modelcontextprotocol&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-
-### Web, Data & Infra
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-
-### Domain
-![Aerospace](https://img.shields.io/badge/Su2%20%2F%20CFD-1f6feb?style=for-the-badge&logo=nasa&logoColor=white)
-![Solana](https://img.shields.io/badge/Solana-9945FF?style=for-the-badge&logo=solana&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+<sub>Drawn by <a href="scripts/build_badges.py">build_badges.py</a> — no third-party badge service, so nothing here can break.</sub>
 
 </div>
 
@@ -343,7 +315,11 @@ class KiranNarayanareddy:
 <!-- FOOTER -->
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=110&section=footer" width="100%"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/footer-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/footer-light.svg" />
+  <img src="./assets/footer-dark.svg" alt="Kiran Narayanareddy — Amsterdam" width="100%" />
+</picture>
 
 **Amsterdam, Netherlands** · Autonomous agents · Aerospace & physical AI · Compliance-as-code
 
@@ -351,4 +327,4 @@ class KiranNarayanareddy:
 
 </div>
 
-<!-- Last updated: 2026-11-02 08:38 UTC -->
+<!-- Last updated: 2026-11-02 08:58 UTC -->

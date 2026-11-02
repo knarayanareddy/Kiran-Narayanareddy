@@ -11,6 +11,7 @@ on:
       - "scripts/build_profile.py"
       - "scripts/build_hero.py"
       - "scripts/build_dashboard.py"
+      - "scripts/build_badges.py"
       - "README.md"
 
 permissions:
@@ -40,6 +41,9 @@ jobs:
         env:
           PROFILE_REPO: ${{ github.event.repository.name }}
         run: python3 scripts/build_hero.py
+
+      - name: Redraw the self-hosted badges
+        run: python3 scripts/build_badges.py
 
       - name: Refresh the signal dashboard
         env:

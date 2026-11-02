@@ -1,5 +1,6 @@
 {
-  "generated": "2026-11-02 08:38 UTC",
+  "followers": 1,
+  "generated": "2026-11-02 08:58 UTC",
   "repos": 123,
   "stars": 112,
   "site_count": 35,
@@ -45,7 +46,7 @@
       "pages": true,
       "lang": "TypeScript",
       "stars": 1,
-      "pushed": "2026-11-01",
+      "pushed": "2026-11-02",
       "blurb": "Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation"
     },
     {
