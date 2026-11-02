@@ -226,6 +226,8 @@ class KiranNarayanareddy:
 <tr>
 <td width="33%" valign="top">
 
+<a href="https://knarayanareddy.github.io/Aeroscribe/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/tiles/Aeroscribe-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/tiles/Aeroscribe-light.svg"><img src="./assets/tiles/Aeroscribe-dark.svg" width="100%" alt="Aeroscribe — live window, manuscript pipeline"></picture></a>
+
 ### 🚀 Aeroscribe
 **A manuscript, produced by a pipeline that can't be talked into a claim**
 
@@ -255,6 +257,8 @@ The breaker is four stages — forge, rehearse, sentinel, verify — running aga
 
 </td>
 <td width="33%" valign="top">
+
+<a href="https://knarayanareddy.github.io/Bunqsy/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/tiles/Bunqsy-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/tiles/Bunqsy-light.svg"><img src="./assets/tiles/Bunqsy-dark.svg" width="100%" alt="Bunqsy — live window, 7-agent oracle"></picture></a>
 
 ### 🏆 Bunqsy
 **Placed at bunq Hackathon 7.0** — an always-on financial guardian
@@ -325,7 +329,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
 <tr>
 <td width="50%" valign="top">
 
-[![toolscour](assets/shots/toolscour.png)](https://knarayanareddy.github.io/toolscour/)
+<a href="https://knarayanareddy.github.io/toolscour/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/tiles/toolscour-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/tiles/toolscour-light.svg"><img src="./assets/tiles/toolscour-dark.svg" width="100%" alt="toolscour — live window, 12,771 tools"></picture></a>
 
 **🛰️ [toolscour](https://knarayanareddy.github.io/toolscour/)** — 12,771 AI tools, models, runtimes and skill packs across 10 domain sectors, sharded into a < 1.8 MB gzip tier-1 index with **sub-5 ms tokenized search**. The 3D knowledge galaxy is a hand-rolled 60 FPS canvas projection — no Three.js — and the stack architect scores a proposed pipeline for hardware, primitive and licence compatibility.
 
@@ -334,7 +338,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
 </td>
 <td width="50%" valign="top">
 
-[![gitscour](assets/shots/gitscour.png)](https://knarayanareddy.github.io/gitscour/)
+<a href="https://knarayanareddy.github.io/gitscour/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/tiles/gitscour-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/tiles/gitscour-light.svg"><img src="./assets/tiles/gitscour-dark.svg" width="100%" alt="gitscour — live window, 50,000+ repos"></picture></a>
 
 **🔭 [gitscour](https://knarayanareddy.github.io/gitscour/)** — 50,000+ repositories above 500 stars, classified on four orthogonal axes and queried in-browser through a **WebAssembly SQL console**. Read-only is enforced by validating every `;`-separated statement, because a prefix-only check once let `SELECT 1; DROP TABLE repos` through. Search medians are **gate-asserted in CI** — the build fails above 50 ms.
 
@@ -345,7 +349,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
 <tr>
 <td width="50%" valign="top">
 
-[![AI-Arsenal](assets/shots/AI-Arsenal.png)](https://knarayanareddy.github.io/AI-Arsenal/)
+<a href="https://knarayanareddy.github.io/AI-Arsenal/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/tiles/AI-Arsenal-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/tiles/AI-Arsenal-light.svg"><img src="./assets/tiles/AI-Arsenal-dark.svg" width="100%" alt="AI-Arsenal — live window, 1,598 entries"></picture></a>
 
 **🧰 [AI-Arsenal](https://knarayanareddy.github.io/AI-Arsenal/)** — a 1,598-file encyclopedia where **every entry is Markdown with schema-validated YAML frontmatter**, so the same repo is a browsable knowledge base for a human and a queryable data API for an agent. Structure first, UI later.
 
@@ -354,7 +358,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
 </td>
 <td width="50%" valign="top">
 
-[![WebsitedesignandPrompts](assets/shots/WebsitedesignandPrompts.png)](https://knarayanareddy.github.io/WebsitedesignandPrompts/)
+<a href="https://knarayanareddy.github.io/WebsitedesignandPrompts/"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/tiles/WebsitedesignandPrompts-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/tiles/WebsitedesignandPrompts-light.svg"><img src="./assets/tiles/WebsitedesignandPrompts-dark.svg" width="100%" alt="WebsitedesignandPrompts — live window, 38 templates"></picture></a>
 
 **🎨 [WebsitedesignandPrompts](https://knarayanareddy.github.io/WebsitedesignandPrompts/)** — the paywalled web, rebuilt in public: **38 live templates**, each shipped with the full prompt that builds it, a build log and an adaptation guide. Cinematic scroll stories, 3D WebGL camera flights, glassmorphic product pages — engineering as reproducible craft rather than inspiration screenshots.
 
@@ -364,7 +368,7 @@ At night, Dream Mode analyses patterns in an isolated worker and returns a DNA c
 </tr>
 </table>
 
-<sub>Captured from the live sites by <a href=".github/workflows/screenshots.yml">screenshots.yml</a> — the same pipeline that builds the wall above, so these can't go stale.</sub>
+<sub>These are <b>live windows</b>: the newest capture inside a frame that animates — a pulsing LIVE pill, a sweeping scanline — because GitHub strips <code>&lt;iframe&gt;</code>. Captured by <a href=".github/workflows/screenshots.yml">screenshots.yml</a> — the same pipeline that builds the wall above, so these can't go stale.</sub>
 
 <br/>
 
