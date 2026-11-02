@@ -1,0 +1,134 @@
+# Records the demo reels: a few seconds of each showcased site actually running.
+#
+# Why a separate workflow from screenshots.yml: a reel means driving a browser
+# through a script and encoding video, which is slower and much more
+# bandwidth-hungry than one screenshot per site. Keeping it separate means a
+# failure here can never cost you the screenshot wall.
+name: Record the demo reels
+
+on:
+  schedule:
+    - cron: "35 4 * * *"     # after the 04:20 capture run, before the 06:47 check
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Re-record every reel, ignoring the cached frames"
+        type: boolean
+        default: false
+  push:
+    # main for production; arena/** so a sandbox without a browser can still ask
+    # for real recordings by pushing a commit to its own branch.
+    branches: [main, "arena/**"]
+    paths:
+      - "scripts/build_reel.py"
+      - ".github/workflows/reels.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reels-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  reels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install recording dependencies
+        run: |
+          python3 -m pip install --quiet playwright pillow imageio-ffmpeg
+          python3 -m playwright install --with-deps chromium
+          # The encoder is the one thing this job cannot fake, so check it for
+          # real. Note: `ffmpeg -version | head -1` is NOT a check - the pipeline
+          # returns head's status, so it succeeds even when ffmpeg is absent.
+          if command -v ffmpeg >/dev/null; then
+            ffmpeg -version 2>&1 | head -1
+          else
+            echo "no system ffmpeg; falling back to the pip binary"
+            python3 -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())"
+          fi
+
+      - name: Record and encode
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          set -o pipefail
+          # Tee the log so a failure can be published to the summary. The run
+          # page's step summary survives where the log blob may not be reachable.
+          python3 scripts/build_reel.py $([ "$FORCE" = "true" ] && echo --force) 2>&1 | tee /tmp/reel.log
+
+      # On failure, write the log into the repo and push it. This is not just for
+      # the sandbox: a recording that fails at 04:35 with nobody watching should
+      # leave a readable trace, and the artifact/log blob is easy to miss.
+      # The push does not re-trigger this workflow, because the path filter above
+      # does not match assets/reels/*.log.
+      - name: Pin the log to the branch on failure
+        if: failure()
+        run: |
+          mkdir -p assets/reels
+          tail -60 /tmp/reel.log > assets/reels/last-error.log 2>/dev/null || echo "no log" > assets/reels/last-error.log
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/reels/last-error.log
+          git commit -m "🚨 Log the failed reel recording [skip ci]" || exit 0
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          git push origin "HEAD:${GITHUB_REF_NAME}" || true
+
+      - name: Keep the recording log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel-log
+          path: /tmp/reel.log
+          if-no-files-found: ignore
+          retention-days: 3
+
+      - name: Publish the failure, if any
+        if: failure()
+        run: |
+          {
+            echo "### Reel recording failed"
+            echo ""
+            echo '```'
+            tail -40 /tmp/reel.log 2>/dev/null || echo "no log captured"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report sizes against the Camo limit
+        run: |
+          echo "### Demo reels" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "GitHub's Camo proxy refuses README images over ~5 MB, so that is a hard ceiling, not a preference." >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, os
+          path = "assets/reels/manifest.json"
+          if not os.path.exists(path):
+              raise SystemExit(0)
+          data = json.load(open(path, encoding="utf-8"))
+          print("| reel | frames | MB | under 5 MB | recorded |")
+          print("|---|---|---|---|---|")
+          for repo, info in sorted(data.items()):
+              ok = "yes" if info["under_camo_limit"] else "**no**"
+              print(f'| {repo} | {info["frames"]} | {info["gif_bytes"]/1e6:.2f} | {ok} | {info["recorded"]} |')
+          PY
+
+      - name: Commit the reels
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets/reels
+          if git diff --cached --quiet; then
+            echo "Reels already current."
+            exit 0
+          fi
+          git commit -m "🎬 Re-record the demo reels [skip ci]"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          git push origin "HEAD:${GITHUB_REF_NAME}"

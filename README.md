@@ -97,9 +97,9 @@ class KiranNarayanareddy:
 <div align="center">
 
 <!-- COUNTERS:START -->
-**34 live GitHub Pages sites** · **36 live deployments** · **124 original repositories** · **112 stars** · **5 forks** · **1 follower**
+**35 live GitHub Pages sites** · **37 live deployments** · **124 original repositories** · **112 stars** · **5 forks** · **1 follower**
 
-<sub>**TypeScript** 43 · **Python** 31 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
+<sub>**TypeScript** 44 · **Python** 31 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
 <!-- COUNTERS:END -->
 
 </div>
@@ -128,6 +128,18 @@ class KiranNarayanareddy:
 | 🌐 | [**WebsitedesignandPrompts**](https://knarayanareddy.github.io/WebsitedesignandPrompts/) · [source](https://github.com/knarayanareddy/WebsitedesignandPrompts) | `HTML` | ★ 4 | Democratising the paywalled web: reusable landing-page templates with the full build prompts |
 | 🌐 | [**Bunqsy**](https://knarayanareddy.github.io/Bunqsy/) · [source](https://github.com/knarayanareddy/Bunqsy) | `TypeScript` | ★ 2 | Always-on financial guardian: 7-agent risk oracle, proactive interventions, nightly Dream Mode |
 <!-- LIVE_SITES:END -->
+
+### 🎬 Three of them, actually moving
+
+<!-- REELS:START -->
+<a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><img src="./assets/reels/sallie-returns-ai-agent.gif" alt="Recording of sallie-returns-ai-agent — returns pipeline, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><b>sallie-returns-ai-agent</b></a> — returns pipeline · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
+
+<a href="https://knarayanareddy.github.io/toolscour/"><img src="./assets/reels/toolscour.gif" alt="Recording of toolscour — 3D knowledge galaxy, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/toolscour/"><b>toolscour</b></a> — 3D knowledge galaxy · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
+
+<a href="https://knarayanareddy.github.io/3dexperimentation/"><img src="./assets/reels/3dexperimentation.gif" alt="Recording of 3dexperimentation — canvas film studio, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/3dexperimentation/"><b>3dexperimentation</b></a> — canvas film studio · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
+
+_These are recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a README, so a few seconds of the real page is the closest an honest profile can get. Each one is captioned with the date it was taken — click through for the live site._
+<!-- REELS:END -->
 
 ### 📸 Every deployment, as it actually looks
 
@@ -170,6 +182,7 @@ class KiranNarayanareddy:
 
 | Live site | Stack |
 |-----------|-------|
+| [**myjevuses**](https://knarayanareddy.github.io/myjevuses/) | `TypeScript` |
 | [**3dexperimentation**](https://knarayanareddy.github.io/3dexperimentation/) | `TypeScript` |
 | [**gridqueue-grid-connection**](https://knarayanareddy.github.io/gridqueue-grid-connection/) | `Python` |
 | [**twitch-codex**](https://knarayanareddy.github.io/twitch-codex/) | `JavaScript` |
@@ -183,13 +196,13 @@ class KiranNarayanareddy:
 | [**harvestgrid**](https://knarayanareddy.github.io/harvestgrid/) | `Python` |
 | [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) | `TypeScript` |
 | [**Nimbus**](https://knarayanareddy.github.io/Nimbus/) | `TypeScript` |
-| [**SAAF-circuit-breaker**](https://knarayanareddy.github.io/SAAF-circuit-breaker/) | `HTML` |
 
 </td>
 <td width="50%" valign="top">
 
 | Live site | Stack |
 |-----------|-------|
+| [**SAAF-circuit-breaker**](https://knarayanareddy.github.io/SAAF-circuit-breaker/) | `HTML` |
 | [**so101-domain-operator**](https://knarayanareddy.github.io/so101-domain-operator/) | `TypeScript` |
 | [**Handy**](https://knarayanareddy.github.io/Handy/) | `TypeScript` |
 | [**Courserefresh**](https://knarayanareddy.github.io/Courserefresh/) | `TypeScript` |
@@ -221,14 +234,14 @@ class KiranNarayanareddy:
 </div>
 
 <!-- SHIPPED:START -->
-- 🚀 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
-- 🛰️ **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02
-- 🧠 **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-01
-- 🧪 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-01
-- 🔭 **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-01
-- ⚙️ **[`3dexperimentation`](https://github.com/knarayanareddy/3dexperimentation)** — [live](https://knarayanareddy.github.io/3dexperimentation/) · pushed 2026-10-29
-- 🛡️ **[`Aerorepos`](https://github.com/knarayanareddy/Aerorepos)** — [live](https://knarayanareddy.github.io/Aerorepos/) · pushed 2026-10-29
-- 🎛️ **[`gridqueue-grid-connection`](https://github.com/knarayanareddy/gridqueue-grid-connection)** — [live](https://knarayanareddy.github.io/gridqueue-grid-connection/) · pushed 2026-10-29
+- 🚀 **[`myjevuses`](https://github.com/knarayanareddy/myjevuses)** — [live](https://knarayanareddy.github.io/myjevuses/) · pushed 2026-11-02
+- 🛰️ **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
+- 🧠 **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02
+- 🧪 **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-01
+- 🔭 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-01
+- ⚙️ **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-01
+- 🛡️ **[`3dexperimentation`](https://github.com/knarayanareddy/3dexperimentation)** — [live](https://knarayanareddy.github.io/3dexperimentation/) · pushed 2026-10-29
+- 🎛️ **[`Aerorepos`](https://github.com/knarayanareddy/Aerorepos)** — [live](https://knarayanareddy.github.io/Aerorepos/) · pushed 2026-10-29
 <!-- SHIPPED:END -->
 
 ---

@@ -9,6 +9,8 @@ on:
     paths:
       - "web/**"
       - "scripts/tokens.py"
+      - "scripts/build_reel.py"
+      - "tests/reels.test.mjs"
       - "data/tokens.json"
       - "tests/**"
       - ".github/workflows/tests.yml"
@@ -26,4 +28,4 @@ jobs:
       - name: Simulation and projection tests
         run: |
           python3 scripts/tokens.py --emit
-          node --test tests/core.test.mjs tests/tokens.test.mjs
+          node --test tests/core.test.mjs tests/tokens.test.mjs tests/reels.test.mjs

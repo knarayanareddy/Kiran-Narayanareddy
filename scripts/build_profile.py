@@ -324,6 +324,52 @@ def render_counters(data: dict) -> str:
     )
 
 
+REELS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets", "reels", "manifest.json")
+
+
+def render_reels(data: dict) -> str:
+    """The demo reels, generated from what actually exists on disk.
+
+    A reel is only listed when its GIF is really there, so a failed recording
+    leaves the section shorter instead of leaving a broken image in the README.
+    Each one says "recorded <date>" because it is a recording: GitHub will not
+    embed a live page here, and pretending otherwise would be the one thing this
+    profile has never done.
+    """
+    try:
+        with open(REELS, encoding="utf-8") as handle:
+            manifest = json.load(handle)
+    except (OSError, ValueError):
+        return "_No reels recorded yet — the next run of `reels.yml` fills this in._"
+
+    rows = []
+    for site in data["sites"]:
+        info = manifest.get(site["repo"])
+        if not info:
+            continue
+        gif = os.path.join(os.path.dirname(REELS), f"{site['repo']}.gif")
+        if not os.path.exists(gif):
+            continue
+        rows.append(
+            f'<a href="{site["url"]}"><img src="./assets/reels/{site["repo"]}.gif" '
+            f'alt="Recording of {site["repo"]} — {info["label"]}, recorded {info["recorded"]}" width="100%" /></a>'
+            f'<br/><sub><a href="{site["url"]}"><b>{site["repo"]}</b></a> — {info["label"]} · '
+            f'recorded {info["recorded"]} · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>'
+        )
+
+    if not rows:
+        return "_No reels recorded yet — the next run of `reels.yml` fills this in._"
+
+    # One full-width row per reel: these are detailed dashboards and canvases, and
+    # at half width the text inside them stops being readable.
+    return (
+        "".join(row + "\n\n" for row in rows)
+        + "_These are recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a "
+        "README, so a few seconds of the real page is the closest an honest profile can get. "
+        "Each one is captioned with the date it was taken — click through for the live site._"
+    )
+
+
 VOLATILE = re.compile(r"<!-- Last updated: .*?-->")
 
 
@@ -358,6 +404,7 @@ def main() -> int:
     readme = replace_block(readme, "LIVE_SITES", render_featured(data))
     readme = replace_block(readme, "SITE_CATALOGUE", render_catalogue(data))
     readme = replace_block(readme, "SHIPPED", render_shipped(data))
+    readme = replace_block(readme, "REELS", render_reels(data))
     # Only move the stamp when something else actually changed. A timestamp that
     # ticks while the numbers do not makes the page look refreshed when it is
     # merely rebuilt; the footer says "daily" explicitly instead.
