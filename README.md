@@ -132,20 +132,9 @@ class KiranNarayanareddy:
 ### 🎬 Three of them, actually moving
 
 <!-- REELS:START -->
-<table>
-<tr>
-<td width="50%" valign="top">
-
 <a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><img src="./assets/reels/sallie-returns-ai-agent.gif" alt="Recording of sallie-returns-ai-agent — returns pipeline, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><b>sallie-returns-ai-agent</b></a> — returns pipeline · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
 
-</td>
-<td width="50%" valign="top">
-
 <a href="https://knarayanareddy.github.io/toolscour/"><img src="./assets/reels/toolscour.gif" alt="Recording of toolscour — 3D knowledge galaxy, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/toolscour/"><b>toolscour</b></a> — 3D knowledge galaxy · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
-
-</td>
-</tr>
-</table>
 
 <a href="https://knarayanareddy.github.io/3dexperimentation/"><img src="./assets/reels/3dexperimentation.gif" alt="Recording of 3dexperimentation — canvas film studio, recorded 2026-11-02" width="100%" /></a><br/><sub><a href="https://knarayanareddy.github.io/3dexperimentation/"><b>3dexperimentation</b></a> — canvas film studio · recorded 2026-11-02 · GIF made by <a href=".github/workflows/reels.yml">reels.yml</a></sub>
 

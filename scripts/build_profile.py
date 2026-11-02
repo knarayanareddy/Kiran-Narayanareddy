@@ -360,11 +360,10 @@ def render_reels(data: dict) -> str:
     if not rows:
         return "_No reels recorded yet — the next run of `reels.yml` fills this in._"
 
+    # One full-width row per reel: these are detailed dashboards and canvases, and
+    # at half width the text inside them stops being readable.
     return (
-        "<table>\n<tr>\n"
-        + "".join(f'<td width="50%" valign="top">\n\n{row}\n\n</td>\n' for row in rows[:2])
-        + "</tr>\n</table>\n\n"
-        + "".join(row + "\n\n" for row in rows[2:])
+        "".join(row + "\n\n" for row in rows)
         + "_These are recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a "
         "README, so a few seconds of the real page is the closest an honest profile can get. "
         "Each one is captioned with the date it was taken — click through for the live site._"
