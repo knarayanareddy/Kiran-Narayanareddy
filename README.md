@@ -1,2 +1,339 @@
-# Kiran-Narayanareddy
-My GitHub profile  Topics
+<div align="center">
+
+<!-- HEADER -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=190&section=header&text=Kiran%20Narayanareddy&fontSize=40&fontColor=fff&animation=twinkling&fontAlignY=34&desc=Autonomous%20agents%20%C2%B7%20Aerospace%20%26%20Physical%20AI%20%C2%B7%20Compliance-as-code&descAlignY=55&descSize=17" width="100%"/>
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=650&lines=Building+autonomous+agents+that+can+prove+their+work;Hackathon+shipwright+from+Amsterdam;Aerospace+research+pipelines+with+evidence+chains;Verifiable+AI+for+regulated+domains)](https://github.com/knarayanareddy)
+
+<br/>
+
+<!-- SOCIAL BADGES -->
+<a href="https://github.com/knarayanareddy?tab=followers">
+  <img src="https://img.shields.io/github/followers/knarayanareddy?label=Followers&style=for-the-badge&logo=github&logoColor=white&labelColor=1a1b27&color=58a6ff" alt="followers" />
+</a>
+<img src="https://img.shields.io/github/stars/knarayanareddy?label=Total%20Stars&style=for-the-badge&logo=github&logoColor=white&labelColor=1a1b27&color=58a6ff" alt="stars" />
+<img src="https://komarev.com/ghpvc/?username=knarayanareddy&style=for-the-badge&color=blueviolet&labelColor=1a1b27" alt="profile views" />
+
+<br/><br/>
+
+<a href="https://github.com/knarayanareddy?tab=repositories"><img src="https://img.shields.io/badge/Repositories-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
+<a href="https://github.com/knarayanareddy?tab=repositories&q=&type=source"><img src="https://img.shields.io/badge/Live%20Sites-GitHub%20Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" /></a>
+<a href="https://www.linkedin.com/in/knarayanareddy/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+<a href="https://github.com/knarayanareddy.atom"><img src="https://img.shields.io/badge/Follow%20Activity-RSS-FFA500?style=for-the-badge&logo=rss&logoColor=white" /></a>
+
+<!-- Add your own links here when you want them public, e.g.
+<a href="mailto:you@example.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+-->
+
+</div>
+
+<br/>
+
+<!-- ABOUT ME -->
+## About Me
+
+```python
+class KiranNarayanareddy:
+    def __init__(self):
+        self.location = "Amsterdam, Netherlands"
+        self.role = "Builder of autonomous, auditable agent systems"
+        self.focus = [
+            "Agent harnesses with hard safety boundaries",
+            "Aerospace & physical-AI research pipelines",
+            "Compliance-as-code for EU regulated products",
+        ]
+        self.method = "Six-week wonder → working prototype → evidence, or none of it ships"
+
+    @property
+    def skills(self):
+        return {
+            "languages": ["TypeScript", "Python", "JavaScript", "Rust", "Go", "Kotlin"],
+            "agents": ["Claude Code", "Codex", "MCP", "multi-agent orchestration", "sandboxed execution"],
+            "infra": ["GitHub Actions", "GitHub Pages", "Docker", "AWS CDK", "Serverless"],
+            "domains": ["aerospace", "EU AI Act / GPSR / DSA", "fintech", "accessibility", "robotics"],
+        }
+
+    @property
+    def ship_rate(self):
+        return "A new public repository nearly every day, most with a live Pages build"
+```
+
+> I build in public and I publish the caveats. Most of what follows is a prototype with a
+> working slice — each repo's README states exactly what is real, what is mocked, and what
+> is not implemented yet. That honesty is the point of the whole portfolio.
+
+---
+
+<!-- AUTO COUNTERS -->
+<div align="center">
+
+<!-- COUNTERS:START -->
+**33 live GitHub Pages sites** · **35 live deployments** · **124 original repositories** · **69 stars earned**
+
+<sub>**TypeScript** 43 · **Python** 30 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
+<!-- COUNTERS:END -->
+
+</div>
+
+---
+
+<!-- LIVE SITES -->
+<div align="center">
+
+## 🌐 Live Sites
+
+**Everything below is deployed and running on GitHub Pages (or its own host), straight from CI.**
+
+</div>
+
+<!-- LIVE_SITES:START -->
+| | Live site | Stack | What it does |
+|:--:|-----------|-------|--------------|
+| 🌐 | [**Aeroscribe**](https://knarayanareddy.github.io/Aeroscribe/) · [source](https://github.com/knarayanareddy/Aeroscribe) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/Aeroscribe?style=flat-square&labelColor=1a1b27&color=58a6ff) | Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation |
+| 🌐 | [**toolscour**](https://knarayanareddy.github.io/toolscour/) · [source](https://github.com/knarayanareddy/toolscour) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/toolscour?style=flat-square&labelColor=1a1b27&color=58a6ff) | 3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs |
+| 🌐 | [**AI-Arsenal**](https://knarayanareddy.github.io/AI-Arsenal/) · [source](https://github.com/knarayanareddy/AI-Arsenal) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/AI-Arsenal?style=flat-square&labelColor=1a1b27&color=58a6ff) | Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents |
+| 🌐 | [**AI-Daily**](https://knarayanareddy.github.io/AI-Daily/) · [source](https://github.com/knarayanareddy/AI-Daily) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/AI-Daily?style=flat-square&labelColor=1a1b27&color=58a6ff) | A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model |
+| 🌐 | [**gitscour**](https://knarayanareddy.github.io/gitscour/) · [source](https://github.com/knarayanareddy/gitscour) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/gitscour?style=flat-square&labelColor=1a1b27&color=58a6ff) | Queryable knowledge base of 50,000+ high-star GitHub repositories, sharded and served free from Pages |
+| 🌐 | [**Aerorepos**](https://knarayanareddy.github.io/Aerorepos/) · [source](https://github.com/knarayanareddy/Aerorepos) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/Aerorepos?style=flat-square&labelColor=1a1b27&color=58a6ff) | Curated directory of open-source aerospace engineering projects — aero, propulsion, structures, GNC, space |
+| 🌐 | [**WebsitedesignandPrompts**](https://knarayanareddy.github.io/WebsitedesignandPrompts/) · [source](https://github.com/knarayanareddy/WebsitedesignandPrompts) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/WebsitedesignandPrompts?style=flat-square&labelColor=1a1b27&color=58a6ff) | Democratising the paywalled web: reusable landing-page templates with the full build prompts |
+| 🌐 | [**Bunqsy**](https://knarayanareddy.github.io/Bunqsy/) · [source](https://github.com/knarayanareddy/Bunqsy) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/Bunqsy?style=flat-square&labelColor=1a1b27&color=58a6ff) | Always-on financial guardian: 7-agent risk oracle, proactive interventions, nightly Dream Mode |
+<!-- LIVE_SITES:END -->
+
+<br/>
+
+<details>
+<summary><b>📚 The rest of the live catalogue — every deployed site</b></summary>
+<br/>
+
+<!-- SITE_CATALOGUE:START -->
+<table>
+<tr>
+<td width="50%" valign="top">
+
+| Live site | Stack |
+|-----------|-------|
+| [**3dexperimentation**](https://knarayanareddy.github.io/3dexperimentation/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**gridqueue-grid-connection**](https://knarayanareddy.github.io/gridqueue-grid-connection/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
+| [**twitch-codex**](https://knarayanareddy.github.io/twitch-codex/) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) |
+| [**redflag-eu-compliance**](https://knarayanareddy.github.io/redflag-eu-compliance/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
+| [**jointcheck-solder-inspection**](https://knarayanareddy.github.io/jointcheck-solder-inspection/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
+| [**reflex-physical-ai**](https://knarayanareddy.github.io/reflex-physical-ai/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
+| [**curiolab**](https://knarayanareddy.github.io/curiolab/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**nexttime**](https://knarayanareddy.github.io/nexttime/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
+| [**roomsmith**](https://knarayanareddy.github.io/roomsmith/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**accesshold**](https://knarayanareddy.github.io/accesshold/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**harvestgrid**](https://knarayanareddy.github.io/harvestgrid/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
+| [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**Nimbus**](https://knarayanareddy.github.io/Nimbus/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**SAAF-circuit-breaker**](https://knarayanareddy.github.io/SAAF-circuit-breaker/) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) |
+
+</td>
+<td width="50%" valign="top">
+
+| Live site | Stack |
+|-----------|-------|
+| [**so101-domain-operator**](https://knarayanareddy.github.io/so101-domain-operator/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**Handy**](https://knarayanareddy.github.io/Handy/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**Courserefresh**](https://knarayanareddy.github.io/Courserefresh/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**LEGACYVAULTV1.0**](https://knarayanareddy.github.io/LEGACYVAULTV1.0/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) |
+| [**idea-dump**](https://knarayanareddy.github.io/idea-dump/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
+| [**Magpie**](https://knarayanareddy.github.io/Magpie/) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&labelColor=1a1b27) |
+| [**ghosthandshake**](https://knarayanareddy.github.io/ghosthandshake/) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) |
+| [**keepsake**](https://knarayanareddy.github.io/keepsake/) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) |
+| [**proofpress-evidence-portal**](https://knarayanareddy.github.io/proofpress-evidence-portal/) | ![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square&labelColor=1a1b27) |
+| [**dreamswarm**](https://knarayanareddy.github.io/dreamswarm/) | ![Rust](https://img.shields.io/badge/Rust-000000?style=flat-square&labelColor=1a1b27) |
+| [**F1Elastichopsworkshack**](https://f1hackdemo.kiranreddy.nl/) ↗ | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) |
+| [**vouwfiets**](https://vouwfiets.vercel.app/) ↗ | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&labelColor=1a1b27) |
+
+</td>
+</tr>
+</table>
+<!-- SITE_CATALOGUE:END -->
+
+</details>
+
+---
+
+<!-- RECENT WORK -->
+<div align="center">
+
+## 🚀 Recently Shipped
+
+</div>
+
+<!-- SHIPPED:START -->
+- 🚀 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-01
+- 🛰️ **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-01
+- 🧠 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-01
+- 🧪 **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-01
+- 🔭 **[`3dexperimentation`](https://github.com/knarayanareddy/3dexperimentation)** — [live](https://knarayanareddy.github.io/3dexperimentation/) · pushed 2026-10-29
+- ⚙️ **[`Aerorepos`](https://github.com/knarayanareddy/Aerorepos)** — [live](https://knarayanareddy.github.io/Aerorepos/) · pushed 2026-10-29
+- 🛡️ **[`gridqueue-grid-connection`](https://github.com/knarayanareddy/gridqueue-grid-connection)** — [live](https://knarayanareddy.github.io/gridqueue-grid-connection/) · pushed 2026-10-29
+- 🎛️ **[`twitch-codex`](https://github.com/knarayanareddy/twitch-codex)** — [live](https://knarayanareddy.github.io/twitch-codex/) · pushed 2026-10-29
+<!-- SHIPPED:END -->
+
+---
+
+## What I'm Building
+
+<div align="center">
+
+| | Track | The idea | Flagships |
+|:--:|-------|----------|-----------|
+| 🛰️ | **Agent harnesses** | Frontier models are only as good as the cage around them: confinement rings, isolation, durable state, review loops | [**apex**](https://github.com/knarayanareddy/apex) · [**Harness-Zero**](https://github.com/knarayanareddy/Harness-Zero) · [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) |
+| 🚀 | **Aerospace research** | An autonomous research lab where every quantitative claim traces back to a recorded computation | [**Aeroscribe**](https://knarayanareddy.github.io/Aeroscribe/) · [**Aerorepos**](https://knarayanareddy.github.io/Aerorepos/) |
+| 🛡️ | **Compliance-as-code** | Regulation as an executable gate, not a PDF: EU AI Act, GPSR, DSA evidence packs | [**exhibit**](https://github.com/knarayanareddy/exhibit) · [**redflag-eu-compliance**](https://github.com/knarayanareddy/redflag-eu-compliance) · [**listguard**](https://github.com/knarayanareddy/listguard) · [**clausewindow**](https://github.com/knarayanareddy/clausewindow) |
+| 🦾 | **Physical AI** | Safety envelopes, verification ledgers and domain-scoped operators for robots that touch the real world | [**reflex-physical-ai**](https://github.com/knarayanareddy/reflex-physical-ai) · [**so101-domain-operator**](https://knarayanareddy.github.io/so101-domain-operator/) · [**jointcheck**](https://github.com/knarayanareddy/jointcheck-solder-inspection) |
+| 💸 | **Agentic finance** | Agents that act before damage is done, with a gate between proposal and execution | [**Bunqsy**](https://knarayanareddy.github.io/Bunqsy/) · [**Guardian**](https://github.com/knarayanareddy/Guardian) · [**LEGACYVAULTV1.0**](https://knarayanareddy.github.io/LEGACYVAULTV1.0/) |
+| ♿ | **Accessibility** | Interfaces that adapt to the person instead of asking the person to adapt | [**clarion**](https://github.com/knarayanareddy/clarion) · [**accesshold**](https://knarayanareddy.github.io/accesshold/) · [**LitPlay**](https://github.com/knarayanareddy/LitPlay) |
+
+</div>
+
+---
+
+## Hackathons & Sprints
+
+<div align="center">
+
+> Built under a clock, shipped to a live demo, documented afterwards.
+
+| Event | What shipped |
+|-------|--------------|
+| bunq Hackathon 7.0 | [**BUNQSY**](https://knarayanareddy.github.io/Bunqsy/) — always-on financial guardian with a 7-agent risk oracle |
+| Vultr Cloud Hackathon | [**SENTINEL**](https://github.com/knarayanareddy/Sentinel) — fail-closed financial oversight agent behind a 3-signal gate |
+| Slack Agent Builder Challenge | [**Clarion**](https://github.com/knarayanareddy/clarion) — accessibility agent, live-tested in a real Slack sandbox |
+| Prosus Build Weekend | [**Magpie**](https://github.com/knarayanareddy/Magpie) — autonomous classifieds scout that haggles and closes |
+| TechEx Amsterdam | [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) — SAAF policy circuit breaker for support agents |
+| TwitchCon Codex Hackathon | [**twitch-codex**](https://github.com/knarayanareddy/twitch-codex) — four live-audience, control and accessibility builds |
+| OneGov / Alkemio | [**onegov2-spatial-assistant**](https://github.com/knarayanareddy/onegov2-spatial-assistant) — Dutch spatial-assistant challenge entry |
+| F1 × Elastic × Hopsworks | [**F1Elastichopsworkshack**](https://f1hackdemo.kiranreddy.nl/) — explorable 2023–24 race workspace |
+
+</div>
+
+---
+
+## Collections & Explorers
+
+<div align="center">
+
+| | Project | Why it exists |
+|:--:|---------|---------------|
+| 🛰️ | [**toolscour**](https://knarayanareddy.github.io/toolscour/) | 11,000+ AI tools mapped as a 3D galaxy, with a stack architect that scores compatibility |
+| 🔭 | [**gitscour**](https://knarayanareddy.github.io/gitscour/) | The same sharding pipeline applied to 50,000+ high-star repos |
+| 🧰 | [**AI-Arsenal**](https://knarayanareddy.github.io/AI-Arsenal/) | A machine-readable encyclopedia an agent can consume as easily as a human |
+| 📰 | [**AI-Daily**](https://knarayanareddy.github.io/AI-Daily/) | Scout → Challenge → Agree, so the news you read was argued with first |
+| 🎨 | [**WebsitedesignandPrompts**](https://knarayanareddy.github.io/WebsitedesignandPrompts/) | The paywalled web, rebuilt as reusable templates plus the prompts that make them |
+| 🧪 | [**3dexperimentation**](https://knarayanareddy.github.io/3dexperimentation/) | Pure-code animated film studio — Canvas, no assets, 60 FPS |
+
+</div>
+
+---
+
+## Tech Stack
+
+<div align="center">
+
+### Languages
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Rust](https://img.shields.io/badge/Rust-000000?style=for-the-badge&logo=rust&logoColor=white)
+![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
+
+### AI & Agents
+![Anthropic Claude](https://img.shields.io/badge/Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
+![OpenAI](https://img.shields.io/badge/Codex%20%2F%20OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white)
+![MCP](https://img.shields.io/badge/MCP%20Servers-000000?style=for-the-badge&logo=modelcontextprotocol&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+
+### Web, Data & Infra
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=threedotjs&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+
+### Domain
+![Aerospace](https://img.shields.io/badge/Su2%20%2F%20CFD-1f6feb?style=for-the-badge&logo=nasa&logoColor=white)
+![Solana](https://img.shields.io/badge/Solana-9945FF?style=for-the-badge&logo=solana&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+
+</div>
+
+---
+
+## GitHub Stats
+
+<div align="center">
+
+<img width="49%" src="https://streak-stats.demolab.com/?user=knarayanareddy&theme=tokyonight&hide_border=true&background=0D1117&stroke=58a6ff&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" />
+<img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=knarayanareddy&theme=tokyonight" />
+
+<img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=knarayanareddy&theme=github_dark" />
+
+</div>
+
+<details>
+<summary><b>More stats</b></summary>
+<div align="center">
+
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=knarayanareddy&theme=github_dark" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=knarayanareddy&theme=github_dark" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=knarayanareddy&theme=github_dark&utcOffset=1" />
+
+</div>
+</details>
+
+<details>
+<summary><b>🐍 Contribution snake</b></summary>
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/knarayanareddy/Kiran-Narayanareddy/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/knarayanareddy/Kiran-Narayanareddy/output/snake.svg" />
+  <img alt="Contribution snake" src="https://raw.githubusercontent.com/knarayanareddy/Kiran-Narayanareddy/output/snake-dark.svg" />
+</picture>
+
+<sub>Generated daily by <a href=".github/workflows/snake.yml">snake.yml</a> into the <code>output</code> branch.</sub>
+
+</div>
+</details>
+
+<details>
+<summary><b>Contribution activity</b></summary>
+<div align="center">
+
+<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=knarayanareddy&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=58a6ff&line=58a6ff&point=ffffff&area=true" />
+
+</div>
+</details>
+
+---
+
+<!-- QUOTE -->
+<div align="center">
+
+### Random Dev Quote
+
+![Quote](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight)
+
+</div>
+
+---
+
+<!-- FOOTER -->
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=110&section=footer" width="100%"/>
+
+**Amsterdam, Netherlands** · Autonomous agents · Aerospace & physical AI · Compliance-as-code
+
+<sub>Live sites and counters are refreshed by <a href=".github/workflows/update-profile.yml">GitHub Actions</a> — see <a href="scripts/build_profile.py">scripts/build_profile.py</a></sub>
+
+</div>
+
+<!-- Last updated: 2026-11-02 07:43 UTC -->
