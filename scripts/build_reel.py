@@ -137,7 +137,9 @@ def chrome_png(path: str, url: str, repo: str, recorded: str) -> None:
     # caption strip, translucent so the page shows through: this is where the
     # honesty lives -- "recorded <date> · not live", never the word live.
     top = BAR + HEIGHT - 30
-    draw.rectangle([0, top, WIDTH, BAR + HEIGHT], fill=rgba("canvas", 220))
+    # Opaque, not translucent: at 86% the page's own text showed through the
+    # caption and collided with it, which read as a rendering bug.
+    draw.rectangle([0, top, WIDTH, BAR + HEIGHT], fill=rgba("canvas"))
     draw.rectangle([0, top, WIDTH, top + 1], fill=rgba("border"))
     draw.ellipse([12, top + 11, 20, top + 19], fill=rgba("live"))
     draw.text((30, top + 9), repo, font=_font(11), fill=rgba("text"))
@@ -198,6 +200,23 @@ def record(repo: str, url: str, force: bool) -> dict:
             page.wait_for_timeout(STEP_MS)
             page.screenshot(path=os.path.join(folder, f"f{index:03d}.png"))
             index += 1
+
+        # App-like pages (a dashboard, a canvas studio) have nothing to scroll,
+        # so a scroll-only reel would be a still image of a running app. Sweep
+        # the pointer across them instead: hover states fire, and the
+        # pointer-reactive canvases actually react. Still a recording of the
+        # real page, just a gesture that suits the page.
+        if travel < 200:
+            page.evaluate("window.scrollTo({top:0, behavior:'instant'})")
+            cols, rows = 5, 2
+            for r in range(rows):
+                for c in range(cols):
+                    x = VIEWPORT["width"] * (0.15 + 0.7 * c / (cols - 1))
+                    y = VIEWPORT["height"] * (0.3 + 0.4 * r / max(1, rows - 1))
+                    page.mouse.move(x, y, steps=6)
+                    page.wait_for_timeout(STEP_MS)
+                    page.screenshot(path=os.path.join(folder, f"f{index:03d}.png"))
+                    index += 1
 
         # Return to the top, so the loop restarts where it began instead of
         # snapping back every few seconds.

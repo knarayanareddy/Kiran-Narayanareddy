@@ -7,7 +7,7 @@
 // broken icon - the most common way README demos die).
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync, readFileSync as read, statSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
 const root = new URL("..", import.meta.url).pathname;
@@ -61,18 +61,50 @@ test("the README only shows reels that exist", () => {
   }
 });
 
+function gifFrames(path) {
+  // Walk the GIF block structure and count image descriptors. Done here rather
+  // than with ffprobe/ImageMagick so the guard runs on any machine that can run
+  // the tests - CI has ffprobe, a bare container does not.
+  const buf = read(path);
+  if (buf.toString("ascii", 0, 3) !== "GIF") return 0;
+  let pos = 6;                                  // header
+  const flags = buf[10];
+  pos = 13;
+  if (flags & 0x80) pos += 3 * (1 << ((flags & 0x07) + 1));  // global colour table
+
+  const skipSubBlocks = () => {
+    while (pos < buf.length) {
+      const size = buf[pos++];
+      if (size === 0) return;
+      pos += size;
+    }
+  };
+
+  let frames = 0;
+  while (pos < buf.length) {
+    const block = buf[pos++];
+    if (block === 0x3b) break;                  // trailer
+    if (block === 0x21) { pos += 1; skipSubBlocks(); }        // extension
+    else if (block === 0x2c) {                  // image descriptor
+      frames += 1;
+      const local = buf[pos + 8];
+      pos += 9;
+      if (local & 0x80) pos += 3 * (1 << ((local & 0x07) + 1));
+      pos += 1;                                 // LZW minimum code size
+      skipSubBlocks();
+    } else {
+      break;                                    // unknown block: stop honestly
+    }
+  }
+  return frames;
+}
+
 test("generated reels actually animate and loop", () => {
   const dir = `${root}assets/reels`;
   if (!existsSync(dir)) return;
-  const gifs = readdirSync(dir).filter((n) => n.endsWith(".gif"));
-  if (!gifs.length) return;
-  for (const name of gifs) {
-    const probe = execFileSync("ffprobe", [
-      "-v", "error", "-select_streams", "v:0",
-      "-count_frames", "-show_entries", "stream=nb_read_frames",
-      "-of", "csv=p=0", `${dir}/${name}`,
-    ], { encoding: "utf8" }).trim();
-    assert.ok(Number(probe) > 1, `${name} has ${probe} frame(s); a still is not a reel`);
+  for (const name of readdirSync(dir).filter((n) => n.endsWith(".gif"))) {
+    const frames = gifFrames(`${dir}/${name}`);
+    assert.ok(frames > 1, `${name} has ${frames} frame(s); a still is not a reel`);
   }
 });
 
