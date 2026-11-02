@@ -1,0 +1,26 @@
+{
+  "3dexperimentation": {
+    "frames": 24,
+    "gif_bytes": 2394675,
+    "label": "canvas film studio",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/3dexperimentation/"
+  },
+  "sallie-returns-ai-agent": {
+    "frames": 24,
+    "gif_bytes": 1389341,
+    "label": "returns pipeline",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/sallie-returns-ai-agent/"
+  },
+  "toolscour": {
+    "frames": 24,
+    "gif_bytes": 2242927,
+    "label": "3D knowledge galaxy",
+    "recorded": "2026-11-02",
+    "under_camo_limit": true,
+    "url": "https://knarayanareddy.github.io/toolscour/"
+  }
+}
