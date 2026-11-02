@@ -1,0 +1,46 @@
+name: Update profile
+
+on:
+  schedule:
+    # Every day at 04:17 UTC — off the hour to stay clear of GitHub's cron rush.
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/build_profile.py"
+      - "README.md"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-update
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild live-site showcase from the GitHub API
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build_profile.py
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- README.md data/sites.json; then
+            echo "Profile is already up to date."
+            exit 0
+          fi
+          git add README.md data/sites.json
+          git commit -m "🤖 Refresh live sites and stats [skip ci]"
+          git push
