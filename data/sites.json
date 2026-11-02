@@ -1,7 +1,7 @@
 {
-  "generated": "2026-11-02 07:47 UTC",
+  "generated": "2026-11-02 08:26 UTC",
   "repos": 124,
-  "stars": 69,
+  "stars": 112,
   "site_count": 35,
   "pages_count": 33,
   "languages": [
@@ -80,7 +80,7 @@
       "url": "https://knarayanareddy.github.io/3dexperimentation/",
       "pages": true,
       "lang": "TypeScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-29",
       "blurb": "Pure-code, 60 FPS Canvas animated film studio with generated soundtracks and speech"
     },
@@ -89,7 +89,7 @@
       "url": "https://knarayanareddy.github.io/Aerorepos/",
       "pages": true,
       "lang": "Python",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-29",
       "blurb": "Curated directory of open-source aerospace engineering projects — aero, propulsion, structures, GNC, space"
     },
@@ -98,7 +98,7 @@
       "url": "https://knarayanareddy.github.io/gridqueue-grid-connection/",
       "pages": true,
       "lang": "Python",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-29",
       "blurb": "Energy grid interconnection navigator and flexibility planner"
     },
@@ -107,7 +107,7 @@
       "url": "https://knarayanareddy.github.io/twitch-codex/",
       "pages": true,
       "lang": "JavaScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-29",
       "blurb": "Four independent live-audience, accessibility and broadcaster-control builds for TwitchCon"
     },
@@ -116,7 +116,7 @@
       "url": "https://knarayanareddy.github.io/redflag-eu-compliance/",
       "pages": true,
       "lang": "Python",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-29",
       "blurb": "Pre-flight EU product-safety compliance gate for GPSR Art. 19 and Safety Gate recalls"
     },
@@ -125,7 +125,7 @@
       "url": "https://knarayanareddy.github.io/jointcheck-solder-inspection/",
       "pages": true,
       "lang": "Python",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-29",
       "blurb": "Solder-joint workmanship inspection with proof: OpenCV, Nemotron reasoning, sandbox branching"
     },
@@ -134,7 +134,7 @@
       "url": "https://knarayanareddy.github.io/reflex-physical-ai/",
       "pages": true,
       "lang": "Python",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-29",
       "blurb": "Edge deterministic safety envelope with cloud counterfactual replay for physical AI"
     },
@@ -143,7 +143,7 @@
       "url": "https://knarayanareddy.github.io/curiolab/",
       "pages": true,
       "lang": "TypeScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-24",
       "blurb": "Two-screen family science episodes where measured experiments, not canned values, branch the story"
     },
@@ -152,7 +152,7 @@
       "url": "https://knarayanareddy.github.io/nexttime/",
       "pages": true,
       "lang": "Python",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-24",
       "blurb": "Consented conversation capture, 90-second rehearsal, and functional-language progress tracking"
     },
@@ -161,7 +161,7 @@
       "url": "https://knarayanareddy.github.io/roomsmith/",
       "pages": true,
       "lang": "TypeScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-24",
       "blurb": "Physical-digital escape room whose deterministic engine — not the model — owns puzzle completion"
     },
@@ -170,7 +170,7 @@
       "url": "https://knarayanareddy.github.io/accesshold/",
       "pages": true,
       "lang": "TypeScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-24",
       "blurb": "Post-booking accessibility evidence monitoring with explicitly approved disruption recovery"
     },
@@ -179,7 +179,7 @@
       "url": "https://knarayanareddy.github.io/harvestgrid/",
       "pages": true,
       "lang": "Python",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-24",
       "blurb": "Privacy-preserving backyard harvest forecasting and volunteer glean logistics for food pantries"
     },
@@ -188,7 +188,7 @@
       "url": "https://knarayanareddy.github.io/Agentcrash/",
       "pages": true,
       "lang": "TypeScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-20",
       "blurb": "SAAF policy circuit breaker for support agents — propose, gate, quarantine, restore"
     },
@@ -215,7 +215,7 @@
       "url": "https://knarayanareddy.github.io/SAAF-circuit-breaker/",
       "pages": true,
       "lang": "HTML",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-06",
       "blurb": "Policy circuit breaker that quarantines drifting agents and restores a healthy checkpoint"
     },
@@ -224,7 +224,7 @@
       "url": "https://knarayanareddy.github.io/so101-domain-operator/",
       "pages": true,
       "lang": "TypeScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-04",
       "blurb": "Domain-scoped SO-101 robot operator: script → voice → perception → verification → ledger"
     },
@@ -233,7 +233,7 @@
       "url": "https://knarayanareddy.github.io/Handy/",
       "pages": true,
       "lang": "TypeScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-03",
       "blurb": "Handy is my name and robot is my form"
     },
@@ -296,7 +296,7 @@
       "url": "https://knarayanareddy.github.io/Magpie/",
       "pages": true,
       "lang": "Python",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-09-26",
       "blurb": "Autonomous classifieds scout that finds underpriced listings, haggles, and closes the deal"
     },
@@ -305,7 +305,7 @@
       "url": "https://knarayanareddy.github.io/ghosthandshake/",
       "pages": true,
       "lang": "HTML",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-08-31",
       "blurb": "Strangers pick the same secret word without saying it, then reveal on Monad"
     },
@@ -314,7 +314,7 @@
       "url": "https://knarayanareddy.github.io/keepsake/",
       "pages": true,
       "lang": "HTML",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-08-29",
       "blurb": "A 16×16 on-chain arena where the world — never you — is the attester"
     },
@@ -341,7 +341,7 @@
       "url": "https://f1hackdemo.kiranreddy.nl/",
       "pages": false,
       "lang": "JavaScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-20",
       "blurb": "Explorable 2023–2024 F1 race workspace on Elasticsearch and Hopsworks"
     },
@@ -350,7 +350,7 @@
       "url": "https://vouwfiets.vercel.app/",
       "pages": false,
       "lang": "JavaScript",
-      "stars": 0,
+      "stars": 1,
       "pushed": "2026-10-07",
       "blurb": "Folding-bike explorer built on the open Dutch cycling network"
     }
