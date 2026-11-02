@@ -1,6 +1,6 @@
 {
-  "total": 36,
-  "captured": 34,
+  "total": 37,
+  "captured": 35,
   "missing": [
     "SAAF-circuit-breaker",
     "Handy"
@@ -25,6 +25,14 @@
       "ok": true,
       "bytes": 928941,
       "pushed": "2026-10-07"
+    },
+    {
+      "repo": "myjevuses",
+      "url": "https://knarayanareddy.github.io/myjevuses/",
+      "status": "ok",
+      "ok": true,
+      "bytes": 113884,
+      "pushed": "2026-11-02"
     },
     {
       "repo": "Aeroscribe",
