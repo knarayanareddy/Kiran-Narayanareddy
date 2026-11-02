@@ -341,7 +341,14 @@ def main() -> int:
     readme = replace_block(readme, "SITE_CATALOGUE", render_catalogue(data))
     readme = replace_block(readme, "SHIPPED", render_shipped(data))
     readme = re.sub(r"<!-- Last updated: .*?-->", f"<!-- Last updated: {data['generated']} -->", readme)
-    readme = readme.replace("__PROFILE_REPO__", PROFILE_REPO)
+    # Rewrite the profile-repo segment of any snake image URL to the current name.
+    # The README was committed with a literal name, so a placeholder-only swap
+    # would silently do nothing after a rename.
+    readme = re.sub(
+        rf"(raw\.githubusercontent\.com/[^/]+/)[^/]+(/output/)",
+        rf"\g<1>{PROFILE_REPO}\g<2>",
+        readme,
+    )
 
     if args.dry_run:
         print(readme)
