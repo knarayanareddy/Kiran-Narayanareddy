@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-02T12:00:22Z",
+  "checked": "2026-11-02T13:22:31Z",
   "fresh_days": 21,
   "sites": {
     "3dexperimentation": {
@@ -54,7 +54,7 @@
     },
     "Handy": {
       "age_days": 0,
-      "captured": "2026-11-02T11:48:10Z",
+      "captured": "2026-11-02T12:55:26Z",
       "confirmed_live": true
     },
     "LEGACYVAULTV1.0": {
@@ -74,7 +74,7 @@
     },
     "SAAF-circuit-breaker": {
       "age_days": 0,
-      "captured": "2026-11-02T11:48:10Z",
+      "captured": "2026-11-02T12:55:26Z",
       "confirmed_live": true
     },
     "WebsitedesignandPrompts": {
@@ -130,6 +130,11 @@
     "keepsake": {
       "age_days": 0,
       "captured": "2026-11-02T08:21:38Z",
+      "confirmed_live": true
+    },
+    "myjevuses": {
+      "age_days": 0,
+      "captured": "2026-11-02T12:55:26Z",
       "confirmed_live": true
     },
     "nexttime": {
