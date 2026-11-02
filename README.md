@@ -101,6 +101,16 @@ class KiranNarayanareddy:
 | 🌐 | [**Bunqsy**](https://knarayanareddy.github.io/Bunqsy/) · [source](https://github.com/knarayanareddy/Bunqsy) | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=1a1b27) ![stars](https://img.shields.io/github/stars/knarayanareddy/Bunqsy?style=flat-square&labelColor=1a1b27&color=58a6ff) | Always-on financial guardian: 7-agent risk oracle, proactive interventions, nightly Dream Mode |
 <!-- LIVE_SITES:END -->
 
+### 📸 Every deployment, as it actually looks
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/mosaic-dark.png" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/mosaic-light.png" />
+  <img src="./assets/mosaic-dark.png" alt="Screenshot wall of live deployments" width="100%" />
+</picture>
+
+<sub>Captured headlessly by <a href=".github/workflows/screenshots.yml">screenshots.yml</a>, one tile per repo, recaptured only when a site changes. <a href="./assets/mosaic-dark.svg">Clickable version</a>.</sub>
+
 <br/>
 
 <details>
@@ -268,27 +278,19 @@ class KiranNarayanareddy:
 
 ---
 
-## GitHub Stats
+## Signal Dashboard
 
 <div align="center">
 
-<img width="49%" src="https://streak-stats.demolab.com/?user=knarayanareddy&theme=tokyonight&hide_border=true&background=0D1117&stroke=58a6ff&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" />
-<img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=knarayanareddy&theme=tokyonight" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/dashboard-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/dashboard-light.svg" />
+  <img src="./assets/dashboard-dark.svg" alt="Contribution dashboard: hourly and weekday rhythm, yearly totals, streaks and language mix" width="100%" />
+</picture>
 
-<img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=knarayanareddy&theme=github_dark" />
-
-</div>
-
-<details>
-<summary><b>More stats</b></summary>
-<div align="center">
-
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=knarayanareddy&theme=github_dark" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=knarayanareddy&theme=github_dark" />
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=knarayanareddy&theme=github_dark&utcOffset=1" />
+<sub>One self-rendered card, no third-party widgets. Built by <a href="scripts/build_dashboard.py">build_dashboard.py</a> from the GitHub contributions API, so the numbers are exact.</sub>
 
 </div>
-</details>
 
 <details>
 <summary><b>🐍 Contribution snake</b></summary>
@@ -299,8 +301,6 @@ class KiranNarayanareddy:
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/knarayanareddy/Kiran-Narayanareddy/output/snake.svg" />
   <img alt="Contribution snake" src="https://raw.githubusercontent.com/knarayanareddy/Kiran-Narayanareddy/output/snake-dark.svg" />
 </picture>
-
-<sub>Generated daily by <a href=".github/workflows/snake.yml">snake.yml</a> into the <code>output</code> branch.</sub>
 
 </div>
 </details>
@@ -316,15 +316,6 @@ class KiranNarayanareddy:
 </picture>
 
 <sub>Isometric render of the last year of commits by <a href=".github/workflows/3d-contrib.yml">3d-contrib.yml</a>.</sub>
-
-</div>
-</details>
-
-<details>
-<summary><b>Contribution activity</b></summary>
-<div align="center">
-
-<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=knarayanareddy&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=58a6ff&line=58a6ff&point=ffffff&area=true" />
 
 </div>
 </details>

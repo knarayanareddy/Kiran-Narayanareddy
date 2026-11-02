@@ -10,6 +10,7 @@ on:
     paths:
       - "scripts/build_profile.py"
       - "scripts/build_hero.py"
+      - "scripts/build_dashboard.py"
       - "README.md"
 
 permissions:
@@ -36,6 +37,11 @@ jobs:
 
       - name: Re-render the self-hosted hero from the same data
         run: python3 scripts/build_hero.py
+
+      - name: Refresh the signal dashboard
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build_dashboard.py
 
       - name: Commit if anything changed
         run: |

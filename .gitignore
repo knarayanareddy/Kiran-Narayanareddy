@@ -2,3 +2,12 @@ __pycache__/
 *.py[cod]
 .venv/
 .DS_Store
+
+# real screenshots are produced by CI; only the demo cache is committed
+assets/shots/*.png
+!assets/shots/F1Elastichopsworkshack.png
+!assets/shots/vouwfiets.png
+!assets/shots/Aeroscribe.png
+!assets/shots/toolscour.png
+!assets/shots/AI-Daily.png
+!assets/shots/AI-Arsenal.png

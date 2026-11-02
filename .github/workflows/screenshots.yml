@@ -1,0 +1,56 @@
+name: Screenshot the live sites
+
+on:
+  schedule:
+    - cron: "20 4 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Recapture every site, ignoring the cache"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "scripts/build_mosaic.py"
+      - "data/sites.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: screenshots
+  cancel-in-progress: true
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install capture + compose dependencies
+        run: |
+          python3 -m pip install --quiet playwright pillow
+          python3 -m playwright install --with-deps chromium
+
+      - name: Capture and compose the wall
+        env:
+          FORCE: ${{ inputs.force }}
+        run: python3 scripts/build_mosaic.py $([ "$FORCE" = "true" ] && echo --force)
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -z "$(git status --porcelain assets/shots assets/mosaic-dark.png assets/mosaic-light.png assets/mosaic-dark.svg assets/mosaic-light.svg)" ]; then
+            echo "Screenshot wall already current."
+            exit 0
+          fi
+          git add assets/shots assets/mosaic-*
+          git commit -m "📸 Refresh live-site screenshots [skip ci]"
+          git push

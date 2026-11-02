@@ -119,11 +119,29 @@ tagline cycling through your actual positioning, a live "harness" glyph with orb
 and signal pulses, animated stat bars, drifting grid floor, light/dark safe, reduced-motion
 safe, zero external requests. **This alone changes the profile from "templated" to "designed."**
 
+### ✅ 3. Real screenshots of your 33 live sites — IMPLEMENTED
+`scripts/build_mosaic.py` + `.github/workflows/screenshots.yml`. Playwright captures
+every deployment at 1280×800, crops to a uniform tile, and composes a screenshot wall
+(`assets/mosaic-{dark,light}.png`) plus a clickable SVG index. Captures are cached per repo
+and only re-taken when that repo is pushed, so a daily run costs almost nothing.
+*Status: pipeline + compositor built and verified with synthetic captures; real captures
+are produced by CI, which is the only place with browser downloads available.*
+
+### ✅ 4. One designed dashboard — IMPLEMENTED
+`scripts/build_dashboard.py` → `assets/dashboard-{dark,light}.svg`. Replaces the stats card,
+streak card, three summary cards, language cards and activity graph with a single
+self-rendered card: hour-of-day rhythm (sampled from commit timestamps, keeping each
+author's UTC offset so the hour is their local hour), weekday rhythm, year totals, 53-week
+sparkline, streaks and language mix. Real figures at time of writing: **4,243 contributions,
+3,749 commits, 394 pull requests, 116 repos touched, 42-day streak**.
+It queries `user(login:)` rather than `viewer`, because in Actions the token belongs to the
+App and `viewer` would report the bot's empty history.
+
 ### 🥈 2. Isometric 3D contribution terrain (workflow added)
 `yoshi389111/github-profile-3d-contrib` → committed SVG. Highest wow-per-line-of-code
 available. Pairs with the snake you already have, or replaces it if you want restraint.
 
-### 🥉 3. Real screenshots of your 33 live sites (the sleeper hit — not yet built)
+### ~~3. Real screenshots of your 33 live sites~~ (built — see above)
 You have the single most unusual asset here: **33 deployed sites nobody has seen**. A table
 of text links undersells that badly. A workflow that visits each Pages URL with Playwright
 inside Actions, captures a 1280×800 PNG, commits them under `assets/shots/`, and renders a
@@ -131,7 +149,7 @@ inside Actions, captures a 1280×800 PNG, commits them under `assets/shots/`, an
 service, no rate limits, and it self-updates when a site changes. This is the recommendation
 I'd push hardest on after the hero.
 
-### 4. Replace the stat wall with one designed dashboard (not yet built)
+### ~~4. Replace the stat wall with one designed dashboard~~ (built — see above)
 Currently: stats card + streak + summary + activity graph + repos-per-language +
 commit-language + productive-time + snake + quote — nine third-party images that repeat the
 same information in six visual languages. Replace with **one** self-rendered SVG "signal
