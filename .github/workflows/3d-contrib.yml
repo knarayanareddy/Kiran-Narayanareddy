@@ -1,0 +1,41 @@
+name: 3D contribution terrain
+
+on:
+  schedule:
+    - cron: "45 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/3d-contrib.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: 3d-contrib
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate isometric contribution images
+        uses: yoshi389111/github-profile-3d-contrib@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -z "$(git status --porcelain profile-3d-contrib)" ]; then
+            echo "3D contribution images already current."
+            exit 0
+          fi
+          git add profile-3d-contrib
+          git commit -m "🏔️ Refresh 3D contribution terrain [skip ci]"
+          git push

@@ -9,6 +9,8 @@ on:
     branches: [main]
     paths:
       - "scripts/build_profile.py"
+      - "scripts/build_hero.py"
+      - "scripts/build_dashboard.py"
       - "README.md"
 
 permissions:
@@ -33,14 +35,24 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/build_profile.py
 
+      - name: Re-render the self-hosted hero from the same data
+        run: python3 scripts/build_hero.py
+
+      - name: Refresh the signal dashboard
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/build_dashboard.py
+
       - name: Commit if anything changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- README.md data/sites.json; then
+          if git diff --quiet -- README.md data/sites.json assets/; then
             echo "Profile is already up to date."
             exit 0
           fi
-          git add README.md data/sites.json
+          git add README.md data/sites.json assets/
           git commit -m "🤖 Refresh live sites and stats [skip ci]"
+          # the screenshot job may have pushed meanwhile; rebase before pushing
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
           git push

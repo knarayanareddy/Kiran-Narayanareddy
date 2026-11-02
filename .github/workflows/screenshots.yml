@@ -1,0 +1,83 @@
+# Captures every live deployment into assets/shots and composes the wall.
+# Cached per repo (assets/shots/<repo>.json), so re-runs are cheap.
+name: Screenshot the live sites
+
+on:
+  schedule:
+    - cron: "20 4 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Recapture every site, ignoring the cache"
+        type: boolean
+        default: false
+      publish:
+        description: "Commit the result back to this branch (dev). Leave off to open a PR instead."
+        type: boolean
+        default: false
+  push:
+    # main for production; arena/** so a sandbox without browser downloads can
+    # still request real captures by pushing a commit to its own branch.
+    branches: [main, "arena/**"]
+    paths:
+      - "scripts/build_mosaic.py"
+      - "data/sites.json"
+      - ".github/workflows/screenshots.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: screenshots-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install capture dependencies
+        run: |
+          python3 -m pip install --quiet playwright pillow
+          python3 -m playwright install --with-deps chromium
+
+      - name: Capture every live site and compose the wall
+        env:
+          FORCE: ${{ inputs.force }}
+        run: python3 scripts/build_mosaic.py $([ "$FORCE" = "true" ] && echo --force)
+
+      - name: Report what was captured
+        run: |
+          echo "### Screenshot wall" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          total=$(ls assets/shots/*.png 2>/dev/null | wc -l)
+          fresh=$(git status --porcelain assets/shots | wc -l)
+          echo "- tiles on disk: **$total**" >> $GITHUB_STEP_SUMMARY
+          echo "- changed this run: **$fresh**" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| repo | bytes |" >> $GITHUB_STEP_SUMMARY
+          echo "|---|---|" >> $GITHUB_STEP_SUMMARY
+          for f in assets/shots/*.png; do
+            [ -e "$f" ] || continue
+            echo "| $(basename "$f" .png) | $(stat -c%s "$f") |" >> $GITHUB_STEP_SUMMARY
+          done
+
+      - name: Commit the captures back to this branch
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A assets/shots assets/mosaic-* data/shots-manifest.json
+          if git diff --cached --quiet; then
+            echo "Screenshot wall already current."
+            exit 0
+          fi
+          git commit -m "📸 Real screenshots of every live site [skip ci]"
+          # the profile job may have pushed meanwhile; rebase before pushing
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+          git push origin "HEAD:${GITHUB_REF_NAME}"
