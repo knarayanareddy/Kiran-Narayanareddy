@@ -129,8 +129,16 @@ test("the grid never loads every GIF eagerly", () => {
   );
   if (!section.includes("assets/reels/")) return;
 
-  const eagerGifs = [...section.matchAll(/<img[^>]*src="\.\/assets\/reels\/([^"]+\.gif)"/g)];
-  assert.ok(eagerGifs.length <= 2, `${eagerGifs.length} GIFs load eagerly; keep it to the two newest`);
+  // "Eager" means visible without opening anything: a GIF inside <details> is not
+  // fetched until the reader opens it, which is the whole point of the grid.
+  let depth = 0;
+  const eager = [];
+  for (const [tag] of section.matchAll(/<details[^>]*>|<\/details>|<img[^>]*src="[^"]*assets\/reels\/[^"]+\.gif"/g)) {
+    if (tag.startsWith("<details")) depth += 1;
+    else if (tag.startsWith("</details")) depth = Math.max(0, depth - 1);
+    else if (depth === 0) eager.push(tag);
+  }
+  assert.ok(eager.length <= 2, `${eager.length} GIFs load eagerly; keep it to the two newest`);
 
   // Everything else is a cover, and every cover exists.
   for (const [, src] of section.matchAll(/src="\.\/(assets\/reels\/[^"]+-cover\.png)"/g)) {
