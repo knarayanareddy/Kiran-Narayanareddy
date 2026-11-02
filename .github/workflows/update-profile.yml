@@ -33,9 +33,12 @@ jobs:
       - name: Rebuild live-site showcase from the GitHub API
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_REPO: ${{ github.event.repository.name }}
         run: python3 scripts/build_profile.py
 
       - name: Re-render the self-hosted hero from the same data
+        env:
+          PROFILE_REPO: ${{ github.event.repository.name }}
         run: python3 scripts/build_hero.py
 
       - name: Refresh the signal dashboard
