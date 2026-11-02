@@ -216,6 +216,42 @@ __STAT_CHIPS__
 """
 
 
+FOOTER_TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="110" viewBox="0 0 900 110" role="img" aria-label="Kiran Narayanareddy, Amsterdam">
+  <title>Kiran Narayanareddy, Amsterdam</title>
+  <defs>
+    <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="__ACCENT__" stop-opacity="0.55"/>
+      <stop offset="50%" stop-color="__ACCENT2__" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="__ACCENT3__" stop-opacity="0.55"/>
+      <animate attributeName="x1" values="-0.2;1;-0.2" dur="18s" repeatCount="indefinite"/>
+    </linearGradient>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+      @keyframes drift { from { transform: translateX(0); } to { transform: translateX(-60px); } }
+      .drift { animation: drift 14s linear infinite; }
+      @media (prefers-reduced-motion: reduce) { .drift { animation: none; } }
+    </style>
+  </defs>
+  <rect width="900" height="110" fill="none"/>
+  <g class="drift" opacity="0.85">
+    <path d="M-60 78 C 60 52, 180 98, 300 78 S 540 52, 660 78 S 840 98, 960 78 L 960 110 L -60 110 Z" fill="url(#wave)"/>
+    <path d="M-60 88 C 80 66, 200 104, 320 88 S 560 66, 680 88 S 860 104, 960 88 L 960 110 L -60 110 Z" fill="url(#wave)" opacity="0.6"/>
+  </g>
+  <text class="sans" x="450" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="__TEXT__">Kiran Narayanareddy</text>
+  <text class="mono" x="450" y="60" text-anchor="middle" font-size="9.5" letter-spacing="2.4" fill="__MUTED__">AMSTERDAM · AUTONOMOUS AGENTS · AEROSPACE · COMPLIANCE-AS-CODE</text>
+</svg>
+"""
+
+
+def render_footer(theme_name: str) -> str:
+    theme = THEMES[theme_name]
+    svg = FOOTER_TEMPLATE
+    for key, value in theme.items():
+        svg = svg.replace(f"__{key.upper()}__", value)
+    return svg
+
+
 def load_stats() -> dict:
     """Prefer the committed snapshot so a build is fast and deterministic."""
     if os.path.exists(DATA):
@@ -331,6 +367,12 @@ def main() -> int:
         with open(path, "w", encoding="utf-8") as handle:
             handle.write(svg)
         print(f"wrote {os.path.relpath(path, ROOT)} ({len(svg):,} bytes)", file=sys.stderr)
+
+        footer = render_footer(theme_name)
+        fpath = os.path.join(OUT_DIR, f"footer-{theme_name}.svg")
+        with open(fpath, "w", encoding="utf-8") as handle:
+            handle.write(footer)
+        print(f"wrote {os.path.relpath(fpath, ROOT)} ({len(footer):,} bytes)", file=sys.stderr)
 
     leftover = [
         token

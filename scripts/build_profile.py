@@ -221,7 +221,10 @@ def collect() -> dict:
         if lang:
             languages[lang] = languages.get(lang, 0) + 1
 
+    profile = api_one(f"/users/{USER}") or {}
+
     return {
+        "followers": profile.get("followers", 0),
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "repos": len(own),
         "stars": sum(r.get("stargazers_count", 0) for r in own),
@@ -239,16 +242,15 @@ def render_featured(data: dict) -> str:
         site = by_name.get(name)
         if not site:
             continue
-        color = LANG_BADGE.get(site["lang"], "58A6FF")
-        stack = f"![{site['lang']}]({badge(site['lang'], color)})" if site["lang"] else ""
-        stars = f"![stars]({stars_badge(site['repo'])})"
+        stack = f"`{site['lang']}`" if site["lang"] else "—"
+        stars = f"★ {site['stars']}" if site["stars"] else "—"
         rows.append(
             f"| 🌐 | [**{site['repo']}**]({site['url']}) · [source](https://github.com/{USER}/{site['repo']}) "
-            f"| {stack} {stars} | {site['blurb']} |"
+            f"| {stack} | {stars} | {site['blurb']} |"
         )
     return (
-        "| | Live site | Stack | What it does |\n"
-        "|:--:|-----------|-------|--------------|\n" + "\n".join(rows)
+        "| | Live site | Stack | Stars | What it does |\n"
+        "|:--:|-----------|-------|:-----:|--------------|\n" + "\n".join(rows)
     )
 
 
@@ -265,8 +267,7 @@ def render_catalogue(data: dict) -> str:
     for column in columns:
         lines = ["| Live site | Stack |", "|-----------|-------|"]
         for site in column:
-            color = LANG_BADGE.get(site["lang"], "58A6FF")
-            lang = f"![{site['lang']}]({badge(site['lang'], color)})" if site["lang"] else "—"
+            lang = f"`{site['lang']}`" if site["lang"] else "—"
             mark = "" if site["pages"] else " ↗"
             lines.append(f"| [**{site['repo']}**]({site['url']}){mark} | {lang} |")
         tables.append("\n".join(lines))
