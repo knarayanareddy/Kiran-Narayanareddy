@@ -29,6 +29,9 @@ import urllib.request
 from datetime import datetime, timezone
 
 USER = os.environ.get("PROFILE_USER", "knarayanareddy")
+# The profile repository is named after the user. Read it from the environment so
+# renaming the repo needs no code change.
+PROFILE_REPO = os.environ.get("PROFILE_REPO") or USER
 API = "https://api.github.com"
 README = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "README.md")
 DATA = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "sites.json")
@@ -190,7 +193,7 @@ def stars_badge(name: str) -> str:
 
 def collect() -> dict:
     repos = fetch_repos()
-    own = [r for r in repos if not r["fork"] and r["name"].lower() != USER.lower()]
+    own = [r for r in repos if not r["fork"] and r["name"].lower() != PROFILE_REPO.lower()]
 
     sites = []
     for repo in own:
@@ -338,6 +341,7 @@ def main() -> int:
     readme = replace_block(readme, "SITE_CATALOGUE", render_catalogue(data))
     readme = replace_block(readme, "SHIPPED", render_shipped(data))
     readme = re.sub(r"<!-- Last updated: .*?-->", f"<!-- Last updated: {data['generated']} -->", readme)
+    readme = readme.replace("__PROFILE_REPO__", PROFILE_REPO)
 
     if args.dry_run:
         print(readme)
