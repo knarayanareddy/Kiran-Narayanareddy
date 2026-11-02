@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Profile preview</title>
+<style>
+  :root { color-scheme: dark; }
+  body.dark  { background: #0d1117; color: #e6edf3; }
+  body.light { background: #ffffff; color: #0d1117; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+         max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; line-height: 1.55; font-size: 15px; }
+  img { max-width: 100%; height: auto; vertical-align: middle; }
+  h1, h2 { border-bottom: 1px solid #30363d55; padding-bottom: .3em; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  td, th { border: 1px solid #30363d55; padding: 8px 10px; font-size: 13px; vertical-align: top; }
+  code, pre { background: #161b22; border-radius: 6px; }
+  pre { padding: 14px; overflow-x: auto; font-size: 12.5px; }
+  details { border: 1px solid #30363d55; border-radius: 8px; padding: 10px 14px; margin: 10px 0; }
+  summary { cursor: pointer; }
+  hr { border: 0; border-top: 1px solid #30363d55; margin: 26px 0; }
+  .center { text-align: center; }
+  blockquote { border-left: 3px solid #58a6ff; margin: 0; padding-left: 14px; opacity: .85; }
+  /* collapsed blocks open in the preview so nothing is hidden while reviewing */
+  details[open] summary { margin-bottom: 8px; }
+  body.dark code, body.dark pre { background: #161b22; }
+  body.light code, body.light pre { background: #f6f8fa; }
+</style>
+</head>
+<body class="dark">
+<div id="out"></div>
+<script type="module">
+const md = await (await fetch("./README.md", {cache: "no-store"})).text();
+// Strip the YAML-free markdown, keep raw HTML that GitHub would allow.
+let html = md
+  .replace(/<!--[\s\S]*?-->/g, "")
+  // fenced code
+  .replace(/```(\w*)\n([\s\S]*?)```/g, (m, lang, code) => `<pre><code>${esc(code)}</code></pre>`)
+  // images ![alt](src)
+  .replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g, (m, alt, src, title) => `<img alt="${alt}" src="${src}" />`)
+  // linked images [![..](..)](..)
+  .replace(/\[(!\[[^\]]*\]\([^)]+\))\]\(([^)]+)\)/g, (m, img, href) => `<a href="${href}">${img}</a>`)
+  // links
+  .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, text, href) => `<a href="${href}">${text}</a>`)
+  // bold / italic / inline code
+  .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+  .replace(/(^|[^*])\*([^*]+)\*/g, "$1<em>$2</em>")
+  .replace(/`([^`]+)`/g, "<code>$1</code>");
+html = tables(html);
+html = headings(html);
+html = lists(html);
+document.getElementById("out").innerHTML = html;
+document.querySelectorAll("details").forEach(d => d.open = true);
+
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function tables(t){
+  return t.replace(/((?:^\|.*\|\s*\n)+)/gm, block => {
+    const rows = block.trim().split("\n").filter(r => r.trim().startsWith("|"));
+    if (rows.length < 2) return block;
+    const cells = r => r.trim().replace(/^\||\|$/g, "").split("|").map(c => c.trim());
+    const head = cells(rows[0]);
+    const body = rows.slice(2).map(cells);
+    return "<table><thead><tr>" + head.map(h => `<th>${h}</th>`).join("") + "</tr></thead><tbody>" +
+      body.map(r => "<tr>" + r.map(c => `<td>${c}</td>`).join("") + "</tr>").join("") + "</tbody></table>";
+  });
+}
+function headings(t){
+  return t.replace(/^(#{1,4})\s+(.+)$/gm, (m, hashes, text) => `<h${hashes.length}>${text}</h${hashes.length}>`);
+}
+function lists(t){
+  return t.replace(/((?:^- .*\n)+)/gm, block =>
+    "<ul>" + block.trim().split("\n").map(l => `<li>${l.replace(/^-\s+/, "")}</li>`).join("") + "</ul>");
+}
+</script>
+</body>
+</html>

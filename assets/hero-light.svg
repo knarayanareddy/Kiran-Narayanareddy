@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Kiran Narayanareddy — autonomous agents, aerospace research and compliance-as-code. 35 live deployments across 124 repositories.">
+  <title>Kiran Narayanareddy — autonomous agents, aerospace research and compliance-as-code. 35 live deployments across 124 repositories.</title>
+  <defs>
+    <linearGradient id="nameGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0969da"/>
+      <stop offset="52%" stop-color="#8250df"/>
+      <stop offset="100%" stop-color="#1a7f37"/>
+      <animate attributeName="x1" values="-0.3;1.1;-0.3" dur="14s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values="0.4;1.6;0.4" dur="14s" repeatCount="indefinite"/>
+    </linearGradient>
+    <radialGradient id="auroraA" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0969da" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="#0969da" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraB" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8250df" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#8250df" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraC" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a7f37" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#1a7f37" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0969da" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#8250df" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="fadeRight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+    <clipPath id="clipA"><rect x="48" y="118" width="0" height="26"><animate attributeName="width" values="0;340;340;0" keyTimes="0;0.14;0.30;0.34" dur="12s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"/></rect></clipPath>
+    <clipPath id="clipB"><rect x="48" y="118" width="0" height="26"><animate attributeName="width" values="0;360;360;0" keyTimes="0;0.14;0.30;0.34" dur="12s" begin="4s" repeatCount="indefinite"/></rect></clipPath>
+    <clipPath id="clipC"><rect x="48" y="118" width="0" height="26"><animate attributeName="width" values="0;350;350;0" keyTimes="0;0.14;0.30;0.34" dur="12s" begin="8s" repeatCount="indefinite"/></rect></clipPath>
+    <style>
+      .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif; }
+      /* Base styles are the FINISHED state on purpose: a renderer that ignores
+         CSS animation (static previewers, crawlers) must still show the name. */
+      .letter { opacity: 1; animation: rise 0.9s cubic-bezier(.22,1,.36,1) both; }
+      .bar { transform-origin: left center; animation: grow 1.6s cubic-bezier(.22,1,.36,1) both; }
+      @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+      @keyframes drift { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(18px,-12px) scale(1.06); } 100% { transform: translate(0,0) scale(1); } }
+      .aurora { animation: drift 18s ease-in-out infinite; }
+      .aurora-slow { animation: drift 26s ease-in-out infinite reverse; }
+      @keyframes gridpan { from { transform: translateX(0); } to { transform: translateX(-40px); } }
+      .gridpan { animation: gridpan 9s linear infinite; }
+      .static { display: none; }
+      @media (prefers-reduced-motion: reduce) {
+        .anim { display: none; }
+        .static { display: inline; }
+        .letter { opacity: 1 !important; animation: none; }
+        .bar { transform: scaleX(1) !important; animation: none; }
+        .aurora, .aurora-slow, .gridpan { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <!-- card: full bleed, so no page-coloured slivers at the corners -->
+  <rect x="0" y="0" width="900" height="300" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="899" height="299" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- aurora -->
+  <g class="anim">
+    <ellipse class="aurora" cx="150" cy="70" rx="230" ry="150" fill="url(#auroraA)"/>
+    <ellipse class="aurora-slow" cx="640" cy="250" rx="260" ry="160" fill="url(#auroraB)"/>
+    <ellipse class="aurora" cx="820" cy="60" rx="180" ry="120" fill="url(#auroraC)"/>
+  </g>
+
+  <!-- perspective grid floor -->
+  <g class="anim" opacity="0.55">
+    <line x1="0" y1="237" x2="900" y2="237" stroke="#0969da" stroke-width="1" opacity="0.35"/>
+    <g class="gridpan">
+    <line x1="-40" y1="238" x2="940" y2="238" stroke="#e2e8f0" stroke-width="1" opacity="0.22"/>
+    <line x1="-40" y1="248" x2="940" y2="248" stroke="#e2e8f0" stroke-width="1" opacity="0.33"/>
+    <line x1="-40" y1="258" x2="940" y2="258" stroke="#e2e8f0" stroke-width="1" opacity="0.44"/>
+    <line x1="-40" y1="268" x2="940" y2="268" stroke="#e2e8f0" stroke-width="1" opacity="0.55"/>
+    <line x1="-40" y1="278" x2="940" y2="278" stroke="#e2e8f0" stroke-width="1" opacity="0.66"/>
+    <line x1="-40" y1="288" x2="940" y2="288" stroke="#e2e8f0" stroke-width="1" opacity="0.77"/>
+    <line x1="-40" y1="298" x2="940" y2="298" stroke="#e2e8f0" stroke-width="1" opacity="0.88"/>
+    <line x1="-40" y1="238" x2="-118" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="0" y1="238" x2="-72" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="40" y1="238" x2="-26" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="80" y1="238" x2="21" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="120" y1="238" x2="67" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="160" y1="238" x2="114" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="200" y1="238" x2="160" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="240" y1="238" x2="206" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="280" y1="238" x2="253" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="320" y1="238" x2="299" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="360" y1="238" x2="346" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="400" y1="238" x2="392" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="440" y1="238" x2="438" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="480" y1="238" x2="485" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="520" y1="238" x2="531" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="560" y1="238" x2="578" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="600" y1="238" x2="624" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="640" y1="238" x2="670" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="680" y1="238" x2="717" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="720" y1="238" x2="763" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="760" y1="238" x2="810" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="800" y1="238" x2="856" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="840" y1="238" x2="902" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="880" y1="238" x2="949" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    <line x1="920" y1="238" x2="995" y2="306" stroke="#0969da" stroke-width="1" opacity="0.28"/>
+    </g>
+    <rect x="0" y="296" width="900" height="4" fill="#ffffff"/>
+  </g>
+
+  <!-- name: staggered per-letter reveal -->
+  <g class="sans" font-size="34" font-weight="700" fill="url(#nameGrad)">
+    <text x="48.0" y="94" class="letter" style="animation-delay:0.10s">K</text>
+    <text x="73.9" y="94" class="letter" style="animation-delay:0.15s">I</text>
+    <text x="84.8" y="94" class="letter" style="animation-delay:0.20s">R</text>
+    <text x="110.7" y="94" class="letter" style="animation-delay:0.25s">A</text>
+    <text x="136.7" y="94" class="letter" style="animation-delay:0.30s">N</text>
+    <text x="174.2" y="94" class="letter" style="animation-delay:0.40s">N</text>
+    <text x="200.2" y="94" class="letter" style="animation-delay:0.45s">A</text>
+    <text x="226.1" y="94" class="letter" style="animation-delay:0.50s">R</text>
+    <text x="252.1" y="94" class="letter" style="animation-delay:0.55s">A</text>
+    <text x="278.0" y="94" class="letter" style="animation-delay:0.60s">Y</text>
+    <text x="302.1" y="94" class="letter" style="animation-delay:0.65s">A</text>
+    <text x="328.1" y="94" class="letter" style="animation-delay:0.70s">N</text>
+    <text x="354.0" y="94" class="letter" style="animation-delay:0.75s">A</text>
+    <text x="380.0" y="94" class="letter" style="animation-delay:0.80s">R</text>
+    <text x="405.9" y="94" class="letter" style="animation-delay:0.85s">E</text>
+    <text x="430.0" y="94" class="letter" style="animation-delay:0.90s">D</text>
+    <text x="455.9" y="94" class="letter" style="animation-delay:0.95s">D</text>
+    <text x="481.9" y="94" class="letter" style="animation-delay:1.00s">Y</text>
+  </g>
+
+  <!-- rotating tagline: each line is visible by default (opacity 1) and the SMIL
+       animation cycles them; a static render therefore still shows a full line -->
+  <g class="mono" font-size="14.5" fill="#57606a" letter-spacing="0.3">
+    <text x="63" y="137" class="anim">autonomous agents that can prove their work
+      <animate attributeName="opacity" values="1;1;0;0;0;0" keyTimes="0;0.30;0.34;0.63;0.67;1" dur="24s" repeatCount="indefinite"/>
+    </text>
+    <text x="63" y="137" class="anim" opacity="0">aerospace research pipelines with evidence chains
+      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.32;0.36;0.63;0.67;1" dur="24s" repeatCount="indefinite"/>
+    </text>
+    <text x="63" y="137" class="anim" opacity="0">compliance-as-code for EU regulated products
+      <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.65;0.69;0.96;1;1" dur="24s" repeatCount="indefinite"/>
+    </text>
+    <text x="63" y="137" class="static">autonomous agents that can prove their work</text>
+    <rect x="48" y="125" width="8" height="15" fill="#0969da" opacity="0.85" class="anim">
+      <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.45;0.5;0.95;1" dur="1.1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <!-- stat chips -->
+  <g class="bar" style="animation-delay:0.90s">
+    <rect x="48" y="176" width="132" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <text class="mono" x="60" y="197" font-size="16" font-weight="700" fill="#0969da">35</text>
+    <text class="mono" x="60" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">live deployments</text>
+  </g>
+  <g class="bar" style="animation-delay:1.04s">
+    <rect x="192" y="176" width="100" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <text class="mono" x="204" y="197" font-size="16" font-weight="700" fill="#0969da">33</text>
+    <text class="mono" x="204" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">pages sites</text>
+  </g>
+  <g class="bar" style="animation-delay:1.18s">
+    <rect x="305" y="176" width="107" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <text class="mono" x="317" y="197" font-size="16" font-weight="700" fill="#0969da">124</text>
+    <text class="mono" x="317" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">repositories</text>
+  </g>
+  <g class="bar" style="animation-delay:1.32s">
+    <rect x="424" y="176" width="62" height="46" rx="9" fill="#f6f8fa" stroke="#e2e8f0" stroke-width="1"/>
+    <text class="mono" x="436" y="197" font-size="16" font-weight="700" fill="#0969da">69</text>
+    <text class="mono" x="436" y="213" font-size="10.5" fill="#57606a" letter-spacing="0.4">stars</text>
+  </g>
+
+  <!-- the harness glyph: rings, orbiting nodes, signal pulses -->
+  <g transform="translate(748,152)" class="anim">
+    <circle r="112" fill="none" stroke="#e2e8f0" stroke-width="1" opacity="0.5"/>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="60s" repeatCount="indefinite"/>
+      <circle r="96" fill="none" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="2 10" opacity="0.9"/>
+    </g>
+    <!-- two counter-rotating gradient arcs, drawn as circles with a dash offset -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="16s" repeatCount="indefinite"/>
+      <circle r="78" fill="none" stroke="#0969da" stroke-width="1.6" stroke-linecap="round"
+              stroke-dasharray="150 340" opacity="0.85"/>
+      <circle cx="78" cy="0" r="3.4" fill="#0969da"/>
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="10s" repeatCount="indefinite"/>
+      <circle r="56" fill="none" stroke="#8250df" stroke-width="1.5" stroke-linecap="round"
+              stroke-dasharray="90 262" opacity="0.85"/>
+      <circle cx="56" cy="0" r="2.8" fill="#8250df"/>
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="22s" repeatCount="indefinite"/>
+      <circle r="34" fill="none" stroke="#1a7f37" stroke-width="1.2" stroke-dasharray="40 174"
+              stroke-linecap="round" opacity="0.8"/>
+      <circle cx="0" cy="-34" r="2.2" fill="#1a7f37"/>
+    </g>
+    <!-- core -->
+    <circle r="12" fill="#0969da" opacity="0.95"/>
+    <circle r="12" fill="none" stroke="#0969da" stroke-width="1.4" opacity="0.5">
+      <animate attributeName="r" values="12;30" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0" dur="2.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="3" fill="#ffffff" opacity="0.85"/>
+    <!-- signal pulses -->
+    <circle r="2" fill="#0969da" opacity="0">
+      <animate attributeName="r" values="14;96" dur="4.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.75;0" dur="4.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2" fill="#8250df" opacity="0">
+      <animate attributeName="r" values="14;96" dur="4.2s" begin="1.4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.75;0" dur="4.2s" begin="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle r="2" fill="#1a7f37" opacity="0">
+      <animate attributeName="r" values="14;96" dur="4.2s" begin="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.75;0" dur="4.2s" begin="2.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
