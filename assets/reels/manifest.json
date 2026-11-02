@@ -2,16 +2,16 @@
   "3dexperimentation": {
     "cover_bytes": 23339,
     "frames": 34,
-    "gif_bytes": 2337257,
+    "gif_bytes": 2337262,
     "label": "canvas film studio",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/3dexperimentation/"
   },
   "AI-Arsenal": {
-    "cover_bytes": 23721,
+    "cover_bytes": 23614,
     "frames": 24,
-    "gif_bytes": 1667233,
+    "gif_bytes": 1659745,
     "label": "schema-first encyclopedia",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
@@ -27,9 +27,9 @@
     "url": "https://knarayanareddy.github.io/AI-Daily/"
   },
   "Aeroscribe": {
-    "cover_bytes": 30102,
+    "cover_bytes": 29879,
     "frames": 24,
-    "gif_bytes": 3579856,
+    "gif_bytes": 3580181,
     "label": "manuscript pipeline",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
@@ -45,27 +45,27 @@
     "url": "https://knarayanareddy.github.io/Bunqsy/"
   },
   "Magpie": {
-    "cover_bytes": 28725,
+    "cover_bytes": 28724,
     "frames": 24,
-    "gif_bytes": 2768481,
+    "gif_bytes": 2766592,
     "label": "autonomous classifieds scout",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/Magpie/"
   },
   "Nimbus": {
-    "cover_bytes": 18281,
+    "cover_bytes": 18410,
     "frames": 24,
-    "gif_bytes": 2472001,
+    "gif_bytes": 2477327,
     "label": "parametric climate cover",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
     "url": "https://knarayanareddy.github.io/Nimbus/"
   },
   "WebsitedesignandPrompts": {
-    "cover_bytes": 37122,
+    "cover_bytes": 38384,
     "frames": 24,
-    "gif_bytes": 3153203,
+    "gif_bytes": 3137137,
     "label": "landing-page templates",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
@@ -81,9 +81,9 @@
     "url": "https://knarayanareddy.github.io/curiolab/"
   },
   "dreamswarm": {
-    "cover_bytes": 17901,
+    "cover_bytes": 17994,
     "frames": 24,
-    "gif_bytes": 2229531,
+    "gif_bytes": 2205993,
     "label": "multi-agent orchestrator",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
@@ -126,9 +126,9 @@
     "url": "https://knarayanareddy.github.io/jointcheck-solder-inspection/"
   },
   "proofpress-evidence-portal": {
-    "cover_bytes": 35256,
+    "cover_bytes": 32874,
     "frames": 34,
-    "gif_bytes": 4227004,
+    "gif_bytes": 4187328,
     "label": "Three.js evidence journey",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
@@ -171,9 +171,9 @@
     "url": "https://knarayanareddy.github.io/toolscour/"
   },
   "twitch-codex": {
-    "cover_bytes": 26467,
+    "cover_bytes": 26408,
     "frames": 24,
-    "gif_bytes": 2426199,
+    "gif_bytes": 2426765,
     "label": "live-audience builds",
     "recorded": "2026-11-02",
     "under_camo_limit": true,
