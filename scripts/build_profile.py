@@ -228,6 +228,7 @@ def collect() -> dict:
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "repos": len(own),
         "stars": sum(r.get("stargazers_count", 0) for r in own),
+        "forks": sum(r.get("forks_count", 0) for r in own),
         "site_count": len(sites),
         "pages_count": sum(1 for site in sites if site["pages"]),
         "languages": sorted(languages.items(), key=lambda kv: kv[1], reverse=True),
@@ -297,12 +298,21 @@ def render_shipped(data: dict) -> str:
 
 
 def render_counters(data: dict) -> str:
+    """One block, one set of numbers.
+
+    Every figure the README states is emitted here from data/sites.json, so the
+    header badges, the counters and the prose cannot drift apart: a number that
+    is not derived from this file does not belong in the README.
+    """
     langs = " · ".join(f"**{lang}** {count}" for lang, count in data["languages"][:6])
+    followers = data["followers"]
+    follower_word = "follower" if followers == 1 else "followers"
     return (
         f"**{data['pages_count']} live GitHub Pages sites** · "
         f"**{data['site_count']} live deployments** · "
         f"**{data['repos']} original repositories** · "
-        f"**{data['stars']} stars earned**\n\n"
+        f"**{data['stars']} stars** · **{data['forks']} forks** · "
+        f"**{followers} {follower_word}**\n\n"
         f"<sub>{langs}</sub>"
     )
 

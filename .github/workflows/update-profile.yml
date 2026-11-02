@@ -13,6 +13,7 @@ on:
       - "scripts/build_dashboard.py"
       - "scripts/build_badges.py"
       - "scripts/build_tiles.py"
+      - "scripts/build_3d_terrain.py"
       - "README.md"
 
 permissions:

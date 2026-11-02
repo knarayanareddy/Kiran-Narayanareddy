@@ -20,9 +20,15 @@
       @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
       @keyframes draw { from { stroke-dashoffset: 4000; } to { stroke-dashoffset: 0; } }
       .static { display: none; }
+      .hcol { transform-box: fill-box; transform-origin: center bottom; transition: transform .18s cubic-bezier(.22,1,.36,1); }
+      .hcol:hover, .hcol:focus-within { transform: scaleY(1.06) translateY(-2px); }
+      .hit { cursor: pointer; outline: none; }
+      .hit:focus { stroke: #0969da; stroke-width: 1.5; rx: 3; }
       @media (prefers-reduced-motion: reduce) {
         .bar, .fade, .draw { animation: none; }
         .draw { stroke-dashoffset: 0; }
+        .hcol { transition: none; }
+        .hcol:hover, .hcol:focus-within { transform: none; }
       }
     </style>
   </defs>
@@ -37,30 +43,30 @@
 
   <!-- zone A: rhythm -->
   <text class="mono" x="44" y="76" font-size="10.5" letter-spacing="2" fill="#0d1117">WHEN I SHIP</text>
-    <rect class="bar" style="animation-delay:0.00s" x="44.0" y="190.0" width="9.4" height="6.0" rx="2" fill="#8250df" opacity="0.45"/>
-    <rect class="bar" style="animation-delay:0.03s" x="59.4" y="193.5" width="9.4" height="2.5" rx="2" fill="#8250df" opacity="0.42"/>
-    <rect class="bar" style="animation-delay:0.06s" x="74.8" y="193.5" width="9.4" height="2.5" rx="2" fill="#8250df" opacity="0.42"/>
-    <rect class="bar" style="animation-delay:0.08s" x="90.2" y="190.0" width="9.4" height="6.0" rx="2" fill="#8250df" opacity="0.45"/>
-    <rect class="bar" style="animation-delay:0.11s" x="105.6" y="184.0" width="9.4" height="12.0" rx="2" fill="#8250df" opacity="0.48"/>
-    <rect class="bar" style="animation-delay:0.14s" x="121.0" y="193.5" width="9.4" height="2.5" rx="2" fill="#8250df" opacity="0.43"/>
-    <rect class="bar" style="animation-delay:0.17s" x="136.4" y="193.5" width="9.4" height="2.5" rx="2" fill="#8250df" opacity="0.42"/>
-    <rect class="bar" style="animation-delay:0.20s" x="151.8" y="184.0" width="9.4" height="12.0" rx="2" fill="#8250df" opacity="0.48"/>
-    <rect class="bar" style="animation-delay:0.22s" x="167.2" y="165.0" width="9.4" height="31.0" rx="2" fill="#8250df" opacity="0.56"/>
-    <rect class="bar" style="animation-delay:0.25s" x="182.6" y="176.0" width="9.4" height="20.0" rx="2" fill="#8250df" opacity="0.51"/>
-    <rect class="bar" style="animation-delay:0.28s" x="198.0" y="172.0" width="9.4" height="24.0" rx="2" fill="#8250df" opacity="0.53"/>
-    <rect class="bar" style="animation-delay:0.31s" x="213.4" y="182.0" width="9.4" height="14.0" rx="2" fill="#8250df" opacity="0.49"/>
-    <rect class="bar" style="animation-delay:0.34s" x="228.8" y="152.0" width="9.4" height="44.0" rx="2" fill="#8250df" opacity="0.62"/>
-    <rect class="bar" style="animation-delay:0.36s" x="244.2" y="123.0" width="9.4" height="73.0" rx="2" fill="#8250df" opacity="0.76"/>
-    <rect class="bar" style="animation-delay:0.39s" x="259.6" y="144.0" width="9.4" height="52.0" rx="2" fill="#8250df" opacity="0.66"/>
-    <rect class="bar" style="animation-delay:0.42s" x="275.0" y="175.0" width="9.4" height="21.0" rx="2" fill="#8250df" opacity="0.52"/>
-    <rect class="bar" style="animation-delay:0.45s" x="290.4" y="149.0" width="9.4" height="47.0" rx="2" fill="#8250df" opacity="0.64"/>
-    <rect class="bar" style="animation-delay:0.48s" x="305.8" y="137.0" width="9.4" height="59.0" rx="2" fill="#8250df" opacity="0.69"/>
-    <rect class="bar" style="animation-delay:0.50s" x="321.2" y="164.0" width="9.4" height="32.0" rx="2" fill="#8250df" opacity="0.57"/>
-    <rect class="bar" style="animation-delay:0.53s" x="336.6" y="161.0" width="9.4" height="35.0" rx="2" fill="#8250df" opacity="0.58"/>
-    <rect class="bar" style="animation-delay:0.56s" x="352.0" y="161.0" width="9.4" height="35.0" rx="2" fill="#8250df" opacity="0.58"/>
-    <rect class="bar" style="animation-delay:0.59s" x="367.4" y="110.0" width="9.4" height="86.0" rx="2" fill="#0969da" opacity="0.95"/>
-    <rect class="bar" style="animation-delay:0.62s" x="382.8" y="152.0" width="9.4" height="44.0" rx="2" fill="#8250df" opacity="0.62"/>
-    <rect class="bar" style="animation-delay:0.64s" x="398.2" y="174.0" width="9.4" height="22.0" rx="2" fill="#8250df" opacity="0.52"/>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.00s" x="44.0" y="190.0" width="9.4" height="6.0" rx="2" fill="#8250df" opacity="0.45"/><title>00:00 — 6 commits (0%)</title><rect class="hit" x="41.0" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="00:00, 6 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.03s" x="59.4" y="193.5" width="9.4" height="2.5" rx="2" fill="#8250df" opacity="0.42"/><title>01:00 — 0 commits (0%)</title><rect class="hit" x="56.4" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="01:00, 0 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.06s" x="74.8" y="193.5" width="9.4" height="2.5" rx="2" fill="#8250df" opacity="0.42"/><title>02:00 — 0 commits (0%)</title><rect class="hit" x="71.8" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="02:00, 0 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.08s" x="90.2" y="190.0" width="9.4" height="6.0" rx="2" fill="#8250df" opacity="0.45"/><title>03:00 — 6 commits (0%)</title><rect class="hit" x="87.2" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="03:00, 6 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.11s" x="105.6" y="184.0" width="9.4" height="12.0" rx="2" fill="#8250df" opacity="0.48"/><title>04:00 — 12 commits (1%)</title><rect class="hit" x="102.6" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="04:00, 12 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.14s" x="121.0" y="193.5" width="9.4" height="2.5" rx="2" fill="#8250df" opacity="0.43"/><title>05:00 — 2 commits (0%)</title><rect class="hit" x="118.0" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="05:00, 2 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.17s" x="136.4" y="193.5" width="9.4" height="2.5" rx="2" fill="#8250df" opacity="0.42"/><title>06:00 — 1 commits (0%)</title><rect class="hit" x="133.4" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="06:00, 1 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.20s" x="151.8" y="184.0" width="9.4" height="12.0" rx="2" fill="#8250df" opacity="0.48"/><title>07:00 — 12 commits (1%)</title><rect class="hit" x="148.8" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="07:00, 12 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.22s" x="167.2" y="165.0" width="9.4" height="31.0" rx="2" fill="#8250df" opacity="0.56"/><title>08:00 — 31 commits (4%)</title><rect class="hit" x="164.2" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="08:00, 31 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.25s" x="182.6" y="176.0" width="9.4" height="20.0" rx="2" fill="#8250df" opacity="0.51"/><title>09:00 — 20 commits (2%)</title><rect class="hit" x="179.6" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="09:00, 20 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.28s" x="198.0" y="172.0" width="9.4" height="24.0" rx="2" fill="#8250df" opacity="0.53"/><title>10:00 — 24 commits (3%)</title><rect class="hit" x="195.0" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="10:00, 24 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.31s" x="213.4" y="182.0" width="9.4" height="14.0" rx="2" fill="#8250df" opacity="0.49"/><title>11:00 — 14 commits (2%)</title><rect class="hit" x="210.4" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="11:00, 14 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.34s" x="228.8" y="152.0" width="9.4" height="44.0" rx="2" fill="#8250df" opacity="0.62"/><title>12:00 — 44 commits (6%)</title><rect class="hit" x="225.8" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="12:00, 44 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.36s" x="244.2" y="123.0" width="9.4" height="73.0" rx="2" fill="#8250df" opacity="0.76"/><title>13:00 — 73 commits (10%)</title><rect class="hit" x="241.2" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="13:00, 73 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.39s" x="259.6" y="144.0" width="9.4" height="52.0" rx="2" fill="#8250df" opacity="0.66"/><title>14:00 — 52 commits (7%)</title><rect class="hit" x="256.6" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="14:00, 52 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.42s" x="275.0" y="175.0" width="9.4" height="21.0" rx="2" fill="#8250df" opacity="0.52"/><title>15:00 — 21 commits (3%)</title><rect class="hit" x="272.0" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="15:00, 21 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.45s" x="290.4" y="149.0" width="9.4" height="47.0" rx="2" fill="#8250df" opacity="0.64"/><title>16:00 — 47 commits (6%)</title><rect class="hit" x="287.4" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="16:00, 47 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.48s" x="305.8" y="137.0" width="9.4" height="59.0" rx="2" fill="#8250df" opacity="0.69"/><title>17:00 — 59 commits (8%)</title><rect class="hit" x="302.8" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="17:00, 59 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.50s" x="321.2" y="164.0" width="9.4" height="32.0" rx="2" fill="#8250df" opacity="0.57"/><title>18:00 — 32 commits (4%)</title><rect class="hit" x="318.2" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="18:00, 32 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.53s" x="336.6" y="161.0" width="9.4" height="35.0" rx="2" fill="#8250df" opacity="0.58"/><title>19:00 — 35 commits (5%)</title><rect class="hit" x="333.6" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="19:00, 35 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.56s" x="352.0" y="161.0" width="9.4" height="35.0" rx="2" fill="#8250df" opacity="0.58"/><title>20:00 — 35 commits (5%)</title><rect class="hit" x="349.0" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="20:00, 35 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.59s" x="367.4" y="110.0" width="9.4" height="86.0" rx="2" fill="#0969da" opacity="0.95"/><title>21:00 — 86 commits (12%)</title><rect class="hit" x="364.4" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="21:00, 86 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.62s" x="382.8" y="152.0" width="9.4" height="44.0" rx="2" fill="#8250df" opacity="0.62"/><title>22:00 — 44 commits (6%)</title><rect class="hit" x="379.8" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="22:00, 44 commits"/></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.64s" x="398.2" y="174.0" width="9.4" height="22.0" rx="2" fill="#8250df" opacity="0.52"/><title>23:00 — 22 commits (3%)</title><rect class="hit" x="395.2" y="104" width="15.4" height="110" fill="transparent" tabindex="0" role="img" aria-label="23:00, 22 commits"/></g>
     <text class="mono" x="48.7" y="211" font-size="9.5" fill="#57606a" text-anchor="middle">00</text>
     <text class="mono" x="141.1" y="211" font-size="9.5" fill="#57606a" text-anchor="middle">06</text>
     <text class="mono" x="233.5" y="211" font-size="9.5" fill="#57606a" text-anchor="middle">12</text>
@@ -69,19 +75,19 @@
     <text class="mono" x="410" y="76" font-size="11" fill="#0969da" text-anchor="end">peak 21:00</text>
 
   <text class="mono" x="44" y="248" font-size="10" letter-spacing="1.4" fill="#57606a">BY WEEKDAY</text>
-    <rect class="bar" style="animation-delay:0.50s" x="44" y="254.5" width="34" height="23.5" rx="2" fill="#1a7f37" opacity="0.81"/>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.50s" x="44" y="254.5" width="34" height="23.5" rx="2" fill="#1a7f37" opacity="0.81"/><title>Monday — 661 contributions</title><rect class="hit" x="35" y="238" width="52" height="62" fill="transparent" tabindex="0" role="img" aria-label="Monday, 661 contributions"/></g>
     <text class="mono" x="61" y="293" font-size="9.5" fill="#57606a" text-anchor="middle">M</text>
-    <rect class="bar" style="animation-delay:0.55s" x="96" y="266.6" width="34" height="11.4" rx="2" fill="#1a7f37" opacity="0.57"/>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.55s" x="96" y="266.6" width="34" height="11.4" rx="2" fill="#1a7f37" opacity="0.57"/><title>Tuesday — 322 contributions</title><rect class="hit" x="87" y="238" width="52" height="62" fill="transparent" tabindex="0" role="img" aria-label="Tuesday, 322 contributions"/></g>
     <text class="mono" x="113" y="293" font-size="9.5" fill="#57606a" text-anchor="middle">T</text>
-    <rect class="bar" style="animation-delay:0.60s" x="148" y="251.8" width="34" height="26.2" rx="2" fill="#1a7f37" opacity="0.87"/>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.60s" x="148" y="251.8" width="34" height="26.2" rx="2" fill="#1a7f37" opacity="0.87"/><title>Wednesday — 738 contributions</title><rect class="hit" x="139" y="238" width="52" height="62" fill="transparent" tabindex="0" role="img" aria-label="Wednesday, 738 contributions"/></g>
     <text class="mono" x="165" y="293" font-size="9.5" fill="#57606a" text-anchor="middle">W</text>
-    <rect class="bar" style="animation-delay:0.65s" x="200" y="260.1" width="34" height="17.9" rx="2" fill="#1a7f37" opacity="0.70"/>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.65s" x="200" y="260.1" width="34" height="17.9" rx="2" fill="#1a7f37" opacity="0.70"/><title>Thursday — 505 contributions</title><rect class="hit" x="191" y="238" width="52" height="62" fill="transparent" tabindex="0" role="img" aria-label="Thursday, 505 contributions"/></g>
     <text class="mono" x="217" y="293" font-size="9.5" fill="#57606a" text-anchor="middle">T</text>
-    <rect class="bar" style="animation-delay:0.70s" x="252" y="255.2" width="34" height="22.8" rx="2" fill="#1a7f37" opacity="0.80"/>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.70s" x="252" y="255.3" width="34" height="22.7" rx="2" fill="#1a7f37" opacity="0.80"/><title>Friday — 640 contributions</title><rect class="hit" x="243" y="238" width="52" height="62" fill="transparent" tabindex="0" role="img" aria-label="Friday, 640 contributions"/></g>
     <text class="mono" x="269" y="293" font-size="9.5" fill="#57606a" text-anchor="middle">F</text>
-    <rect class="bar" style="animation-delay:0.75s" x="304" y="255.4" width="34" height="22.6" rx="2" fill="#1a7f37" opacity="0.79"/>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.75s" x="304" y="255.3" width="34" height="22.7" rx="2" fill="#1a7f37" opacity="0.80"/><title>Saturday — 638 contributions</title><rect class="hit" x="295" y="238" width="52" height="62" fill="transparent" tabindex="0" role="img" aria-label="Saturday, 638 contributions"/></g>
     <text class="mono" x="321" y="293" font-size="9.5" fill="#57606a" text-anchor="middle">S</text>
-    <rect class="bar" style="animation-delay:0.80s" x="356" y="250.0" width="34" height="28.0" rx="2" fill="#1a7f37" opacity="0.90"/>
+    <g class="hcol"><rect class="bar" style="animation-delay:0.80s" x="356" y="250.0" width="34" height="28.0" rx="2" fill="#1a7f37" opacity="0.90"/><title>Sunday — 788 contributions</title><rect class="hit" x="347" y="238" width="52" height="62" fill="transparent" tabindex="0" role="img" aria-label="Sunday, 788 contributions"/></g>
     <text class="mono" x="373" y="293" font-size="9.5" fill="#57606a" text-anchor="middle">S</text>
 
   <!-- zone B: volume -->
@@ -129,12 +135,12 @@
 
   <!-- languages -->
   <text class="mono" x="44" y="344" font-size="10" letter-spacing="1.4" fill="#57606a">LANGUAGE MIX</text>
-    <rect class="bar" style="animation-delay:1.10s" x="44.0" y="356" width="353.3" height="9" rx="3" fill="#0969da" opacity="0.90"/>
-    <rect class="bar" style="animation-delay:1.16s" x="400.3" y="356" width="245.6" height="9" rx="3" fill="#8250df" opacity="0.81"/>
-    <rect class="bar" style="animation-delay:1.22s" x="648.9" y="356" width="88.1" height="9" rx="3" fill="#1a7f37" opacity="0.72"/>
-    <rect class="bar" style="animation-delay:1.28s" x="740.0" y="356" width="46.7" height="9" rx="3" fill="#bc4c00" opacity="0.63"/>
-    <rect class="bar" style="animation-delay:1.34s" x="789.7" y="356" width="30.1" height="9" rx="3" fill="#57606a" opacity="0.54"/>
-    <rect class="bar" style="animation-delay:1.40s" x="822.9" y="356" width="13.6" height="9" rx="3" fill="#d0d7de" opacity="0.45"/>
+    <g class="hcol"><rect class="bar" style="animation-delay:1.10s" x="44.0" y="356" width="353.3" height="9" rx="3" fill="#0969da" opacity="0.90"/><title>TypeScript — 43 repos (44%)</title></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:1.16s" x="400.3" y="356" width="245.6" height="9" rx="3" fill="#8250df" opacity="0.81"/><title>Python — 30 repos (31%)</title></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:1.22s" x="648.9" y="356" width="88.1" height="9" rx="3" fill="#1a7f37" opacity="0.72"/><title>JavaScript — 11 repos (11%)</title></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:1.28s" x="740.0" y="356" width="46.7" height="9" rx="3" fill="#bc4c00" opacity="0.63"/><title>HTML — 6 repos (6%)</title></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:1.34s" x="789.7" y="356" width="30.1" height="9" rx="3" fill="#57606a" opacity="0.54"/><title>Rust — 4 repos (4%)</title></g>
+    <g class="hcol"><rect class="bar" style="animation-delay:1.40s" x="822.9" y="356" width="13.6" height="9" rx="3" fill="#d0d7de" opacity="0.45"/><title>Go — 2 repos (2%)</title></g>
     <text class="mono" x="44" y="386" font-size="9.5" fill="#57606a"><tspan fill="#0969da">■</tspan> TypeScript 44%   <tspan fill="#8250df">■</tspan> Python 31%   <tspan fill="#1a7f37">■</tspan> JavaScript 11%   <tspan fill="#bc4c00">■</tspan> HTML 6%   <tspan fill="#57606a">■</tspan> Rust 4%   <tspan fill="#d0d7de">■</tspan> Go 2%</text>
 
   <text class="mono" x="44" y="410" font-size="8.5" letter-spacing="0.3" fill="#57606a">best day 2026-03-08 · 279 contributions</text>

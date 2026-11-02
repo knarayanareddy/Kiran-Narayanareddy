@@ -28,7 +28,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "sites.json")
 OUT_DIR = os.path.join(ROOT, "assets")
 
-NAME = "KIRAN NARAYANAREDDY"
+NAME = "KIRAN NARAYANA REDDY"
 
 TAGLINES = [
     "autonomous agents that can prove their work",
@@ -216,8 +216,8 @@ __STAT_CHIPS__
 """
 
 
-FOOTER_TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="110" viewBox="0 0 900 110" role="img" aria-label="Kiran Narayanareddy, Amsterdam">
-  <title>Kiran Narayanareddy, Amsterdam</title>
+FOOTER_TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="110" viewBox="0 0 900 110" role="img" aria-label="Kiran Narayana Reddy, Delft">
+  <title>Kiran Narayana Reddy, Delft</title>
   <defs>
     <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="__ACCENT__" stop-opacity="0.55"/>
@@ -238,8 +238,8 @@ FOOTER_TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height=
     <path d="M-60 78 C 60 52, 180 98, 300 78 S 540 52, 660 78 S 840 98, 960 78 L 960 110 L -60 110 Z" fill="url(#wave)"/>
     <path d="M-60 88 C 80 66, 200 104, 320 88 S 560 66, 680 88 S 860 104, 960 88 L 960 110 L -60 110 Z" fill="url(#wave)" opacity="0.6"/>
   </g>
-  <text class="sans" x="450" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="__TEXT__">Kiran Narayanareddy</text>
-  <text class="mono" x="450" y="60" text-anchor="middle" font-size="9.5" letter-spacing="2.4" fill="__MUTED__">AMSTERDAM · AUTONOMOUS AGENTS · AEROSPACE · COMPLIANCE-AS-CODE</text>
+  <text class="sans" x="450" y="42" text-anchor="middle" font-size="14" font-weight="700" fill="__TEXT__">Kiran Narayana Reddy</text>
+  <text class="mono" x="450" y="60" text-anchor="middle" font-size="9.5" letter-spacing="2.4" fill="__MUTED__">DELFT · KIRANREDDY.NL · AUTONOMOUS AGENTS · AEROSPACE · COMPLIANCE-AS-CODE</text>
 </svg>
 """
 
@@ -310,16 +310,20 @@ def name_letters() -> str:
 
 
 def stat_chips(stats: dict, theme: dict) -> str:
+    # Same six figures the counters block and the badge row print, from the same
+    # data/sites.json, so the three artefacts cannot disagree.
     chips = [
-        (str(stats.get("site_count", 0)), "live deployments"),
-        (str(stats.get("pages_count", 0)), "pages sites"),
-        (str(stats.get("repos", 0)), "repositories"),
+        (str(stats.get("site_count", 0)), "deployments"),
+        (str(stats.get("pages_count", 0)), "pages"),
+        (str(stats.get("repos", 0)), "repos"),
         (str(stats.get("stars", 0)), "stars"),
+        (str(stats.get("forks", 0)), "forks"),
+        (str(stats.get("followers", 0)), "followers"),
     ]
     parts = []
     x = 48.0
     for index, (value, label) in enumerate(chips):
-        width = 30 + len(label) * 6.4
+        width = 26 + len(label) * 6.4
         parts.append(
             f'  <g class="bar" style="animation-delay:{0.9 + index * 0.14:.2f}s">\n'
             f'    <rect x="{x:.0f}" y="176" width="{width:.0f}" height="46" rx="9" '
@@ -330,7 +334,7 @@ def stat_chips(stats: dict, theme: dict) -> str:
             f'fill="{theme["muted"]}" letter-spacing="0.4">{label}</text>\n'
             f"  </g>"
         )
-        x += width + 12
+        x += width + 10
     return "\n".join(parts)
 
 
