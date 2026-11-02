@@ -119,35 +119,44 @@ test("the reel workflow records on a real browser and asserts ffmpeg", () => {
   assert.match(workflow, /scripts\/build_reel\.py/);
 });
 
-test("the grid never loads every GIF eagerly", () => {
-  // GitHub ships no loading="lazy" on README images (checked in the served
-  // HTML), so any <img> the reader scrolls past has already cost its bytes.
-  // The grid must therefore point at covers, with the GIF behind <details>.
+test("the grid does not pretend a closed details saves the bytes", () => {
+  // Verified against the live site, not assumed twice:
+  //   * GitHub strips loading="lazy" from README images (tested on a branch and
+  //     the attribute was absent from the rendered HTML), and
+  //   * an <img> inside a closed <details> is still fetched - a details only
+  //     hides it.
+  // So "the GIF loads when you expand it" is FALSE on GitHub. The grid must
+  // therefore not embed the recordings at all: covers only, with playback on the
+  // player page where a click really does start it.
   const section = readme.slice(
     readme.indexOf("<!-- REELS:START -->"),
     readme.indexOf("<!-- REELS:END -->"),
   );
   if (!section.includes("assets/reels/")) return;
 
-  // "Eager" means visible without opening anything: a GIF inside <details> is not
-  // fetched until the reader opens it, which is the whole point of the grid.
-  let depth = 0;
-  const eager = [];
-  for (const [tag] of section.matchAll(/<details[^>]*>|<\/details>|<img[^>]*src="[^"]*assets\/reels\/[^"]+\.gif"/g)) {
-    if (tag.startsWith("<details")) depth += 1;
-    else if (tag.startsWith("</details")) depth = Math.max(0, depth - 1);
-    else if (depth === 0) eager.push(tag);
-  }
-  assert.ok(eager.length <= 2, `${eager.length} GIFs load eagerly; keep it to the two newest`);
+  assert.ok(!/loading="lazy"/.test(section), "GitHub strips loading=lazy, so claiming it is misleading");
 
-  // Everything else is a cover, and every cover exists.
-  for (const [, src] of section.matchAll(/src="\.\/(assets\/reels\/[^"]+-cover\.png)"/g)) {
-    assert.ok(existsSync(`${root}${src}`), `README references missing ${src}`);
+  // Two hero reels inline; nothing else may embed a GIF in the README.
+  const gifRefs = [...section.matchAll(/src="\.\/assets\/reels\/[^"]+\.gif"/g)];
+  assert.ok(gifRefs.length <= 2, `${gifRefs.length} GIFs embedded in the README; only the two inline ones`);
+
+  // Every other project links to the player page, which is where a click works.
+  const players = [...section.matchAll(/reel\.html\?r=([^"&]+)/g)].map((m) => decodeURIComponent(m[1]));
+  assert.ok(players.length >= 8, `only ${players.length} player links; the grid should open the player`);
+  for (const repo of players) {
+    assert.ok(existsSync(`${root}assets/reels/${repo}.gif`), `player link for ${repo} has no recording`);
   }
-  // A GIF offered for playback must sit inside a details block, not inline.
-  for (const [match] of section.matchAll(/<details>[\s\S]*?<\/details>/g)) {
-    assert.ok(match.includes("<summary>"), "a details block needs a summary to click");
-  }
+});
+
+test("the player page can actually stream what it is given", () => {
+  const player = readFileSync(`${root}web/reel.html`, "utf8");
+  assert.match(player, /manifest\.json/, "the player reads the manifest");
+  assert.match(player, /new Image\(\)|createElement\("img"\)/, "replay needs a fresh img element");
+  assert.match(player, /not live/, "the player must keep the honesty caption");
+  // Published alongside the assets it streams, or every cover 404s.
+  const pages = readFileSync(`${root}.github/workflows/pages.yml`, "utf8");
+  assert.match(pages, /assets\/reels\/\*\.gif/, "pages.yml must publish the recordings");
+  assert.match(pages, /_site\/reels/);
 });
 
 test("every recorded reel gets a cover for the grid", () => {

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo reel player — Kiran Narayana Reddy</title>
+<meta name="description" content="Recordings of the live projects, played on demand.">
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --edge: #30363d; --edge-soft: #21262d;
+    --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff; --good: #3fb950;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text); min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+    padding: 22px 16px 56px; display: flex; flex-direction: column; align-items: center; gap: 16px;
+  }
+  header { width: min(100%, 980px); display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  h1 { font-size: 14px; letter-spacing: 2.6px; text-transform: uppercase; margin: 0; color: var(--accent); }
+  header .sub { font-size: 12px; color: var(--muted); }
+  header .sub a { color: var(--muted); }
+  .stage {
+    width: min(100%, 980px); background: var(--panel); border: 1px solid var(--edge);
+    border-radius: 14px; overflow: hidden;
+  }
+  .stage > .bar {
+    display: flex; align-items: center; gap: 8px; padding: 9px 12px;
+    border-bottom: 1px solid var(--edge); font-size: 11.5px; color: var(--muted);
+    font-family: var(--mono);
+  }
+  .stage > .bar .dots { display: flex; gap: 6px; }
+  .stage > .bar .dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--edge); }
+  .stage > .bar b { color: var(--text); font-weight: 600; }
+  .stage > .bar .right { margin-left: auto; }
+  .stage > .bar .right a { color: var(--accent); text-decoration: none; }
+  .viewport { position: relative; background: #000; line-height: 0; }
+  .viewport img { width: 100%; display: block; }
+  .viewport .empty {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; min-height: 320px; color: var(--muted); font-size: 13px; line-height: 1.7;
+    text-align: center; padding: 30px;
+  }
+  .caption {
+    display: flex; align-items: center; gap: 8px; padding: 9px 12px;
+    border-top: 1px solid var(--edge); font-size: 11px; color: var(--muted); font-family: var(--mono);
+  }
+  .caption .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); flex: none; }
+  .controls { display: flex; gap: 8px; padding: 11px 12px; border-top: 1px solid var(--edge-soft); flex-wrap: wrap; }
+  .controls a, .controls button {
+    font: inherit; font-size: 12px; padding: 7px 12px; border-radius: 8px; cursor: pointer;
+    border: 1px solid var(--edge); background: var(--edge-soft); color: var(--text);
+    text-decoration: none;
+  }
+  .controls a.primary { background: #1f6feb; border-color: #1f6feb; }
+  .controls a:hover, .controls button:hover { border-color: var(--accent); }
+  h2 { width: min(100%, 980px); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+       color: var(--muted); margin: 12px 0 0; font-weight: 600; }
+  .grid {
+    width: min(100%, 980px); display: grid; gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  .grid a {
+    display: block; border: 1px solid var(--edge); border-radius: 10px; overflow: hidden;
+    background: var(--panel); text-decoration: none; color: var(--text);
+  }
+  .grid a:hover { border-color: var(--accent); }
+  .grid a[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .grid img { width: 100%; display: block; }
+  .grid span { display: block; padding: 7px 9px; font-size: 11px; color: var(--muted);
+               font-family: var(--mono); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .grid span b { color: var(--text); font-weight: 600; }
+  footer { width: min(100%, 980px); font-size: 11px; color: var(--muted); line-height: 1.8; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Demo reel player</h1>
+  <span class="sub">recordings of real pages · <a href="./">back to the dashboards</a></span>
+</header>
+
+<div class="stage">
+  <div class="bar">
+    <span class="dots"><i></i><i></i><i></i></span>
+    <b id="repo">loading…</b>
+    <span class="right" id="live"></span>
+  </div>
+  <div class="viewport" id="viewport">
+    <div class="empty">Loading the reel index…</div>
+  </div>
+  <div class="caption">
+    <span class="dot"></span>
+    <span id="stamp">recording</span>
+  </div>
+  <div class="controls">
+    <a class="primary" id="open" href="#">Open the live site ↗</a>
+    <button id="restart" type="button">↻ Replay</button>
+    <button id="shuffle" type="button">⤳ Next demo</button>
+  </div>
+</div>
+
+<h2>All recordings</h2>
+<div class="grid" id="grid"></div>
+
+<footer>
+  Every reel is a recording of a real deployment, captured headlessly by
+  <a href="https://github.com/knarayanareddy/knarayanareddy/blob/main/.github/workflows/reels.yml">reels.yml</a>
+  and captioned with the date it was taken. Nothing here is a live feed — the README cannot embed
+  one, and pretending otherwise would be the only dishonest thing on this page.
+</footer>
+
+<script>
+(() => {
+  "use strict";
+  const params = new URLSearchParams(location.search);
+  // Served from the Pages root, so the recordings sit one level down from this page.
+  const BASE = new URL("reels/", location.href.replace(/[^/]*$/, ""));
+
+  const el = {
+    repo: document.getElementById("repo"),
+    viewport: document.getElementById("viewport"),
+    stamp: document.getElementById("stamp"),
+    live: document.getElementById("live"),
+    open: document.getElementById("open"),
+    restart: document.getElementById("restart"),
+    shuffle: document.getElementById("shuffle"),
+    grid: document.getElementById("grid"),
+  };
+
+  let manifest = {};
+  let current = null;
+
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  function show(repo, push) {
+    const info = manifest[repo];
+    if (!info) return;
+    current = repo;
+
+    el.repo.textContent = repo;
+    el.live.innerHTML = `<a href="${esc(info.url)}">live site ↗</a>`;
+    el.open.href = info.url;
+    el.stamp.textContent =
+      `${info.label} · recorded ${info.recorded} · ${info.frames} frames · not live`;
+    document.title = `${repo} — demo reel`;
+
+    // Fresh <img> each time: reassigning src on a cached GIF does not restart it,
+    // and "Replay" has to actually replay.
+    const img = new Image();
+    img.alt = `Recording of ${repo} playing on ${info.url}`;
+    img.src = BASE + encodeURIComponent(repo) + ".gif?" + Date.now();
+    el.viewport.replaceChildren(img);
+
+    for (const a of el.grid.querySelectorAll("a")) {
+      a.setAttribute("aria-current", a.dataset.repo === repo ? "true" : "false");
+    }
+
+    if (push) {
+      const url = new URL(location.href);
+      url.searchParams.set("r", repo);
+      history.replaceState(null, "", url);
+    }
+  }
+
+  function next(step) {
+    const names = Object.keys(manifest);
+    if (!names.length) return;
+    const index = names.indexOf(current);
+    show(names[(index + step + names.length) % names.length], true);
+  }
+
+  el.restart.addEventListener("click", () => current && show(current, false));
+  el.shuffle.addEventListener("click", () => next(1));
+
+  fetch(BASE + "manifest.json", { cache: "no-cache" })
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
+    .then((data) => {
+      manifest = data;
+      const names = Object.keys(manifest).sort();
+      if (!names.length) throw new Error("the manifest is empty");
+
+      el.grid.replaceChildren(...names.map((repo) => {
+        const a = document.createElement("a");
+        a.href = `?r=${encodeURIComponent(repo)}`;
+        a.dataset.repo = repo;
+        a.addEventListener("click", (event) => {
+          event.preventDefault();
+          show(repo, true);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        a.innerHTML =
+          `<img src="${BASE}${encodeURIComponent(repo)}-cover.png" alt="" loading="lazy" />` +
+          `<span><b>${esc(repo)}</b> · ${esc(manifest[repo].recorded)}</span>`;
+        return a;
+      }));
+
+      const wanted = params.get("r");
+      show(manifest[wanted] ? wanted : names[0], !wanted);
+    })
+    .catch((err) => {
+      el.viewport.innerHTML =
+        `<div class="empty"><b>Could not load the reel index.</b><br/>` +
+        `${esc(err.message)}<br/><a href="https://github.com/knarayanareddy/knarayanareddy/tree/main/assets/reels">` +
+        `Browse the recordings on GitHub instead.</a></div>`;
+      el.repo.textContent = "unavailable";
+    });
+})();
+</script>
+</body>
+</html>

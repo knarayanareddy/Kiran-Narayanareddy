@@ -12,6 +12,7 @@ on:
     paths:
       - "web/**"
       - "data/stats.json"
+      - "assets/reels/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -55,7 +56,14 @@ jobs:
           cp web/index.html _site/dashboards/index.html
           cp web/snake.html _site/snake/index.html
           cp web/core.js _site/core.js
+          # The reel player streams the recordings from this same site, so the
+          # covers and GIFs are published alongside it. Same-origin, so no Camo
+          # 5 MB ceiling applies here and nothing is proxied through GitHub.
+          mkdir -p _site/reels
+          cp assets/reels/manifest.json _site/reels/manifest.json
+          cp assets/reels/*.gif assets/reels/*-cover.png _site/reels/
           touch _site/.nojekyll
+          echo "published $(ls _site/reels | wc -l) reel assets"
 
       - uses: actions/configure-pages@v5
         if: steps.check.outputs.enabled == 'true'
