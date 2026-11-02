@@ -292,12 +292,12 @@ class KiranNarayanareddy:
 </div>
 
 <!-- SHIPPED:START -->
-- 🚀 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
-- 🛰️ **[`myjevuses`](https://github.com/knarayanareddy/myjevuses)** — [live](https://knarayanareddy.github.io/myjevuses/) · pushed 2026-11-02
-- 🧠 **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02
-- 🧪 **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-01
-- 🔭 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-01
-- ⚙️ **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-01
+- 🚀 **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-02
+- 🛰️ **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-02
+- 🧠 **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-02
+- 🧪 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
+- 🔭 **[`myjevuses`](https://github.com/knarayanareddy/myjevuses)** — [live](https://knarayanareddy.github.io/myjevuses/) · pushed 2026-11-02
+- ⚙️ **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02
 - 🛡️ **[`3dexperimentation`](https://github.com/knarayanareddy/3dexperimentation)** — [live](https://knarayanareddy.github.io/3dexperimentation/) · pushed 2026-10-29
 - 🎛️ **[`Aerorepos`](https://github.com/knarayanareddy/Aerorepos)** — [live](https://knarayanareddy.github.io/Aerorepos/) · pushed 2026-10-29
 <!-- SHIPPED:END -->

@@ -39,6 +39,33 @@
   ],
   "sites": [
     {
+      "repo": "toolscour",
+      "url": "https://knarayanareddy.github.io/toolscour/",
+      "pages": true,
+      "lang": "JavaScript",
+      "stars": 1,
+      "pushed": "2026-11-02",
+      "blurb": "3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs"
+    },
+    {
+      "repo": "AI-Daily",
+      "url": "https://knarayanareddy.github.io/AI-Daily/",
+      "pages": true,
+      "lang": "JavaScript",
+      "stars": 1,
+      "pushed": "2026-11-02",
+      "blurb": "A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model"
+    },
+    {
+      "repo": "AI-Arsenal",
+      "url": "https://knarayanareddy.github.io/AI-Arsenal/",
+      "pages": true,
+      "lang": "JavaScript",
+      "stars": 1,
+      "pushed": "2026-11-02",
+      "blurb": "Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents"
+    },
+    {
       "repo": "Aeroscribe",
       "url": "https://knarayanareddy.github.io/Aeroscribe/",
       "pages": true,
@@ -64,33 +91,6 @@
       "stars": 0,
       "pushed": "2026-11-02",
       "blurb": "Omnichannel shoe-retail returns pipeline: a 6-node deterministic state machine with 48h stock holds, defect assessment and human supervisor triage"
-    },
-    {
-      "repo": "toolscour",
-      "url": "https://knarayanareddy.github.io/toolscour/",
-      "pages": true,
-      "lang": "JavaScript",
-      "stars": 1,
-      "pushed": "2026-11-01",
-      "blurb": "3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs"
-    },
-    {
-      "repo": "AI-Daily",
-      "url": "https://knarayanareddy.github.io/AI-Daily/",
-      "pages": true,
-      "lang": "JavaScript",
-      "stars": 1,
-      "pushed": "2026-11-01",
-      "blurb": "A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model"
-    },
-    {
-      "repo": "AI-Arsenal",
-      "url": "https://knarayanareddy.github.io/AI-Arsenal/",
-      "pages": true,
-      "lang": "JavaScript",
-      "stars": 1,
-      "pushed": "2026-11-01",
-      "blurb": "Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents"
     },
     {
       "repo": "3dexperimentation",
