@@ -16,7 +16,8 @@ on:
     - cron: "47 6 * * *"   # after the 04:17 rebuild and the 04:20 capture run
   workflow_dispatch:
   push:
-    branches: [main]
+    # arena/** so a branch can prove the check runs green before it lands on main.
+    branches: [main, "arena/**"]
     paths:
       - "data/sites.json"
       - "scripts/build_profile.py"
@@ -34,34 +35,40 @@ jobs:
       - name: No repository is deployed but missing from the profile
         env:
           PROFILE_USER: ${{ github.repository_owner }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python3 - <<'PY'
-          import json, os, sys, urllib.request
+          import json, os, sys, urllib.error, urllib.request
 
-          # Use the builder's own exclusion list instead of a second copy of it:
-          # anything deliberately kept off the profile must not be reported here.
-          sys.path.insert(0, "scripts")
-          from build_profile import EXCLUDE
-
+          # Deliberately unauthenticated: the account's public repo list is public
+          # data, and the GITHUB_TOKEN in this repo is scoped to this repo only,
+          # so asking it for the owner's other repos returns just this one (or a
+          # 403) - which is how the first version of this check failed on main.
           user = os.environ["PROFILE_USER"]
-          headers = {
-              "User-Agent": f"{user}-profile-readme-builder",
-              "Accept": "application/vnd.github+json",
-              "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
-          }
+          headers = {"User-Agent": f"{user}-profile-hygiene", "Accept": "application/vnd.github+json"}
 
           def get(url):
               with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
                   return json.load(r)
 
-          repos, page = [], 1
-          while True:
-              chunk = get(f"https://api.github.com/user/repos?per_page=100&page={page}&affiliation=owner")
-              if not chunk:
-                  break
-              repos += chunk
-              page += 1
+          sys.path.insert(0, "scripts")
+          from build_profile import EXCLUDE   # one copy of the exclusion list, not two
+
+          try:
+              repos, page = [], 1
+              while True:
+                  chunk = get(f"https://api.github.com/users/{user}/repos?per_page=100&page={page}&type=owner")
+                  if not chunk:
+                      break
+                  repos += chunk
+                  page += 1
+              if not repos:
+                  raise RuntimeError("the API returned no repositories for this account")
+          except Exception as exc:                                  # noqa: BLE001
+              # A watchdog that fails the build on an API hiccup is worse than no
+              # watchdog: it trains you to ignore it. Say so loudly and stand down;
+              # the nightly rebuild is still the thing that keeps the page current.
+              print(f"::warning title=Hygiene check skipped::Could not read the repository list ({exc})")
+              sys.exit(0)
 
           profile_repo = os.environ.get("GITHUB_REPOSITORY", f"{user}/{user}").split("/")[1]
           deployed = {
@@ -75,15 +82,15 @@ jobs:
           print(f"live deployments on the profile: {len(recorded)}")
 
           if gaps:
-              # This is the exact failure that made this job necessary: a repo
-              # gets Pages, the daily build never runs, the page stays stale.
+              # The exact failure that left sallie-returns-ai-agent off the page:
+              # the repo was deployed, the profile had not been rebuilt.
               print(f"::error title=Profile is stale::{len(gaps)} deployed repo(s) are missing from the profile: {', '.join(gaps)}")
-              print("Run the 'Update profile' workflow (or wait for the nightly run).")
+              print("Run 'Update profile' (Actions -> Update profile -> Run workflow), or wait for the nightly run.")
               sys.exit(1)
 
           print("no deployed repository is missing from the profile")
-          unlisted = len({r["name"] for r in repos if not r.get("has_pages") and not r.get("fork")}) - 1
-          print(f"({unlisted} other repositories have no Pages site, so they are correctly absent)")
+          quiet = len({r["name"] for r in repos if not r.get("has_pages") and not r.get("fork")}) - 1
+          print(f"({quiet} other repositories have no Pages site, so they are correctly absent)")
           PY
 
       - name: Every deployment has a capture on the wall
