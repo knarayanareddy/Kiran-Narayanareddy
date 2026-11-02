@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-02T13:22:31Z",
+  "checked": "2026-11-02T14:18:07Z",
   "fresh_days": 21,
   "sites": {
     "3dexperimentation": {
@@ -54,7 +54,7 @@
     },
     "Handy": {
       "age_days": 0,
-      "captured": "2026-11-02T12:55:26Z",
+      "captured": "2026-11-02T13:22:21Z",
       "confirmed_live": true
     },
     "LEGACYVAULTV1.0": {
@@ -74,7 +74,7 @@
     },
     "SAAF-circuit-breaker": {
       "age_days": 0,
-      "captured": "2026-11-02T12:55:26Z",
+      "captured": "2026-11-02T13:22:21Z",
       "confirmed_live": true
     },
     "WebsitedesignandPrompts": {
