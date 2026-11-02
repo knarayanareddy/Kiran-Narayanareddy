@@ -148,14 +148,16 @@ def classify(response_status: int, title: str, body: str) -> str:
 
 
 def shot_status(repo: str) -> str:
+    """ok / unavailable. A capture with no recorded status is treated as unknown,
+    which forces one reclassification pass over pre-existing caches."""
     path = os.path.join(SHOTS, f"{repo}.json")
     if not os.path.exists(path):
-        return "ok"
+        return "unknown"
     try:
         with open(path, encoding="utf-8") as handle:
-            return json.load(handle).get("status", "ok")
+            return json.load(handle).get("status", "unknown")
     except json.JSONDecodeError:
-        return "ok"
+        return "unknown"
 
 
 def needs_capture(site: dict) -> bool:
@@ -170,8 +172,9 @@ def needs_capture(site: dict) -> bool:
             meta = json.load(handle)
     except json.JSONDecodeError:
         return True
-    if meta.get("status", "ok") != "ok":
-        return True   # retry dead sites: they may come back
+    status = meta.get("status", "unknown")
+    if status != "ok":
+        return True   # unclassified or dead: (re)check it, dead sites may come back
     return meta.get("pushed") != site.get("pushed")
 
 
