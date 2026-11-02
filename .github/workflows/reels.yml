@@ -43,11 +43,17 @@ jobs:
 
       - name: Install recording dependencies
         run: |
-          python3 -m pip install --quiet playwright pillow
+          python3 -m pip install --quiet playwright pillow imageio-ffmpeg
           python3 -m playwright install --with-deps chromium
-          # ffmpeg ships on the runner image; assert it rather than assume it,
-          # because the encoder is the one thing this job cannot fake.
-          ffmpeg -version | head -1
+          # The encoder is the one thing this job cannot fake, so check it for
+          # real. Note: `ffmpeg -version | head -1` is NOT a check - the pipeline
+          # returns head's status, so it succeeds even when ffmpeg is absent.
+          if command -v ffmpeg >/dev/null; then
+            ffmpeg -version 2>&1 | head -1
+          else
+            echo "no system ffmpeg; falling back to the pip binary"
+            python3 -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())"
+          fi
 
       - name: Record and encode
         env:

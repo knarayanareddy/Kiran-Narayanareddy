@@ -78,6 +78,11 @@ test("generated reels actually animate and loop", () => {
 
 test("the reel workflow records on a real browser and asserts ffmpeg", () => {
   assert.match(workflow, /playwright install --with-deps chromium/);
-  assert.match(workflow, /ffmpeg -version/);
+  assert.match(workflow, /command -v ffmpeg/);
+  // `ffmpeg -version | head -1` always exits 0 (head's status), so it checks
+  // nothing. That exact line shipped once and cost two failed runs. Comments
+  // are stripped first, because documenting the trap must stay allowed.
+  const code = workflow.split("\n").filter((line) => !line.trim().startsWith("#")).join("\n");
+  assert.doesNotMatch(code, /ffmpeg -version\s*\|\s*head/, "a pipe masks a missing ffmpeg");
   assert.match(workflow, /scripts\/build_reel\.py/);
 });

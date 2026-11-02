@@ -214,9 +214,11 @@ def record(repo: str, url: str, force: bool) -> dict:
 
 def scale_frames(repo: str) -> int:
     """Crop the 1280x720 viewport to the reel aspect and downscale once."""
+    exe = ffmpeg()
+    if not exe:
+        raise RuntimeError("no ffmpeg on PATH and no imageio-ffmpeg installed")
     shutil.rmtree(SCALED, ignore_errors=True)
     os.makedirs(SCALED, exist_ok=True)
-    exe = ffmpeg()
     crop_h = int(VIEWPORT["width"] * HEIGHT / WIDTH)      # exactly the viewport
     subprocess.run(
         [exe, "-y", "-loglevel", "error", "-framerate", str(FPS),
