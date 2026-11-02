@@ -43,6 +43,7 @@ TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
 # one-liner per project lives here and wins over the API description.
 # ---------------------------------------------------------------------------
 BLURBS: dict[str, str] = {
+    "sallie-returns-ai-agent": "Omnichannel shoe-retail returns pipeline: a 6-node deterministic state machine with 48h stock holds, defect assessment and human supervisor triage",
     "Aeroscribe": "Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation",
     "toolscour": "3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs",
     "AI-Arsenal": "Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents",
@@ -87,6 +88,7 @@ EXCLUDE = {"sylva", "onegov2-spatial-assistant"}
 
 # Featured live sites get a hand-written card row in the README, in this order.
 FEATURED = [
+    "sallie-returns-ai-agent",
     "Aeroscribe",
     "toolscour",
     "AI-Arsenal",
@@ -225,6 +227,11 @@ def collect() -> dict:
 
     return {
         "followers": profile.get("followers", 0),
+        # Total public repos *including* forks and this profile repo. Stored so
+        # the hourly gate in update-profile.yml can tell "nothing new was
+        # published" from "a repo appeared" with one API call, instead of
+        # rebuilding all seven artefacts to find out.
+        "public_repos": profile.get("public_repos", 0),
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "repos": len(own),
         "stars": sum(r.get("stargazers_count", 0) for r in own),

@@ -1,0 +1,115 @@
+# Catches the two ways this profile has actually gone stale.
+#
+# 1. A repository exists but is missing from the profile, because nothing ran.
+#    GitHub fires no event in *this* repo when you create a repo somewhere else,
+#    so the nightly build can be up to 24 hours behind. This job compares the
+#    account's repo list against data/sites.json and fails loudly when they
+#    disagree, instead of quietly serving yesterday's page.
+#
+# 2. A capture claims LIVE but is old, or the wall is missing a site entirely.
+#    (The per-tile freshness copy lives in refresh-ctimes.yml; this checks the
+#    coverage side - every deployment must have a capture on the wall.)
+name: Profile hygiene
+
+on:
+  schedule:
+    - cron: "47 6 * * *"   # after the 04:17 rebuild and the 04:20 capture run
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "data/sites.json"
+      - "scripts/build_profile.py"
+      - ".github/workflows/profile-hygiene.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: No repository is deployed but missing from the profile
+        env:
+          PROFILE_USER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request
+
+          # Use the builder's own exclusion list instead of a second copy of it:
+          # anything deliberately kept off the profile must not be reported here.
+          sys.path.insert(0, "scripts")
+          from build_profile import EXCLUDE
+
+          user = os.environ["PROFILE_USER"]
+          headers = {
+              "User-Agent": f"{user}-profile-readme-builder",
+              "Accept": "application/vnd.github+json",
+              "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}",
+          }
+
+          def get(url):
+              with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
+                  return json.load(r)
+
+          repos, page = [], 1
+          while True:
+              chunk = get(f"https://api.github.com/user/repos?per_page=100&page={page}&affiliation=owner")
+              if not chunk:
+                  break
+              repos += chunk
+              page += 1
+
+          profile_repo = os.environ.get("GITHUB_REPOSITORY", f"{user}/{user}").split("/")[1]
+          deployed = {
+              r["name"] for r in repos
+              if r.get("has_pages") and not r.get("fork") and r["name"] != profile_repo and r["name"] not in EXCLUDE
+          }
+          recorded = {s["repo"] for s in json.load(open("data/sites.json", encoding="utf-8"))["sites"]}
+
+          gaps = sorted(deployed - recorded)
+          print(f"repositories with Pages: {len(deployed)}")
+          print(f"live deployments on the profile: {len(recorded)}")
+
+          if gaps:
+              # This is the exact failure that made this job necessary: a repo
+              # gets Pages, the daily build never runs, the page stays stale.
+              print(f"::error title=Profile is stale::{len(gaps)} deployed repo(s) are missing from the profile: {', '.join(gaps)}")
+              print("Run the 'Update profile' workflow (or wait for the nightly run).")
+              sys.exit(1)
+
+          print("no deployed repository is missing from the profile")
+          unlisted = len({r["name"] for r in repos if not r.get("has_pages") and not r.get("fork")}) - 1
+          print(f"({unlisted} other repositories have no Pages site, so they are correctly absent)")
+          PY
+
+      - name: Every deployment has a capture on the wall
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+
+          sites = json.load(open("data/sites.json", encoding="utf-8"))["sites"]
+          manifest_path = "data/shots-manifest.json"
+          if not os.path.exists(manifest_path):
+              print("no shots manifest yet; skipping")
+              sys.exit(0)
+
+          manifest = json.load(open(manifest_path, encoding="utf-8"))
+          captured = set()
+          for key in ("captured", "ok", "sites"):
+              value = manifest.get(key) if isinstance(manifest, dict) else None
+              if isinstance(value, list):
+                  captured |= {v["repo"] if isinstance(v, dict) else v for v in value}
+
+          if not captured:
+              captured = {os.path.splitext(f)[0] for f in os.listdir("assets/shots") if f.endswith(".png")}
+
+          gaps = sorted({s["repo"] for s in sites} - captured)
+          print(f"deployments: {len(sites)} · captured: {len(captured)}")
+          if gaps:
+              print(f"::warning title=Missing captures::{len(gaps)} deployment(s) have no screenshot: {', '.join(gaps)}")
+              print("The wall shows what it has; the next Screenshot the live sites run fills the gaps.")
+          PY

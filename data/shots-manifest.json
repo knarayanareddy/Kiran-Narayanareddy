@@ -1,6 +1,6 @@
 {
-  "total": 35,
-  "captured": 33,
+  "total": 36,
+  "captured": 34,
   "missing": [
     "SAAF-circuit-breaker",
     "Handy"
@@ -32,6 +32,14 @@
       "status": "ok",
       "ok": true,
       "bytes": 1162547,
+      "pushed": "2026-11-02"
+    },
+    {
+      "repo": "sallie-returns-ai-agent",
+      "url": "https://knarayanareddy.github.io/sallie-returns-ai-agent/",
+      "status": "ok",
+      "ok": true,
+      "bytes": 177369,
       "pushed": "2026-11-02"
     },
     {

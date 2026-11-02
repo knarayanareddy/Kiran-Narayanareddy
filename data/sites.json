@@ -1,11 +1,12 @@
 {
   "followers": 1,
+  "public_repos": 129,
   "generated": "2026-11-02 10:13 UTC",
-  "repos": 123,
+  "repos": 124,
   "stars": 112,
   "forks": 5,
-  "site_count": 35,
-  "pages_count": 33,
+  "site_count": 36,
+  "pages_count": 34,
   "languages": [
     [
       "TypeScript",
@@ -13,7 +14,7 @@
     ],
     [
       "Python",
-      30
+      31
     ],
     [
       "JavaScript",
@@ -49,6 +50,15 @@
       "stars": 1,
       "pushed": "2026-11-02",
       "blurb": "Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation"
+    },
+    {
+      "repo": "sallie-returns-ai-agent",
+      "url": "https://knarayanareddy.github.io/sallie-returns-ai-agent/",
+      "pages": true,
+      "lang": "Python",
+      "stars": 0,
+      "pushed": "2026-11-02",
+      "blurb": "Omnichannel shoe-retail returns pipeline: a 6-node deterministic state machine with 48h stock holds, defect assessment and human supervisor triage"
     },
     {
       "repo": "toolscour",
