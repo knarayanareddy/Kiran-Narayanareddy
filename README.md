@@ -322,7 +322,7 @@ class KiranNarayanareddy:
 </table>
 </details>
 
-<sub>Recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a README and runs no JavaScript, so nothing here can be started by a click in the traditional sense — each row's recording is fetched only when you expand it, which keeps this section at ~1310 kB instead of the ~44 MB the reels would cost if all 20 loaded eagerly. Every one is captioned with its date; click through for the live site.</sub>
+<sub>Recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a README and runs no JavaScript, so nothing here can be started by a click in the traditional sense — each row's recording is fetched only when you expand it, which keeps this section at ~438 kB instead of the ~44 MB the reels would cost if all 20 loaded eagerly. Every one is captioned with its date; click through for the live site.</sub>
 <!-- REELS:END -->
 
 ### 📸 Every deployment, as it actually looks
