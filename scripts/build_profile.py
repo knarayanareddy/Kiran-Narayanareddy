@@ -351,6 +351,13 @@ def main() -> int:
     readme = replace_block(readme, "LIVE_SITES", render_featured(data))
     readme = replace_block(readme, "SITE_CATALOGUE", render_catalogue(data))
     readme = replace_block(readme, "SHIPPED", render_shipped(data))
+    # Only move the stamp when something else actually changed. A timestamp that
+    # ticks while the numbers do not makes the page look refreshed when it is
+    # merely rebuilt; the footer says "daily" explicitly instead.
+    existing = re.search(r"<!-- Last updated: (.*?) -->", readme)
+    if existing and substantive(readme.replace(existing.group(0), "")) == substantive(readme):
+        # nothing but the stamp differs from what is already committed: keep it
+        data["generated"] = existing.group(1)
     readme = re.sub(r"<!-- Last updated: .*?-->", f"<!-- Last updated: {data['generated']} -->", readme)
     # Rewrite the profile-repo segment of any snake image URL to the current name.
     # The README was committed with a literal name, so a placeholder-only swap
