@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiran Narayana Reddy — live dashboards</title>
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --edge: #30363d; --text: #e6edf3;
+    --muted: #8b949e; --accent: #58a6ff; --accent2: #a371f7; --good: #3fb950;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+    padding: 26px 16px 60px; display: flex; flex-direction: column; align-items: center; gap: 20px;
+  }
+  h1 { font-size: 15px; letter-spacing: 3px; text-transform: uppercase; margin: 0; color: var(--accent); }
+  .lede { font-size: 12.5px; color: var(--muted); max-width: 720px; text-align: center; line-height: 1.7; margin: 0; }
+  .lede b { color: var(--text); }
+  .card {
+    width: min(100%, 980px); background: var(--panel); border: 1px solid var(--edge);
+    border-radius: 14px; overflow: hidden;
+  }
+  .card > header {
+    display: flex; align-items: center; gap: 9px; padding: 10px 14px;
+    border-bottom: 1px solid var(--edge); font-size: 11.5px; color: var(--muted);
+  }
+  .card > header b { color: var(--text); letter-spacing: .5px; }
+  .card > header .right { margin-left: auto; display: flex; gap: 7px; flex-wrap: wrap; }
+  button {
+    font: inherit; font-size: 11px; padding: 5px 10px; border-radius: 7px; cursor: pointer;
+    background: #1c2128; color: var(--text); border: 1px solid var(--edge);
+  }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+  button[aria-pressed="true"] { background: var(--accent); color: #08111c; border-color: var(--accent); font-weight: 700; }
+  canvas { display: block; width: 100%; height: auto; }
+  .readout {
+    display: flex; gap: 16px; flex-wrap: wrap; padding: 10px 14px;
+    border-top: 1px solid var(--edge); font-size: 11.5px; color: var(--muted); min-height: 40px; align-items: center;
+  }
+  .readout b { color: var(--text); }
+  .hint { font-size: 11px; color: var(--muted); text-align: center; max-width: 780px; line-height: 1.7; }
+  a { color: var(--accent); }
+  .links { display: flex; gap: 14px; font-size: 12px; flex-wrap: wrap; justify-content: center; }
+</style>
+</head>
+<body>
+  <h1>Live dashboards</h1>
+  <p class="lede">
+    The same two cards that are PNG-like in the profile README, but here they accept input:
+    <b>hover a day</b> in the terrain to lift it, <b>hover a bar</b> in the dashboard to read the exact
+    number, and switch themes. Everything is drawn from <code>data/stats.json</code> — the same file the
+    generated SVGs come from, so the numbers cannot disagree.
+  </p>
+
+  <div class="links">
+    <a href="./snake.html?theme=cyberpunk">▶ Play the contribution snake</a>
+    <a href="../README.md">README</a>
+    <a href="https://kiranreddy.nl">kiranreddy.nl</a>
+  </div>
+
+  <section class="card">
+    <header>
+      <b>Signal dashboard</b>
+      <span id="dashNote">hover a bar</span>
+      <span class="right" id="dashThemes"></span>
+    </header>
+    <canvas id="dash" width="900" height="430" aria-label="Interactive signal dashboard"></canvas>
+    <div class="readout" id="dashReadout">Point at a column to read the exact hour and count.</div>
+  </section>
+
+  <section class="card">
+    <header>
+      <b>Contribution terrain</b>
+      <span id="terrainNote">hover a block</span>
+      <span class="right" id="terrainThemes"></span>
+    </header>
+    <canvas id="terrain" width="900" height="430" aria-label="Interactive contribution terrain"></canvas>
+    <div class="readout" id="terrainReadout">Point at a block to read its date and count.</div>
+  </section>
+
+  <p class="hint">
+    On github.com these are <code>&lt;img&gt;</code> tags served through Camo, which delivers no pointer
+    events — that is why they look like pictures there. This page is the interactive version of the
+    same data, and it runs from any static host (<a href="https://kiranreddy.nl">kiranreddy.nl</a>)
+    with no build step.
+  </p>
+
+<script type="module">
+const THEMES = {
+  dark: { bg:"#0d1117", panel:"#161b22", grid:"#30363d", text:"#e6edf3", muted:"#8b949e",
+          accent:"#58a6ff", accent2:"#a371f7", accent3:"#3fb950", ramp:["#141a2a","#0e4429","#00703a","#1f9d47","#39d353"] },
+  light: { bg:"#ffffff", panel:"#f6f8fa", grid:"#d0d7de", text:"#0d1117", muted:"#57606a",
+           accent:"#0969da", accent2:"#8250df", accent3:"#1a7f37", ramp:["#eaeef2","#9be9a8","#40c463","#30a14e","#216e39"] },
+};
+
+const W = 900, H = 430;
+let stats = null;
+let theme = THEMES.dark;
+let hoverHour = -1, hoverDay = -1, hoverBlock = null;
+
+/* ---------------------------------------------------------------- data --- */
+
+async function load() {
+  const res = await fetch("../data/stats.json", { cache: "no-cache" });
+  if (!res.ok) throw new Error(String(res.status));
+  return res.json();
+}
+
+/* ------------------------------------------------------------ dashboard --- */
+
+const dash = document.getElementById("dash");
+const dctx = dash.getContext("2d");
+
+function drawDashboard() {
+  const t = theme;
+  dctx.fillStyle = t.bg; dctx.fillRect(0, 0, W, H);
+  dctx.strokeStyle = t.grid; dctx.strokeRect(0.5, 0.5, W - 1, H - 1);
+
+  dctx.fillStyle = t.accent;
+  dctx.font = "700 11.5px ui-monospace, monospace";
+  dctx.fillText("SIGNAL DASHBOARD", 44, 38);
+  dctx.fillStyle = t.muted;
+  dctx.font = "400 10px ui-monospace, monospace";
+  dctx.textAlign = "right";
+  dctx.fillText(`last ${stats.window_days} days · generated ${stats.generated}`, 856, 38);
+  dctx.textAlign = "left";
+  dctx.strokeStyle = t.grid;
+  dctx.beginPath(); dctx.moveTo(44, 50); dctx.lineTo(856, 50); dctx.stroke();
+
+  // hour rhythm
+  dctx.fillStyle = t.text;
+  dctx.font = "400 10.5px ui-monospace, monospace";
+  dctx.fillText("WHEN I SHIP", 44, 76);
+  const hours = stats.hours || [];
+  const peak = Math.max(1, ...hours);
+  const peakHour = hours.indexOf(peak);
+  const base = 196, maxH = 86;
+  hours.forEach((value, index) => {
+    const h = Math.max(2.5, (value / peak) * maxH);
+    const x = 44 + index * 15.4;
+    dctx.fillStyle = index === hoverHour ? t.accent3 : (index === peakHour ? t.accent : t.accent2);
+    dctx.globalAlpha = index === hoverHour ? 1 : 0.42 + 0.4 * (value / peak);
+    dctx.fillRect(x, base - h, 9.4, h);
+    dctx.globalAlpha = 1;
+  });
+  dctx.fillStyle = t.accent;
+  dctx.font = "400 11px ui-monospace, monospace";
+  dctx.textAlign = "right";
+  dctx.fillText(hoverHour >= 0 ? `${String(hoverHour).padStart(2, "0")}:00` : `peak ${String(peakHour).padStart(2, "0")}:00`, 410, 76);
+  dctx.textAlign = "left";
+  dctx.fillStyle = t.muted;
+  dctx.font = "400 9.5px ui-monospace, monospace";
+  for (const hr of [0, 6, 12, 18]) {
+    dctx.fillText(String(hr).padStart(2, "0"), 44 + hr * 15.4 + 2, base + 15);
+  }
+  dctx.strokeStyle = t.grid;
+  dctx.beginPath(); dctx.moveTo(40, base + 3); dctx.lineTo(410, base + 3); dctx.stroke();
+
+  // weekday
+  dctx.fillStyle = t.muted;
+  dctx.fillText("BY WEEKDAY", 44, 248);
+  const days = stats.weekday || [];
+  const wpeak = Math.max(1, ...days);
+  const names = ["M", "T", "W", "T", "F", "S", "S"];
+  days.forEach((value, index) => {
+    const h = Math.max(2.5, (value / wpeak) * 28);
+    const x = 44 + index * 52;
+    dctx.fillStyle = index === hoverDay ? t.accent : t.accent3;
+    dctx.globalAlpha = index === hoverDay ? 1 : 0.35 + 0.55 * (value / wpeak);
+    dctx.fillRect(x, 278 - h, 34, h);
+    dctx.globalAlpha = 1;
+    dctx.fillStyle = t.muted;
+    dctx.textAlign = "center";
+    dctx.fillText(names[index], x + 17, 293);
+    dctx.textAlign = "left";
+  });
+
+  // volume chips
+  const chips = [
+    [stats.total_contributions.toLocaleString(), "contributions"],
+    [stats.commits.toLocaleString(), "commits"],
+    [stats.pull_requests.toLocaleString(), "pull requests"],
+    [String(stats.repos_contributed), "repos touched"],
+  ];
+  chips.forEach(([value, label], index) => {
+    const x = 452 + index * 102;
+    dctx.fillStyle = t.panel; dctx.strokeStyle = t.grid;
+    roundRect(dctx, x, 92, 96, 52, 8); dctx.fill(); dctx.stroke();
+    dctx.fillStyle = t.accent;
+    dctx.font = "700 17px ui-monospace, monospace";
+    dctx.fillText(value, x + 11, 118);
+    dctx.fillStyle = t.muted;
+    dctx.font = "400 9px ui-monospace, monospace";
+    dctx.fillText(label, x + 11, 133);
+  });
+
+  // sparkline
+  const weeks = stats.weeks || [];
+  if (weeks.length) {
+    const wpeak = Math.max(1, ...weeks);
+    dctx.beginPath();
+    weeks.forEach((value, index) => {
+      const x = 452 + (index / Math.max(1, weeks.length - 1)) * 404;
+      const y = 230 - (value / wpeak) * 40;
+      index ? dctx.lineTo(x, y) : dctx.moveTo(x, y);
+    });
+    dctx.strokeStyle = t.accent; dctx.lineWidth = 2; dctx.stroke(); dctx.lineWidth = 1;
+  }
+
+  // streaks
+  const cards = [[stats.current_streak, "current streak", t.accent3], [stats.longest_streak, "longest in 12 months", t.accent2]];
+  cards.forEach(([value, label, colour], index) => {
+    const x = index ? 655 : 452;
+    const w = index ? 201 : 193;
+    dctx.fillStyle = t.panel; dctx.strokeStyle = t.grid;
+    roundRect(dctx, x, 264, w, 44, 8); dctx.fill(); dctx.stroke();
+    dctx.fillStyle = colour;
+    dctx.font = "700 15px ui-monospace, monospace";
+    dctx.fillText(`${value} days`, x + 12, 284);
+    dctx.fillStyle = t.muted;
+    dctx.font = "400 9px ui-monospace, monospace";
+    dctx.fillText(label, x + 12, 298);
+  });
+
+  // languages
+  dctx.fillStyle = t.muted;
+  dctx.font = "400 10px ui-monospace, monospace";
+  dctx.fillText("LANGUAGE MIX", 44, 344);
+  const langs = (stats.languages || []).slice(0, 6);
+  const total = langs.reduce((s, [, n]) => s + n, 0) || 1;
+  let x = 44;
+  const palette = [t.accent, t.accent2, t.accent3, "#f0883e", t.muted, t.grid];
+  langs.forEach(([name, count], index) => {
+    const w = Math.max(6, (count / total) * 812) - 3;
+    dctx.fillStyle = palette[index % palette.length];
+    dctx.globalAlpha = 0.9 - index * 0.09;
+    roundRect(dctx, x, 356, w, 9, 3); dctx.fill();
+    dctx.globalAlpha = 1;
+    x += w + 3;
+  });
+  dctx.fillStyle = t.muted;
+  dctx.font = "400 8.5px ui-monospace, monospace";
+  dctx.fillText(`${stats.hour_sample.commits.toLocaleString()} commits sampled across ${stats.hour_sample.repos} repos · best day ${stats.best_day.date} (${stats.best_day.count})`, 44, 410);
+}
+
+function roundRect(c, x, y, w, h, r) {
+  c.beginPath();
+  c.moveTo(x + r, y);
+  c.arcTo(x + w, y, x + w, y + h, r);
+  c.arcTo(x + w, y + h, x, y + h, r);
+  c.arcTo(x, y + h, x, y, r);
+  c.arcTo(x, y, x + w, y, r);
+  c.closePath();
+}
+
+/* -------------------------------------------------------------- terrain --- */
+
+const ter = document.getElementById("terrain");
+const tctx = ter.getContext("2d");
+const PAD = { left: 54, top: 214 };
+const WEEK_DX = 14.2, DAY_DX = 8.4, DAY_DY = 8.6, WEEK_RISE = 0.3, CELL = 9.4;
+
+let grid = null;
+
+function buildGrid(calendar) {
+  const days = [...calendar].sort((a, b) => (a.date < b.date ? -1 : 1));
+  const peak = Math.max(1, ...days.map((d) => d.count));
+  const firstDow = (new Date(days[0].date + "T00:00:00Z").getUTCDay() + 6) % 7;
+  const cells = [];
+  let index = 0, cols = 0;
+  for (let col = 0; col < 60; col += 1) {
+    for (let row = 0; row < 7; row += 1) {
+      let day = null;
+      if (!(col === 0 && row < firstDow) && index < days.length) { day = days[index]; index += 1; }
+      cells.push({
+        col, row,
+        date: day ? day.date : null,
+        count: day ? day.count : 0,
+        alpha: day ? level(day.count, peak) : 0,
+      });
+    }
+    cols = col + 1;
+    if (index >= days.length) break;
+  }
+  return { cells, cols, peak, total: days.reduce((s, d) => s + d.count, 0) };
+}
+
+function level(count, peak) {
+  if (count <= 0) return 0;
+  const r = count / peak;
+  return r >= 0.66 ? 4 : r >= 0.36 ? 3 : r >= 0.16 ? 2 : 1;
+}
+
+function place(cell) {
+  return {
+    x: PAD.left + cell.col * WEEK_DX + cell.row * DAY_DX,
+    y: PAD.top + cell.row * DAY_DY - cell.col * WEEK_RISE,
+  };
+}
+
+function height(count) {
+  return count ? Math.max(2.2, Math.min(34, count * 3.1)) : 2.2;
+}
+
+function drawTerrain() {
+  const t = theme;
+  tctx.fillStyle = t.bg; tctx.fillRect(0, 0, W, H);
+  tctx.strokeStyle = t.grid; tctx.strokeRect(0.5, 0.5, W - 1, H - 1);
+
+  tctx.fillStyle = t.accent;
+  tctx.font = "700 11.5px ui-monospace, monospace";
+  tctx.fillText("CONTRIBUTION TERRAIN", 44, 38);
+  tctx.fillStyle = t.muted;
+  tctx.font = "400 10px ui-monospace, monospace";
+  tctx.textAlign = "right";
+  tctx.fillText(`${grid.total.toLocaleString()} contributions · every day of the last year`, 856, 38);
+  tctx.textAlign = "left";
+  tctx.strokeStyle = t.grid;
+  tctx.beginPath(); tctx.moveTo(44, 50); tctx.lineTo(856, 50); tctx.stroke();
+
+  // month ticks
+  tctx.fillStyle = t.muted;
+  tctx.font = "400 8.5px ui-monospace, monospace";
+  const seen = new Set();
+  let lastX = -100;
+  for (const cell of grid.cells) {
+    if (!cell.date) continue;
+    const month = cell.date.slice(0, 7);
+    if (seen.has(month)) continue;
+    seen.add(month);
+    const { x } = place(cell);
+    if (x - lastX < 34) continue;
+    lastX = x;
+    tctx.fillText(new Date(cell.date + "T00:00:00Z").toLocaleString("en", { month: "short", timeZone: "UTC" }).toUpperCase(), x, 336);
+  }
+
+  // back to front
+  const ordered = [...grid.cells].filter((c) => c.date).sort((a, b) => a.row - b.row || a.col - b.col);
+  for (const cell of ordered) {
+    const { x, y } = place(cell);
+    const h = height(cell.count);
+    const isHover = hoverBlock && hoverBlock.date === cell.date;
+    const lift = isHover ? 4 : 0;
+    tctx.fillStyle = t.ramp[cell.alpha];
+    if (!cell.count) tctx.globalAlpha = 0.75;
+    tctx.fillRect(x, y - h - lift, CELL, h);
+    // top face
+    tctx.beginPath();
+    tctx.moveTo(x, y - h - lift);
+    tctx.lineTo(x + CELL / 2, y - h - lift - CELL / 2 - 2);
+    tctx.lineTo(x + CELL + CELL / 2, y - h - lift - CELL / 2 - 2);
+    tctx.lineTo(x + CELL, y - h - lift);
+    tctx.closePath();
+    tctx.fillStyle = t.ramp[Math.min(4, cell.alpha + 1)];
+    tctx.fill();
+    tctx.globalAlpha = 1;
+    if (isHover) {
+      tctx.strokeStyle = t.accent;
+      tctx.lineWidth = 1.6;
+      tctx.strokeRect(x - 1, y - h - lift - 1, CELL + 2, h + 2);
+      tctx.lineWidth = 1;
+    }
+  }
+
+  // legend
+  tctx.font = "400 9.5px ui-monospace, monospace";
+  for (let i = 0; i < 5; i += 1) {
+    tctx.fillStyle = t.ramp[i];
+    tctx.fillRect(44 + i * 16, 388, 11, 11);
+  }
+  tctx.fillStyle = t.muted;
+  tctx.fillText("less", 44 + 5 * 16 + 4, 398);
+  tctx.fillText("more", 44 + 5 * 16 + 40, 398);
+}
+
+/* --------------------------------------------------------------- themes --- */
+
+function themeButtons(host, current) {
+  host.innerHTML = "";
+  for (const key of Object.keys(THEMES)) {
+    const b = document.createElement("button");
+    b.textContent = key === "dark" ? "Dark" : "Light";
+    b.setAttribute("aria-pressed", String(key === current));
+    b.addEventListener("click", () => { theme = THEMES[key]; themeButtons(host, key); redrawAll(); });
+    host.appendChild(b);
+  }
+}
+
+function redrawAll() { drawDashboard(); drawTerrain(); }
+
+/* --------------------------------------------------------------- input --- */
+
+dash.addEventListener("pointermove", (e) => {
+  const r = dash.getBoundingClientRect();
+  const x = (e.clientX - r.left) * (W / r.width);
+  const y = (e.clientY - r.top) * (H / r.height);
+  const hours = stats.hours || [];
+  hoverHour = -1; hoverDay = -1;
+  if (y > 100 && y < 200) {
+    const index = Math.floor((x - 44) / 15.4);
+    if (index >= 0 && index < hours.length) { hoverHour = index; }
+  }
+  if (y > 240 && y < 292) {
+    const index = Math.floor((x - 44) / 52);
+    if (index >= 0 && index < 7) { hoverDay = index; }
+  }
+  const readout = document.getElementById("dashReadout");
+  if (hoverHour >= 0) {
+    const total = hours.reduce((s, n) => s + n, 0);
+    readout.innerHTML = `<b>${String(hoverHour).padStart(2, "0")}:00</b> — ${hours[hoverHour]} commits (${Math.round((hours[hoverHour] / total) * 100)}% of sample) · sampled from ${stats.hour_sample.commits.toLocaleString()} commits across ${stats.hour_sample.repos} repos`;
+  } else if (hoverDay >= 0) {
+    const names = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const value = (stats.weekday || [])[hoverDay];
+    const total = (stats.weekday || []).reduce((s, n) => s + n, 0);
+    readout.innerHTML = `<b>${names[hoverDay]}</b> — ${value} contributions (${Math.round((value / total) * 100)}%)`;
+  } else {
+    readout.textContent = "Point at a column to read the exact hour and count.";
+  }
+  drawDashboard();
+});
+dash.addEventListener("pointerleave", () => {
+  hoverHour = -1; hoverDay = -1;
+  document.getElementById("dashReadout").textContent = "Point at a column to read the exact hour and count.";
+  drawDashboard();
+});
+
+ter.addEventListener("pointermove", (e) => {
+  const r = ter.getBoundingClientRect();
+  const x = (e.clientX - r.left) * (W / r.width);
+  const y = (e.clientY - r.top) * (H / r.height);
+  let hit = null;
+  for (const cell of grid.cells) {
+    if (!cell.date) continue;
+    const p = place(cell);
+    const h = height(cell.count);
+    if (x >= p.x && x <= p.x + CELL + 6 && y >= p.y - h - 10 && y <= p.y + 4) hit = cell;
+  }
+  if ((hit && hoverBlock && hit.date === hoverBlock.date) || (!hit && !hoverBlock)) return;
+  hoverBlock = hit;
+  document.getElementById("terrainReadout").innerHTML = hit
+    ? `<b>${hit.date}</b> — ${hit.count} contribution${hit.count === 1 ? "" : "s"}`
+    : "Point at a block to read its date and count.";
+  drawTerrain();
+});
+ter.addEventListener("pointerleave", () => {
+  hoverBlock = null;
+  document.getElementById("terrainReadout").textContent = "Point at a block to read its date and count.";
+  drawTerrain();
+});
+
+/* ----------------------------------------------------------------- boot --- */
+
+(async function boot() {
+  try {
+    stats = await load();
+  } catch (err) {
+    document.getElementById("dashNote").textContent = "stats.json unreachable";
+    document.getElementById("terrainNote").textContent = "stats.json unreachable";
+    return;
+  }
+  grid = buildGrid(stats.calendar || []);
+  themeButtons(document.getElementById("dashThemes"), "dark");
+  themeButtons(document.getElementById("terrainThemes"), "dark");
+  redrawAll();
+})();
+</script>
+</body>
+</html>

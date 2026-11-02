@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en" data-theme="cyberpunk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contribution snake — play it</title>
+<style>
+  :root {
+    --bg: #07070f; --panel: #10101f; --edge: #24244a; --text: #e8e8ff;
+    --muted: #8b8bb0; --accent: #00f2fe; --glow: #ff007f; --snake: #00ff66;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); }
+  body {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+    padding: 22px 14px 42px; gap: 14px;
+    transition: background .25s ease;
+  }
+  h1 { font-size: 14px; letter-spacing: 3.4px; font-weight: 700; margin: 0; color: var(--accent); text-transform: uppercase; }
+  .sub { font-size: 11px; color: var(--muted); letter-spacing: .4px; text-align: center; max-width: 640px; line-height: 1.6; }
+  .sub b { color: var(--text); font-weight: 600; }
+  .shell {
+    width: min(100%, 980px); background: var(--panel);
+    border: 1px solid var(--edge); border-radius: 14px; overflow: hidden;
+    box-shadow: 0 18px 60px rgba(0,0,0,.55);
+  }
+  .bar {
+    display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+    border-bottom: 1px solid var(--edge); font-size: 11px; color: var(--muted);
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--glow); }
+  .bar .title { color: var(--text); font-weight: 700; letter-spacing: .6px; }
+  .bar .spacer { flex: 1; }
+  .stage { position: relative; }
+  canvas { display: block; width: 100%; height: auto; touch-action: none; }
+  .tooltip {
+    position: absolute; pointer-events: none; opacity: 0; transform: translate(-50%, -120%);
+    background: #000d; border: 1px solid var(--edge); border-radius: 7px;
+    padding: 5px 8px; font-size: 11px; white-space: nowrap; transition: opacity .12s;
+    color: var(--text); z-index: 4;
+  }
+  .tooltip.show { opacity: 1; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 12px; border-top: 1px solid var(--edge); }
+  button {
+    font: inherit; font-size: 11.5px; padding: 7px 12px; border-radius: 8px; cursor: pointer;
+    background: #171730; color: var(--text); border: 1px solid var(--edge); transition: .15s;
+  }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+  button[aria-pressed="true"] { background: var(--accent); color: #05050c; border-color: var(--accent); font-weight: 700; }
+  .scores { display: flex; gap: 18px; font-size: 11px; color: var(--muted); padding: 0 12px 12px; justify-content: center; flex-wrap: wrap; }
+  .scores b { color: var(--text); }
+  .legend { font-size: 10.5px; color: var(--muted); text-align: center; max-width: 760px; line-height: 1.7; }
+  kbd { border: 1px solid var(--edge); border-bottom-width: 2px; border-radius: 4px; padding: 0 4px; font-size: 10px; }
+  @media (prefers-reduced-motion: reduce) { body { transition: none; } }
+</style>
+</head>
+<body>
+  <h1>Contribution snake</h1>
+  <p class="sub">
+    Your real commit calendar, played as a board. <b>Arrows / WASD</b> to steer, <b>Space</b> to pause,
+    <b>R</b> to restart — or hand it to the autopilot, which plans with BFS and refuses moves that
+    would seal it into a dead end.
+  </p>
+
+  <div class="shell">
+    <div class="bar">
+      <span class="dot"></span><span class="title">snake</span>
+      <span id="mode">autopilot</span>
+      <span class="spacer"></span>
+      <span id="fps">60 fps</span>
+    </div>
+    <div class="stage">
+      <canvas id="board" width="900" height="430" aria-label="Interactive contribution snake"></canvas>
+      <div class="tooltip" id="tip"></div>
+    </div>
+    <div class="controls" id="controls">
+      <button data-mode="auto" aria-pressed="true">Autopilot</button>
+      <button data-mode="play" aria-pressed="false">Play</button>
+      <button id="pause" aria-pressed="false">Pause</button>
+      <button id="restart">Restart</button>
+    </div>
+    <div class="scores">
+      <span>length <b id="len">3</b></span>
+      <span>days eaten <b id="eaten">0</b></span>
+      <span>contributions <b id="score">0</b></span>
+      <span class="spacer"></span>
+      <span id="themeName">Cyberpunk</span>
+    </div>
+    <div class="controls" id="themes" aria-label="Theme"></div>
+  </div>
+
+  <p class="legend">
+    Theme and play mode are in the URL too, so a link can carry them:
+    <code>?theme=matrix&amp;mode=play&amp;speed=6</code>. Same tick logic runs headless under
+    <code>node --test</code> in <code>tests/core.test.mjs</code>.
+  </p>
+
+<script type="module">
+import { THEMES, buildGrid, makeSnake, step, turn, DIRS, autoMove, mulberry32 } from "./core.js";
+
+const canvas = document.getElementById("board");
+const ctx = canvas.getContext("2d");
+const tip = document.getElementById("tip");
+const params = new URLSearchParams(location.search);
+
+const W = 900, H = 430;
+const PAD = { left: 54, top: 214 };
+const WEEK_DX = 14.2, DAY_DX = 8.4, DAY_DY = 8.6, WEEK_RISE = 0.3;
+const CELL = 9.4;
+
+let grid = null;
+let snake = null;
+let food = [];
+let mode = params.get("mode") === "play" ? "play" : "auto";
+let paused = false;
+let speed = Number(params.get("speed")) || 8;      // ticks per second
+let themeKey = THEMES[params.get("theme")] ? params.get("theme") : "cyberpunk";
+let theme = THEMES[themeKey];
+let last = performance.now();
+let acc = 0;
+let raf = null;
+let frames = 0, fpsClock = 0;
+let prevBody = null;
+let prevFood = null;
+const rng = mulberry32(20261102);
+
+/* ---------------------------------------------------------------- data --- */
+
+async function loadData() {
+  // stats.json is generated by build_dashboard.py: real dates, real counts.
+  const url = new URL("../data/stats.json", location.href);
+  const res = await fetch(url, { cache: "no-cache" });
+  if (!res.ok) throw new Error(`stats.json ${res.status}`);
+  const stats = await res.json();
+  return stats.calendar || [];
+}
+
+function setTheme(key) {
+  themeKey = key;
+  theme = THEMES[key];
+  document.documentElement.style.setProperty("--bg", theme.bg);
+  document.getElementById("themeName").textContent = theme.name;
+  for (const b of document.querySelectorAll("[data-theme-pick]")) {
+    b.setAttribute("aria-pressed", String(b.dataset.themePick === key));
+  }
+  const url = new URL(location.href);
+  url.searchParams.set("theme", key);
+  history.replaceState(null, "", url);
+}
+
+function reset() {
+  const start = { col: 0, row: 3 };
+  snake = makeSnake(start);
+  // a little body so it reads as a snake on the first frame
+  snake.body = [
+    { col: 0, row: 3 }, { col: grid.cols - 1, row: 3 }, { col: grid.cols - 2, row: 3 },
+  ];
+  snake.dir = DIRS.right;
+  food = seedFood();
+  prevBody = null;
+  prevFood = null;
+  acc = 0;
+  draw();
+}
+
+function seedFood() {
+  const cells = grid.cells.filter((c) => c.count > 0);
+  const picked = [];
+  const seen = new Set();
+  while (picked.length < 12 && seen.size < cells.length) {
+    const c = cells[Math.floor(rng() * cells.length)];
+    const key = `${c.col},${c.row}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    picked.push({ col: c.col, row: c.row, count: c.count, date: c.date });
+  }
+  return picked;
+}
+
+/* --------------------------------------------------------------- layout --- */
+
+function place(cell) {
+  return {
+    x: PAD.left + cell.col * WEEK_DX + cell.row * DAY_DX,
+    y: PAD.top + cell.row * DAY_DY - cell.col * WEEK_RISE,
+  };
+}
+
+function height(count) {
+  return count ? Math.max(2.2, Math.min(34, count * 3.1)) : 2.2;
+}
+
+/* --------------------------------------------------------------- render --- */
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = theme.bg;
+  ctx.fillRect(0, 0, W, H);
+
+  // header
+  ctx.fillStyle = theme.accent;
+  ctx.font = "700 11.5px ui-monospace, monospace";
+  ctx.letterSpacing = "3px";
+  ctx.fillText("CONTRIBUTION SNAKE", 44, 38);
+  ctx.letterSpacing = "0.5px";
+  ctx.fillStyle = theme.muted;
+  ctx.font = "400 10px ui-monospace, monospace";
+  ctx.textAlign = "right";
+  ctx.fillText(`${grid.total.toLocaleString()} contributions · peak ${grid.peak} · one block per day`, 856, 38);
+  ctx.textAlign = "left";
+  ctx.strokeStyle = theme.grid;
+  ctx.beginPath(); ctx.moveTo(44, 50); ctx.lineTo(856, 50); ctx.stroke();
+
+  // month ticks
+  ctx.fillStyle = theme.muted;
+  ctx.font = "400 8.5px ui-monospace, monospace";
+  const seen = new Set();
+  let lastX = -100;
+  for (const cell of grid.cells) {
+    if (!cell.date) continue;
+    const month = cell.date.slice(0, 7);
+    if (seen.has(month)) continue;
+    seen.add(month);
+    const { x } = place(cell);
+    if (x - lastX < 34) continue;
+    lastX = x;
+    ctx.fillText(new Date(cell.date + "T00:00:00Z").toLocaleString("en", { month: "short", timeZone: "UTC" }).toUpperCase(), x, 336);
+  }
+
+  // the year, as blocks
+  const ordered = [...grid.cells].filter((c) => c.date).sort((a, b) => a.row - b.row || a.col - b.col);
+  for (const cell of ordered) {
+    const { x, y } = place(cell);
+    const h = height(cell.count);
+    ctx.fillStyle = shade(cell.alpha);
+    ctx.globalAlpha = cell.count ? 1 : 0.55;
+    ctx.fillRect(x, y - h, CELL, h);
+    ctx.globalAlpha = 1;
+  }
+
+  // food: the days with commits, pulsing
+  const pulse = 0.55 + 0.45 * Math.sin(performance.now() / 320);
+  for (const f of food) {
+    const { x, y } = place(f);
+    const h = height(f.count);
+    ctx.globalAlpha = pulse;
+    ctx.fillStyle = theme.food[0];
+    ctx.fillRect(x, y - h - 3, CELL, 2.4);
+    ctx.globalAlpha = 1;
+  }
+
+  // snake: interpolated so it glides instead of snapping
+  const t = Math.min(1, acc * speed);
+  drawSnake(t);
+
+  // footer
+  ctx.fillStyle = theme.muted;
+  ctx.font = "400 9.5px ui-monospace, monospace";
+  ctx.fillText(`${mode === "auto" ? "autopilot" : "you"} · length ${snake.body.length} · ${snake.eaten} days eaten`, 44, 378);
+  ctx.textAlign = "right";
+  ctx.fillText(snake.alive ? "wrapping edges · toroidal" : "crashed — press R", 856, 378);
+  ctx.textAlign = "left";
+}
+
+function shade(alpha) {
+  // 0..4 -> background-ish to bright
+  const ramp = themeKey === "light"
+    ? ["#eaeef2", "#9be9a8", "#40c463", "#30a14e", "#216e39"]
+    : ["#141a2a", "#0e4429", "#00703a", "#1f9d47", "#39d353"];
+  return ramp[Math.max(0, Math.min(4, alpha))];
+}
+
+function drawSnake(t) {
+  const body = snake.body;
+  const prev = prevBody && prevBody.length === body.length ? prevBody : body;
+  const points = body.map((seg, i) => {
+    const p = place(prev[i] ?? seg);
+    const q = place(seg);
+    return {
+      x: p.x + (q.x - p.x) * t,
+      y: p.y + (q.y - p.y) * t - (i === 0 ? 5 : 3),
+    };
+  });
+
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  ctx.strokeStyle = theme.snakeDark;
+  ctx.lineWidth = 8;
+  strokePath(points);
+  ctx.strokeStyle = theme.snake;
+  ctx.lineWidth = 5.5;
+  ctx.shadowColor = theme.snake;
+  ctx.shadowBlur = 9;
+  strokePath(points);
+  ctx.shadowBlur = 0;
+
+  // head marker so the direction is unambiguous
+  const head = points[0];
+  ctx.fillStyle = theme.head;
+  ctx.beginPath();
+  ctx.arc(head.x + CELL / 2, head.y, 3.1, 0, Math.PI * 2);
+  ctx.fill();
+  // a bright spine, which is what keeps it readable over green cells
+  ctx.strokeStyle = "#ffffffcc";
+  ctx.lineWidth = 1.4;
+  strokePath(points);
+}
+
+function strokePath(points) {
+  ctx.beginPath();
+  let prevX = null;
+  for (const p of points) {
+    const x = p.x + CELL / 2;
+    if (prevX !== null && Math.abs(x - prevX) > 60) {
+      // wrapped across an edge: break the line so it does not cut the board
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x, p.y);
+    } else if (prevX === null) {
+      ctx.moveTo(x, p.y);
+    } else {
+      ctx.lineTo(x, p.y);
+    }
+    prevX = x;
+  }
+  ctx.stroke();
+}
+
+/* ---------------------------------------------------------------- logic --- */
+
+function tick() {
+  prevBody = snake.body;
+  if (mode === "auto") snake = turn(snake, autoMove(snake, grid, food, rng));
+  const res = step(snake, grid, food);
+  snake = res.snake;
+  if (res.ate) {
+    food = food.filter((f) => f !== res.ate);
+    if (food.length < 6) food = food.concat(seedFood().slice(0, 4));
+  }
+  if (!snake.alive && mode === "auto") {
+    // autopilot crashed: start over rather than sit dead
+    setTimeout(reset, 900);
+  }
+  syncHud();
+}
+
+function syncHud() {
+  document.getElementById("len").textContent = snake.body.length;
+  document.getElementById("eaten").textContent = snake.eaten;
+  document.getElementById("score").textContent = snake.score.toLocaleString();
+}
+
+function loop(now) {
+  const dt = Math.min(0.1, (now - last) / 1000);
+  last = now;
+  if (!paused) acc += dt;
+  while (acc >= 1 / speed) {
+    acc -= 1 / speed;
+    tick();
+  }
+  draw();
+  frames += 1;
+  fpsClock += dt;
+  if (fpsClock >= 1) {
+    document.getElementById("fps").textContent = `${Math.round(frames / fpsClock)} fps`;
+    frames = 0; fpsClock = 0;
+  }
+  raf = requestAnimationFrame(loop);
+}
+
+/* ------------------------------------------------------------- controls --- */
+
+function setMode(next) {
+  mode = next;
+  document.getElementById("mode").textContent = next === "auto" ? "autopilot" : "you";
+  for (const b of document.querySelectorAll("[data-mode]")) {
+    b.setAttribute("aria-pressed", String(b.dataset.mode === next));
+  }
+  const url = new URL(location.href);
+  url.searchParams.set("mode", next);
+  history.replaceState(null, "", url);
+  if (snake && !snake.alive) reset();
+}
+
+const KEYS = {
+  ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right",
+  w: "up", s: "down", a: "left", d: "right",
+};
+
+window.addEventListener("keydown", (e) => {
+  if (KEYS[e.key]) {
+    if (mode !== "play") setMode("play");
+    snake = turn(snake, DIRS[KEYS[e.key]]);
+    e.preventDefault();
+  } else if (e.key === " ") {
+    togglePause();
+    e.preventDefault();
+  } else if (e.key === "r" || e.key === "R") {
+    reset();
+  }
+});
+
+// touch swipe
+let touchStart = null;
+canvas.addEventListener("pointerdown", (e) => { touchStart = { x: e.clientX, y: e.clientY }; });
+canvas.addEventListener("pointerup", (e) => {
+  if (!touchStart) return;
+  const dx = e.clientX - touchStart.x, dy = e.clientY - touchStart.y;
+  touchStart = null;
+  if (Math.abs(dx) < 18 && Math.abs(dy) < 18) return;
+  if (mode !== "play") setMode("play");
+  snake = turn(snake, Math.abs(dx) > Math.abs(dy)
+    ? (dx > 0 ? DIRS.right : DIRS.left)
+    : (dy > 0 ? DIRS.down : DIRS.up));
+});
+
+// hover a day: show its date and count
+canvas.addEventListener("pointermove", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const x = (e.clientX - rect.left) * (W / rect.width);
+  const y = (e.clientY - rect.top) * (H / rect.height);
+  let hit = null;
+  for (const cell of grid.cells) {
+    if (!cell.date) continue;
+    const p = place(cell);
+    const h = height(cell.count);
+    if (x >= p.x && x <= p.x + CELL + 6 && y >= p.y - h - 8 && y <= p.y + 4) hit = cell;
+  }
+  if (!hit) { tip.classList.remove("show"); return; }
+  tip.textContent = `${hit.date} · ${hit.count} contribution${hit.count === 1 ? "" : "s"}`;
+  tip.style.left = `${((hit.col * 0 + place(hit).x + CELL / 2) / W) * rect.width}px`;
+  tip.style.top = `${((place(hit).y - height(hit.count)) / H) * rect.height}px`;
+  tip.classList.add("show");
+});
+canvas.addEventListener("pointerleave", () => tip.classList.remove("show"));
+
+function togglePause() {
+  paused = !paused;
+  document.getElementById("pause").setAttribute("aria-pressed", String(paused));
+  document.getElementById("pause").textContent = paused ? "Resume" : "Pause";
+}
+
+document.getElementById("controls").addEventListener("click", (e) => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  if (b.dataset.mode) setMode(b.dataset.mode);
+  if (b.id === "pause") togglePause();
+  if (b.id === "restart") reset();
+});
+
+const themeHost = document.getElementById("themes");
+for (const [key, t] of Object.entries(THEMES)) {
+  const b = document.createElement("button");
+  b.textContent = t.name;
+  b.dataset.themePick = key;
+  b.setAttribute("aria-pressed", "false");
+  b.addEventListener("click", () => setTheme(key));
+  themeHost.appendChild(b);
+}
+
+/* ----------------------------------------------------------------- boot --- */
+
+(async function boot() {
+  try {
+    grid = buildGrid(await loadData());
+  } catch (err) {
+    grid = buildGrid(demoCalendar());
+    document.getElementById("mode").textContent = "demo data";
+  }
+  setTheme(themeKey);
+  reset();
+  setMode(mode);
+  last = performance.now();
+  raf = requestAnimationFrame(loop);
+})();
+
+function demoCalendar() {
+  // Only used if stats.json is unreachable (opening the file directly, say).
+  const out = [];
+  const rng = mulberry32(7);
+  const start = Date.UTC(2025, 10, 6);
+  for (let i = 0; i < 366; i += 1) {
+    out.push({
+      date: new Date(start + i * 86400000).toISOString().slice(0, 10),
+      count: rng() < 0.3 ? 0 : Math.floor(rng() * 11),
+    });
+  }
+  return out;
+}
+</script>
+</body>
+</html>
