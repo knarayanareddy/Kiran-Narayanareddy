@@ -386,6 +386,8 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("repos", nargs="*", help="only these repos")
     parser.add_argument("--force", action="store_true")
+    parser.add_argument("--posters", action="store_true",
+                        help="only rebuild the grid covers from frames already on disk")
     args = parser.parse_args()
 
     os.makedirs(OUT, exist_ok=True)
