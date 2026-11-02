@@ -70,9 +70,9 @@ class KiranNarayanareddy:
 <div align="center">
 
 <!-- COUNTERS:START -->
-**33 live GitHub Pages sites** · **35 live deployments** · **124 original repositories** · **112 stars earned**
+**33 live GitHub Pages sites** · **35 live deployments** · **123 original repositories** · **112 stars earned**
 
-<sub>**TypeScript** 43 · **Python** 31 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
+<sub>**TypeScript** 43 · **Python** 30 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
 <!-- COUNTERS:END -->
 
 </div>
@@ -351,4 +351,4 @@ class KiranNarayanareddy:
 
 </div>
 
-<!-- Last updated: 2026-11-02 08:26 UTC -->
+<!-- Last updated: 2026-11-02 08:35 UTC -->
