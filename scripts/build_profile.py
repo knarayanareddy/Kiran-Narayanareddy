@@ -86,6 +86,15 @@ BLURBS: dict[str, str] = {
 # hackathon challenge page that is not a deployed app of mine.
 EXCLUDE = {"sylva", "onegov2-spatial-assistant"}
 
+# The two reels that play inline at the top of the reel section. Everything else
+# is a cover in the grid, because every image in a README downloads whether it is
+# visible or not (measured - see render_reels).
+INLINE_REELS = ["sallie-returns-ai-agent", "toolscour"]
+
+# Where the recordings are played. A README cannot start a GIF, so a click has to
+# go somewhere that can: this page, which plays the recording in place.
+REEL_PLAYER = "https://knarayanareddy.github.io/knarayanareddy/reel.html"
+
 # Featured live sites get a hand-written card row in the README, in this order.
 FEATURED = [
     "sallie-returns-ai-agent",
@@ -328,21 +337,20 @@ REELS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def render_reels(data: dict) -> str:
-    """The demo reels: a few full-size, the rest as a click-to-play grid.
+    """Two reels play inline; the other eighteen are a collapsed cover wall.
 
-    Two hard constraints shaped this, and both were checked rather than assumed:
+    What forced this shape, all of it measured rather than assumed:
 
-      1. GitHub strips JS, so a GIF *cannot* be started by a click in a README.
-         The only real "click to play" primitive is <details>, which does not
-         fetch its contents until it is opened. That is why the grid shows a
-         still cover and the GIF lives behind the project's arrow.
-      2. GitHub emits no loading="lazy" on README images (verified in the served
-         HTML), so every <img> in the rendered page downloads immediately. A
-         grid of twenty GIFs would be ~40 MB before anyone clicked anything; a
-         grid of twenty covers is ~1.5 MB.
+      * GitHub strips JavaScript, so a GIF cannot be started by a click in a
+        README - there is no hover, no player, nothing to click "play" on.
+      * GitHub strips ``loading="lazy"`` from README images even when it is
+        written into the source, and an ``<img>`` inside a closed ``<details>``
+        is fetched anyway. A details hides an image; it does not save its bytes.
 
-    The section is honest about both: the covers say "click to play" because that
-    is what happens, and nothing claims to be a live feed.
+    So: two recordings play inline, and the rest are covers (~20 kB each) that
+    link to the reel player, where a click really does start playback in place.
+    The cover wall sits inside a *closed* details, so the section costs one
+    summary line until someone asks for more.
     """
     try:
         with open(REELS, encoding="utf-8") as handle:
@@ -359,61 +367,64 @@ def render_reels(data: dict) -> str:
         gif = os.path.join(reel_dir, f"{site['repo']}.gif")
         cover = os.path.join(reel_dir, f"{site['repo']}-cover.png")
         if not os.path.exists(gif) or not os.path.exists(cover):
-            continue                      # never list a reel that is not on disk
+            continue                  # never list a reel that is not on disk
         entries.append((site, info))
 
     if not entries:
         return "_No reels recorded yet — the next run of `reels.yml` fills this in._"
 
-    latest = [e for e in entries if e[1].get("recorded")]
-    latest.sort(key=lambda e: e[1]["recorded"], reverse=True)
-    # The two newest play inline: a page that opens with nothing moving would be
-    # a strange thing to ship after building all of this.
-    hero = entries[:2]
-    hero_repos = {site["repo"] for site, _ in hero}
-    rest = [e for e in entries if e[0]["repo"] not in hero_repos]
+    by_repo = {site["repo"]: (site, info) for site, info in entries}
+    inline = [by_repo[name] for name in INLINE_REELS if name in by_repo]
+    if not inline:                            # nothing chosen is present: take two
+        inline = sorted(entries, key=lambda e: e[1].get("recorded", ""), reverse=True)[:2]
+    inline_repos = {site["repo"] for site, _ in inline}
+    rest = sorted(
+        (e for e in entries if e[0]["repo"] not in inline_repos),
+        key=lambda e: e[0]["repo"].lower(),
+    )
 
     parts = []
-    for site, info in hero:
+    for site, info in inline:
         parts.append(
             f'<a href="{site["url"]}"><img src="./assets/reels/{site["repo"]}.gif" '
             f'alt="Recording of {site["repo"]} — {info["label"]}, recorded {info["recorded"]}" '
             f'width="100%" /></a>'
             f'<sub><a href="{site["url"]}"><b>{site["repo"]}</b></a> — {info["label"]} · '
-            f'recorded {info["recorded"]}</sub>'
+            f'recorded {info["recorded"]} · plays inline</sub>'
         )
 
     if rest:
-        rows = []
+        cols = 4
+        cells = []
         for site, info in rest:
-            rows.append(
-                f'<tr><td width="46%" valign="middle">\n'
-                f'<a href="{site["url"]}"><img src="./assets/reels/{site["repo"]}-cover.png" '
-                f'width="100%" alt="{site["repo"]} — {info["label"]}, recorded {info["recorded"]}" /></a>\n'
-                f'</td><td valign="middle">\n'
-                f'<a href="{site["url"]}"><b>{site["repo"]}</b></a><br/>\n'
-                f'<sub>{info["label"]}<br/>recorded {info["recorded"]} · '
-                f'<a href="{site["url"]}">open live site ↗</a></sub>\n'
-                f'<details><summary>▶ click to play</summary><br/>\n\n'
-                f'<img src="./assets/reels/{site["repo"]}.gif" width="100%" '
-                f'alt="Recording of {site["repo"]} playing" />\n\n</details>\n'
-                f'</td></tr>'
+            play = f'{REEL_PLAYER}?r={site["repo"]}'
+            cells.append(
+                f'<td width="25%" align="center" valign="top">\n'
+                f'<a href="{play}"><img src="./assets/reels/{site["repo"]}-cover.png" '
+                f'alt="{site["repo"]} — {info["label"]}, recorded {info["recorded"]}. Opens the player." /></a>\n'
+                f'<sub><a href="{play}"><b>{site["repo"]}</b></a> ▶</sub>\n'
+                f'</td>'
             )
+        rows = [
+            "<tr>" + "".join(cells[i:i + cols]) + "</tr>"
+            for i in range(0, len(cells), cols)
+        ]
         parts.append(
-            f'<details open><summary><b>{len(rest)} more, click any to play</b> '
-            f'<sub>(the still is the cover; the GIF loads when you open it)</sub></summary>\n'
-            f'<table>\n{"".join(rows)}\n</table>\n</details>'
+            f'<details><summary><b>▶ {len(rest)} more recordings</b> '
+            f'<sub>(click a cover to play it in the reel player)</sub></summary>\n'
+            f'<table width="100%">\n{"".join(rows)}\n</table>\n</details>'
         )
 
-    total_mb = sum(i["gif_bytes"] for _, i in entries) / 1e6
     covers_kb = sum(i.get("cover_bytes", 0) for _, i in rest) / 1e3
+    total_mb = sum(i["gif_bytes"] for _, i in entries) / 1e6
     parts.append(
-        f"<sub>Recordings, not live embeds: GitHub strips `<iframe>` and `<video>` from a "
-        f"README and runs no JavaScript, so nothing here can be started by a click in the "
-        f"traditional sense — each row's recording is fetched only when you expand it, which "
-        f"keeps this section at ~{covers_kb:.0f} kB instead of the ~{total_mb:.0f} MB the "
-        f"reels would cost if all {len(entries)} loaded eagerly. Every one is captioned with "
-        f"its date; click through for the live site.</sub>"
+        f"<sub><b>Why the grid opens a player instead of playing here:</b> GitHub strips "
+        f"JavaScript from a README and strips <code>loading=lazy</code> from README images, so "
+        f"every image downloads and nothing can be started by a click. Playing all "
+        f"{len(entries)} inline would cost every visitor ~{total_mb:.0f} MB; this section costs "
+        f"~{covers_kb:.0f} kB of covers plus the two inline recordings. "
+        f"<a href=\"{REEL_PLAYER}\">Open the player</a> to browse all of them with hover "
+        f"previews. Each is captioned with its own date — none is a live feed.</sub>"
     )
     return "\n\n".join(parts)
 

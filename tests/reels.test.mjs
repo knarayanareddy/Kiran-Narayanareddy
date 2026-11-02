@@ -119,35 +119,69 @@ test("the reel workflow records on a real browser and asserts ffmpeg", () => {
   assert.match(workflow, /scripts\/build_reel\.py/);
 });
 
-test("the grid never loads every GIF eagerly", () => {
-  // GitHub ships no loading="lazy" on README images (checked in the served
-  // HTML), so any <img> the reader scrolls past has already cost its bytes.
-  // The grid must therefore point at covers, with the GIF behind <details>.
+test("the README does not hide its images behind a false promise", () => {
+  // Measured on the served page, twice, because I got it wrong the first time:
+  //   * a closed <details> still fetches its images - it only hides them
+  //   * loading="lazy" written into the README is stripped by GitHub
+  // So nothing in the README may claim that a toggle saves the download.
   const section = readme.slice(
     readme.indexOf("<!-- REELS:START -->"),
     readme.indexOf("<!-- REELS:END -->"),
   );
   if (!section.includes("assets/reels/")) return;
 
-  // "Eager" means visible without opening anything: a GIF inside <details> is not
-  // fetched until the reader opens it, which is the whole point of the grid.
-  let depth = 0;
-  const eager = [];
-  for (const [tag] of section.matchAll(/<details[^>]*>|<\/details>|<img[^>]*src="[^"]*assets\/reels\/[^"]+\.gif"/g)) {
-    if (tag.startsWith("<details")) depth += 1;
-    else if (tag.startsWith("</details")) depth = Math.max(0, depth - 1);
-    else if (depth === 0) eager.push(tag);
-  }
-  assert.ok(eager.length <= 2, `${eager.length} GIFs load eagerly; keep it to the two newest`);
+  assert.ok(!/loading="lazy"/.test(section), "GitHub strips loading=lazy; claiming it is misleading");
+  assert.ok(
+    !/GIF loads when|loads when you (expand|open)|fetched only when you (expand|open)/i.test(section),
+    "the section must not claim a details defers the fetch",
+  );
 
-  // Everything else is a cover, and every cover exists.
-  for (const [, src] of section.matchAll(/src="\.\/(assets\/reels\/[^"]+-cover\.png)"/g)) {
-    assert.ok(existsSync(`${root}${src}`), `README references missing ${src}`);
+  // Two reels inline; every other recording is a cover that links to the player.
+  const inline = [...section.matchAll(/src="\.\/assets\/reels\/[^"]+\.gif"/g)];
+  assert.ok(inline.length <= 2, `${inline.length} GIFs inline; the rest belong in the cover wall`);
+
+  const playLinks = [...section.matchAll(/reel\.html\?r=([^"&]+)/g)].map((m) => decodeURIComponent(m[1]));
+  const unique = [...new Set(playLinks)];
+  assert.ok(unique.length >= 8, `only ${unique.length} projects link to the player`);
+  for (const repo of unique) {
+    assert.ok(existsSync(`${root}assets/reels/${repo}.gif`), `player link for ${repo} has no recording`);
+    assert.ok(existsSync(`${root}assets/reels/${repo}-cover.png`), `${repo} has no cover for the wall`);
   }
-  // A GIF offered for playback must sit inside a details block, not inline.
-  for (const [match] of section.matchAll(/<details>[\s\S]*?<\/details>/g)) {
-    assert.ok(match.includes("<summary>"), "a details block needs a summary to click");
-  }
+});
+
+test("the cover wall is collapsed, so the section stays short", () => {
+  const section = readme.slice(
+    readme.indexOf("<!-- REELS:START -->"),
+    readme.indexOf("<!-- REELS:END -->"),
+  );
+  const wall = section.match(/<details[^>]*>[\s\S]*?<\/details>/);
+  if (!wall) return;                       // no wall yet
+  assert.match(wall[0].slice(0, 40), /<details>/, "the wall must not start out open");
+  assert.doesNotMatch(wall[0].slice(0, 40), /<details open/);
+  // And it must actually be a grid, not one tile per row.
+  const tiles = (wall[0].match(/<td /g) || []).length;
+  const rows = (wall[0].match(/<tr>/g) || []).length;
+  assert.ok(tiles >= 8, "the wall should hold the recordings that are not inline");
+  assert.ok(tiles / rows >= 3, `only ${(tiles / rows).toFixed(1)} tiles per row; that is a list, not a grid`);
+});
+
+test("the player page plays in place, and hover only previews", () => {
+  const player = readFileSync(`${root}web/reel.html`, "utf8");
+  // Two panes: a stage that stays put and a list beside it.
+  assert.match(player, /grid-template-columns:\s*320px\s+minmax/, "expects a side-by-side layout");
+  assert.match(player, /position:\s*sticky/, "the stage should stay visible while the list scrolls");
+  // Hover previews, click pins, leaving restores - the three behaviours that
+  // make hover safe rather than confusing.
+  assert.match(player, /pointerenter/);
+  assert.match(player, /pointerleave/);
+  assert.match(player, /function pin\(/);
+  // Replay must rebuild the <img>: reassigning src on a cached GIF does not restart it.
+  assert.match(player, /new Image\(\)/);
+  assert.match(player, /not live/, "the caption must keep saying it is a recording");
+  // And the assets it streams have to be published with it.
+  const pages = readFileSync(`${root}.github/workflows/pages.yml`, "utf8");
+  assert.match(pages, /assets\/reels\/\*\.gif/);
+  assert.match(pages, /_site\/reels/);
 });
 
 test("every recorded reel gets a cover for the grid", () => {

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo reel player — Kiran Narayana Reddy</title>
+<meta name="description" content="Recordings of the live projects. Hover to preview, click to pin.">
+<style>
+  :root {
+    --bg: #0d1117; --panel: #161b22; --panel-2: #1b222c; --edge: #30363d; --edge-soft: #21262d;
+    --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff; --good: #3fb950;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text); min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+    padding: 20px 16px 48px;
+  }
+  .wrap { width: min(100%, 1240px); margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+
+  header { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  h1 { font-size: 13.5px; letter-spacing: 2.6px; text-transform: uppercase; margin: 0; color: var(--accent); }
+  header .sub { font-size: 12px; color: var(--muted); }
+  header .sub a { color: var(--muted); }
+  header .hint { margin-left: auto; font-size: 11.5px; color: var(--muted); font-family: var(--mono); }
+
+  /* Two panes: a list that scrolls on the left, a stage that stays put on the
+     right. On a narrow screen the stage goes first, so the thing you came to
+     watch is at the top and the list is underneath it. */
+  .panes { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 14px; align-items: start; }
+  @media (max-width: 820px) {
+    .panes { grid-template-columns: minmax(0, 1fr); }
+    .stage { order: -1; }
+  }
+
+  .stage { background: var(--panel); border: 1px solid var(--edge); border-radius: 14px; overflow: hidden; position: sticky; top: 14px; }
+  .stage .bar {
+    display: flex; align-items: center; gap: 8px; padding: 9px 12px;
+    border-bottom: 1px solid var(--edge); font-size: 11.5px; color: var(--muted); font-family: var(--mono);
+  }
+  .stage .bar .dots { display: flex; gap: 6px; }
+  .stage .bar .dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--edge); }
+  .stage .bar b { color: var(--text); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .stage .bar .right { margin-left: auto; white-space: nowrap; }
+  .stage .bar .right a { color: var(--accent); text-decoration: none; }
+  .viewport { background: #000; line-height: 0; min-height: 200px; }
+  .viewport img { width: 100%; display: block; }
+  .viewport .empty {
+    display: flex; align-items: center; justify-content: center; min-height: 240px;
+    padding: 26px; font-size: 13px; color: var(--muted); text-align: center; line-height: 1.7;
+  }
+  .caption {
+    display: flex; align-items: center; gap: 8px; padding: 9px 12px;
+    border-top: 1px solid var(--edge); font-size: 11px; color: var(--muted); font-family: var(--mono);
+  }
+  .caption .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--good); flex: none; }
+  .caption .state { margin-left: auto; color: var(--accent); }
+  .controls { display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--edge-soft); flex-wrap: wrap; }
+  .controls a, .controls button {
+    font: inherit; font-size: 12px; padding: 7px 12px; border-radius: 8px; cursor: pointer;
+    border: 1px solid var(--edge); background: var(--edge-soft); color: var(--text); text-decoration: none;
+  }
+  .controls a.primary { background: #1f6feb; border-color: #1f6feb; }
+  .controls a:hover, .controls button:hover { border-color: var(--accent); }
+
+  .list { background: var(--panel); border: 1px solid var(--edge); border-radius: 14px; overflow: hidden; }
+  .list .bar {
+    padding: 9px 12px; border-bottom: 1px solid var(--edge);
+    font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .list .bar span { margin-left: auto; letter-spacing: 0; text-transform: none; font-family: var(--mono); }
+  .tiles {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 10px;
+    max-height: 660px; overflow-y: auto; overscroll-behavior: contain;
+  }
+  @media (max-width: 820px) { .tiles { max-height: 300px; grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 460px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .tile {
+    display: block; border: 1px solid var(--edge); border-radius: 9px; overflow: hidden;
+    background: var(--panel-2); text-decoration: none; color: var(--text); cursor: pointer;
+    transition: border-color .12s ease, transform .12s ease;
+  }
+  .tile:hover, .tile:focus-visible { border-color: var(--accent); transform: translateY(-1px); outline: none; }
+  .tile[aria-current="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+  .tile img { width: 100%; display: block; }
+  .tile span {
+    display: block; padding: 6px 7px; font-size: 10.5px; color: var(--muted); font-family: var(--mono);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .tile span b { color: var(--text); font-weight: 600; }
+
+  footer { font-size: 11px; color: var(--muted); line-height: 1.8; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Demo reels</h1>
+    <span class="sub"><a href="./">← back to the dashboards</a></span>
+    <span class="hint" id="hint">hover to preview · click to pin</span>
+  </header>
+
+  <div class="panes">
+    <div class="stage">
+      <div class="bar">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <b id="repo">loading…</b>
+        <span class="right" id="live"></span>
+      </div>
+      <div class="viewport" id="viewport"><div class="empty">Loading the reel index…</div></div>
+      <div class="caption">
+        <span class="dot"></span>
+        <span id="stamp">recording</span>
+        <span class="state" id="state"></span>
+      </div>
+      <div class="controls">
+        <a class="primary" id="open" href="#">Open the live site ↗</a>
+        <button id="restart" type="button">↻ Replay</button>
+        <button id="next" type="button">⤳ Next</button>
+      </div>
+    </div>
+
+    <div class="list">
+      <div class="bar">All recordings <span id="count"></span></div>
+      <div class="tiles" id="tiles" role="listbox" aria-label="Recordings"></div>
+    </div>
+  </div>
+
+  <footer>
+    Every reel is a recording of a real deployment, captured headlessly by
+    <a href="https://github.com/knarayanareddy/knarayanareddy/blob/main/.github/workflows/reels.yml">reels.yml</a>
+    and captioned with the date it was taken. <b>This page is the only place a click can start a
+    recording</b> — a GitHub README strips JavaScript, so there the recordings stay still.
+    Nothing here is a live feed.
+  </footer>
+</div>
+
+<script>
+(() => {
+  "use strict";
+  const params = new URLSearchParams(location.search);
+  // Served from the Pages root; recordings live one level down from this page.
+  const BASE = new URL("reels/", location.href.replace(/[^/]*$/, ""));
+
+  const el = {
+    repo: document.getElementById("repo"),
+    viewport: document.getElementById("viewport"),
+    stamp: document.getElementById("stamp"),
+    state: document.getElementById("state"),
+    live: document.getElementById("live"),
+    open: document.getElementById("open"),
+    restart: document.getElementById("restart"),
+    next: document.getElementById("next"),
+    tiles: document.getElementById("tiles"),
+    count: document.getElementById("count"),
+    hint: document.getElementById("hint"),
+  };
+
+  let manifest = {};
+  let order = [];
+  let pinned = null;     // the one the reader chose
+  let showing = null;    // the one on the stage, which may be a hover preview
+  let hoverTimer = 0;
+
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const gifPath = (repo) => `${BASE}${encodeURIComponent(repo)}.gif`;
+
+  function paint(repo, { isPreview = false } = {}) {
+    const info = manifest[repo];
+    if (!info) return;
+    showing = repo;
+
+    el.repo.textContent = repo;
+    el.live.innerHTML = `<a href="${esc(info.url)}">live site ↗</a>`;
+    el.open.href = info.url;
+    el.stamp.textContent = `${info.label} · recorded ${info.recorded} · not live`;
+    el.state.textContent = isPreview ? "previewing · click to pin" : "pinned";
+
+    // A fresh <img> every time: reassigning src on a cached GIF does not restart
+    // it, and both Replay and a new preview have to actually start from frame 0.
+    const img = new Image();
+    img.alt = `Recording of ${repo} playing on ${info.url}`;
+    img.src = `${gifPath(repo)}?v=${Date.now()}`;
+    el.viewport.replaceChildren(img);
+
+    el.tiles.querySelectorAll(".tile").forEach((tile) => {
+      tile.setAttribute("aria-current", tile.dataset.repo === repo ? "true" : "false");
+    });
+  }
+
+  function pin(repo, { push = true } = {}) {
+    pinned = repo;
+    paint(repo, { isPreview: false });
+    if (push) {
+      const url = new URL(location.href);
+      url.searchParams.set("r", repo);
+      history.replaceState(null, "", url);
+    }
+    document.title = `${repo} — demo reel`;
+  }
+
+  function step(delta) {
+    if (!order.length) return;
+    const at = order.indexOf(pinned ?? showing ?? order[0]);
+    pin(order[(at + delta + order.length) % order.length]);
+  }
+
+  // Leaving the whole list puts the pinned recording back on the stage, so a
+  // preview is always a preview and never quietly becomes the choice.
+  el.tiles.addEventListener("pointerleave", () => {
+    clearTimeout(hoverTimer);
+    if (pinned && showing !== pinned) paint(pinned, { isPreview: false });
+  });
+  el.tiles.addEventListener("focusout", (event) => {
+    if (!el.tiles.contains(event.relatedTarget) && pinned && showing !== pinned) {
+      paint(pinned, { isPreview: false });
+    }
+  });
+
+  el.restart.addEventListener("click", () => (pinned ?? showing) && paint(pinned ?? showing, { isPreview: false }));
+  el.next.addEventListener("click", () => step(1));
+
+  // Keyboard: arrows move the pin, which is what a keyboard user means by "next".
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowDown" || event.key === "ArrowRight") { event.preventDefault(); step(1); }
+    if (event.key === "ArrowUp" || event.key === "ArrowLeft") { event.preventDefault(); step(-1); }
+  });
+
+  fetch(`${BASE}manifest.json`, { cache: "no-cache" })
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
+    .then((data) => {
+      manifest = data;
+      order = Object.keys(manifest).sort();
+      if (!order.length) throw new Error("the manifest is empty");
+      el.count.textContent = `${order.length} recorded`;
+
+      el.tiles.replaceChildren(...order.map((repo) => {
+        const tile = document.createElement("a");
+        tile.className = "tile";
+        tile.href = `?r=${encodeURIComponent(repo)}`;
+        tile.dataset.repo = repo;
+        tile.setAttribute("role", "option");
+        tile.innerHTML =
+          `<img src="${BASE}${encodeURIComponent(repo)}-cover.png" alt="" loading="lazy" />` +
+          `<span><b>${esc(repo)}</b><br/>${esc(manifest[repo].recorded)}</span>`;
+
+        // Hover previews whatever the pointer is on, including after a pin -
+        // a list that goes dead once you have clicked something once is worse
+        // than one that keeps showing you things. Leaving the list returns the
+        // stage to whatever was pinned, so the preview never silently becomes
+        // the selection.
+        tile.addEventListener("pointerenter", () => {
+          if (window.matchMedia("(hover: none)").matches) return;   // touch: no hover
+          clearTimeout(hoverTimer);
+          hoverTimer = setTimeout(() => {
+            if (showing !== repo) paint(repo, { isPreview: true });
+          }, 140);
+        });
+        tile.addEventListener("pointerleave", () => clearTimeout(hoverTimer));
+        tile.addEventListener("focus", () => {
+          if (showing !== repo) paint(repo, { isPreview: true });
+        });
+        tile.addEventListener("click", (event) => {
+          event.preventDefault();
+          pin(repo);
+        });
+        return tile;
+      }));
+
+      const wanted = params.get("r");
+      pin(manifest[wanted] ? wanted : order[0], { push: !wanted });
+    })
+    .catch((err) => {
+      el.viewport.innerHTML =
+        `<div class="empty"><b>Could not load the reel index.</b><br/>${esc(err.message)}<br/>` +
+        `<a href="https://github.com/knarayanareddy/knarayanareddy/tree/main/assets/reels">` +
+        `Browse the recordings on GitHub instead.</a></div>`;
+      el.repo.textContent = "unavailable";
+    });
+})();
+</script>
+</body>
+</html>

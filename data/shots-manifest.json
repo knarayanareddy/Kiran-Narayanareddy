@@ -27,19 +27,19 @@
       "pushed": "2026-10-07"
     },
     {
-      "repo": "myjevuses",
-      "url": "https://knarayanareddy.github.io/myjevuses/",
-      "status": "ok",
-      "ok": true,
-      "bytes": 113884,
-      "pushed": "2026-11-02"
-    },
-    {
       "repo": "Aeroscribe",
       "url": "https://knarayanareddy.github.io/Aeroscribe/",
       "status": "ok",
       "ok": true,
       "bytes": 1162547,
+      "pushed": "2026-11-02"
+    },
+    {
+      "repo": "myjevuses",
+      "url": "https://knarayanareddy.github.io/myjevuses/",
+      "status": "ok",
+      "ok": true,
+      "bytes": 113884,
       "pushed": "2026-11-02"
     },
     {
