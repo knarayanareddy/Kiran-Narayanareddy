@@ -3,7 +3,7 @@
 <!-- HEADER -->
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=190&section=header&text=Kiran%20Narayanareddy&fontSize=40&fontColor=fff&animation=twinkling&fontAlignY=34&desc=Autonomous%20agents%20%C2%B7%20Aerospace%20%26%20Physical%20AI%20%C2%B7%20Compliance-as-code&descAlignY=55&descSize=17" width="100%"/>
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=650&lines=Building+autonomous+agents+that+can+prove+their+work;Hackathon+shipwright+from+Amsterdam;Aerospace+research+pipelines+with+evidence+chains;Verifiable+AI+for+regulated+domains)](https://github.com/knarayanareddy)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&random=false&width=650&lines=Building+autonomous+agents+that+can+prove+their+work;Hackathon+shipwright+from+Amsterdam;Aerospace+research+pipelines+with+evidence+chains;Verifiable+AI+for+regulated+domains)](https://github.com/knarayanareddy)
 
 <br/>
 
@@ -270,7 +270,7 @@ class KiranNarayanareddy:
 
 <div align="center">
 
-<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=knarayanareddy&theme=tokyonight&hide_border=true&background=0D1117&stroke=58a6ff&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" />
+<img width="49%" src="https://streak-stats.demolab.com/?user=knarayanareddy&theme=tokyonight&hide_border=true&background=0D1117&stroke=58a6ff&ring=58a6ff&fire=58a6ff&currStreakLabel=58a6ff" />
 <img width="49%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=knarayanareddy&theme=tokyonight" />
 
 <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=knarayanareddy&theme=github_dark" />
@@ -336,4 +336,4 @@ class KiranNarayanareddy:
 
 </div>
 
-<!-- Last updated: 2026-11-02 07:37 UTC -->
+<!-- Last updated: 2026-11-02 07:43 UTC -->

@@ -155,8 +155,17 @@ def pages_url(repo: dict) -> tuple[str, bool] | None:
         return None
 
     home = (repo.get("homepage") or "").strip()
-    info = api_one(f"/repos/{USER}/{repo['name']}/pages")
-    on_pages = isinstance(info, dict) and bool(info.get("html_url"))
+    # A repo with no Pages flag and no homepage cannot have anything deployed,
+    # so skip the extra request (keeps a full refresh to ~40 API calls).
+    if not repo.get("has_pages") and not home:
+        return None
+
+    on_pages = False
+    if repo.get("has_pages"):
+        info = api_one(f"/repos/{USER}/{repo['name']}/pages")
+        on_pages = isinstance(info, dict) and bool(info.get("html_url"))
+        if on_pages and not home:
+            home = info["html_url"]
 
     if home and "github.io" not in home:
         # Custom domain / other host. Only trust it if the repo is deployed at all.
@@ -164,8 +173,6 @@ def pages_url(repo: dict) -> tuple[str, bool] | None:
             return home.rstrip("/") + "/", False
         return None
 
-    if on_pages:
-        return info["html_url"].rstrip("/") + "/", True
     if home:
         return home.rstrip("/") + "/", True
     return None
@@ -296,6 +303,14 @@ def render_counters(data: dict) -> str:
     )
 
 
+VOLATILE = re.compile(r"<!-- Last updated: .*?-->")
+
+
+def substantive(text: str) -> str:
+    """Text with the bits that change on every run removed."""
+    return VOLATILE.sub("", text)
+
+
 def replace_block(text: str, name: str, body: str) -> str:
     pattern = re.compile(
         rf"(<!-- {name}:START -->)(.*?)(<!-- {name}:END -->)",
@@ -327,6 +342,29 @@ def main() -> int:
     if args.dry_run:
         print(readme)
         return 0
+
+    old_readme = ""
+    if os.path.exists(README):
+        with open(README, encoding="utf-8") as handle:
+            old_readme = handle.read()
+    old_data = None
+    if os.path.exists(DATA):
+        try:
+            with open(DATA, encoding="utf-8") as handle:
+                old_data = json.load(handle)
+        except json.JSONDecodeError:
+            old_data = None
+
+    new_data = dict(data)
+    if old_data is not None:
+        old_data = {k: v for k, v in old_data.items() if k != "generated"}
+        new_data_cmp = {k: v for k, v in new_data.items() if k != "generated"}
+        # Round-trip through JSON so tuples compare equal to the lists on disk.
+        same_data = old_data == json.loads(json.dumps(new_data_cmp))
+        unchanged = substantive(old_readme) == substantive(readme) and same_data
+        if unchanged:
+            print("nothing changed; leaving README.md and data/sites.json alone", file=sys.stderr)
+            return 0
 
     with open(README, "w", encoding="utf-8") as handle:
         handle.write(readme)
