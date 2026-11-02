@@ -24,6 +24,8 @@ import json
 import os
 import sys
 
+from tokens import THEMES as TOKENS  # shared design system
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "sites.json")
 OUT_DIR = os.path.join(ROOT, "assets")
@@ -36,30 +38,7 @@ TAGLINES = [
     "compliance-as-code for EU regulated products",
 ]
 
-THEMES = {
-    "dark": {
-        "bg": "#0d1117",
-        "panel": "#161b22",
-        "grid": "#1f2937",
-        "text": "#e6edf3",
-        "muted": "#8b949e",
-        "accent": "#58a6ff",
-        "accent2": "#a371f7",
-        "accent3": "#3fb950",
-        "glow": "#58a6ff",
-    },
-    "light": {
-        "bg": "#ffffff",
-        "panel": "#f6f8fa",
-        "grid": "#e2e8f0",
-        "text": "#0d1117",
-        "muted": "#57606a",
-        "accent": "#0969da",
-        "accent2": "#8250df",
-        "accent3": "#1a7f37",
-        "glow": "#0969da",
-    },
-}
+THEMES = TOKENS  # from scripts/tokens.py — one palette for every card
 
 TEMPLATE = """<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="__ARIA__">
   <title>__ARIA__</title>
@@ -248,7 +227,8 @@ def render_footer(theme_name: str) -> str:
     theme = THEMES[theme_name]
     svg = FOOTER_TEMPLATE
     for key, value in theme.items():
-        svg = svg.replace(f"__{key.upper()}__", value)
+        if isinstance(value, str):
+            svg = svg.replace(f"__{key.upper()}__", value)
     return svg
 
 
@@ -346,7 +326,8 @@ def render(theme_name: str, stats: dict) -> str:
     )
     svg = TEMPLATE
     for key, value in theme.items():
-        svg = svg.replace(f"__{key.upper()}__", value)
+        if isinstance(value, str):
+            svg = svg.replace(f"__{key.upper()}__", value)
     replacements = {
         "__ARIA__": aria,
         "__GRID_LINES__": grid_lines(theme),

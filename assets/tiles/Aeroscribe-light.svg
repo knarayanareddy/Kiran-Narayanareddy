@@ -11,8 +11,8 @@
       <stop offset="1" stop-color="#ffffff" stop-opacity="0.92"/>
     </linearGradient>
     <linearGradient id="bar-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#1a7f37" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#1a7f37" stop-opacity="0.10"/>
+      <stop offset="0" stop-color="#0969da" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#0969da" stop-opacity="0.10"/>
     </linearGradient>
     <style>
       @keyframes livePulse {
@@ -37,7 +37,7 @@
   <rect x="18" y="8" width="4" height="9" rx="2" fill="#57606a" opacity="0.55"/>
   <rect x="26" y="8" width="4" height="9" rx="2" fill="#57606a" opacity="0.35"/>
   <rect x="40" y="6.5" width="327" height="13" rx="6.5" fill="#ffffff" stroke="#d0d7de"/>
-  <rect x="46" y="11" width="3" height="4" rx="1" fill="#1a7f37" opacity="0.8"/>
+  <rect x="46" y="11" width="3" height="4" rx="1" fill="#0969da" opacity="0.8"/>
   <text x="54" y="16.5" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="8.5" fill="#57606a">knarayanareddy.github.io/Aeroscribe</text>
   <circle cx="382.4" cy="13" r="2.4" fill="#cf222e" class="live-dot-b"/>
   <text x="411" y="16.5" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="7.5" letter-spacing="0.6" fill="#cf222e" font-weight="bold">LIVE</text>
@@ -56,6 +56,6 @@
   <!-- caption -->
   <line x1="0.5" y1="222" x2="422.5" y2="222" stroke="#d0d7de"/>
   <rect x="10" y="231" width="3" height="16" rx="1.5" fill="url(#bar-grad)"/>
-  <text x="20" y="243" font-family="ui-sans-serif,-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#1f2328">Aeroscribe</text>
+  <text x="20" y="243" font-family="ui-sans-serif,-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#0d1117">Aeroscribe</text>
   <text x="411" y="243" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="9.5" fill="#57606a">manuscript pipeline</text>
 </svg>

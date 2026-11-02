@@ -31,6 +31,8 @@ import os
 import sys
 from PIL import Image
 
+from tokens import THEMES as TOKENS  # shared design system
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SHOTS = os.path.join(ROOT, "assets", "shots")
 OUT = os.path.join(ROOT, "assets", "tiles")
@@ -54,28 +56,7 @@ TILES = [
     ("Bunqsy", "7-agent oracle", 5.8),
 ]
 
-THEMES = {
-    "dark": {
-        "bg": "#0d1117",
-        "panel": "#161b22",
-        "stroke": "#30363d",
-        "text": "#e6edf3",
-        "muted": "#8b949e",
-        "accent": "#3fb950",
-        "live": "#f85149",
-        "scan": "#ffffff",
-    },
-    "light": {
-        "bg": "#ffffff",
-        "panel": "#f6f8fa",
-        "stroke": "#d0d7de",
-        "text": "#1f2328",
-        "muted": "#57606a",
-        "accent": "#1a7f37",
-        "live": "#cf222e",
-        "scan": "#0b1220",
-    },
-}
+THEMES = TOKENS  # from scripts/tokens.py — one palette for every card
 
 
 def load_state() -> dict:

@@ -97,7 +97,7 @@
   </p>
 
 <script type="module">
-import { THEMES, buildGrid, makeSnake, step, turn, DIRS, autoMove, mulberry32 } from "./core.js";
+import { THEMES, applyTokens, buildGrid, makeSnake, step, turn, DIRS, autoMove, mulberry32 } from "./core.js";
 
 const canvas = document.getElementById("board");
 const ctx = canvas.getContext("2d");
@@ -462,6 +462,11 @@ for (const [key, t] of Object.entries(THEMES)) {
 /* ----------------------------------------------------------------- boot --- */
 
 (async function boot() {
+  // Shared design tokens first, so the game wears the same palette as the cards.
+  try {
+    const res = await fetch("../data/tokens.json", { cache: "no-cache" });
+    if (res.ok) applyTokens(await res.json());
+  } catch { /* file:// fallback: keep the bundled values */ }
   try {
     grid = buildGrid(await loadData());
   } catch (err) {

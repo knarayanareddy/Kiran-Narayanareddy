@@ -88,12 +88,27 @@
   </p>
 
 <script type="module">
-const THEMES = {
+// Tokens come from data/tokens.json, emitted by scripts/tokens.py, so the page
+// and the SVG cards cannot drift apart. The literal below is only a fallback for
+// opening the file over file:// where fetch is blocked.
+let THEMES = {
   dark: { bg:"#0d1117", panel:"#161b22", grid:"#30363d", text:"#e6edf3", muted:"#8b949e",
           accent:"#58a6ff", accent2:"#a371f7", accent3:"#3fb950", ramp:["#141a2a","#0e4429","#00703a","#1f9d47","#39d353"] },
   light: { bg:"#ffffff", panel:"#f6f8fa", grid:"#d0d7de", text:"#0d1117", muted:"#57606a",
            accent:"#0969da", accent2:"#8250df", accent3:"#1a7f37", ramp:["#eaeef2","#9be9a8","#40c463","#30a14e","#216e39"] },
 };
+
+function themesFromTokens(tokens) {
+  const build = (mode) => {
+    const p = tokens.palette[mode];
+    return {
+      bg: p.canvas, panel: p.surface, grid: p.border, text: p.text, muted: p.muted,
+      accent: p.accent, accent2: p.accent2, accent3: p.accent3,
+      ramp: tokens.levels[mode],
+    };
+  };
+  return { dark: build("dark"), light: build("light") };
+}
 
 const W = 900, H = 430;
 let stats = null;
@@ -101,6 +116,13 @@ let theme = THEMES.dark;
 let hoverHour = -1, hoverDay = -1, hoverBlock = null;
 
 /* ---------------------------------------------------------------- data --- */
+
+async function loadTokens() {
+  try {
+    const res = await fetch("../data/tokens.json", { cache: "no-cache" });
+    if (res.ok) THEMES = themesFromTokens(await res.json());
+  } catch { /* keep the literal */ }
+}
 
 async function load() {
   const res = await fetch("../data/stats.json", { cache: "no-cache" });
@@ -453,6 +475,7 @@ ter.addEventListener("pointerleave", () => {
 /* ----------------------------------------------------------------- boot --- */
 
 (async function boot() {
+  await loadTokens();
   try {
     stats = await load();
   } catch (err) {
