@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-03T11:59:57Z",
+  "checked": "2026-11-03T17:09:19Z",
   "fresh_days": 21,
   "sites": {
     "3dexperimentation": {
@@ -8,13 +8,13 @@
       "confirmed_live": true
     },
     "AI-Arsenal": {
-      "age_days": 1,
-      "captured": "2026-11-02T08:21:15Z",
+      "age_days": 0,
+      "captured": "2026-11-03T12:06:07Z",
       "confirmed_live": true
     },
     "AI-Daily": {
-      "age_days": 1,
-      "captured": "2026-11-02T08:21:15Z",
+      "age_days": 0,
+      "captured": "2026-11-03T12:06:04Z",
       "confirmed_live": true
     },
     "Aerorepos": {
@@ -33,8 +33,8 @@
       "confirmed_live": true
     },
     "Autoorg": {
-      "age_days": 1,
-      "captured": "2026-11-02T08:21:35Z",
+      "age_days": 0,
+      "captured": "2026-11-03T12:06:04Z",
       "confirmed_live": true
     },
     "Bunqsy": {
@@ -54,7 +54,7 @@
     },
     "Handy": {
       "age_days": 0,
-      "captured": "2026-11-02T18:06:44Z",
+      "captured": "2026-11-03T12:06:06Z",
       "confirmed_live": true
     },
     "LEGACYVAULTV1.0": {
@@ -74,7 +74,7 @@
     },
     "SAAF-circuit-breaker": {
       "age_days": 0,
-      "captured": "2026-11-02T18:06:44Z",
+      "captured": "2026-11-03T12:06:06Z",
       "confirmed_live": true
     },
     "WebsitedesignandPrompts": {
@@ -93,8 +93,8 @@
       "confirmed_live": true
     },
     "dreamswarm": {
-      "age_days": 1,
-      "captured": "2026-11-02T08:21:40Z",
+      "age_days": 0,
+      "captured": "2026-11-03T12:06:03Z",
       "confirmed_live": true
     },
     "ghosthandshake": {
@@ -133,7 +133,7 @@
       "confirmed_live": true
     },
     "myjevuses": {
-      "age_days": 0,
+      "age_days": 1,
       "captured": "2026-11-02T12:55:26Z",
       "confirmed_live": true
     },
@@ -173,8 +173,8 @@
       "confirmed_live": true
     },
     "toolscour": {
-      "age_days": 1,
-      "captured": "2026-11-02T08:21:12Z",
+      "age_days": 0,
+      "captured": "2026-11-03T12:06:04Z",
       "confirmed_live": true
     },
     "twitch-codex": {

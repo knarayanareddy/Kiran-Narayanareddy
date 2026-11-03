@@ -97,7 +97,7 @@ class KiranNarayanareddy:
 <div align="center">
 
 <!-- COUNTERS:START -->
-**35 live GitHub Pages sites** · **37 live deployments** · **125 original repositories** · **112 stars** · **5 forks** · **1 follower**
+**35 live GitHub Pages sites** · **37 live deployments** · **129 original repositories** · **112 stars** · **5 forks** · **1 follower**
 
 <sub>**TypeScript** 45 · **Python** 32 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
 <!-- COUNTERS:END -->
@@ -132,71 +132,71 @@ class KiranNarayanareddy:
 ### 🎬 Twenty of them, actually moving
 
 <!-- REELS:START -->
-<a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><img src="./assets/reels/sallie-returns-ai-agent.gif" alt="Recording of sallie-returns-ai-agent — returns pipeline, recorded 2026-11-02" width="100%" /></a><sub><a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><b>sallie-returns-ai-agent</b></a> — returns pipeline · recorded 2026-11-02 · plays inline</sub>
+<a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><img src="./assets/reels/sallie-returns-ai-agent.gif" alt="Recording of sallie-returns-ai-agent — returns pipeline, recorded 2026-11-03" width="100%" /></a><sub><a href="https://knarayanareddy.github.io/sallie-returns-ai-agent/"><b>sallie-returns-ai-agent</b></a> — returns pipeline · recorded 2026-11-03 · plays inline</sub>
 
-<a href="https://knarayanareddy.github.io/toolscour/"><img src="./assets/reels/toolscour.gif" alt="Recording of toolscour — 3D knowledge galaxy, recorded 2026-11-02" width="100%" /></a><sub><a href="https://knarayanareddy.github.io/toolscour/"><b>toolscour</b></a> — 3D knowledge galaxy · recorded 2026-11-02 · plays inline</sub>
+<a href="https://knarayanareddy.github.io/toolscour/"><img src="./assets/reels/toolscour.gif" alt="Recording of toolscour — 3D knowledge galaxy, recorded 2026-11-03" width="100%" /></a><sub><a href="https://knarayanareddy.github.io/toolscour/"><b>toolscour</b></a> — 3D knowledge galaxy · recorded 2026-11-03 · plays inline</sub>
 
 <details><summary><b>▶ 18 more recordings</b> <sub>(click a cover to play it in the reel player)</sub></summary>
 <table width="100%">
 <tr><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=3dexperimentation"><img src="./assets/reels/3dexperimentation-cover.png" alt="3dexperimentation — canvas film studio, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=3dexperimentation"><img src="./assets/reels/3dexperimentation-cover.png" alt="3dexperimentation — canvas film studio, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=3dexperimentation"><b>3dexperimentation</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Aeroscribe"><img src="./assets/reels/Aeroscribe-cover.png" alt="Aeroscribe — manuscript pipeline, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Aeroscribe"><img src="./assets/reels/Aeroscribe-cover.png" alt="Aeroscribe — manuscript pipeline, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Aeroscribe"><b>Aeroscribe</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=AI-Arsenal"><img src="./assets/reels/AI-Arsenal-cover.png" alt="AI-Arsenal — schema-first encyclopedia, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=AI-Arsenal"><img src="./assets/reels/AI-Arsenal-cover.png" alt="AI-Arsenal — schema-first encyclopedia, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=AI-Arsenal"><b>AI-Arsenal</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=AI-Daily"><img src="./assets/reels/AI-Daily-cover.png" alt="AI-Daily — daily AI briefing, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=AI-Daily"><img src="./assets/reels/AI-Daily-cover.png" alt="AI-Daily — daily AI briefing, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=AI-Daily"><b>AI-Daily</b></a> ▶</sub>
 </td></tr><tr><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Bunqsy"><img src="./assets/reels/Bunqsy-cover.png" alt="Bunqsy — 7-agent financial guardian, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Bunqsy"><img src="./assets/reels/Bunqsy-cover.png" alt="Bunqsy — 7-agent financial guardian, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Bunqsy"><b>Bunqsy</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=curiolab"><img src="./assets/reels/curiolab-cover.png" alt="curiolab — family science episodes, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=curiolab"><img src="./assets/reels/curiolab-cover.png" alt="curiolab — family science episodes, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=curiolab"><b>curiolab</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=dreamswarm"><img src="./assets/reels/dreamswarm-cover.png" alt="dreamswarm — multi-agent orchestrator, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=dreamswarm"><img src="./assets/reels/dreamswarm-cover.png" alt="dreamswarm — multi-agent orchestrator, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=dreamswarm"><b>dreamswarm</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=gitscour"><img src="./assets/reels/gitscour-cover.png" alt="gitscour — 50,000+ repo knowledge base, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=gitscour"><img src="./assets/reels/gitscour-cover.png" alt="gitscour — 50,000+ repo knowledge base, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=gitscour"><b>gitscour</b></a> ▶</sub>
 </td></tr><tr><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=gridqueue-grid-connection"><img src="./assets/reels/gridqueue-grid-connection-cover.png" alt="gridqueue-grid-connection — grid interconnection navigator, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=gridqueue-grid-connection"><img src="./assets/reels/gridqueue-grid-connection-cover.png" alt="gridqueue-grid-connection — grid interconnection navigator, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=gridqueue-grid-connection"><b>gridqueue-grid-connection</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=harvestgrid"><img src="./assets/reels/harvestgrid-cover.png" alt="harvestgrid — harvest forecasting + gleaning, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=harvestgrid"><img src="./assets/reels/harvestgrid-cover.png" alt="harvestgrid — harvest forecasting + gleaning, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=harvestgrid"><b>harvestgrid</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=jointcheck-solder-inspection"><img src="./assets/reels/jointcheck-solder-inspection-cover.png" alt="jointcheck-solder-inspection — solder-joint inspection, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=jointcheck-solder-inspection"><img src="./assets/reels/jointcheck-solder-inspection-cover.png" alt="jointcheck-solder-inspection — solder-joint inspection, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=jointcheck-solder-inspection"><b>jointcheck-solder-inspection</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Magpie"><img src="./assets/reels/Magpie-cover.png" alt="Magpie — autonomous classifieds scout, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Magpie"><img src="./assets/reels/Magpie-cover.png" alt="Magpie — autonomous classifieds scout, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Magpie"><b>Magpie</b></a> ▶</sub>
 </td></tr><tr><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Nimbus"><img src="./assets/reels/Nimbus-cover.png" alt="Nimbus — parametric climate cover, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Nimbus"><img src="./assets/reels/Nimbus-cover.png" alt="Nimbus — parametric climate cover, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=Nimbus"><b>Nimbus</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=proofpress-evidence-portal"><img src="./assets/reels/proofpress-evidence-portal-cover.png" alt="proofpress-evidence-portal — Three.js evidence journey, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=proofpress-evidence-portal"><img src="./assets/reels/proofpress-evidence-portal-cover.png" alt="proofpress-evidence-portal — Three.js evidence journey, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=proofpress-evidence-portal"><b>proofpress-evidence-portal</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=redflag-eu-compliance"><img src="./assets/reels/redflag-eu-compliance-cover.png" alt="redflag-eu-compliance — EU product-safety gate, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=redflag-eu-compliance"><img src="./assets/reels/redflag-eu-compliance-cover.png" alt="redflag-eu-compliance — EU product-safety gate, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=redflag-eu-compliance"><b>redflag-eu-compliance</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=roomsmith"><img src="./assets/reels/roomsmith-cover.png" alt="roomsmith — escape-room engine, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=roomsmith"><img src="./assets/reels/roomsmith-cover.png" alt="roomsmith — escape-room engine, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=roomsmith"><b>roomsmith</b></a> ▶</sub>
 </td></tr><tr><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=twitch-codex"><img src="./assets/reels/twitch-codex-cover.png" alt="twitch-codex — live-audience builds, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=twitch-codex"><img src="./assets/reels/twitch-codex-cover.png" alt="twitch-codex — live-audience builds, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=twitch-codex"><b>twitch-codex</b></a> ▶</sub>
 </td><td width="25%" align="center" valign="top">
-<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=WebsitedesignandPrompts"><img src="./assets/reels/WebsitedesignandPrompts-cover.png" alt="WebsitedesignandPrompts — landing-page templates, recorded 2026-11-02. Opens the player." /></a>
+<a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=WebsitedesignandPrompts"><img src="./assets/reels/WebsitedesignandPrompts-cover.png" alt="WebsitedesignandPrompts — landing-page templates, recorded 2026-11-03. Opens the player." /></a>
 <sub><a href="https://knarayanareddy.github.io/knarayanareddy/reel.html?r=WebsitedesignandPrompts"><b>WebsitedesignandPrompts</b></a> ▶</sub>
 </td></tr>
 </table>
 </details>
 
-<sub><b>Why the grid opens a player instead of playing here:</b> GitHub strips JavaScript from a README and strips <code>loading=lazy</code> from README images, so every image downloads and nothing can be started by a click. Playing all 20 inline would cost every visitor ~44 MB; this section costs ~443 kB of covers plus the two inline recordings. <a href="https://knarayanareddy.github.io/knarayanareddy/reel.html">Open the player</a> to browse all of them with hover previews. Each is captioned with its own date — none is a live feed.</sub>
+<sub><b>Why the grid opens a player instead of playing here:</b> GitHub strips JavaScript from a README and strips <code>loading=lazy</code> from README images, so every image downloads and nothing can be started by a click. Playing all 20 inline would cost every visitor ~44 MB; this section costs ~441 kB of covers plus the two inline recordings. <a href="https://knarayanareddy.github.io/knarayanareddy/reel.html">Open the player</a> to browse all of them with hover previews. Each is captioned with its own date — none is a live feed.</sub>
 <!-- REELS:END -->
 
 ### 📸 Every deployment, as it actually looks
@@ -240,8 +240,8 @@ class KiranNarayanareddy:
 
 | Live site | Stack |
 |-----------|-------|
-| [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | `TypeScript` |
 | [**dreamswarm**](https://knarayanareddy.github.io/dreamswarm/) | `Rust` |
+| [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | `TypeScript` |
 | [**myjevuses**](https://knarayanareddy.github.io/myjevuses/) | `TypeScript` |
 | [**3dexperimentation**](https://knarayanareddy.github.io/3dexperimentation/) | `TypeScript` |
 | [**gridqueue-grid-connection**](https://knarayanareddy.github.io/gridqueue-grid-connection/) | `Python` |
@@ -292,11 +292,11 @@ class KiranNarayanareddy:
 </div>
 
 <!-- SHIPPED:START -->
-- 🚀 **[`Autoorg`](https://github.com/knarayanareddy/Autoorg)** — [live](https://knarayanareddy.github.io/Autoorg/) · pushed 2026-11-03
-- 🛰️ **[`dreamswarm`](https://github.com/knarayanareddy/dreamswarm)** — [live](https://knarayanareddy.github.io/dreamswarm/) · pushed 2026-11-03
-- 🧠 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
-- 🧪 **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-02
-- 🔭 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-02
+- 🚀 **[`dreamswarm`](https://github.com/knarayanareddy/dreamswarm)** — [live](https://knarayanareddy.github.io/dreamswarm/) · pushed 2026-11-03
+- 🛰️ **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-03
+- 🧠 **[`Autoorg`](https://github.com/knarayanareddy/Autoorg)** — [live](https://knarayanareddy.github.io/Autoorg/) · pushed 2026-11-03
+- 🧪 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-03
+- 🔭 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
 - ⚙️ **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-02
 - 🛡️ **[`myjevuses`](https://github.com/knarayanareddy/myjevuses)** — [live](https://knarayanareddy.github.io/myjevuses/) · pushed 2026-11-02
 - 🎛️ **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02

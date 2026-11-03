@@ -12,8 +12,8 @@
       "repo": "toolscour",
       "metric": "12,771 tools",
       "phase": 1.7,
-      "captured": "2026-11-02T08:21:12Z",
-      "age_days": 1,
+      "captured": "2026-11-03T12:06:04Z",
+      "age_days": 0,
       "confirmed_live": true
     },
     {
@@ -28,8 +28,8 @@
       "repo": "AI-Arsenal",
       "metric": "1,598 entries",
       "phase": 4.6,
-      "captured": "2026-11-02T08:21:15Z",
-      "age_days": 1,
+      "captured": "2026-11-03T12:06:07Z",
+      "age_days": 0,
       "confirmed_live": true
     },
     {

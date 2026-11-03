@@ -1,8 +1,8 @@
 {
   "followers": 1,
-  "public_repos": 130,
+  "public_repos": 134,
   "generated": "2026-11-02 10:13 UTC",
-  "repos": 125,
+  "repos": 129,
   "stars": 112,
   "forks": 5,
   "site_count": 37,
@@ -39,15 +39,6 @@
   ],
   "sites": [
     {
-      "repo": "Autoorg",
-      "url": "https://knarayanareddy.github.io/Autoorg/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-11-03",
-      "blurb": "Autonomous mission orchestration and hardened agentic infrastructure"
-    },
-    {
       "repo": "dreamswarm",
       "url": "https://knarayanareddy.github.io/dreamswarm/",
       "pages": true,
@@ -57,22 +48,22 @@
       "blurb": "Multi-agent orchestration engine for software engineering, written in Rust"
     },
     {
-      "repo": "Aeroscribe",
-      "url": "https://knarayanareddy.github.io/Aeroscribe/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-11-02",
-      "blurb": "Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation"
-    },
-    {
       "repo": "toolscour",
       "url": "https://knarayanareddy.github.io/toolscour/",
       "pages": true,
       "lang": "JavaScript",
       "stars": 1,
-      "pushed": "2026-11-02",
+      "pushed": "2026-11-03",
       "blurb": "3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs"
+    },
+    {
+      "repo": "Autoorg",
+      "url": "https://knarayanareddy.github.io/Autoorg/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Autonomous mission orchestration and hardened agentic infrastructure"
     },
     {
       "repo": "AI-Daily",
@@ -80,8 +71,17 @@
       "pages": true,
       "lang": "JavaScript",
       "stars": 1,
-      "pushed": "2026-11-02",
+      "pushed": "2026-11-03",
       "blurb": "A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model"
+    },
+    {
+      "repo": "Aeroscribe",
+      "url": "https://knarayanareddy.github.io/Aeroscribe/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-02",
+      "blurb": "Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation"
     },
     {
       "repo": "AI-Arsenal",
