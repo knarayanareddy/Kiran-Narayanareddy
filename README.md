@@ -99,7 +99,7 @@ class KiranNarayanareddy:
 <!-- COUNTERS:START -->
 **35 live GitHub Pages sites** · **37 live deployments** · **125 original repositories** · **112 stars** · **5 forks** · **1 follower**
 
-<sub>**TypeScript** 45 · **Python** 31 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
+<sub>**TypeScript** 45 · **Python** 32 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
 <!-- COUNTERS:END -->
 
 </div>
@@ -240,6 +240,8 @@ class KiranNarayanareddy:
 
 | Live site | Stack |
 |-----------|-------|
+| [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | `TypeScript` |
+| [**dreamswarm**](https://knarayanareddy.github.io/dreamswarm/) | `Rust` |
 | [**myjevuses**](https://knarayanareddy.github.io/myjevuses/) | `TypeScript` |
 | [**3dexperimentation**](https://knarayanareddy.github.io/3dexperimentation/) | `TypeScript` |
 | [**gridqueue-grid-connection**](https://knarayanareddy.github.io/gridqueue-grid-connection/) | `Python` |
@@ -252,26 +254,24 @@ class KiranNarayanareddy:
 | [**roomsmith**](https://knarayanareddy.github.io/roomsmith/) | `TypeScript` |
 | [**accesshold**](https://knarayanareddy.github.io/accesshold/) | `TypeScript` |
 | [**harvestgrid**](https://knarayanareddy.github.io/harvestgrid/) | `Python` |
-| [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) | `TypeScript` |
-| [**Nimbus**](https://knarayanareddy.github.io/Nimbus/) | `TypeScript` |
 
 </td>
 <td width="50%" valign="top">
 
 | Live site | Stack |
 |-----------|-------|
+| [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) | `TypeScript` |
+| [**Nimbus**](https://knarayanareddy.github.io/Nimbus/) | `TypeScript` |
 | [**SAAF-circuit-breaker**](https://knarayanareddy.github.io/SAAF-circuit-breaker/) | `HTML` |
 | [**so101-domain-operator**](https://knarayanareddy.github.io/so101-domain-operator/) | `TypeScript` |
 | [**Handy**](https://knarayanareddy.github.io/Handy/) | `TypeScript` |
 | [**Courserefresh**](https://knarayanareddy.github.io/Courserefresh/) | `TypeScript` |
 | [**LEGACYVAULTV1.0**](https://knarayanareddy.github.io/LEGACYVAULTV1.0/) | `TypeScript` |
-| [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | `TypeScript` |
 | [**idea-dump**](https://knarayanareddy.github.io/idea-dump/) | `Python` |
 | [**Magpie**](https://knarayanareddy.github.io/Magpie/) | `Python` |
 | [**ghosthandshake**](https://knarayanareddy.github.io/ghosthandshake/) | `HTML` |
 | [**keepsake**](https://knarayanareddy.github.io/keepsake/) | `HTML` |
 | [**proofpress-evidence-portal**](https://knarayanareddy.github.io/proofpress-evidence-portal/) | `HTML` |
-| [**dreamswarm**](https://knarayanareddy.github.io/dreamswarm/) | `Rust` |
 | [**F1Elastichopsworkshack**](https://f1hackdemo.kiranreddy.nl/) ↗ | `JavaScript` |
 | [**vouwfiets**](https://vouwfiets.vercel.app/) ↗ | `JavaScript` |
 
@@ -292,14 +292,14 @@ class KiranNarayanareddy:
 </div>
 
 <!-- SHIPPED:START -->
-- 🚀 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
-- 🛰️ **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-02
-- 🧠 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-02
-- 🧪 **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-02
-- 🔭 **[`myjevuses`](https://github.com/knarayanareddy/myjevuses)** — [live](https://knarayanareddy.github.io/myjevuses/) · pushed 2026-11-02
-- ⚙️ **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02
-- 🛡️ **[`3dexperimentation`](https://github.com/knarayanareddy/3dexperimentation)** — [live](https://knarayanareddy.github.io/3dexperimentation/) · pushed 2026-10-29
-- 🎛️ **[`Aerorepos`](https://github.com/knarayanareddy/Aerorepos)** — [live](https://knarayanareddy.github.io/Aerorepos/) · pushed 2026-10-29
+- 🚀 **[`Autoorg`](https://github.com/knarayanareddy/Autoorg)** — [live](https://knarayanareddy.github.io/Autoorg/) · pushed 2026-11-03
+- 🛰️ **[`dreamswarm`](https://github.com/knarayanareddy/dreamswarm)** — [live](https://knarayanareddy.github.io/dreamswarm/) · pushed 2026-11-03
+- 🧠 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
+- 🧪 **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-02
+- 🔭 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-02
+- ⚙️ **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-02
+- 🛡️ **[`myjevuses`](https://github.com/knarayanareddy/myjevuses)** — [live](https://knarayanareddy.github.io/myjevuses/) · pushed 2026-11-02
+- 🎛️ **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02
 <!-- SHIPPED:END -->
 
 ---

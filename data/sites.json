@@ -14,7 +14,7 @@
     ],
     [
       "Python",
-      31
+      32
     ],
     [
       "JavaScript",
@@ -38,6 +38,24 @@
     ]
   ],
   "sites": [
+    {
+      "repo": "Autoorg",
+      "url": "https://knarayanareddy.github.io/Autoorg/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Autonomous mission orchestration and hardened agentic infrastructure"
+    },
+    {
+      "repo": "dreamswarm",
+      "url": "https://knarayanareddy.github.io/dreamswarm/",
+      "pages": true,
+      "lang": "Rust",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Multi-agent orchestration engine for software engineering, written in Rust"
+    },
     {
       "repo": "Aeroscribe",
       "url": "https://knarayanareddy.github.io/Aeroscribe/",
@@ -291,15 +309,6 @@
       "blurb": "Solana-native digital estate executor with a time-delayed, multi-party unlock"
     },
     {
-      "repo": "Autoorg",
-      "url": "https://knarayanareddy.github.io/Autoorg/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-01",
-      "blurb": "Autonomous mission orchestration and hardened agentic infrastructure"
-    },
-    {
       "repo": "idea-dump",
       "url": "https://knarayanareddy.github.io/idea-dump/",
       "pages": true,
@@ -343,15 +352,6 @@
       "stars": 0,
       "pushed": "2026-08-19",
       "blurb": "Continuous, Scout-led Three.js evidence journey with a constraint-first editorial stage"
-    },
-    {
-      "repo": "dreamswarm",
-      "url": "https://knarayanareddy.github.io/dreamswarm/",
-      "pages": true,
-      "lang": "Rust",
-      "stars": 1,
-      "pushed": "2026-04-15",
-      "blurb": "Multi-agent orchestration engine for software engineering, written in Rust"
     },
     {
       "repo": "F1Elastichopsworkshack",
