@@ -1,8 +1,8 @@
 {
   "followers": 1,
-  "public_repos": 137,
+  "public_repos": 138,
   "generated": "2026-11-02 10:13 UTC",
-  "repos": 132,
+  "repos": 133,
   "stars": 112,
   "forks": 6,
   "site_count": 37,
@@ -14,7 +14,7 @@
     ],
     [
       "Python",
-      35
+      36
     ],
     [
       "JavaScript",
@@ -38,6 +38,24 @@
     ]
   ],
   "sites": [
+    {
+      "repo": "toolscour",
+      "url": "https://knarayanareddy.github.io/toolscour/",
+      "pages": true,
+      "lang": "JavaScript",
+      "stars": 1,
+      "pushed": "2026-11-04",
+      "blurb": "3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs"
+    },
+    {
+      "repo": "AI-Daily",
+      "url": "https://knarayanareddy.github.io/AI-Daily/",
+      "pages": true,
+      "lang": "JavaScript",
+      "stars": 1,
+      "pushed": "2026-11-04",
+      "blurb": "A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model"
+    },
     {
       "repo": "WebsitedesignandPrompts",
       "url": "https://knarayanareddy.github.io/WebsitedesignandPrompts/",
@@ -165,15 +183,6 @@
       "blurb": "Queryable knowledge base of 50,000+ high-star GitHub repositories, sharded and served free from Pages"
     },
     {
-      "repo": "toolscour",
-      "url": "https://knarayanareddy.github.io/toolscour/",
-      "pages": true,
-      "lang": "JavaScript",
-      "stars": 1,
-      "pushed": "2026-11-03",
-      "blurb": "3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs"
-    },
-    {
       "repo": "reflex-physical-ai",
       "url": "https://knarayanareddy.github.io/reflex-physical-ai/",
       "pages": true,
@@ -280,15 +289,6 @@
       "stars": 1,
       "pushed": "2026-11-03",
       "blurb": "Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents"
-    },
-    {
-      "repo": "AI-Daily",
-      "url": "https://knarayanareddy.github.io/AI-Daily/",
-      "pages": true,
-      "lang": "JavaScript",
-      "stars": 1,
-      "pushed": "2026-11-03",
-      "blurb": "A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model"
     },
     {
       "repo": "sallie-returns-ai-agent",

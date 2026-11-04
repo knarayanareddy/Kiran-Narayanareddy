@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-04T12:14:34Z",
+  "checked": "2026-11-04T17:21:03Z",
   "fresh_days": 21,
   "sites": {
     "3dexperimentation": {
@@ -8,13 +8,13 @@
       "confirmed_live": true
     },
     "AI-Arsenal": {
-      "age_days": 1,
-      "captured": "2026-11-03T12:06:07Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:53Z",
       "confirmed_live": true
     },
     "AI-Daily": {
-      "age_days": 1,
-      "captured": "2026-11-03T12:06:04Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:53Z",
       "confirmed_live": true
     },
     "Aerorepos": {
@@ -23,13 +23,13 @@
       "confirmed_live": true
     },
     "Aeroscribe": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:59:23Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:44Z",
       "confirmed_live": true
     },
     "Agentcrash": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:26Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:49Z",
       "confirmed_live": true
     },
     "Autoorg": {
@@ -38,13 +38,13 @@
       "confirmed_live": true
     },
     "Bunqsy": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:32Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:37Z",
       "confirmed_live": true
     },
     "Courserefresh": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:33Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:49Z",
       "confirmed_live": true
     },
     "F1Elastichopsworkshack": {
@@ -53,13 +53,13 @@
       "confirmed_live": true
     },
     "Handy": {
-      "age_days": 1,
-      "captured": "2026-11-03T12:06:06Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:36Z",
       "confirmed_live": true
     },
     "LEGACYVAULTV1.0": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:35Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:40Z",
       "confirmed_live": true
     },
     "Magpie": {
@@ -68,28 +68,28 @@
       "confirmed_live": true
     },
     "Nimbus": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:29Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:43Z",
       "confirmed_live": true
     },
     "SAAF-circuit-breaker": {
-      "age_days": 1,
-      "captured": "2026-11-03T12:06:06Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:51Z",
       "confirmed_live": true
     },
     "WebsitedesignandPrompts": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:27Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:37Z",
       "confirmed_live": true
     },
     "accesshold": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:24Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:37Z",
       "confirmed_live": true
     },
     "curiolab": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:22Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:41Z",
       "confirmed_live": true
     },
     "dreamswarm": {
@@ -98,23 +98,23 @@
       "confirmed_live": true
     },
     "ghosthandshake": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:37Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:39Z",
       "confirmed_live": true
     },
     "gitscour": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:34Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:46Z",
       "confirmed_live": true
     },
     "gridqueue-grid-connection": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:18Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:52Z",
       "confirmed_live": true
     },
     "harvestgrid": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:26Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:49Z",
       "confirmed_live": true
     },
     "idea-dump": {
@@ -123,18 +123,18 @@
       "confirmed_live": true
     },
     "jointcheck-solder-inspection": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:20Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:51Z",
       "confirmed_live": true
     },
     "keepsake": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:38Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:43Z",
       "confirmed_live": true
     },
     "myjevuses": {
-      "age_days": 1,
-      "captured": "2026-11-02T12:55:26Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:48Z",
       "confirmed_live": true
     },
     "nexttime": {
@@ -143,43 +143,43 @@
       "confirmed_live": true
     },
     "proofpress-evidence-portal": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:54Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:20:08Z",
       "confirmed_live": true
     },
     "redflag-eu-compliance": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:20Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:50Z",
       "confirmed_live": true
     },
     "reflex-physical-ai": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:21Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:46Z",
       "confirmed_live": true
     },
     "roomsmith": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:23Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:47Z",
       "confirmed_live": true
     },
     "sallie-returns-ai-agent": {
-      "age_days": 2,
-      "captured": "2026-11-02T11:48:10Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:54Z",
       "confirmed_live": true
     },
     "so101-domain-operator": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:29Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:40Z",
       "confirmed_live": true
     },
     "toolscour": {
-      "age_days": 1,
-      "captured": "2026-11-03T12:06:04Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:46Z",
       "confirmed_live": true
     },
     "twitch-codex": {
-      "age_days": 2,
-      "captured": "2026-11-02T08:21:19Z",
+      "age_days": 0,
+      "captured": "2026-11-04T12:19:40Z",
       "confirmed_live": true
     },
     "vouwfiets": {
