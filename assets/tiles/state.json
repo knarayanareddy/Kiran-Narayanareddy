@@ -1,134 +1,134 @@
 {
-  "checked": "2026-11-03T17:09:19Z",
+  "checked": "2026-11-04T12:14:34Z",
   "fresh_days": 21,
   "sites": {
     "3dexperimentation": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:16Z",
       "confirmed_live": true
     },
     "AI-Arsenal": {
-      "age_days": 0,
+      "age_days": 1,
       "captured": "2026-11-03T12:06:07Z",
       "confirmed_live": true
     },
     "AI-Daily": {
-      "age_days": 0,
+      "age_days": 1,
       "captured": "2026-11-03T12:06:04Z",
       "confirmed_live": true
     },
     "Aerorepos": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:18Z",
       "confirmed_live": true
     },
     "Aeroscribe": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:59:23Z",
       "confirmed_live": true
     },
     "Agentcrash": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:26Z",
       "confirmed_live": true
     },
     "Autoorg": {
-      "age_days": 0,
+      "age_days": 1,
       "captured": "2026-11-03T12:06:04Z",
       "confirmed_live": true
     },
     "Bunqsy": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:32Z",
       "confirmed_live": true
     },
     "Courserefresh": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:33Z",
       "confirmed_live": true
     },
     "F1Elastichopsworkshack": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:14Z",
       "confirmed_live": true
     },
     "Handy": {
-      "age_days": 0,
+      "age_days": 1,
       "captured": "2026-11-03T12:06:06Z",
       "confirmed_live": true
     },
     "LEGACYVAULTV1.0": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:35Z",
       "confirmed_live": true
     },
     "Magpie": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:37Z",
       "confirmed_live": true
     },
     "Nimbus": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:29Z",
       "confirmed_live": true
     },
     "SAAF-circuit-breaker": {
-      "age_days": 0,
+      "age_days": 1,
       "captured": "2026-11-03T12:06:06Z",
       "confirmed_live": true
     },
     "WebsitedesignandPrompts": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:27Z",
       "confirmed_live": true
     },
     "accesshold": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:24Z",
       "confirmed_live": true
     },
     "curiolab": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:22Z",
       "confirmed_live": true
     },
     "dreamswarm": {
-      "age_days": 0,
+      "age_days": 1,
       "captured": "2026-11-03T12:06:03Z",
       "confirmed_live": true
     },
     "ghosthandshake": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:37Z",
       "confirmed_live": true
     },
     "gitscour": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:34Z",
       "confirmed_live": true
     },
     "gridqueue-grid-connection": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:18Z",
       "confirmed_live": true
     },
     "harvestgrid": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:26Z",
       "confirmed_live": true
     },
     "idea-dump": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:38Z",
       "confirmed_live": true
     },
     "jointcheck-solder-inspection": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:20Z",
       "confirmed_live": true
     },
     "keepsake": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:38Z",
       "confirmed_live": true
     },
@@ -138,52 +138,52 @@
       "confirmed_live": true
     },
     "nexttime": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:22Z",
       "confirmed_live": true
     },
     "proofpress-evidence-portal": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:54Z",
       "confirmed_live": true
     },
     "redflag-eu-compliance": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:20Z",
       "confirmed_live": true
     },
     "reflex-physical-ai": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:21Z",
       "confirmed_live": true
     },
     "roomsmith": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:23Z",
       "confirmed_live": true
     },
     "sallie-returns-ai-agent": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T11:48:10Z",
       "confirmed_live": true
     },
     "so101-domain-operator": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:29Z",
       "confirmed_live": true
     },
     "toolscour": {
-      "age_days": 0,
+      "age_days": 1,
       "captured": "2026-11-03T12:06:04Z",
       "confirmed_live": true
     },
     "twitch-codex": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:19Z",
       "confirmed_live": true
     },
     "vouwfiets": {
-      "age_days": 1,
+      "age_days": 2,
       "captured": "2026-11-02T08:21:32Z",
       "confirmed_live": true
     }

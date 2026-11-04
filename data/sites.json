@@ -1,10 +1,10 @@
 {
   "followers": 1,
-  "public_repos": 134,
+  "public_repos": 137,
   "generated": "2026-11-02 10:13 UTC",
-  "repos": 129,
+  "repos": 132,
   "stars": 112,
-  "forks": 5,
+  "forks": 6,
   "site_count": 37,
   "pages_count": 35,
   "languages": [
@@ -14,7 +14,7 @@
     ],
     [
       "Python",
-      32
+      35
     ],
     [
       "JavaScript",
@@ -39,22 +39,31 @@
   ],
   "sites": [
     {
-      "repo": "dreamswarm",
-      "url": "https://knarayanareddy.github.io/dreamswarm/",
+      "repo": "WebsitedesignandPrompts",
+      "url": "https://knarayanareddy.github.io/WebsitedesignandPrompts/",
       "pages": true,
-      "lang": "Rust",
-      "stars": 1,
+      "lang": "HTML",
+      "stars": 4,
       "pushed": "2026-11-03",
-      "blurb": "Multi-agent orchestration engine for software engineering, written in Rust"
+      "blurb": "Democratising the paywalled web: reusable landing-page templates with the full build prompts"
     },
     {
-      "repo": "toolscour",
-      "url": "https://knarayanareddy.github.io/toolscour/",
+      "repo": "Bunqsy",
+      "url": "https://knarayanareddy.github.io/Bunqsy/",
       "pages": true,
-      "lang": "JavaScript",
+      "lang": "TypeScript",
+      "stars": 2,
+      "pushed": "2026-11-03",
+      "blurb": "Always-on financial guardian: 7-agent risk oracle, proactive interventions, nightly Dream Mode"
+    },
+    {
+      "repo": "accesshold",
+      "url": "https://knarayanareddy.github.io/accesshold/",
+      "pages": true,
+      "lang": "TypeScript",
       "stars": 1,
       "pushed": "2026-11-03",
-      "blurb": "3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs"
+      "blurb": "Post-booking accessibility evidence monitoring with explicitly approved disruption recovery"
     },
     {
       "repo": "Autoorg",
@@ -66,6 +75,213 @@
       "blurb": "Autonomous mission orchestration and hardened agentic infrastructure"
     },
     {
+      "repo": "Handy",
+      "url": "https://knarayanareddy.github.io/Handy/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Handy is my name and robot is my form"
+    },
+    {
+      "repo": "ghosthandshake",
+      "url": "https://knarayanareddy.github.io/ghosthandshake/",
+      "pages": true,
+      "lang": "HTML",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Strangers pick the same secret word without saying it, then reveal on Monad"
+    },
+    {
+      "repo": "twitch-codex",
+      "url": "https://knarayanareddy.github.io/twitch-codex/",
+      "pages": true,
+      "lang": "JavaScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Four independent live-audience, accessibility and broadcaster-control builds for TwitchCon"
+    },
+    {
+      "repo": "LEGACYVAULTV1.0",
+      "url": "https://knarayanareddy.github.io/LEGACYVAULTV1.0/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Solana-native digital estate executor with a time-delayed, multi-party unlock"
+    },
+    {
+      "repo": "so101-domain-operator",
+      "url": "https://knarayanareddy.github.io/so101-domain-operator/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Domain-scoped SO-101 robot operator: script → voice → perception → verification → ledger"
+    },
+    {
+      "repo": "curiolab",
+      "url": "https://knarayanareddy.github.io/curiolab/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Two-screen family science episodes where measured experiments, not canned values, branch the story"
+    },
+    {
+      "repo": "Nimbus",
+      "url": "https://knarayanareddy.github.io/Nimbus/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Solana-native parametric climate cover with deterministic, oracle-driven settlement"
+    },
+    {
+      "repo": "keepsake",
+      "url": "https://knarayanareddy.github.io/keepsake/",
+      "pages": true,
+      "lang": "HTML",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "A 16×16 on-chain arena where the world — never you — is the attester"
+    },
+    {
+      "repo": "Aeroscribe",
+      "url": "https://knarayanareddy.github.io/Aeroscribe/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation"
+    },
+    {
+      "repo": "gitscour",
+      "url": "https://knarayanareddy.github.io/gitscour/",
+      "pages": true,
+      "lang": "Python",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Queryable knowledge base of 50,000+ high-star GitHub repositories, sharded and served free from Pages"
+    },
+    {
+      "repo": "toolscour",
+      "url": "https://knarayanareddy.github.io/toolscour/",
+      "pages": true,
+      "lang": "JavaScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs"
+    },
+    {
+      "repo": "reflex-physical-ai",
+      "url": "https://knarayanareddy.github.io/reflex-physical-ai/",
+      "pages": true,
+      "lang": "Python",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Edge deterministic safety envelope with cloud counterfactual replay for physical AI"
+    },
+    {
+      "repo": "roomsmith",
+      "url": "https://knarayanareddy.github.io/roomsmith/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Physical-digital escape room whose deterministic engine — not the model — owns puzzle completion"
+    },
+    {
+      "repo": "Agentcrash",
+      "url": "https://knarayanareddy.github.io/Agentcrash/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "SAAF policy circuit breaker for support agents — propose, gate, quarantine, restore"
+    },
+    {
+      "repo": "myjevuses",
+      "url": "https://knarayanareddy.github.io/myjevuses/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": ""
+    },
+    {
+      "repo": "harvestgrid",
+      "url": "https://knarayanareddy.github.io/harvestgrid/",
+      "pages": true,
+      "lang": "Python",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Privacy-preserving backyard harvest forecasting and volunteer glean logistics for food pantries"
+    },
+    {
+      "repo": "Courserefresh",
+      "url": "https://knarayanareddy.github.io/Courserefresh/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "A course that watches the thing it teaches and rewrites its own lessons when it changes"
+    },
+    {
+      "repo": "redflag-eu-compliance",
+      "url": "https://knarayanareddy.github.io/redflag-eu-compliance/",
+      "pages": true,
+      "lang": "Python",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Pre-flight EU product-safety compliance gate for GPSR Art. 19 and Safety Gate recalls"
+    },
+    {
+      "repo": "jointcheck-solder-inspection",
+      "url": "https://knarayanareddy.github.io/jointcheck-solder-inspection/",
+      "pages": true,
+      "lang": "Python",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Solder-joint workmanship inspection with proof: OpenCV, Nemotron reasoning, sandbox branching"
+    },
+    {
+      "repo": "SAAF-circuit-breaker",
+      "url": "https://knarayanareddy.github.io/SAAF-circuit-breaker/",
+      "pages": true,
+      "lang": "HTML",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Policy circuit breaker that quarantines drifting agents and restores a healthy checkpoint"
+    },
+    {
+      "repo": "gridqueue-grid-connection",
+      "url": "https://knarayanareddy.github.io/gridqueue-grid-connection/",
+      "pages": true,
+      "lang": "Python",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Energy grid interconnection navigator and flexibility planner"
+    },
+    {
+      "repo": "dreamswarm",
+      "url": "https://knarayanareddy.github.io/dreamswarm/",
+      "pages": true,
+      "lang": "Rust",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Multi-agent orchestration engine for software engineering, written in Rust"
+    },
+    {
+      "repo": "AI-Arsenal",
+      "url": "https://knarayanareddy.github.io/AI-Arsenal/",
+      "pages": true,
+      "lang": "JavaScript",
+      "stars": 1,
+      "pushed": "2026-11-03",
+      "blurb": "Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents"
+    },
+    {
       "repo": "AI-Daily",
       "url": "https://knarayanareddy.github.io/AI-Daily/",
       "pages": true,
@@ -75,40 +291,22 @@
       "blurb": "A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model"
     },
     {
-      "repo": "Aeroscribe",
-      "url": "https://knarayanareddy.github.io/Aeroscribe/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-11-02",
-      "blurb": "Nine gated stages from literature archaeology to a submission-ready manuscript, every claim traceable to a recorded computation"
-    },
-    {
-      "repo": "AI-Arsenal",
-      "url": "https://knarayanareddy.github.io/AI-Arsenal/",
-      "pages": true,
-      "lang": "JavaScript",
-      "stars": 1,
-      "pushed": "2026-11-02",
-      "blurb": "Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents"
-    },
-    {
-      "repo": "myjevuses",
-      "url": "https://knarayanareddy.github.io/myjevuses/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-11-02",
-      "blurb": ""
-    },
-    {
       "repo": "sallie-returns-ai-agent",
       "url": "https://knarayanareddy.github.io/sallie-returns-ai-agent/",
       "pages": true,
       "lang": "Python",
       "stars": 0,
-      "pushed": "2026-11-02",
+      "pushed": "2026-11-03",
       "blurb": "Omnichannel shoe-retail returns pipeline: a 6-node deterministic state machine with 48h stock holds, defect assessment and human supervisor triage"
+    },
+    {
+      "repo": "proofpress-evidence-portal",
+      "url": "https://knarayanareddy.github.io/proofpress-evidence-portal/",
+      "pages": true,
+      "lang": "HTML",
+      "stars": 0,
+      "pushed": "2026-11-03",
+      "blurb": "Continuous, Scout-led Three.js evidence journey with a constraint-first editorial stage"
     },
     {
       "repo": "3dexperimentation",
@@ -129,60 +327,6 @@
       "blurb": "Curated directory of open-source aerospace engineering projects — aero, propulsion, structures, GNC, space"
     },
     {
-      "repo": "gridqueue-grid-connection",
-      "url": "https://knarayanareddy.github.io/gridqueue-grid-connection/",
-      "pages": true,
-      "lang": "Python",
-      "stars": 1,
-      "pushed": "2026-10-29",
-      "blurb": "Energy grid interconnection navigator and flexibility planner"
-    },
-    {
-      "repo": "twitch-codex",
-      "url": "https://knarayanareddy.github.io/twitch-codex/",
-      "pages": true,
-      "lang": "JavaScript",
-      "stars": 1,
-      "pushed": "2026-10-29",
-      "blurb": "Four independent live-audience, accessibility and broadcaster-control builds for TwitchCon"
-    },
-    {
-      "repo": "redflag-eu-compliance",
-      "url": "https://knarayanareddy.github.io/redflag-eu-compliance/",
-      "pages": true,
-      "lang": "Python",
-      "stars": 1,
-      "pushed": "2026-10-29",
-      "blurb": "Pre-flight EU product-safety compliance gate for GPSR Art. 19 and Safety Gate recalls"
-    },
-    {
-      "repo": "jointcheck-solder-inspection",
-      "url": "https://knarayanareddy.github.io/jointcheck-solder-inspection/",
-      "pages": true,
-      "lang": "Python",
-      "stars": 1,
-      "pushed": "2026-10-29",
-      "blurb": "Solder-joint workmanship inspection with proof: OpenCV, Nemotron reasoning, sandbox branching"
-    },
-    {
-      "repo": "reflex-physical-ai",
-      "url": "https://knarayanareddy.github.io/reflex-physical-ai/",
-      "pages": true,
-      "lang": "Python",
-      "stars": 1,
-      "pushed": "2026-10-29",
-      "blurb": "Edge deterministic safety envelope with cloud counterfactual replay for physical AI"
-    },
-    {
-      "repo": "curiolab",
-      "url": "https://knarayanareddy.github.io/curiolab/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-24",
-      "blurb": "Two-screen family science episodes where measured experiments, not canned values, branch the story"
-    },
-    {
       "repo": "nexttime",
       "url": "https://knarayanareddy.github.io/nexttime/",
       "pages": true,
@@ -190,123 +334,6 @@
       "stars": 1,
       "pushed": "2026-10-24",
       "blurb": "Consented conversation capture, 90-second rehearsal, and functional-language progress tracking"
-    },
-    {
-      "repo": "roomsmith",
-      "url": "https://knarayanareddy.github.io/roomsmith/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-24",
-      "blurb": "Physical-digital escape room whose deterministic engine — not the model — owns puzzle completion"
-    },
-    {
-      "repo": "accesshold",
-      "url": "https://knarayanareddy.github.io/accesshold/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-24",
-      "blurb": "Post-booking accessibility evidence monitoring with explicitly approved disruption recovery"
-    },
-    {
-      "repo": "harvestgrid",
-      "url": "https://knarayanareddy.github.io/harvestgrid/",
-      "pages": true,
-      "lang": "Python",
-      "stars": 1,
-      "pushed": "2026-10-24",
-      "blurb": "Privacy-preserving backyard harvest forecasting and volunteer glean logistics for food pantries"
-    },
-    {
-      "repo": "Agentcrash",
-      "url": "https://knarayanareddy.github.io/Agentcrash/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-20",
-      "blurb": "SAAF policy circuit breaker for support agents — propose, gate, quarantine, restore"
-    },
-    {
-      "repo": "WebsitedesignandPrompts",
-      "url": "https://knarayanareddy.github.io/WebsitedesignandPrompts/",
-      "pages": true,
-      "lang": "HTML",
-      "stars": 4,
-      "pushed": "2026-10-14",
-      "blurb": "Democratising the paywalled web: reusable landing-page templates with the full build prompts"
-    },
-    {
-      "repo": "Nimbus",
-      "url": "https://knarayanareddy.github.io/Nimbus/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-12",
-      "blurb": "Solana-native parametric climate cover with deterministic, oracle-driven settlement"
-    },
-    {
-      "repo": "SAAF-circuit-breaker",
-      "url": "https://knarayanareddy.github.io/SAAF-circuit-breaker/",
-      "pages": true,
-      "lang": "HTML",
-      "stars": 1,
-      "pushed": "2026-10-06",
-      "blurb": "Policy circuit breaker that quarantines drifting agents and restores a healthy checkpoint"
-    },
-    {
-      "repo": "so101-domain-operator",
-      "url": "https://knarayanareddy.github.io/so101-domain-operator/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-04",
-      "blurb": "Domain-scoped SO-101 robot operator: script → voice → perception → verification → ledger"
-    },
-    {
-      "repo": "Handy",
-      "url": "https://knarayanareddy.github.io/Handy/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-03",
-      "blurb": "Handy is my name and robot is my form"
-    },
-    {
-      "repo": "Bunqsy",
-      "url": "https://knarayanareddy.github.io/Bunqsy/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 2,
-      "pushed": "2026-10-02",
-      "blurb": "Always-on financial guardian: 7-agent risk oracle, proactive interventions, nightly Dream Mode"
-    },
-    {
-      "repo": "gitscour",
-      "url": "https://knarayanareddy.github.io/gitscour/",
-      "pages": true,
-      "lang": "Python",
-      "stars": 1,
-      "pushed": "2026-10-02",
-      "blurb": "Queryable knowledge base of 50,000+ high-star GitHub repositories, sharded and served free from Pages"
-    },
-    {
-      "repo": "Courserefresh",
-      "url": "https://knarayanareddy.github.io/Courserefresh/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-02",
-      "blurb": "A course that watches the thing it teaches and rewrites its own lessons when it changes"
-    },
-    {
-      "repo": "LEGACYVAULTV1.0",
-      "url": "https://knarayanareddy.github.io/LEGACYVAULTV1.0/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-10-01",
-      "blurb": "Solana-native digital estate executor with a time-delayed, multi-party unlock"
     },
     {
       "repo": "idea-dump",
@@ -325,33 +352,6 @@
       "stars": 1,
       "pushed": "2026-09-26",
       "blurb": "Autonomous classifieds scout that finds underpriced listings, haggles, and closes the deal"
-    },
-    {
-      "repo": "ghosthandshake",
-      "url": "https://knarayanareddy.github.io/ghosthandshake/",
-      "pages": true,
-      "lang": "HTML",
-      "stars": 1,
-      "pushed": "2026-08-31",
-      "blurb": "Strangers pick the same secret word without saying it, then reveal on Monad"
-    },
-    {
-      "repo": "keepsake",
-      "url": "https://knarayanareddy.github.io/keepsake/",
-      "pages": true,
-      "lang": "HTML",
-      "stars": 1,
-      "pushed": "2026-08-29",
-      "blurb": "A 16×16 on-chain arena where the world — never you — is the attester"
-    },
-    {
-      "repo": "proofpress-evidence-portal",
-      "url": "https://knarayanareddy.github.io/proofpress-evidence-portal/",
-      "pages": true,
-      "lang": "HTML",
-      "stars": 0,
-      "pushed": "2026-08-19",
-      "blurb": "Continuous, Scout-led Three.js evidence journey with a constraint-first editorial stage"
     },
     {
       "repo": "F1Elastichopsworkshack",

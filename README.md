@@ -97,9 +97,9 @@ class KiranNarayanareddy:
 <div align="center">
 
 <!-- COUNTERS:START -->
-**35 live GitHub Pages sites** · **37 live deployments** · **129 original repositories** · **112 stars** · **5 forks** · **1 follower**
+**35 live GitHub Pages sites** · **37 live deployments** · **132 original repositories** · **112 stars** · **6 forks** · **1 follower**
 
-<sub>**TypeScript** 45 · **Python** 32 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
+<sub>**TypeScript** 45 · **Python** 35 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
 <!-- COUNTERS:END -->
 
 </div>
@@ -240,38 +240,38 @@ class KiranNarayanareddy:
 
 | Live site | Stack |
 |-----------|-------|
-| [**dreamswarm**](https://knarayanareddy.github.io/dreamswarm/) | `Rust` |
-| [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | `TypeScript` |
-| [**myjevuses**](https://knarayanareddy.github.io/myjevuses/) | `TypeScript` |
-| [**3dexperimentation**](https://knarayanareddy.github.io/3dexperimentation/) | `TypeScript` |
-| [**gridqueue-grid-connection**](https://knarayanareddy.github.io/gridqueue-grid-connection/) | `Python` |
-| [**twitch-codex**](https://knarayanareddy.github.io/twitch-codex/) | `JavaScript` |
-| [**redflag-eu-compliance**](https://knarayanareddy.github.io/redflag-eu-compliance/) | `Python` |
-| [**jointcheck-solder-inspection**](https://knarayanareddy.github.io/jointcheck-solder-inspection/) | `Python` |
-| [**reflex-physical-ai**](https://knarayanareddy.github.io/reflex-physical-ai/) | `Python` |
-| [**curiolab**](https://knarayanareddy.github.io/curiolab/) | `TypeScript` |
-| [**nexttime**](https://knarayanareddy.github.io/nexttime/) | `Python` |
-| [**roomsmith**](https://knarayanareddy.github.io/roomsmith/) | `TypeScript` |
 | [**accesshold**](https://knarayanareddy.github.io/accesshold/) | `TypeScript` |
-| [**harvestgrid**](https://knarayanareddy.github.io/harvestgrid/) | `Python` |
+| [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | `TypeScript` |
+| [**Handy**](https://knarayanareddy.github.io/Handy/) | `TypeScript` |
+| [**ghosthandshake**](https://knarayanareddy.github.io/ghosthandshake/) | `HTML` |
+| [**twitch-codex**](https://knarayanareddy.github.io/twitch-codex/) | `JavaScript` |
+| [**LEGACYVAULTV1.0**](https://knarayanareddy.github.io/LEGACYVAULTV1.0/) | `TypeScript` |
+| [**so101-domain-operator**](https://knarayanareddy.github.io/so101-domain-operator/) | `TypeScript` |
+| [**curiolab**](https://knarayanareddy.github.io/curiolab/) | `TypeScript` |
+| [**Nimbus**](https://knarayanareddy.github.io/Nimbus/) | `TypeScript` |
+| [**keepsake**](https://knarayanareddy.github.io/keepsake/) | `HTML` |
+| [**reflex-physical-ai**](https://knarayanareddy.github.io/reflex-physical-ai/) | `Python` |
+| [**roomsmith**](https://knarayanareddy.github.io/roomsmith/) | `TypeScript` |
+| [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) | `TypeScript` |
+| [**myjevuses**](https://knarayanareddy.github.io/myjevuses/) | `TypeScript` |
 
 </td>
 <td width="50%" valign="top">
 
 | Live site | Stack |
 |-----------|-------|
-| [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) | `TypeScript` |
-| [**Nimbus**](https://knarayanareddy.github.io/Nimbus/) | `TypeScript` |
-| [**SAAF-circuit-breaker**](https://knarayanareddy.github.io/SAAF-circuit-breaker/) | `HTML` |
-| [**so101-domain-operator**](https://knarayanareddy.github.io/so101-domain-operator/) | `TypeScript` |
-| [**Handy**](https://knarayanareddy.github.io/Handy/) | `TypeScript` |
+| [**harvestgrid**](https://knarayanareddy.github.io/harvestgrid/) | `Python` |
 | [**Courserefresh**](https://knarayanareddy.github.io/Courserefresh/) | `TypeScript` |
-| [**LEGACYVAULTV1.0**](https://knarayanareddy.github.io/LEGACYVAULTV1.0/) | `TypeScript` |
+| [**redflag-eu-compliance**](https://knarayanareddy.github.io/redflag-eu-compliance/) | `Python` |
+| [**jointcheck-solder-inspection**](https://knarayanareddy.github.io/jointcheck-solder-inspection/) | `Python` |
+| [**SAAF-circuit-breaker**](https://knarayanareddy.github.io/SAAF-circuit-breaker/) | `HTML` |
+| [**gridqueue-grid-connection**](https://knarayanareddy.github.io/gridqueue-grid-connection/) | `Python` |
+| [**dreamswarm**](https://knarayanareddy.github.io/dreamswarm/) | `Rust` |
+| [**proofpress-evidence-portal**](https://knarayanareddy.github.io/proofpress-evidence-portal/) | `HTML` |
+| [**3dexperimentation**](https://knarayanareddy.github.io/3dexperimentation/) | `TypeScript` |
+| [**nexttime**](https://knarayanareddy.github.io/nexttime/) | `Python` |
 | [**idea-dump**](https://knarayanareddy.github.io/idea-dump/) | `Python` |
 | [**Magpie**](https://knarayanareddy.github.io/Magpie/) | `Python` |
-| [**ghosthandshake**](https://knarayanareddy.github.io/ghosthandshake/) | `HTML` |
-| [**keepsake**](https://knarayanareddy.github.io/keepsake/) | `HTML` |
-| [**proofpress-evidence-portal**](https://knarayanareddy.github.io/proofpress-evidence-portal/) | `HTML` |
 | [**F1Elastichopsworkshack**](https://f1hackdemo.kiranreddy.nl/) ↗ | `JavaScript` |
 | [**vouwfiets**](https://vouwfiets.vercel.app/) ↗ | `JavaScript` |
 
@@ -292,14 +292,14 @@ class KiranNarayanareddy:
 </div>
 
 <!-- SHIPPED:START -->
-- 🚀 **[`dreamswarm`](https://github.com/knarayanareddy/dreamswarm)** — [live](https://knarayanareddy.github.io/dreamswarm/) · pushed 2026-11-03
-- 🛰️ **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-03
-- 🧠 **[`Autoorg`](https://github.com/knarayanareddy/Autoorg)** — [live](https://knarayanareddy.github.io/Autoorg/) · pushed 2026-11-03
-- 🧪 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-03
-- 🔭 **[`Aeroscribe`](https://github.com/knarayanareddy/Aeroscribe)** — [live](https://knarayanareddy.github.io/Aeroscribe/) · pushed 2026-11-02
-- ⚙️ **[`AI-Arsenal`](https://github.com/knarayanareddy/AI-Arsenal)** — [live](https://knarayanareddy.github.io/AI-Arsenal/) · pushed 2026-11-02
-- 🛡️ **[`myjevuses`](https://github.com/knarayanareddy/myjevuses)** — [live](https://knarayanareddy.github.io/myjevuses/) · pushed 2026-11-02
-- 🎛️ **[`sallie-returns-ai-agent`](https://github.com/knarayanareddy/sallie-returns-ai-agent)** — [live](https://knarayanareddy.github.io/sallie-returns-ai-agent/) · pushed 2026-11-02
+- 🚀 **[`WebsitedesignandPrompts`](https://github.com/knarayanareddy/WebsitedesignandPrompts)** — [live](https://knarayanareddy.github.io/WebsitedesignandPrompts/) · pushed 2026-11-03
+- 🛰️ **[`Bunqsy`](https://github.com/knarayanareddy/Bunqsy)** — [live](https://knarayanareddy.github.io/Bunqsy/) · pushed 2026-11-03
+- 🧠 **[`accesshold`](https://github.com/knarayanareddy/accesshold)** — [live](https://knarayanareddy.github.io/accesshold/) · pushed 2026-11-03
+- 🧪 **[`Autoorg`](https://github.com/knarayanareddy/Autoorg)** — [live](https://knarayanareddy.github.io/Autoorg/) · pushed 2026-11-03
+- 🔭 **[`Handy`](https://github.com/knarayanareddy/Handy)** — [live](https://knarayanareddy.github.io/Handy/) · pushed 2026-11-03
+- ⚙️ **[`ghosthandshake`](https://github.com/knarayanareddy/ghosthandshake)** — [live](https://knarayanareddy.github.io/ghosthandshake/) · pushed 2026-11-03
+- 🛡️ **[`twitch-codex`](https://github.com/knarayanareddy/twitch-codex)** — [live](https://knarayanareddy.github.io/twitch-codex/) · pushed 2026-11-03
+- 🎛️ **[`LEGACYVAULTV1.0`](https://github.com/knarayanareddy/LEGACYVAULTV1.0)** — [live](https://knarayanareddy.github.io/LEGACYVAULTV1.0/) · pushed 2026-11-03
 <!-- SHIPPED:END -->
 
 ---
