@@ -97,7 +97,7 @@ class KiranNarayanareddy:
 <div align="center">
 
 <!-- COUNTERS:START -->
-**35 live GitHub Pages sites** · **37 live deployments** · **133 original repositories** · **112 stars** · **6 forks** · **1 follower**
+**36 live GitHub Pages sites** · **38 live deployments** · **133 original repositories** · **112 stars** · **6 forks** · **1 follower**
 
 <sub>**TypeScript** 45 · **Python** 36 · **JavaScript** 11 · **HTML** 6 · **Rust** 4 · **Go** 2</sub>
 <!-- COUNTERS:END -->
@@ -240,6 +240,8 @@ class KiranNarayanareddy:
 
 | Live site | Stack |
 |-----------|-------|
+| [**Courserefresh**](https://knarayanareddy.github.io/Courserefresh/) | `TypeScript` |
+| [**proofpilot**](https://knarayanareddy.github.io/proofpilot/) | `Python` |
 | [**accesshold**](https://knarayanareddy.github.io/accesshold/) | `TypeScript` |
 | [**Autoorg**](https://knarayanareddy.github.io/Autoorg/) | `TypeScript` |
 | [**Handy**](https://knarayanareddy.github.io/Handy/) | `TypeScript` |
@@ -253,15 +255,14 @@ class KiranNarayanareddy:
 | [**reflex-physical-ai**](https://knarayanareddy.github.io/reflex-physical-ai/) | `Python` |
 | [**roomsmith**](https://knarayanareddy.github.io/roomsmith/) | `TypeScript` |
 | [**Agentcrash**](https://knarayanareddy.github.io/Agentcrash/) | `TypeScript` |
-| [**myjevuses**](https://knarayanareddy.github.io/myjevuses/) | `TypeScript` |
 
 </td>
 <td width="50%" valign="top">
 
 | Live site | Stack |
 |-----------|-------|
+| [**myjevuses**](https://knarayanareddy.github.io/myjevuses/) | `TypeScript` |
 | [**harvestgrid**](https://knarayanareddy.github.io/harvestgrid/) | `Python` |
-| [**Courserefresh**](https://knarayanareddy.github.io/Courserefresh/) | `TypeScript` |
 | [**redflag-eu-compliance**](https://knarayanareddy.github.io/redflag-eu-compliance/) | `Python` |
 | [**jointcheck-solder-inspection**](https://knarayanareddy.github.io/jointcheck-solder-inspection/) | `Python` |
 | [**SAAF-circuit-breaker**](https://knarayanareddy.github.io/SAAF-circuit-breaker/) | `HTML` |
@@ -292,14 +293,14 @@ class KiranNarayanareddy:
 </div>
 
 <!-- SHIPPED:START -->
-- 🚀 **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-04
-- 🛰️ **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-04
-- 🧠 **[`WebsitedesignandPrompts`](https://github.com/knarayanareddy/WebsitedesignandPrompts)** — [live](https://knarayanareddy.github.io/WebsitedesignandPrompts/) · pushed 2026-11-03
-- 🧪 **[`Bunqsy`](https://github.com/knarayanareddy/Bunqsy)** — [live](https://knarayanareddy.github.io/Bunqsy/) · pushed 2026-11-03
-- 🔭 **[`accesshold`](https://github.com/knarayanareddy/accesshold)** — [live](https://knarayanareddy.github.io/accesshold/) · pushed 2026-11-03
-- ⚙️ **[`Autoorg`](https://github.com/knarayanareddy/Autoorg)** — [live](https://knarayanareddy.github.io/Autoorg/) · pushed 2026-11-03
-- 🛡️ **[`Handy`](https://github.com/knarayanareddy/Handy)** — [live](https://knarayanareddy.github.io/Handy/) · pushed 2026-11-03
-- 🎛️ **[`ghosthandshake`](https://github.com/knarayanareddy/ghosthandshake)** — [live](https://knarayanareddy.github.io/ghosthandshake/) · pushed 2026-11-03
+- 🚀 **[`Courserefresh`](https://github.com/knarayanareddy/Courserefresh)** — [live](https://knarayanareddy.github.io/Courserefresh/) · pushed 2026-11-05
+- 🛰️ **[`toolscour`](https://github.com/knarayanareddy/toolscour)** — [live](https://knarayanareddy.github.io/toolscour/) · pushed 2026-11-04
+- 🧠 **[`AI-Daily`](https://github.com/knarayanareddy/AI-Daily)** — [live](https://knarayanareddy.github.io/AI-Daily/) · pushed 2026-11-04
+- 🧪 **[`proofpilot`](https://github.com/knarayanareddy/proofpilot)** — [live](https://knarayanareddy.github.io/proofpilot/) · pushed 2026-11-04
+- 🔭 **[`WebsitedesignandPrompts`](https://github.com/knarayanareddy/WebsitedesignandPrompts)** — [live](https://knarayanareddy.github.io/WebsitedesignandPrompts/) · pushed 2026-11-03
+- ⚙️ **[`Bunqsy`](https://github.com/knarayanareddy/Bunqsy)** — [live](https://knarayanareddy.github.io/Bunqsy/) · pushed 2026-11-03
+- 🛡️ **[`accesshold`](https://github.com/knarayanareddy/accesshold)** — [live](https://knarayanareddy.github.io/accesshold/) · pushed 2026-11-03
+- 🎛️ **[`Autoorg`](https://github.com/knarayanareddy/Autoorg)** — [live](https://knarayanareddy.github.io/Autoorg/) · pushed 2026-11-03
 <!-- SHIPPED:END -->
 
 ---

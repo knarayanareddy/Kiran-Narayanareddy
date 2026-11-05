@@ -5,8 +5,8 @@
   "repos": 133,
   "stars": 112,
   "forks": 6,
-  "site_count": 37,
-  "pages_count": 35,
+  "site_count": 38,
+  "pages_count": 36,
   "languages": [
     [
       "TypeScript",
@@ -39,6 +39,15 @@
   ],
   "sites": [
     {
+      "repo": "Courserefresh",
+      "url": "https://knarayanareddy.github.io/Courserefresh/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-05",
+      "blurb": "A course that watches the thing it teaches and rewrites its own lessons when it changes"
+    },
+    {
       "repo": "toolscour",
       "url": "https://knarayanareddy.github.io/toolscour/",
       "pages": true,
@@ -55,6 +64,15 @@
       "stars": 1,
       "pushed": "2026-11-04",
       "blurb": "A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model"
+    },
+    {
+      "repo": "proofpilot",
+      "url": "https://knarayanareddy.github.io/proofpilot/",
+      "pages": true,
+      "lang": "Python",
+      "stars": 0,
+      "pushed": "2026-11-04",
+      "blurb": "Move the shipment. Never the payment. Bounded supplier-master change control demo with server-enforced capabilities, isolated browser execution, and independent read-back verification."
     },
     {
       "repo": "WebsitedesignandPrompts",
@@ -226,15 +244,6 @@
       "stars": 1,
       "pushed": "2026-11-03",
       "blurb": "Privacy-preserving backyard harvest forecasting and volunteer glean logistics for food pantries"
-    },
-    {
-      "repo": "Courserefresh",
-      "url": "https://knarayanareddy.github.io/Courserefresh/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-11-03",
-      "blurb": "A course that watches the thing it teaches and rewrites its own lessons when it changes"
     },
     {
       "repo": "redflag-eu-compliance",

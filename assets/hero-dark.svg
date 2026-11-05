@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Kiran Narayana Reddy — autonomous agents, aerospace research and compliance-as-code. 37 live deployments across 133 repositories.">
-  <title>Kiran Narayana Reddy — autonomous agents, aerospace research and compliance-as-code. 37 live deployments across 133 repositories.</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="300" viewBox="0 0 900 300" role="img" aria-label="Kiran Narayana Reddy — autonomous agents, aerospace research and compliance-as-code. 38 live deployments across 133 repositories.">
+  <title>Kiran Narayana Reddy — autonomous agents, aerospace research and compliance-as-code. 38 live deployments across 133 repositories.</title>
   <defs>
     <linearGradient id="nameGrad" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0%" stop-color="#58a6ff"/>
@@ -150,12 +150,12 @@
   <!-- stat chips -->
   <g class="bar" style="animation-delay:0.90s">
     <rect x="48" y="176" width="96" height="46" rx="9" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-    <text class="mono" x="60" y="197" font-size="16" font-weight="700" fill="#58a6ff">37</text>
+    <text class="mono" x="60" y="197" font-size="16" font-weight="700" fill="#58a6ff">38</text>
     <text class="mono" x="60" y="213" font-size="10.5" fill="#8b949e" letter-spacing="0.4">deployments</text>
   </g>
   <g class="bar" style="animation-delay:1.04s">
     <rect x="154" y="176" width="58" height="46" rx="9" fill="#161b22" stroke="#30363d" stroke-width="1"/>
-    <text class="mono" x="166" y="197" font-size="16" font-weight="700" fill="#58a6ff">35</text>
+    <text class="mono" x="166" y="197" font-size="16" font-weight="700" fill="#58a6ff">36</text>
     <text class="mono" x="166" y="213" font-size="10.5" fill="#8b949e" letter-spacing="0.4">pages</text>
   </g>
   <g class="bar" style="animation-delay:1.18s">
