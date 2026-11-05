@@ -1,5 +1,5 @@
 {
-  "checked": "2026-11-05T12:28:20Z",
+  "checked": "2026-11-05T17:28:13Z",
   "fresh_days": 21,
   "sites": {
     "3dexperimentation": {
@@ -13,8 +13,8 @@
       "confirmed_live": true
     },
     "AI-Daily": {
-      "age_days": 1,
-      "captured": "2026-11-04T12:19:53Z",
+      "age_days": 0,
+      "captured": "2026-11-05T12:33:44Z",
       "confirmed_live": true
     },
     "Aerorepos": {
@@ -43,8 +43,8 @@
       "confirmed_live": true
     },
     "Courserefresh": {
-      "age_days": 1,
-      "captured": "2026-11-04T12:19:49Z",
+      "age_days": 0,
+      "captured": "2026-11-05T12:33:44Z",
       "confirmed_live": true
     },
     "F1Elastichopsworkshack": {
@@ -53,8 +53,8 @@
       "confirmed_live": true
     },
     "Handy": {
-      "age_days": 1,
-      "captured": "2026-11-04T12:19:36Z",
+      "age_days": 0,
+      "captured": "2026-11-05T12:33:46Z",
       "confirmed_live": true
     },
     "LEGACYVAULTV1.0": {
@@ -73,8 +73,8 @@
       "confirmed_live": true
     },
     "SAAF-circuit-breaker": {
-      "age_days": 1,
-      "captured": "2026-11-04T12:19:51Z",
+      "age_days": 0,
+      "captured": "2026-11-05T12:33:46Z",
       "confirmed_live": true
     },
     "WebsitedesignandPrompts": {
@@ -142,6 +142,11 @@
       "captured": "2026-11-02T08:21:22Z",
       "confirmed_live": true
     },
+    "proofpilot": {
+      "age_days": 0,
+      "captured": "2026-11-05T12:33:44Z",
+      "confirmed_live": true
+    },
     "proofpress-evidence-portal": {
       "age_days": 1,
       "captured": "2026-11-04T12:20:08Z",
@@ -173,8 +178,8 @@
       "confirmed_live": true
     },
     "toolscour": {
-      "age_days": 1,
-      "captured": "2026-11-04T12:19:46Z",
+      "age_days": 0,
+      "captured": "2026-11-05T12:33:44Z",
       "confirmed_live": true
     },
     "twitch-codex": {

@@ -1,8 +1,8 @@
 {
-  "followers": 1,
-  "public_repos": 138,
+  "followers": 2,
+  "public_repos": 139,
   "generated": "2026-11-02 10:13 UTC",
-  "repos": 133,
+  "repos": 134,
   "stars": 112,
   "forks": 6,
   "site_count": 38,
@@ -10,7 +10,7 @@
   "languages": [
     [
       "TypeScript",
-      45
+      46
     ],
     [
       "Python",
@@ -39,21 +39,12 @@
   ],
   "sites": [
     {
-      "repo": "Courserefresh",
-      "url": "https://knarayanareddy.github.io/Courserefresh/",
-      "pages": true,
-      "lang": "TypeScript",
-      "stars": 1,
-      "pushed": "2026-11-05",
-      "blurb": "A course that watches the thing it teaches and rewrites its own lessons when it changes"
-    },
-    {
       "repo": "toolscour",
       "url": "https://knarayanareddy.github.io/toolscour/",
       "pages": true,
       "lang": "JavaScript",
       "stars": 1,
-      "pushed": "2026-11-04",
+      "pushed": "2026-11-05",
       "blurb": "3D knowledge galaxy and stack architect over 11,000+ open-source AI tools, models, runtimes and skill packs"
     },
     {
@@ -62,8 +53,26 @@
       "pages": true,
       "lang": "JavaScript",
       "stars": 1,
-      "pushed": "2026-11-04",
+      "pushed": "2026-11-05",
       "blurb": "A calm, curated daily briefing for the AI ecosystem, built on a Scout → Challenge → Agree editorial model"
+    },
+    {
+      "repo": "AI-Arsenal",
+      "url": "https://knarayanareddy.github.io/AI-Arsenal/",
+      "pages": true,
+      "lang": "JavaScript",
+      "stars": 1,
+      "pushed": "2026-11-05",
+      "blurb": "Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents"
+    },
+    {
+      "repo": "Courserefresh",
+      "url": "https://knarayanareddy.github.io/Courserefresh/",
+      "pages": true,
+      "lang": "TypeScript",
+      "stars": 1,
+      "pushed": "2026-11-05",
+      "blurb": "A course that watches the thing it teaches and rewrites its own lessons when it changes"
     },
     {
       "repo": "proofpilot",
@@ -289,15 +298,6 @@
       "stars": 1,
       "pushed": "2026-11-03",
       "blurb": "Multi-agent orchestration engine for software engineering, written in Rust"
-    },
-    {
-      "repo": "AI-Arsenal",
-      "url": "https://knarayanareddy.github.io/AI-Arsenal/",
-      "pages": true,
-      "lang": "JavaScript",
-      "stars": 1,
-      "pushed": "2026-11-03",
-      "blurb": "Schema-first, Markdown-native encyclopedia of AI engineering — readable by humans, LLMs and agents"
     },
     {
       "repo": "sallie-returns-ai-agent",
