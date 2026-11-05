@@ -1,6 +1,6 @@
 {
-  "total": 37,
-  "captured": 35,
+  "total": 38,
+  "captured": 36,
   "missing": [
     "Handy",
     "SAAF-circuit-breaker"
@@ -25,6 +25,38 @@
       "ok": true,
       "bytes": 928941,
       "pushed": "2026-10-07"
+    },
+    {
+      "repo": "Courserefresh",
+      "url": "https://knarayanareddy.github.io/Courserefresh/",
+      "status": "ok",
+      "ok": true,
+      "bytes": 107351,
+      "pushed": "2026-11-05"
+    },
+    {
+      "repo": "toolscour",
+      "url": "https://knarayanareddy.github.io/toolscour/",
+      "status": "ok",
+      "ok": true,
+      "bytes": 125197,
+      "pushed": "2026-11-04"
+    },
+    {
+      "repo": "AI-Daily",
+      "url": "https://knarayanareddy.github.io/AI-Daily/",
+      "status": "ok",
+      "ok": true,
+      "bytes": 71751,
+      "pushed": "2026-11-04"
+    },
+    {
+      "repo": "proofpilot",
+      "url": "https://knarayanareddy.github.io/proofpilot/",
+      "status": "ok",
+      "ok": true,
+      "bytes": 373455,
+      "pushed": "2026-11-04"
     },
     {
       "repo": "WebsitedesignandPrompts",
@@ -139,14 +171,6 @@
       "pushed": "2026-11-03"
     },
     {
-      "repo": "toolscour",
-      "url": "https://knarayanareddy.github.io/toolscour/",
-      "status": "ok",
-      "ok": true,
-      "bytes": 124527,
-      "pushed": "2026-11-03"
-    },
-    {
       "repo": "reflex-physical-ai",
       "url": "https://knarayanareddy.github.io/reflex-physical-ai/",
       "status": "ok",
@@ -184,14 +208,6 @@
       "status": "ok",
       "ok": true,
       "bytes": 129868,
-      "pushed": "2026-11-03"
-    },
-    {
-      "repo": "Courserefresh",
-      "url": "https://knarayanareddy.github.io/Courserefresh/",
-      "status": "ok",
-      "ok": true,
-      "bytes": 108093,
       "pushed": "2026-11-03"
     },
     {
@@ -240,14 +256,6 @@
       "status": "ok",
       "ok": true,
       "bytes": 167148,
-      "pushed": "2026-11-03"
-    },
-    {
-      "repo": "AI-Daily",
-      "url": "https://knarayanareddy.github.io/AI-Daily/",
-      "status": "ok",
-      "ok": true,
-      "bytes": 71751,
       "pushed": "2026-11-03"
     },
     {
