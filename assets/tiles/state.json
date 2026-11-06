@@ -1,9 +1,9 @@
 {
-  "checked": "2026-11-05T23:42:31Z",
+  "checked": "2026-11-06T12:11:45Z",
   "fresh_days": 21,
   "sites": {
     "3dexperimentation": {
-      "age_days": 3,
+      "age_days": 4,
       "captured": "2026-11-02T08:21:16Z",
       "confirmed_live": true
     },
@@ -18,7 +18,7 @@
       "confirmed_live": true
     },
     "Aerorepos": {
-      "age_days": 3,
+      "age_days": 4,
       "captured": "2026-11-02T08:21:18Z",
       "confirmed_live": true
     },
@@ -33,7 +33,7 @@
       "confirmed_live": true
     },
     "Autoorg": {
-      "age_days": 2,
+      "age_days": 3,
       "captured": "2026-11-03T12:06:04Z",
       "confirmed_live": true
     },
@@ -48,7 +48,7 @@
       "confirmed_live": true
     },
     "F1Elastichopsworkshack": {
-      "age_days": 3,
+      "age_days": 4,
       "captured": "2026-11-02T08:21:14Z",
       "confirmed_live": true
     },
@@ -63,7 +63,7 @@
       "confirmed_live": true
     },
     "Magpie": {
-      "age_days": 3,
+      "age_days": 4,
       "captured": "2026-11-02T08:21:37Z",
       "confirmed_live": true
     },
@@ -93,7 +93,7 @@
       "confirmed_live": true
     },
     "dreamswarm": {
-      "age_days": 2,
+      "age_days": 3,
       "captured": "2026-11-03T12:06:03Z",
       "confirmed_live": true
     },
@@ -118,7 +118,7 @@
       "confirmed_live": true
     },
     "idea-dump": {
-      "age_days": 3,
+      "age_days": 4,
       "captured": "2026-11-02T08:21:38Z",
       "confirmed_live": true
     },
@@ -138,7 +138,7 @@
       "confirmed_live": true
     },
     "nexttime": {
-      "age_days": 3,
+      "age_days": 4,
       "captured": "2026-11-02T08:21:22Z",
       "confirmed_live": true
     },
@@ -188,7 +188,7 @@
       "confirmed_live": true
     },
     "vouwfiets": {
-      "age_days": 3,
+      "age_days": 4,
       "captured": "2026-11-02T08:21:32Z",
       "confirmed_live": true
     }
