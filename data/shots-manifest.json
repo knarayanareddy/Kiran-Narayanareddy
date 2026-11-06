@@ -27,20 +27,12 @@
       "pushed": "2026-10-07"
     },
     {
-      "repo": "Courserefresh",
-      "url": "https://knarayanareddy.github.io/Courserefresh/",
-      "status": "ok",
-      "ok": true,
-      "bytes": 107351,
-      "pushed": "2026-11-05"
-    },
-    {
       "repo": "toolscour",
       "url": "https://knarayanareddy.github.io/toolscour/",
       "status": "ok",
       "ok": true,
-      "bytes": 125197,
-      "pushed": "2026-11-04"
+      "bytes": 124757,
+      "pushed": "2026-11-05"
     },
     {
       "repo": "AI-Daily",
@@ -48,7 +40,23 @@
       "status": "ok",
       "ok": true,
       "bytes": 71751,
-      "pushed": "2026-11-04"
+      "pushed": "2026-11-05"
+    },
+    {
+      "repo": "AI-Arsenal",
+      "url": "https://knarayanareddy.github.io/AI-Arsenal/",
+      "status": "ok",
+      "ok": true,
+      "bytes": 167003,
+      "pushed": "2026-11-05"
+    },
+    {
+      "repo": "Courserefresh",
+      "url": "https://knarayanareddy.github.io/Courserefresh/",
+      "status": "ok",
+      "ok": true,
+      "bytes": 107351,
+      "pushed": "2026-11-05"
     },
     {
       "repo": "proofpilot",
@@ -248,14 +256,6 @@
       "status": "ok",
       "ok": true,
       "bytes": 333864,
-      "pushed": "2026-11-03"
-    },
-    {
-      "repo": "AI-Arsenal",
-      "url": "https://knarayanareddy.github.io/AI-Arsenal/",
-      "status": "ok",
-      "ok": true,
-      "bytes": 167148,
       "pushed": "2026-11-03"
     },
     {
